@@ -79,6 +79,7 @@ book-version:
 	mv $(BOOK_VERSION_SOURCE).tmp $(BOOK_VERSION_SOURCE); \
 	fi
 
+
 book-html: $(BOOK_HTML_TARGET)
 
 $(BOOK_HTML_TARGET): $(BOOK_ALL_SOURCE) $(BOOK_VERSION_SOURCE)
