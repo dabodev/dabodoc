@@ -165,7 +165,7 @@
 	
 	
 	<note>
-		<para>The source of the book is publicly available from the Dabo Subversion repository, which you can access using your Subversion client:</para>
+		<para>The source of the book is publicly available from the DaboDoc Subversion repository, which you can access using your Subversion client:</para>
 		<command>svn checkout svn://paulmcnett.com/dabodoc/trunk/book dabo-book</command>
 		<para>Subversion is a powerful source control system, available for free from <ulink url="http://subversion.tigris.org">http://subversion.tigris.org</ulink>.</para>
 	</note>
