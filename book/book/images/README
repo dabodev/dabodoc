@@ -1,0 +1,10 @@
+The .dia files are the actual source files, in dia format which is xml. The
+.png files were created using the export function in dia, and should not be
+saved to source control. However, I don't know how to convert from dia to
+png without having dia installed, so for now I'm including the png files
+so that everyone can view them.
+
+If you want to edit a diagram, please edit the .dia version and not the .png
+version.
+
+
