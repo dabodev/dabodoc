@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE book SYSTEM "../tools/dtd/dblite.dtd"
+[
+<!ENTITY % vers   SYSTEM "version.xml">
+%vers;
+<!ENTITY foreword SYSTEM "foreword.xml">
+<!ENTITY ch00     SYSTEM "ch00.xml">
+<!ENTITY appa     SYSTEM "appa.xml">
+<!ENTITY gloss    SYSTEM "glossary.xml">
+<!ENTITY license  SYSTEM "copyright.xml">
+<!ENTITY colo     SYSTEM "colo.xml">
+]>
+
+  <book id="svn">
+  <title>The Dabo Book</title>
+
+  <!-- Using revnumber would be more appropriate, but our stylesheets -->
+  <!-- don't seem to render it. -->
+  <subtitle>&svn.version;</subtitle>
+
+  <bookinfo>
+
+    <edition>First</edition>
+    <isbn>?-?????-???-?</isbn>
+    <authorgroup>
+
+      <author>
+        <firstname>Paul</firstname>
+        <surname>McNett</surname>
+      </author>
+
+      <author>
+        <firstname>?</firstname>
+        <surname>?</surname>
+      </author>
+
+    </authorgroup>
+
+    <editor>
+      <firstname>?</firstname>
+      <surname>?</surname>
+    </editor>
+
+    <pagenums>350 pages (est.)</pagenums>
+    <pubdate>(TBA)</pubdate>
+
+    <copyright>
+      <year>2004</year>
+	  <year>2005></year>
+      <holder>Paul McNett</holder>
+      <holder>? ?</holder>
+    </copyright>
+
+      <legalnotice><para>This work is licensed under the Creative
+        Commons Attribution License. To view a copy of this license,
+        visit http://creativecommons.org/licenses/by/2.0/ or send a
+        letter to Creative Commons, 559 Nathan Abbott Way, Stanford,
+        California 94305, USA.</para></legalnotice>
+
+  </bookinfo>
+
+  <!-- External entity refs -->
+
+  &foreword;
+  &ch00;
+  &appa;
+  &license;
+  &colo;
+
+  </book>
