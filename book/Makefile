@@ -4,12 +4,12 @@ INSTALL = install
 
 ## You shouldn't normally need to edit anything below here.
 SHELL = /bin/sh
-SVNVERSION = daboversion
+SVNVERSION = "/usr/bin/svnversion"
 
 BOOK_TOP = .
 BOOK_HTML_CHUNK_DIR = $(BOOK_DIR)/html-chunk
 BOOK_DIR = ${BOOK_TOP}/book
-BOOK_HTML_TARGET = $(BOOK_DIR)/svn-book.html
+BOOK_HTML_TARGET = $(BOOK_DIR)/dabo-book.html
 BOOK_HTML_CHUNK_TARGET = $(BOOK_HTML_CHUNK_DIR)/index.html  # index.html is created last
 BOOK_PDF_TARGET = $(BOOK_DIR)/dabo-book.pdf
 BOOK_PS_TARGET = $(BOOK_DIR)/dabo-book.ps
@@ -51,7 +51,8 @@ all: all-html all-pdf all-ps
 
 install: install-book install-misc-docs
 
-all-html: book-html book-html-chunk misc-docs-html
+#all-html: book-html book-html-chunk misc-docs-html
+all-html: book-html book-html-chunk
 
 all-pdf: book-pdf misc-docs-pdf
 
@@ -93,12 +94,12 @@ book-html-chunk: $(BOOK_HTML_CHUNK_TARGET)
 ## This trailing slash is essential that xsltproc will output pages to the dir
 $(BOOK_HTML_CHUNK_TARGET): $(BOOK_ALL_SOURCE) $(BOOK_VERSION_SOURCE) \
                            $(BOOK_DIR)/styles.css $(BOOK_IMAGES)
-	mkdir -p $(BOOK_HTML_CHUNK_DIR)
+	mkdir -p $(BOOK_HTML_CHUNK_DIR)/images
 	$(XSLTPROC) $(BOOK_HTML_XSLTPROC_OPTS) \
            --output $(BOOK_HTML_CHUNK_DIR)/ \
 	   $(XSL_HTML_CHUNK) $(BOOK_XML_SOURCE)
 	cp $(BOOK_DIR)/styles.css $(BOOK_HTML_CHUNK_DIR)
-	cp $(BOOK_IMAGES) $(BOOK_HTML_CHUNK_DIR)
+	cp $(BOOK_IMAGES) $(BOOK_HTML_CHUNK_DIR)/images
 
 book-pdf: $(BOOK_PDF_TARGET)
 
