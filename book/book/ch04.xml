@@ -1,10 +1,299 @@
 <chapter id="dabo-ch-4">
 
-  <title>Introductory Python and Dabo</title>
+<title>Introductory Python</title>
 
-  <simplesect>
-    <para></para>
+<simplesect>
+	<para>Python is an open source interpreted language that runs on all kinds of operating systems from embedded systems to super computers. It has a natural, almost pseudo-code syntax, and is easy to read and write. Python's standard library comes with almost everything you'd want to do, from processing email to working with multi-threading to regular expressions. Python is evolving steadily, introducing new features at a reasonable rate. As I write this, <application>Python 2.4</application> is around the corner and will include support for the <command>decimal</command> type, which is an important data type for business applications.<footnote><para>Prior to Python 2.4, the <command>float</command> data type would be used to express decimal values, with the problem that <command>float</command> is architecture-dependent and would introduce subtle rounding errors. See <ulink url="http://docs.python.org/tut/node15.html">http://docs.python.org/tut/node15.html</ulink> for a discussion of this.</para></footnote></para>
+	
+	<para>Because of Python's approachablility, flexibility, and power, we chose to program Dabo in Python. What this means to you is that all your Dabo code will be Python code, so this chapter will introduce you to some of Python's basic concepts. It doesn't try to be a full Python tutorial or reference, as there are already plenty of those<footnote><para>The best place to start learning Python is the official Python website, at <ulink url="http://www.python.org">http://www.python.org</ulink>, which contains all of Python's official documentation, as well as several well-written tutorials.</para></footnote>, but this chapter should present enough of Python to get you going.</para>
+	
+	<para>If you are already experienced with Python, you can skip this chapter. Otherwise, get ready to have some fun!</para>
 
-  </simplesect>
-  
+</simplesect>
+
+<sect1>
+	<title>Indentation</title>
+	
+	<para>Unlike most other languages, whitespace is significant in Python. Python does not force the use of ending delimiters for blocks, but rather determines the block structure based on relative indentation. Whether you use tabs or spaces doesn't matter, as long as you are consistent<footnote><para>The Dabo code uses <keycap>tab</keycap> exclusively, but most Python code out there uses <keycap>space</keycap>. We believe that <keycap>tab</keycap> is the best key to indent with, and that eventually <keycap>tab</keycap> will win out in this religious war. You can make your own choice which to use.</para></footnote>.</para>
+	
+	<para>This means that Python code is shorter and cleaner, and also that it executes like you'd expect because the block structure as it runs is as it appears in the code. If the lack of an ending delimeter really bothers you, you can always make your own using clever use of comments, such as:<screen>
+	
+if x > y:
+	print "x is greater"
+#endif
+
+</screen>
+
+	or even:<screen>
+	
+if x > y: #{
+	print "x is greater"
+#}
+
+</screen></para>
+</sect1>
+
+<sect1>
+	<title>The Python Interactive Interpreter</title>
+	
+	<para>One of the greatest features of Python, and one that I always apprecieated in other programming environments such as FoxPro, is the interactive interpreter. Here, you can type in arbitrary Python code and it will be executed, line-by-line. This is the best place to try things out, and to experiment, to see what Python's behavior is.</para>
+	
+	<para>To fire up the interpreter, just type <command>python</command> from your command prompt<footnote><para>See <xref linkend="dabo-ch-3-sect-2"/> for instructions on finding your command prompt.</para></footnote>, and you'll then be in the interpreter with the Python prompt of <command>>>></command>:</para><screen>
+	
+[pmcnett@sol book]$ python
+Python 2.3.2 (#1, Oct  6 2003, 10:07:16)
+[GCC 3.2.2 20030222 (Red Hat Linux 3.2.2-5)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+</screen>
+
+	<para>Follow along with some examples, to see how easy Python can be picked up by a beginner:</para>
+	
+	<example id="dabo-ch-4-example-1">
+		<title>Getting Started with the Python Interpreter</title>
+		<screen>
+	
+>>> x = 23
+>>> y = 42
+>>> print x
+23
+>>> print y
+42
+>>> s = "Today I had %s eggs. Yesterday I had %s." % (x, y)
+>>> print s
+Today I had 23 eggs. Yesterday I had 42.
+>>> x += x
+>>> print x
+46
+>>> print s
+Today I had 23 eggs. Yesterday I had 42.
+>>> myList = ["eggs", "ham", "spam"]
+>>> print myList
+['eggs', 'ham', 'spam']
+>>> myList.append("bacon")
+>>> print myList
+['eggs', 'ham', 'spam', 'bacon']
+>>> print myList[0]
+eggs
+>>> print myList[len(myList) - 1]
+bacon
+>>> print myList[len(myList)]
+Traceback (most recent call last):
+  File "&lt;stdin>", line 1, in ?
+IndexError: list index out of range
+>>> print myList[0:1]
+['eggs']
+>>> print myList[0:3]
+['eggs', 'ham', 'spam']
+
+</screen></example>
+
+	<para>In <xref linkend="dabo-ch-4-example-1"/> above, the integer values <command>23</command> and <command>42</command> are bound to the names <command>x</command> and <command>y</command>, respectively. In Python, it is best to think in terms of values being bound to names, rather than thinking in terms of variables. This is because of Python's use of namespaces, containers of names. Once you start thinking in these terms, you won't be scratching your head over issues such as whether a given variable is global or private in scope. With namespaces, each name exists in it's namespace and nowhere else.</para>
+	
+	<para>Then, a string value is bound to name <command>s</command>. Additionally, Python's string substitution is shown.</para>
+	
+	<para>A list is defined, with four elements. The list is one of three sequence data types that Python has to offer. The list and the tuple handle indexed lists, the difference being that lists are mutable and tuples are not. The list can be sliced, or referenced by index, as shown in the lines following the list definition. Python uses zero-based indexing, so referencing index 4 results in an <command>IndexError</command>.</para>
+	
+</sect1>
+
+<sect1>
+	<title>Exception Handling</title>
+	
+	<para>Exceptions, or errors, happen for a variety reasons. It could be that there is a syntax error in your code, or it could be that something out of programmatic control has taken place, such as a disk running out of free space. When an exception occurs, Python creates an Exception object and lets your code handle it, or choose not to handle it. Your code can handle exceptions by using the <command>try...except</command> block structure. Whenever you write code that assumes too much about the current runtime environment, it is good to encapsulate that code in a <command>try...except</command> block so that you can react appropriately when your assumptions don't pan out. See <xref linkend="dabo-ch-4-example-2"/> for some inspiration.</para>
+	
+	<example id="dabo-ch-4-example-2">
+		<title>The try...except block</title>
+		<screen>
+	
+# x may or may not be defined yet...
+try:
+	y = x/2
+except NameError:
+	y = None
+print y
+
+</screen></example>
+
+	<para>If <command>x</command> had been defined already, <command>y</command> would get the value of <command>x</command> divided by 2. Otherwise, y would get the value of <command>None</command>. <command>None</command> is roughly analagous to <command>NULL</command> in other languages - it is a data type all its own, and represents a value of "no value".</para>
+	
+	<para>If an exception isn't handled in your code, a traceback message will be displayed on your console explaining the error, along with the module and line number, along with the calling stack trace. This information will let you quickly debug your code during the testing phase.</para>
+	
+	<para>In general, it is considered Pythonic to let exception handling take care of weeding out argument checking problems, instead of manually checking for correct types first. <xref linkend="dabo-ch-4-example-3"/>, offers two ways to handle type checking, but the latter is considered the correct way to do it in Python.</para>
+	
+	<example id="dabo-ch-4-example-3">
+		<title>Using try...except to handle type checking</title>
+		<screen>
+		
+def nonPythonic(stringArg):
+	"""Given a string, add some spam to it."""
+	if type(stringArg) != type(str()):
+		raise TypeError, "Must send a string"
+		return
+	stringArg += " is spam"
+	return stringArg
+	
+def pythonic(stringArg):
+	"""Given a string, add some spam to it."""
+	return stringArg + " is spam"
+
+</screen></example>
+
+	<para>Type checking serves to lengthen code uselessly. Both the <command>nonPythonic</command> and <command>pythonic</command> versions will raise the appropriate exception, but the <command>pythonic</command> version lets Python handle it and is much shorter and simpler.</para>
+	
+	<para>You may define your own custom exceptions by subclassing <command>Exception</command>, and you may raise any exception with the <command>raise</command> command. <command>Try...except</command> may be nested, and there are additional features not shown here, such as the <command>finally</command> clause and the ability to explicitly handle any number of exceptions.</para>
+	
+</sect1>
+
+
+<sect1>
+	<title>Namespaces and Modules</title>
+	
+	<para>The Python standard library and third-party packages are used by importing them into their own namespaces. For instance, the statement <command>import sys</command> brings in a number of system-related functions and names into the <command>sys</command> namespace. Use the built-in <command>dir()</command> function to see all the names in a namespace.</para>
+	
+	<example id="ch-4-example-5">
+		<title>Importing a module</title><screen>
+	
+[pmcnett@sol book]$ python
+Python 2.3.2 (#1, Oct  6 2003, 10:07:16)
+[GCC 3.2.2 20030222 (Red Hat Linux 3.2.2-5)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import sys
+>>> dir(sys)
+['__displayhook__', '__doc__', '__excepthook__', '__name__', '__stderr__', '__stdin__', '__stdout__', '_getframe', 'api_version', 'argv', 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'exc_clear', 'exc_info', 'exc_type', 'excepthook', 'exec_prefix', 'executable', 'exit', 'getcheckinterval', 'getdefaultencoding', 'getdlopenflags', 'getfilesystemencoding', 'getrecursionlimit', 'getrefcount', 'hexversion', 'maxint', 'maxunicode', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'ps1', 'ps2', 'setcheckinterval', 'setdlopenflags', 'setprofile', 'setrecursionlimit', 'settrace', 'stderr', 'stdin', 'stdout', 'version', 'version_info', 'warnoptions']
+>>> print sys.version
+2.3.2 (#1, Oct  6 2003, 10:07:16)
+[GCC 3.2.2 20030222 (Red Hat Linux 3.2.2-5)]
+>>> print sys.path
+['', '/home/pmcnett/wxPythonSrc/wxPython', '/usr/lib/python23.zip', '/usr/lib/python2.3', '/usr/lib/python2.3/plat-linux2', '/usr/lib/python2.3/lib-tk', '/usr/lib/python2.3/lib-dynload', '/usr/lib/python2.3/site-packages', '/usr/lib/python2.3/site-packages/PythonCAD', '/usr/local/gnue/lib/python']
+>>> print sys.exit()
+[pmcnett@sol book]$
+
+</screen></example>
+
+	<para>Importing external modules is how to get things done in Python: most likely, the function you want has already been written, you just need to find the module, install it if necessary, import it, and call the needed function or instantiate the needed class.</para>
+	
+</sect1>
+
+<sect1>
+	<title>Data Types</title>
+	
+	<para>As mentioned before, Python comes with three data types that can represent data records and tables:</para>
+	
+	<itemizedlist>
+		<listitem>
+			<para>A <emphasis>list</emphasis> is a mutable sequence of arbitrary elements. Elements are referenced by index. The list is denoted with square brackets, and can be created several ways:</para><screen>
+			
+>>> myList = []  # empty list
+>>> myList = [1, "apple"]  # new list with 2 elements
+>>> myList = list()  # new empty list
+>>> myList.append("orange")  # add an element
+>>> print myList
+['orange']
+
+</screen>			
+		</listitem>
+		
+		<listitem>
+			<para>A <emphasis>tuple</emphasis> is an immutable sequence of arbitrary elements. Like the list, tuple elements are referenced by index. The tuple is denoted with parentheses, and can be created several ways:</para><screen>
+			
+>>> myTuple = ()  # empty tuple
+>>> myTuple = (1, "apple")  # new tuple with 2 elements
+>>> myTuple = tuple()  # new empty tuple
+
+</screen>
+			<para>Because tuples are immutable, there is no <command>append()</command> method.</para>
+		</listitem>
+
+		<listitem>
+			<para>A <emphasis>dictionary</emphasis> is a mutable grouping of arbitrary elements, in arbitrary order, referenced by a key instead of an index. The dictionary is denoted with curly brackets, and can be created several ways:</para><screen>
+			
+>>> myDict = {}  # new empty dictionary
+>>> myDict = {"id": 1, "fruit": "apple"}  # new dictionary with two key/value pairs
+>>> myDict = dict()
+>>> myDict["id"] = 2
+>>> myDict["fruit"] = "pear"
+>>> print myDict
+{'fruit': 'pear', 'id': 2}
+
+</screen>			
+		</listitem>
+		
+	</itemizedlist>
+	
+	<para>The only difference between list and tuple is that tuples are immutable, meaning you cannot add an element or delete an element - you would instead need to create a new tuple. Tuples are more efficient, and safer to pass around as parameters because of Python's "pass by reference" mode of parameter passing. If you pass a mutable object as a parameter to another function, and that function changes something in that object, that change will reflect in the caller as well. Since tuples are immutable, any change to the tuple in the called function will result in a new tuple at a new memory address, preserving the version in the calling function.</para>
+	
+	<para>You can easily convert from list to tuple and back again:</para><screen>
+	
+>>> myList = ["apple", "pear", "orange"]
+>>> print myList
+['apple', 'pear', 'orange']
+>>> myTuple = tuple(myList)
+>>> print myTuple
+('apple', 'pear', 'orange')
+>>> myList = list(myTuple)
+
+</screen>
+	
+	<para>Lists and tuples can be sliced, which is simply a notation for accessing a given element or group of elements - the result of the slice is a list of the matching elements.</para><screen>
+	
+>>> myList = ["orange", "apple", "grape"]
+>>> slice = myList[:2]
+>>> print slice
+['orange', 'apple']
+>>> print myList[1:]
+['apple', 'grape']
+>>> print myList[:]
+['orange', 'apple', 'grape']
+
+</screen>
+
+	<para>Lists and tuples can also be easily iterated over using the <command>for</command> construct.</para><screen>
+	
+>>> fruits = ["apple", "banana", "mango"]
+>>> for fruit in fruits:
+...     print fruit
+...
+apple
+banana
+mango
+
+</screen>
+
+	<para>Dictionaries are very useful for storing name/value pairs. Think about a field name and a field value, for example.</para>
+	
+	<para>The real power of the list, tuple, and dictionary come not by using them standalone, but by embedding them inside each other. For example, a database customer table could be expressed in Python using a list of records, where each record is a dictionary of field name/value pairs.</para>
+	
+	<para>In addition, there are a few other data types worth noting for business database use.</para>
+	
+	<itemizedlist>
+	
+		<listitem>
+			<para>The <emphasis>str</emphasis> type is an immutable sequence of bytes. In other words, it is a tuple and can be sliced. </para>
+			
+		</listitem>
+			
+		<listitem>
+			<para>The <emphasis>int</emphasis> type is an immutable integer value.</para>
+		</listitem>
+			
+		<listitem>
+			<para>The <emphasis>float</emphasis> type is architecture-dependent and while it can represent very small numbers there will be slight rounding errors.</para>
+		</listitem>
+			
+		<listitem>
+			<para>The <emphasis>decimal</emphasis> type is good for representing currency.</para>
+		</listitem>
+			
+		<listitem>
+			<para>The <emphasis>bool</emphasis> type is immutable and can be one of <command>True</command> or <command>False</command>.</para>
+		</listitem>
+			
+		<listitem>
+			<para>The <emphasis>datetime.date</emphasis> and <emphasis>datetime.datetime</emphasis> types can be used to represent dates and times. You must first <command>import datetime</command>.</para>
+		</listitem>
+		
+	</itemizedlist>	
+	
+</sect1>
+		
 </chapter>
