@@ -7,6 +7,8 @@
 	
 	<para>Because of Python's approachablility, flexibility, and power, we chose to program Dabo in Python. What this means to you is that all your Dabo code will be Python code, so this chapter will introduce you to some of Python's basic concepts. It doesn't try to be a full Python tutorial or reference, as there are already plenty of those<footnote><para>The best place to start learning Python is the official Python website, at <ulink url="http://www.python.org">http://www.python.org</ulink>, which contains all of Python's official documentation, as well as several well-written tutorials.</para></footnote>, but this chapter should present enough of Python to get you going.</para>
 	
+	<note>This chapter provides an introduction to Python from the point of view of developing using Dabo. It skips over some important stuff in the interest of being brief and staying on track. Please do go through a tutorial or two at <ulink url="http://www.python.org">http://www.python.org</ulink> in addition to reading through this chapter. There is no shortcut for trying things out hands-on!</note>
+	
 	<para>If you are already experienced with Python, you can skip this chapter. Otherwise, get ready to have some fun!</para>
 
 </simplesect>
@@ -14,9 +16,9 @@
 <sect1>
 	<title>Indentation</title>
 	
-	<para>Unlike most other languages, whitespace is significant in Python. Python does not force the use of ending delimiters for blocks, but rather determines the block structure based on relative indentation. Whether you use tabs or spaces doesn't matter, as long as you are consistent<footnote><para>The Dabo code uses <keycap>tab</keycap> exclusively, but most Python code out there uses <keycap>space</keycap>. We believe that <keycap>tab</keycap> is the best key to indent with, and that eventually <keycap>tab</keycap> will win out in this religious war. You can make your own choice which to use.</para></footnote>.</para>
+	<para>Unlike most other languages, whitespace is significant in Python. Python does not force the use of ending delimiters for blocks, but rather determines the block structure based on relative indentation. Whether you use tabs or spaces doesn't matter, as long as you are consistent<footnote><para>The Dabo code indents with the <keycap>Tab</keycap> key exclusively, but most Python code out there still indents with <keycap>Space</keycap>. We believe that <keycap>Tab</keycap> is the best key to indent with, and that eventually <keycap>Tab</keycap> will win out in this religious war. You are free to make your own choice which to use, but you need to be consistent.</para></footnote>.</para>
 	
-	<para>This means that Python code is shorter and cleaner, and also that it executes like you'd expect because the block structure as it runs is as it appears in the code. If the lack of an ending delimeter really bothers you, you can always make your own using clever use of comments, such as:<screen>
+	<para>Block indentation means that Python code is shorter and cleaner, and also that it executes like you'd expect because the block structure as it runs is as it appears in the code. If the lack of an ending delimeter really bothers you, you can always use comments in a clever way, such as:<screen>
 	
 if x > y:
 	print "x is greater"
@@ -36,7 +38,7 @@ if x > y: #{
 <sect1>
 	<title>The Python Interactive Interpreter</title>
 	
-	<para>One of the greatest features of Python, and one that I always apprecieated in other programming environments such as FoxPro, is the interactive interpreter. Here, you can type in arbitrary Python code and it will be executed, line-by-line. This is the best place to try things out, and to experiment, to see what Python's behavior is.</para>
+	<para>A very handy feature of Python, and one that I always appreciated in FoxPro, is the interactive interpreter. Here, you can type in arbitrary Python code and it will be executed, line-by-line. This is the best place to try things out, and to experiment, to see what Python's behavior is.</para>
 	
 	<para>To fire up the interpreter, just type <command>python</command> from your command prompt<footnote><para>See <xref linkend="dabo-ch-3-sect-2"/> for instructions on finding your command prompt.</para></footnote>, and you'll then be in the interpreter with the Python prompt of <command>>>></command>:</para><screen>
 	
@@ -47,7 +49,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 </screen>
 
-	<para>Follow along with some examples, to see how easy Python can be picked up by a beginner:</para>
+	<para>Follow along with some examples, to see how easily Python can be picked up by a beginner:</para>
 	
 	<example id="dabo-ch-4-example-1">
 		<title>Getting Started with the Python Interpreter</title>
@@ -88,7 +90,13 @@ IndexError: list index out of range
 
 </screen></example>
 
-	<para>In <xref linkend="dabo-ch-4-example-1"/> above, the integer values <command>23</command> and <command>42</command> are bound to the names <command>x</command> and <command>y</command>, respectively. In Python, it is best to think in terms of values being bound to names, rather than thinking in terms of variables. This is because of Python's use of namespaces, containers of names. Once you start thinking in these terms, you won't be scratching your head over issues such as whether a given variable is global or private in scope. With namespaces, each name exists in it's namespace and nowhere else.</para>
+	<para>In <xref linkend="dabo-ch-4-example-1"/> above, the integer values <command>23</command> and <command>42</command> are bound to the names <command>x</command> and <command>y</command>, respectively. In Python, it is best to think in terms of values being bound to names, rather than thinking in terms of variables. This is because of Python's use of namespaces, containers of names. Once you start thinking in these terms, you won't be scratching your head over issues such as whether a given variable is global or private in scope. With namespaces, each name exists in it's own namespace and nowhere else
+	
+	<footnote>
+		<para>However, it is possible to bring in names from other namespaces, for example by issuing <command>from <replaceable>module</replaceable> import *</command>. While possibly convenient, this practice is heartily discouraged.</para>
+	</footnote>
+	
+	.</para>
 	
 	<para>Then, a string value is bound to name <command>s</command>. Additionally, Python's string substitution is shown.</para>
 	
@@ -99,7 +107,7 @@ IndexError: list index out of range
 <sect1>
 	<title>Exception Handling</title>
 	
-	<para>Exceptions, or errors, happen for a variety reasons. It could be that there is a syntax error in your code, or it could be that something out of programmatic control has taken place, such as a disk running out of free space. When an exception occurs, Python creates an Exception object and lets your code handle it, or choose not to handle it. Your code can handle exceptions by using the <command>try...except</command> block structure. Whenever you write code that assumes too much about the current runtime environment, it is good to encapsulate that code in a <command>try...except</command> block so that you can react appropriately when your assumptions don't pan out. See <xref linkend="dabo-ch-4-example-2"/> for some inspiration.</para>
+	<para>Exceptions, or errors, happen for a variety reasons. It could be that there is a syntax error in your code, or it could be that something out of programmatic control has taken place, such as a disk running out of free space. When an exception occurs, Python creates an Exception object and lets your code handle it, or to choose not to handle it. Your code can handle exceptions by using the <command>try...except</command> block structure. Whenever you write code that assumes too much about the current runtime environment, it is good to encapsulate that code in a <command>try...except</command> block so that you can react appropriately when your assumptions don't pan out. See <xref linkend="dabo-ch-4-example-2"/> for some inspiration.</para>
 	
 	<example id="dabo-ch-4-example-2">
 		<title>The try...except block</title>
@@ -116,7 +124,7 @@ print y
 
 	<para>If <command>x</command> had been defined already, <command>y</command> would get the value of <command>x</command> divided by 2. Otherwise, y would get the value of <command>None</command>. <command>None</command> is roughly analagous to <command>NULL</command> in other languages - it is a data type all its own, and represents a value of "no value".</para>
 	
-	<para>If an exception isn't handled in your code, a traceback message will be displayed on your console explaining the error, along with the module and line number, along with the calling stack trace. This information will let you quickly debug your code during the testing phase.</para>
+	<para>If an exception isn't handled in your code, a traceback message will be displayed on your console explaining the error, along with the module, line number, and calling stack trace. This information will let you quickly debug your code during the testing phase.</para>
 	
 	<para>In general, it is considered Pythonic to let exception handling take care of weeding out argument checking problems, instead of manually checking for correct types first. <xref linkend="dabo-ch-4-example-3"/>, offers two ways to handle type checking, but the latter is considered the correct way to do it in Python.</para>
 	
@@ -159,24 +167,51 @@ Python 2.3.2 (#1, Oct  6 2003, 10:07:16)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import sys
 >>> dir(sys)
-['__displayhook__', '__doc__', '__excepthook__', '__name__', '__stderr__', '__stdin__', '__stdout__', '_getframe', 'api_version', 'argv', 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats', 'copyright', 'displayhook', 'exc_clear', 'exc_info', 'exc_type', 'excepthook', 'exec_prefix', 'executable', 'exit', 'getcheckinterval', 'getdefaultencoding', 'getdlopenflags', 'getfilesystemencoding', 'getrecursionlimit', 'getrefcount', 'hexversion', 'maxint', 'maxunicode', 'meta_path', 'modules', 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'ps1', 'ps2', 'setcheckinterval', 'setdlopenflags', 'setprofile', 'setrecursionlimit', 'settrace', 'stderr', 'stdin', 'stdout', 'version', 'version_info', 'warnoptions']
+['__displayhook__', '__doc__', '__excepthook__', 
+'__name__', '__stderr__', '__stdin__', 
+'__stdout__', '_getframe', 'api_version', 'argv', 
+'builtin_module_names', 'byteorder', 
+'call_tracing', 'callstats', 'copyright',
+'displayhook', 'exc_clear', 'exc_info', 
+'exc_type', 'excepthook', 'exec_prefix', 
+'executable', 'exit', 'getcheckinterval', 
+'getdefaultencoding', 'getdlopenflags', 
+'getfilesystemencoding', 'getrecursionlimit', 
+'getrefcount', 'hexversion', 'maxint', 
+'maxunicode', 'meta_path', 'modules', 'path', 
+'path_hooks', 'path_importer_cache', 'platform', 
+'prefix', 'ps1', 'ps2', 'setcheckinterval', 
+'setdlopenflags', 'setprofile', 
+'setrecursionlimit', 'settrace', 'stderr', 
+'stdin', 'stdout', 'version', 'version_info', 
+'warnoptions']
 >>> print sys.version
 2.3.2 (#1, Oct  6 2003, 10:07:16)
 [GCC 3.2.2 20030222 (Red Hat Linux 3.2.2-5)]
 >>> print sys.path
-['', '/home/pmcnett/wxPythonSrc/wxPython', '/usr/lib/python23.zip', '/usr/lib/python2.3', '/usr/lib/python2.3/plat-linux2', '/usr/lib/python2.3/lib-tk', '/usr/lib/python2.3/lib-dynload', '/usr/lib/python2.3/site-packages', '/usr/lib/python2.3/site-packages/PythonCAD', '/usr/local/gnue/lib/python']
+['', '/home/pmcnett/wxPythonSrc/wxPython', 
+'/usr/lib/python23.zip', '/usr/lib/python2.3', 
+'/usr/lib/python2.3/plat-linux2', 
+'/usr/lib/python2.3/lib-tk', 
+'/usr/lib/python2.3/lib-dynload', 
+'/usr/lib/python2.3/site-packages', 
+'/usr/lib/python2.3/site-packages/PythonCAD', 
+'/usr/local/gnue/lib/python']
 >>> print sys.exit()
 [pmcnett@sol book]$
 
 </screen></example>
 
-	<para>Importing external modules is how to get things done in Python: most likely, the function you want has already been written, you just need to find the module, install it if necessary, import it, and call the needed function or instantiate the needed class.</para>
+	<para>Importing external modules is how to get things done in Python: most likely, the function you want has already been written. You just need to find the module, install it if necessary, import it, and call the needed function or instantiate the needed class.</para>
 	
 </sect1>
 
 <sect1>
 	<title>Data Types</title>
 	
+	<sect2>
+		<title>Sequence Types</title>
+		
 	<para>As mentioned before, Python comes with three data types that can represent data records and tables:</para>
 	
 	<itemizedlist>
@@ -261,27 +296,52 @@ mango
 
 	<para>Dictionaries are very useful for storing name/value pairs. Think about a field name and a field value, for example.</para>
 	
-	<para>The real power of the list, tuple, and dictionary come not by using them standalone, but by embedding them inside each other. For example, a database customer table could be expressed in Python using a list of records, where each record is a dictionary of field name/value pairs.</para>
+	<para>The real power of the list, tuple, and dictionary come not by using them standalone, but by embedding them inside each other. For example, a database customer table could be expressed in Python using a list of records, where each record is a dictionary of field name/value pairs.<xref linkend="example-listOfDictsAsDataTable"/> shows an example of just such a construct, albeit manually created instead of pulled from a real database.</para>
 	
+	<example id="example-listOfDictsAsDataTable">
+		<title>A list of dictionaries representing a data table</title>
+		<screen>
+		
+>>> table = []
+>>> record = {"cCompanyName": "YYY Chiropractic", "nMaxCredit": 50000}
+>>> table.append(record)
+>>> record = {"cCompanyName": "DMP Productions", "nMaxCredit": 10}
+>>> table.append(record)
+>>> print table
+[{'nMaxCredit': 50000, 'cCompanyName': 'YYY Chiropractic'}, {'nMaxCredit': 10, 'cCompanyName': 'DMP Productions'}]
+>>> for record in table:
+...     print record["cCompanyName"], ": ", record["nMaxCredit"]
+...
+YYY Chiropractic :  50000
+DMP Productions :  10
+>>>		
+
+</screen></example>
+
+	</sect2>
+	
+	<sect2>
+		<title>Other Frequently-Used Types</title>
+			
 	<para>In addition, there are a few other data types worth noting for business database use.</para>
 	
 	<itemizedlist>
 	
 		<listitem>
-			<para>The <emphasis>str</emphasis> type is an immutable sequence of bytes. In other words, it is a tuple and can be sliced. </para>
+			<para>The <emphasis>str</emphasis> type stores string values, and is an immutable sequence of bytes. In other words, it is a tuple and can be sliced. </para>
 			
 		</listitem>
 			
 		<listitem>
-			<para>The <emphasis>int</emphasis> type is an immutable integer value.</para>
+			<para>The <emphasis>int</emphasis> type stores immutable signed integer values.</para>
 		</listitem>
 			
 		<listitem>
-			<para>The <emphasis>float</emphasis> type is architecture-dependent and while it can represent very small numbers there will be slight rounding errors.</para>
+			<para>The <emphasis>float</emphasis> type is architecture-dependent and while it can represent very small numbers there will be slight rounding errors with even the simplest division. The decimal type should be used instead for most business application uses.</para>
 		</listitem>
 			
 		<listitem>
-			<para>The <emphasis>decimal</emphasis> type is good for representing currency.</para>
+			<para>The <emphasis>decimal</emphasis> type is good for representing currency and any real numbers where scientific precision isn't needed. The decimal section will get truncated to an arbitrary number of places.</para>
 		</listitem>
 			
 		<listitem>
@@ -292,8 +352,130 @@ mango
 			<para>The <emphasis>datetime.date</emphasis> and <emphasis>datetime.datetime</emphasis> types can be used to represent dates and times. You must first <command>import datetime</command>.</para>
 		</listitem>
 		
+		<listitem>
+			<para>The <emphasis>None</emphasis> type conveys "no value" or "null".</para>
+		</listitem>
 	</itemizedlist>	
+
+	</sect2>
 	
 </sect1>
+
+<sect1>
+	<title>Functions and Classes</title>
+	
+	<para>Functions and classes are really separate topics that should be discussed independently, but for the purpose of this simple introduction I'll talk about them together. They actually do have some things in common, not least of which being that they are both first-class objects
+	
+	<footnote>
+		<para>A first-class object is an object that can be passed around as a parameter and a return value. In Python, this includes not only class instances, but also class definitions, function definitions, and types. You could define a function, bind it to a name (<command>def myFunc(c)</command> binds the function object to the name <command>myFunc</command>, and send that function object somewhere else for evaluation.</para>
+	</footnote>
+	
+	.</para>
+	
+	<para>Functions and classes are really easy to define. A function defined inside a class is also known as a method. In <xref linkend="example_function_class_def"/> below, a function and a class are defined.
+	
+	<example id="example_function_class_def">
+		<title>Function and Class Definitions</title><screen>
+	
+def myFunction(name="John Doe"):
+        return "Hello, %s." % name
+
+class MyClass(object):
+        def __init__(self, name="Mary Jane"):
+                # save the name parameter to the Name property:
+                self.Name = name
+
+        def greet(self):
+                print myFunction(self.Name)
+
+        def _getName(self):
+                return self._name
+
+        def _setName(self, val):
+                self._name = val
+
+        Name = property(_getName, _setName)
+
+# Print the function object:
+print myFunction
+
+# Print the class object:
+print MyClass
+
+# Print the function's return value:
+print myFunction()
+
+# Instantiate the class and do something with it:
+c = MyClass("Paul")
+c.greet()
+
+
+</screen></example>
+
+	Run the code, and you should see the following output:<screen>
+	
+[pmcnett@sol pmcnett]$ python test.py
+&lt;function myFunction at 0x40176844>
+&lt;class '__main__.MyClass'>
+Hello, John Doe.
+Hello, Paul.
+
+</screen></para>
+
+	<para>The arguments, or parameters, to functions and methods can be ordered or named. Methods of classes automatically receive a first argument of 'self', which is simply a reference to the class instance. The __init__() method is where parameters sent to the class constructor are received. Properties provide "getters and setters" to manipulate the data of the class instance.</para>
+	
+	<para>Arguments are passed <emphasis>by reference</emphasis>, not by value. This is actually something that won't matter in the majority of cases, though, because of the immutability of the most common data types. A string, for instance, is an immutable sequence of bytes. If I were to pass a string to a function, and then change the string in the function, what actually happens is that the string gets copied to a new memory address, and then the name gets rebound, so the original string value in the caller is left intact. The only time pass-by-reference can bite you is when you send lists or dictionaries as arguments. Because lists and dicts are mutable, changes to these from within the function will change the them in the caller as well, because they both refer to the same memory address. <tip>A great way to pass a list by value is to convert it to a tuple first, like so:<screen>
+
+myList = [1,2,3]
+myFunction(tuple(myList))
+
+</screen>
+
+This will result in myFunction receiving a tuple, which it can convert to a list for its own use if necessary, and it will not touch the original myList in the caller.</tip></para>
+
+</sect1>
+
+<sect1>
+	<title>Connecting To Databases</title>
+	
+	<para>As you can see if you've followed along so far with this chapter, Python contains some very cool features for database representation. The <classname>list</classname> and <classname>dict</classname> types can express rows and columns in a dataset, and the base data types such as <classname>str</classname> and <classname>int</classname> can express the field values. So the next question is how to get data out of a database, and how to save data back to the database. Helpfully, Python has the answer to that too.</para>
+	
+	<para>Python has a database API, known affectionately as "The Python Database API Specification Version 2.0"
+	 
+	 <footnote>
+	 	<para>You can read all about it in PEP (Python Enhancement Proposal) 249 at <ulink url="http://www.python.org/peps/pep-0249.html">http://www.python.org/peps/pep-0249.html</ulink>.</para>
+	</footnote>
+	
+	. It specifies a common interface for implementors to conform to when writing Python wrappers to client database drivers. All popular databases have Python wrappers written, which means all that is necessary to connect to a given database server is to install the client library as well as the Python wrapper.</para>
+	
+	<para>If you followed the instructions for installing MySQL in <xref linkend="dabo-ch-3"/>, you can connect to a MySQL server using the following procedure. This should work as written, as this test database on my server is exposed to the world.</para>
+	
+	<example>
+		<title>Connecting to a MySQL database</title>
+		<screen>
+
+>>> import MySQLdb
+>>> connection = MySQLdb.connect(host="melder.paulmcnett.com", 
+user="dabo", passwd="dabo", db="dabotest")
+>>> cursor = connection.cursor()
+>>> cursor.execute("show tables")
+3L
+>>> recordSet = cursor.fetchall()
+>>> print recordSet
+(('reccat',), ('reccats',), ('recipes',))
+>>> cursor.execute("select ctitle from recipes where ctitle like '%manicotti%'")
+2L
+>>> recordSet = cursor.fetchall()
+>>> for record in recordSet:
+...     print record
+...
+('Easy Manicotti',)
+('Manicotti with Red Bell Pepper Sauce',)
 		
+</screen>
+	</example>
+	
+	<note>You don't really need to care about the specifics of connecting to and querying/updating databases, as Dabo shields much of that from you. It does help to have some level of basic understanding of what is going on, though.</note>
+	
+</sect1>
 </chapter>
