@@ -125,9 +125,6 @@ Database#</dia:string>
       <dia:attribute name="elem_height">
         <dia:real val="1.30219"/>
       </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
-      </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
       </dia:attribute>
@@ -179,9 +176,6 @@ Database#</dia:string>
       <dia:attribute name="elem_height">
         <dia:real val="1.37174"/>
       </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
-      </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
       </dia:attribute>
@@ -222,7 +216,7 @@ Database#</dia:string>
         <dia:point val="2.93903,3.74814"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="1.60153,3.69814;6.19513,6.12412"/>
+        <dia:rectangle val="1.60152,3.69814;6.19512,6.12412"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="2.93903,3.74814"/>
@@ -232,9 +226,6 @@ Database#</dia:string>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="1.50746"/>
-      </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
       </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
@@ -260,7 +251,7 @@ Database#</dia:string>
             <dia:real val="0.8"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="3.89833,5.96412"/>
+            <dia:point val="3.89832,5.96412"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -286,9 +277,6 @@ Database#</dia:string>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="1.30219"/>
-      </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
       </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
@@ -330,7 +318,7 @@ Database#</dia:string>
         <dia:point val="4.21202,10.0743"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="3.65468,10.0243;6.42668,12.2356"/>
+        <dia:rectangle val="3.65469,10.0243;6.42669,12.2357"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="4.21202,10.0743"/>
@@ -340,9 +328,6 @@ Database#</dia:string>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="1.30219"/>
-      </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
       </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
@@ -368,7 +353,7 @@ Database#</dia:string>
             <dia:real val="0.8"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="5.04068,12.0756"/>
+            <dia:point val="5.04069,12.0757"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -394,9 +379,6 @@ Database#</dia:string>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="1.30219"/>
-      </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
       </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
@@ -449,9 +431,6 @@ Database#</dia:string>
       <dia:attribute name="elem_height">
         <dia:real val="1.30219"/>
       </dia:attribute>
-      <dia:attribute name="border_width">
-        <dia:real val="0.1"/>
-      </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
       </dia:attribute>
@@ -477,66 +456,6 @@ Database#</dia:string>
           </dia:attribute>
           <dia:attribute name="pos">
             <dia:point val="12.8908,10.8027"/>
-          </dia:attribute>
-          <dia:attribute name="color">
-            <dia:color val="#000000"/>
-          </dia:attribute>
-          <dia:attribute name="alignment">
-            <dia:enum val="1"/>
-          </dia:attribute>
-        </dia:composite>
-      </dia:attribute>
-    </dia:object>
-    <dia:object type="Standard - Text" version="0" id="O9">
-      <dia:attribute name="obj_pos">
-        <dia:point val="3.59811,2.44474"/>
-      </dia:attribute>
-      <dia:attribute name="obj_bb">
-        <dia:rectangle val="3.59811,1.85;3.59811,2.65"/>
-      </dia:attribute>
-      <dia:attribute name="text">
-        <dia:composite type="text">
-          <dia:attribute name="string">
-            <dia:string>##</dia:string>
-          </dia:attribute>
-          <dia:attribute name="font">
-            <dia:font name="Courier"/>
-          </dia:attribute>
-          <dia:attribute name="height">
-            <dia:real val="0.8"/>
-          </dia:attribute>
-          <dia:attribute name="pos">
-            <dia:point val="3.59811,2.44474"/>
-          </dia:attribute>
-          <dia:attribute name="color">
-            <dia:color val="#000000"/>
-          </dia:attribute>
-          <dia:attribute name="alignment">
-            <dia:enum val="1"/>
-          </dia:attribute>
-        </dia:composite>
-      </dia:attribute>
-    </dia:object>
-    <dia:object type="Standard - Text" version="0" id="O10">
-      <dia:attribute name="obj_pos">
-        <dia:point val="6.92201,3.08123"/>
-      </dia:attribute>
-      <dia:attribute name="obj_bb">
-        <dia:rectangle val="6.92201,2.48649;6.92201,3.28649"/>
-      </dia:attribute>
-      <dia:attribute name="text">
-        <dia:composite type="text">
-          <dia:attribute name="string">
-            <dia:string>##</dia:string>
-          </dia:attribute>
-          <dia:attribute name="font">
-            <dia:font name="Courier"/>
-          </dia:attribute>
-          <dia:attribute name="height">
-            <dia:real val="0.8"/>
-          </dia:attribute>
-          <dia:attribute name="pos">
-            <dia:point val="6.92201,3.08123"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>

@@ -14,6 +14,7 @@
 <!ENTITY ch03     SYSTEM "ch03.xml">
 <!ENTITY ch04     SYSTEM "ch04.xml">
 <!ENTITY ch05     SYSTEM "ch05.xml">
+<!ENTITY ch06     SYSTEM "ch06.xml">
 <!ENTITY appa     SYSTEM "appa.xml">
 <!ENTITY appb     SYSTEM "appb.xml">
 <!ENTITY gloss    SYSTEM "glossary.xml">
