@@ -1,4 +1,4 @@
-<appendix id="svn-ap-a">
+<appendix id="dabo-ap-a">
 <title>Reporting Options</title>
 
 <simplesect>
@@ -11,7 +11,7 @@
 <!-- ================================================================= -->
 <!-- ======================== SECTION 1 ============================== -->
 <!-- ================================================================= -->
-<sect1 id="svn-ap-a-sect-1">
+<sect1 id="dabo-ap-a-sect-1">
 	<title>ReportLab</title>
 
 	<para>Blah</para>
@@ -27,7 +27,7 @@
 	6.</para>
 
 	<para>For more details on this topic, see <xref
-	linkend="svn-ch-2-sect-3.2" />.</para>
+	linkend="dabo-ch-2-sect-3.2" />.</para>
 -->
 
 </sect1>

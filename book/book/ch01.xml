@@ -1,0 +1,28 @@
+<chapter id="dabo-ch-1">
+
+  <title>What Is Dabo?</title>
+
+  <simplesect>
+    <para>The following diagrams will need to be moved to more appropriate places in the book, but I wanted to get them in.</para>
+	
+	<para>
+		<imageobject>
+			<imagedata fileref="images/tiers.png" format="PNG"/>
+		</imageobject>
+	</para>
+	
+	<para>
+		<imageobject>
+			<imagedata fileref="images/tier1.png" format="PNG"/>
+		</imageobject>
+	</para>
+	
+	<para>
+		<imageobject>
+			<imagedata fileref="images/tier3.png" format="PNG"/>
+		</imageobject>
+	</para>
+
+  </simplesect>
+  
+</chapter>

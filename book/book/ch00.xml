@@ -1,154 +1,186 @@
-<preface id="svn-ch-0">
-	<title>Preface</title>
+<preface id="dabo-ch-0">
+	
+<title>Preface</title>
 
-	<simplesect>
+<simplesect>
 
-<!--    
 	<blockquote>
-	<para><quote>If C gives you enough rope to hang yourself, think
-		of Subversion as a sort of rope storage facility.</quote>
-		&mdash;Brian W. Fitzpatrick</para>
+		<para><quote>(find a fitting remark or quote and put it here).</quote></para>
 	</blockquote>
 
-	<para>In the world of open-source software, the Concurrent
-	Versions System (CVS) has long been the tool of choice for
-	version control.  And rightly so.  CVS itself is free software,
-	and its non-restrictive <foreignphrase>modus
-	operandi</foreignphrase> and support for networked
-	operation&mdash;which allow dozens of geographically dispersed
-	programmers to share their work&mdash;fits the collaborative
-	nature of the open-source world very well.  CVS and its
-	semi-chaotic development model have become cornerstones of
-	open-source culture.
-	</para>
--->
-	</simplesect>
+	<para>Microsoft purchased Fox Software and gained the knowledge base to produce	the best user-friendly application development suites in the industry. Using Visual Basic, Access, .NET, COM, MSDE and FoxPro, hundreds of thousands of developers and consultants world-wide were able to provide solutions for their	clients, from shrink-wrapped applications to completely custom programs.</para>
+
+	<para>For almost a decade, the situation was mutually beneficial: the large company got to make billions off its operating system, and the developer got to make a living selling solutions using low-priced development tools provided by that same large company.</para>
+
+	<para>Something started happening, however, late in the 1990's. At a time when everyone thought Unix was uttering its final words, "Linux" became a household term. A student's hobby in 1991 became a world-class enterprise operating system by 1998, and since then Linux has made impressive gains in the user application space: the desktop. At about the same time, Apple Computer released Darwin - another Unix based operating system - to the open source world and built a rock-solid user friendly interface on top of it, and today Apple's successful future seems guaranteed: applications built on top of Darwin/OS X, such as iTunes, iPhoto, iDVD, and iMovie seem to be exactly the type of applications millions of end users have been wanting all along.</para>
+
+	<para>A sea change is underway. Up until now, and into 2006, the open source community has been playing catch-up with Microsoft, trying to make applications that do everything the typical Microsoft Windows user expects, in the same ubiquitous fashion. As I type this (September 2004) I can say that the open source community has almost caught up. OpenOffice.org is approaching version 2.0, and can already replace Microsoft Office for all but the most complex Word, Powerpoint, and Excel documents. Mozilla FireFox and ThunderBird are approaching 1.0, and already handle browsing and emailing better than Internet Explorer and Outlook. The Gnome and KDE Linux desktops, besides being fast and stable, now have all the goodies any modern user would want. From now on, the catch-up phase is over, and real innovation will begin to be defined not by one huge company, but by a loosely-knit community of open source developers from all over the world. The big company will have to become a part of that community - and play by its rules - or risk being sucked into the undertow.</para>
+
+	<para>We aren't quite there yet. One very important missing piece for software development on Linux or Mac is a comprehensive Integrated Development Environment (IDE), such as Microsoft Visual Basic, that lets people develop powerful applications without necessarily having to know how to write great code. An IDE is basically a collection of power tools, such as a visual form designer, a graphical debugger, a project manager, and a help system. Until such an application becomes available, the only people developing open source applications will be people comfortable with the command line, make files, and a c compiler.</para>
+
+	<para>Enter Dabo, an open source, data aware, 3-tier development framework that	you can use to develop open source and/or proprietary applications for distribution to your customers. Dabo aims to be easy to learn, fun to work with, flexible, and powerful. You can program by hand using any editor, or you can use the Dabo IDE which centralizes all the files in your project and offers all the power tools you need to create your databases, build your user interface, write your business rules, and create your reports (printouts or previews of your data, formatted the way you define).</para>	
+
+</simplesect>
 
 
 <!-- ================================================================= -->
 <!-- ======================== SECTION 1 ============================== -->
 <!-- ================================================================= -->
-	<sect1 id="svn-ch-0-sect-1">
+<sect1 id="dabo-ch-0-sect-1">
 
-		<title>Audience</title>
+	<title>Audience</title>
 
+	<para>The Dabo Book assumes some knowledge of a typical Microsoft-like IDE such as Visual Basic or Visual FoxPro, but that isn't required to get by. All that is really needed is the desire to create a killer application. Follow along with the examples, and you'll know all you need to know in no time at all.</para>
 
-	</sect1>
+	<para>If you happen to have experience with the Python programming language, which Dabo is built on top of, that is great but again not required.</para>
+
+	<para>In a nutshell, this book is for anyone wishing to develop a desktop application that will run on Linux, Macintosh, and Windows, and that will connect to an external database to get and store data.</para>
+
+</sect1>
 
 <!-- ================================================================= -->
 <!-- ======================== SECTION 2 ============================== -->
 <!-- ================================================================= -->
-	<sect1 id="svn-ch-0-sect-2">
-		<title>How to Read this Book</title>
-	</sect1>
+<sect1 id="dabo-ch-0-sect-2">
+	<title>How to Read this Book</title>
+
+	<para>Read this book with enough light, sitting up straight, and with your keyboard close at hand.</para>
+
+</sect1>
 
 <!-- ================================================================= -->
 <!-- ======================== SECTION 3 ============================== -->
 <!-- ================================================================= -->
-<sect1 id="svn-ch-0-sect-3">
+<sect1 id="dabo-ch-0-sect-3">
 	<title>Conventions Used in This Book</title>
 
-	<para>This section covers the various conventions used in this
-	book.</para>
+	<para>Conventions are good, but let's not feel too limited by them, either.</para>
 
 	<!-- ***************************************************************** -->
-	<sect2 id="svn-ch-0-sect3.1">
-	<title>Typographic Conventions</title>
+	<sect2 id="dabo-ch-0-sect3.1">
+		<title>Typographic Conventions</title>
 
-	<variablelist>
+		<variablelist>
 
-		<varlistentry>
-		<term><command>Constant width</command></term>
-		<listitem>
-			<para>Used for commands, command output, and switches</para>
-		</listitem>
-		</varlistentry>
+			<varlistentry>
+			<term><command>Constant width</command></term>
+			<listitem>
+				<para>Used for commands, command output, and switches</para>
+			</listitem>
+			</varlistentry>
 
-		<varlistentry>
-		<term><replaceable>Constant width italic</replaceable></term>
-		<listitem>
-			<para>Used for replaceable items in code and text</para>
-		</listitem>
-		</varlistentry>
+			<varlistentry>
+			<term><replaceable>Constant width italic</replaceable></term>
+			<listitem>
+				<para>Used for replaceable items in code and text</para>
+			</listitem>
+			</varlistentry>
 
-		<varlistentry>
-		<term><filename>Italic</filename></term>
-		<listitem>
-			<para>Used for file and directory names</para>
-		</listitem>
-		</varlistentry>
+			<varlistentry>
+			<term><filename>Italic</filename></term>
+			<listitem>
+				<para>Used for file and directory names</para>
+			</listitem>
+			</varlistentry>
 
-	</variablelist>
+		</variablelist>
 
 	</sect2>
 
 	<!-- ***************************************************************** -->
-	<sect2 id="svn-ch-0-sect3.2">
-	<title>Icons</title>
+	<sect2 id="dabo-ch-0-sect3.2">
+		<title>Icons</title>
 
-	<note>
-		<para>This icon designates a note relating to the surrounding
-		text.</para>
-	</note>
+		<note>
+			<para>This icon designates a note relating to the surrounding text.</para>
+		</note>
 
-	<tip>
-		<para>This icon designates a helpful tip relating to the surrounding
-		text.</para>
-	</tip>
+		<tip>
+			<para>This icon designates a helpful tip relating to the surrounding text.</para>
+		</tip>
 
-	<warning>
-		<para>This icon designates a warning relating to the surrounding
-		text.</para>
-	</warning>
+		<warning>
+			<para>This icon designates a warning relating to the surrounding text.</para>
+		</warning>
 	</sect2>
 
-	<para>Note that the source code examples are just
-	that&mdash;examples. While they will compile with the proper
-	compiler incantations, they are intended to illustrate the
-	problem at hand, not necessarily serve as examples of good
-	programming style.</para>
+	<para>The examples in this book are meant to illustrate the problem at hand in a concise manner. While they should work as written, they do not necessarily serve as examples of good programming style. They are probably pretty good though, given the conciseness and readability of the Python programming language.</para>
 
 </sect1>
 
 <!-- ================================================================= -->
 <!-- ======================== SECTION 4 ============================== -->
 <!-- ================================================================= -->
-<sect1 id="svn-ch-0-sect-4">
+<sect1 id="dabo-ch-0-sect-4">
 	<title>Organization of This Book</title>
 
-	<para>The chapters that follow and their contents are listed
-	here:</para>
+	<para>The chapters that follow and their contents are listed here:</para>
 
 	<variablelist>
+		<varlistentry>
+			<term>Part 1, <emphasis>Introduction</emphasis></term>
+			<listitem>
+				<para>Covers the history of Dabo as well as its features, architecture, components, and install	methods. Also includes a quick-start guide and an explanation of the Dabo dual-license.</para>
+			</listitem>
+		</varlistentry>
 
-<!--		<varlistentry>
-		<term>Chapter 1, <emphasis>Introduction</emphasis></term>
-		<listitem>
-			<para>Covers the history of Subversion as well as its
-			features, architecture, components, and install
-			methods.  Also includes a quick-start guide.</para>
-		</listitem>
-		</varlistentry>//-->
+		<varlistentry>
+			<term>Part 2, <emphasis>Basic Concepts</emphasis></term>
+			<listitem>
+				<para>Explains the components that make up Dabo, shows some simple examples, introduces the new user to the Python language, and goes into some detail on the "Three Tiers of Dabo". Also shows the typical structure of a Dabo application, and the typical workflow patterns of creating a Dabo application.</para>
+			</listitem>
+		</varlistentry>
+		
+		<varlistentry>
+			<term>Part 3, <emphasis>Tutorial: Creating a Non-Trivial Dabo Application</emphasis></term>
+			<listitem>
+				<para>Here is where the fun begins. Follow along with the design and implementation of a "real-world" data-aware application, from start to finish. From the structure of the database, to the writing of the business rules, to the designing of the screens and application framework, to debugging and documenting, to source control, this is the real meat of the book. This is the part you will want to read from beginning to end, once in bed and again in front of your computer. Get through this and you'll know how to start making your own application.</para>
+			</listitem>
+		</varlistentry>
 
+		<varlistentry>
+			<term>Part 4, <emphasis>Class Reference</emphasis></term>
+			<listitem>
+				<para>You won't necessarily want to read this part of the book from beginning to end, but it'll probably be well thumbed through, as it'll be your reference to all the properties, methods, and events available for your use.</para>
+			</listitem>
+		</varlistentry>
+
+		<varlistentry>
+			<term>Part 5, <emphasis>Appendices</emphasis></term>
+			<listitem>
+				<para>A number of stand-alone articles are presented here, including options for reporting, debugging tactics, visual design options, how to contribute to the development of Dabo, as well as the full source of the Dabo Commercial License and the GNU Public License.</para>
+			</listitem>
+		</varlistentry>
+
+	</variablelist>
 
 </sect1>
 
 <!-- ================================================================= -->
 <!-- ======================== SECTION 5 ============================== -->
 <!-- ================================================================= -->
-<sect1 id="svn-ch-0-sect-5">
+<sect1 id="dabo-ch-0-sect-5">
 	<title>This Book is Free</title>
-
+	<para>This book is written in front of the public eye, and is constantly updated to include new information and fixes. It is free for you to do whatever you want with it, including modifying, printing, and reselling, although we'd prefer you'd purchase your printed copies from our official publisher and contribute your changes back to the book's source.</para>
+	
+	
+	<note>
+		<para>The source of the book is publicly available from the Dabo Subversion repository, which you can access using your Subversion client:</para>
+		<command>svn checkout svn://paulmcnett.com/dabodoc/trunk/book dabo-book</command>
+		<para>Subversion is a powerful source control system, available for free from <ulink url="http://subversion.tigris.org">http://subversion.tigris.org</ulink>.</para>
+	</note>
+		
+	<para>See <xref linkend="dabo-copyright"/> for more information regarding the book's copyright.</para>
+	
 </sect1>
 
 <!-- ================================================================= -->
 <!-- ======================== SECTION 6 ============================== -->
 <!-- ================================================================= -->
-<sect1 id="svn-ch-0-sect-6">
+<sect1 id="dabo-ch-0-sect-6">
 	<title>Acknowledgments</title>
 
-	</sect2>
-
+	<para>I'd like to acknowledge the patience of my wife, Denise Dewenter, and the stimulating qualities of Yerba Mate. This book would not be possible without either one of these.</para>
 </sect1>
 </preface>
 
