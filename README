@@ -1,0 +1,12 @@
+Dabo Documentation
+
+Developers (if you are contributing to the Dabo project):
+  cd developers
+
+Users (if you are using Dabo to develop custom applications):
+  cd users
+
+Binary Package Maintainers:
+  All documentation is in docbook format. Please include at least
+  plaintext and pdf versions of all documentation files in the 
+  binary distribution.
