@@ -4,30 +4,32 @@ INSTALL = install
 
 ## You shouldn't normally need to edit anything below here.
 SHELL = /bin/sh
-SVNVERSION = "/usr/bin/svnversion"
+SVNVERSION = "svnversion"
 
 BOOK_TOP = .
-BOOK_HTML_CHUNK_DIR = $(BOOK_DIR)/html-chunk
 BOOK_DIR = ${BOOK_TOP}/book
-BOOK_HTML_TARGET = $(BOOK_DIR)/dabo-book.html
+BOOK_OUTPUT_DIR = $(BOOK_TOP)/output
+BOOK_HTML_DIR = $(BOOK_OUTPUT_DIR)/html
+BOOK_HTML_CHUNK_DIR = $(BOOK_OUTPUT_DIR)/html-chunk
+BOOK_HTML_TARGET = $(BOOK_OUTPUT_DIR)/html/dabo-book.html
 BOOK_HTML_CHUNK_TARGET = $(BOOK_HTML_CHUNK_DIR)/index.html  # index.html is created last
-BOOK_PDF_TARGET = $(BOOK_DIR)/dabo-book.pdf
-BOOK_PS_TARGET = $(BOOK_DIR)/dabo-book.ps
-BOOK_FO_TARGET = $(BOOK_DIR)/dabo-book.fo
+BOOK_PDF_TARGET = $(BOOK_OUTPUT_DIR)/dabo-book.pdf
+BOOK_PS_TARGET = $(BOOK_OUTPUT_DIR)/dabo-book.ps
+BOOK_FO_TARGET = $(BOOK_OUTPUT_DIR)/dabo-book.fo
 BOOK_XML_SOURCE = $(BOOK_DIR)/book.xml
 BOOK_VERSION_SOURCE =  $(BOOK_DIR)/version.xml
 BOOK_ALL_SOURCE = $(BOOK_DIR)/*.xml
 BOOK_IMAGES = $(BOOK_DIR)/images/*.png
 BOOK_INSTALL_DIR = $(INSTALL_DIR)/book
 
-MDOCS_DIR = ${BOOK_TOP}/misc-docs
-MDOCS_HTML_TARGET = $(MDOCS_DIR)/misc-docs.html
-MDOCS_PDF_TARGET = $(MDOCS_DIR)/misc-docs.pdf
-MDOCS_PS_TARGET = $(MDOCS_DIR)/misc-docs.ps
-MDOCS_FO_TARGET = $(MDOCS_DIR)/misc-docs.fo
-MDOCS_XML_SOURCE = $(MDOCS_DIR)/misc-docs.xml
-MDOCS_ALL_SOURCE = $(MDOCS_DIR)/*.xml
-MDOCS_INSTALL_DIR = $(INSTALL_DIR)/misc-docs
+#MDOCS_DIR = ${BOOK_TOP}/misc-docs
+#MDOCS_HTML_TARGET = $(MDOCS_DIR)/misc-docs.html
+#MDOCS_PDF_TARGET = $(MDOCS_DIR)/misc-docs.pdf
+#MDOCS_PS_TARGET = $(MDOCS_DIR)/misc-docs.ps
+#MDOCS_FO_TARGET = $(MDOCS_DIR)/misc-docs.fo
+#MDOCS_XML_SOURCE = $(MDOCS_DIR)/misc-docs.xml
+#MDOCS_ALL_SOURCE = $(MDOCS_DIR)/*.xml
+#MDOCS_INSTALL_DIR = $(INSTALL_DIR)/misc-docs
 
 XSL_FO = ${BOOK_TOP}/tools/fo-stylesheet.xsl
 XSL_HTML = $(BOOK_TOP)/tools/html-stylesheet.xsl
@@ -41,33 +43,27 @@ RUN_FOP = ${BOOK_TOP}/tools/bin/run-fop.sh
 BOOK_HTML_XSLTPROC_OPTS = 
 
 # Book xsltproc options for PDF and PostScript output
-# BOOK_PDF_XSLTPROC_OPTS = --stringparam page.height 9in --stringparam page.width 6.4in
-# BOOK_PS_XSLTPROC_OPTS = --stringparam page.height 9in --stringparam page.width 6.4in
+BOOK_PDF_XSLTPROC_OPTS = --stringparam page.height 9in --stringparam page.width 6.4in
+BOOK_PS_XSLTPROC_OPTS = --stringparam page.height 9in --stringparam page.width 6.4in
 
 # Uncomment the following line if you'd like to print on A4 paper
 # BOOK_PDF_XSLTPROC_OPTS = --stringparam paper.type A4
 
 all: all-html all-pdf all-ps
 
-install: install-book install-misc-docs
+install: install-book
 
-#all-html: book-html book-html-chunk misc-docs-html
 all-html: book-html book-html-chunk
 
-all-pdf: book-pdf misc-docs-pdf
+all-pdf: book-pdf
 
-all-ps: book-ps misc-docs-ps
+all-ps: book-ps
 
 all-book: book-html book-html-chunk book-pdf book-ps
 
 install-book: install-book-html install-book-html-chunk install-book-pdf install-book-ps
 
-all-misc-docs: misc-docs-html misc-docs-pdf book-ps
-
-install-misc-docs: install-misc-html install-misc-pdf \
-                   install-misc-ps
-
-clean: book-clean misc-docs-clean
+clean: book-clean
 
 $(BOOK_VERSION_SOURCE): book-version
 
@@ -88,6 +84,9 @@ book-html: $(BOOK_HTML_TARGET)
 $(BOOK_HTML_TARGET): $(BOOK_ALL_SOURCE) $(BOOK_VERSION_SOURCE)
 	$(XSLTPROC) $(BOOK_HTML_XSLTPROC_OPTS) \
            --output $(BOOK_HTML_TARGET) $(XSL_HTML) $(BOOK_XML_SOURCE)
+	mkdir -p $(BOOK_HTML_DIR)/images
+	cp $(BOOK_DIR)/styles.css $(BOOK_HTML_DIR)
+	cp $(BOOK_IMAGES) $(BOOK_HTML_DIR)/images
 
 book-html-chunk: $(BOOK_HTML_CHUNK_TARGET)
 
@@ -141,38 +140,39 @@ book-clean:
 	rm -f $(BOOK_HTML_TARGET) $(BOOK_FO_TARGET)
 	rm -rf $(BOOK_HTML_CHUNK_DIR)
 	rm -f $(BOOK_PDF_TARGET) $(BOOK_PS_TARGET) 
+	rm -r $(BOOK_OUTPUT_DIR)
 
-misc-docs-html: $(MDOCS_HTML_TARGET)
+#misc-docs-html: $(MDOCS_HTML_TARGET)
 
-$(MDOCS_HTML_TARGET): $(MDOCS_ALL_SOURCE)
-	$(XSLTPROC) $(XSL_HTML) $(MDOCS_XML_SOURCE) > $(MDOCS_HTML_TARGET)
+#$(MDOCS_HTML_TARGET): $(MDOCS_ALL_SOURCE)
+#	$(XSLTPROC) $(XSL_HTML) $(MDOCS_XML_SOURCE) > $(MDOCS_HTML_TARGET)
 
-misc-docs-pdf: $(MDOCS_PDF_TARGET)
+#misc-docs-pdf: $(MDOCS_PDF_TARGET)
 
-misc-docs-ps: $(MDOCS_PS_TARGET)
+#misc-docs-ps: $(MDOCS_PS_TARGET)
 
-$(MDOCS_PDF_TARGET): $(MDOCS_ALL_SOURCE)
-	$(XSLTPROC) $(XSL_FO) $(MDOCS_XML_SOURCE) > $(MDOCS_FO_TARGET)
-	$(RUN_FOP) $(BOOK_TOP) -fo $(MDOCS_FO_TARGET) -pdf $(MDOCS_PDF_TARGET)
+#$(MDOCS_PDF_TARGET): $(MDOCS_ALL_SOURCE)
+#	$(XSLTPROC) $(XSL_FO) $(MDOCS_XML_SOURCE) > $(MDOCS_FO_TARGET)
+#	$(RUN_FOP) $(BOOK_TOP) -fo $(MDOCS_FO_TARGET) -pdf $(MDOCS_PDF_TARGET)
 
-$(MDOCS_PS_TARGET): $(MDOCS_ALL_SOURCE)
-	$(XSLTPROC) $(XSL_FO) $(MDOCS_XML_SOURCE) > $(MDOCS_FO_TARGET)
-	$(RUN_FOP) $(BOOK_TOP) -fo $(MDOCS_FO_TARGET) -ps $(MDOCS_PS_TARGET)
+#$(MDOCS_PS_TARGET): $(MDOCS_ALL_SOURCE)
+#	$(XSLTPROC) $(XSL_FO) $(MDOCS_XML_SOURCE) > $(MDOCS_FO_TARGET)
+#	$(RUN_FOP) $(BOOK_TOP) -fo $(MDOCS_FO_TARGET) -ps $(MDOCS_PS_TARGET)
 
-misc-docs-clean:
-	rm -f $(MDOCS_HTML_TARGET) $(MDOCS_FO_TARGET)
-	rm -f $(MDOCS_PDF_TARGET) $(MDOCS_PS_TARGET)
+#misc-docs-clean:
+#	rm -f $(MDOCS_HTML_TARGET) $(MDOCS_FO_TARGET)
+#	rm -f $(MDOCS_PDF_TARGET) $(MDOCS_PS_TARGET)
 
-$(MDOCS_INSTALL_DIR):
-	$(INSTALL) -d $(MDOCS_INSTALL_DIR)
+#$(MDOCS_INSTALL_DIR):
+#	$(INSTALL) -d $(MDOCS_INSTALL_DIR)
 
-install-misc-html: $(MDOCS_HTML_TARGET) $(MDOCS_INSTALL_DIR)
-	$(INSTALL) $(MDOCS_HTML_TARGET) $(MDOCS_INSTALL_DIR)
+#install-misc-html: $(MDOCS_HTML_TARGET) $(MDOCS_INSTALL_DIR)
+#	$(INSTALL) $(MDOCS_HTML_TARGET) $(MDOCS_INSTALL_DIR)
 
-install-misc-pdf: $(MDOCS_PDF_TARGET) $(MDOCS_INSTALL_DIR)
-	$(INSTALL) $(MDOCS_PDF_TARGET) $(MDOCS_INSTALL_DIR)
+#install-misc-pdf: $(MDOCS_PDF_TARGET) $(MDOCS_INSTALL_DIR)
+#	$(INSTALL) $(MDOCS_PDF_TARGET) $(MDOCS_INSTALL_DIR)
 
-install-misc-ps: $(MDOCS_PS_TARGET) $(MDOCS_INSTALL_DIR)
-	$(INSTALL) $(MDOCS_PS_TARGET) $(MDOCS_INSTALL_DIR)
+#install-misc-ps: $(MDOCS_PS_TARGET) $(MDOCS_INSTALL_DIR)
+#	$(INSTALL) $(MDOCS_PS_TARGET) $(MDOCS_INSTALL_DIR)
 
 

@@ -118,35 +118,35 @@
 
 	<variablelist>
 		<varlistentry>
-			<term>Part 1, <emphasis>Introduction</emphasis></term>
+			<term><emphasis><xref linkend="dabo-pt-1"/></emphasis></term>
 			<listitem>
 				<para>Covers the history of Dabo as well as its features, architecture, components, and install	methods. Also includes a quick-start guide and an explanation of the Dabo dual-license.</para>
 			</listitem>
 		</varlistentry>
 
 		<varlistentry>
-			<term>Part 2, <emphasis>Basic Concepts</emphasis></term>
+			<term><emphasis><xref linkend="dabo-pt-2"/></emphasis></term>
 			<listitem>
 				<para>Explains the components that make up Dabo, shows some simple examples, introduces the new user to the Python language, and goes into some detail on the "Three Tiers of Dabo". Also shows the typical structure of a Dabo application, and the typical workflow patterns of creating a Dabo application.</para>
 			</listitem>
 		</varlistentry>
 		
 		<varlistentry>
-			<term>Part 3, <emphasis>Tutorial: Creating a Non-Trivial Dabo Application</emphasis></term>
+			<term><emphasis><xref linkend="dabo-pt-3"/></emphasis></term>
 			<listitem>
 				<para>Here is where the fun begins. Follow along with the design and implementation of a "real-world" data-aware application, from start to finish. From the structure of the database, to the writing of the business rules, to the designing of the screens and application framework, to debugging and documenting, to source control, this is the real meat of the book. This is the part you will want to read from beginning to end, once in bed and again in front of your computer. Get through this and you'll know how to start making your own application.</para>
 			</listitem>
 		</varlistentry>
 
 		<varlistentry>
-			<term>Part 4, <emphasis>Class Reference</emphasis></term>
+			<term><emphasis><xref linkend="dabo-pt-4"/></emphasis></term>
 			<listitem>
 				<para>You won't necessarily want to read this part of the book from beginning to end, but it'll probably be well thumbed through, as it'll be your reference to all the properties, methods, and events available for your use.</para>
 			</listitem>
 		</varlistentry>
 
 		<varlistentry>
-			<term>Part 5, <emphasis>Appendices</emphasis></term>
+			<term><emphasis><xref linkend="dabo-pt-5"/></emphasis></term>
 			<listitem>
 				<para>A number of stand-alone articles are presented here, including options for reporting, debugging tactics, visual design options, how to contribute to the development of Dabo, as well as the full source of the Dabo Commercial License and the GNU Public License.</para>
 			</listitem>

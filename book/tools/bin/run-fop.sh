@@ -52,4 +52,4 @@ echo "(Using '${FOP_PGM}' for FOP)"
 # FOP is noisy on stdout, and -q doesn't seem to help, so stuff that
 # garbage into /dev/null.
 ${FOP_PGM} $@ | grep -v "\[ERROR\]"
-
+#${FOP_PGM} $@
