@@ -75,7 +75,7 @@ class MyCheckBox(dabo.ui.dCheckBox):
 if __name__ == "__main__":
 	app = dabo.dApp()
 	app.setup()
-	app.MainFrame.addObject(MyCheckBox, "chkTest")
+	app.MainForm.addObject(MyCheckBox, "chkTest")
 	app.start()
 
 </screen></example>
