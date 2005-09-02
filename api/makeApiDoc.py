@@ -15,7 +15,9 @@ _inheritanceFormat = "included"   ## lists all attributes together, with text th
 #_inheritanceFormat = "grouped"   ## default epydoc: groups the attributes under the classes that define them
 #_inheritanceFormat = "listed"    ## lists the attributes next to the class that defines them
 
-_name = "Dabo"
+_version = dabo.__version__.version
+
+_name = "Dabo %s (Revision %s)" % (_version["version"], _version["revision"])
 _url = "http://dabodev.com"
 
 modules = [
@@ -69,5 +71,5 @@ for i in sizerClasses:
 
 
 modulestring = " ".join(modules)
-os.system("python ./epydoc_cli.py --%s --inheritance %s --url %s --name %s --no-private %s" % (_outputType, 
+os.system("""python ./epydoc_cli.py --%s --inheritance %s --url "%s" --name "%s" --no-private %s""" % (_outputType, 
 		_inheritanceFormat, _url, _name, modulestring))
