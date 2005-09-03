@@ -54,22 +54,20 @@ for i in dir(dabo.ui):
 				formClasses.append(item)
 			if issubclass(item, dabo.ui.dSizerMixin):
 				sizerClasses.append(item)
-	if type(item) == types.ModuleType:
-		modules.append(item.__name__)
 
 print "Control Classes:"
 for i in controlClasses:
-#	modules.append("dabo.ui.uiwx.%s" % i.__name__)
+	modules.append("dabo.ui.uiwx.%s" % i.__name__)
 	print "\t %s" % i.__name__
 
 print "Form Classes:"
 for i in formClasses:
-#	modules.append("dabo.ui.uiwx.%s" % i.__name__)
+	modules.append("dabo.ui.uiwx.%s" % i.__name__)
 	print "\t %s" % i.__name__
 
 print "Sizer Classes:"
 for i in sizerClasses:
-#	modules.append("dabo.ui.uiwx.%s" % i.__name__)
+	modules.append("dabo.ui.uiwx.%s" % i.__name__)
 	print "\t %s" % i.__name__
 
 
