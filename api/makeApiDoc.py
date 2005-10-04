@@ -24,9 +24,6 @@ _url = "http://dabodev.com"
 
 modules = getDaboModules()
 
-print modules
-sys.exit()
-
 modulestring = " ".join(modules)
 os.system("""python ./epydoc_cli.py --%s --inheritance %s --url "%s" --name "%s" --no-private %s""" % (_outputType, 
 		_inheritanceFormat, _url, _name, modulestring))
