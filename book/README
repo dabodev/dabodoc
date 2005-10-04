@@ -61,6 +61,7 @@ II. COMPILING THE DOCS
    The default build process expects to the stylesheets to be in
    tools/xsl/.
 
+   ## pkm: apt-get install docbook-xsl
 
 2. Use XSLT to transform the book.
 

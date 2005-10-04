@@ -4,6 +4,7 @@ import os
 import sys
 import dabo
 dabo.ui.loadUI("wx")
+import dabo.dEvents as dEvents
 from getDaboModules import getDaboClasses
 
 ## This is my new attempt at API documentation, which doesn't use epydoc and 
@@ -47,10 +48,10 @@ def getApiDoc(cls, outputType="html-single"):
 				html += """	<tr>
 """
 			if definedHere:
-				html += """		<td><b><a href="#prop_%(item)s">%(item)s</a></b></td>
+				html += """		<td><b><a href="#%(name)s_%(item)s">%(item)s</a></b></td>
 """ % locals()
 			else:
-					html += """		<td><a href="#prop_%(item)s">%(item)s</a></td>
+					html += """		<td><a href="#%(name)s_%(item)s">%(item)s</a></td>
 """ % locals()
 
 		html += """
@@ -59,16 +60,109 @@ def getApiDoc(cls, outputType="html-single"):
 <hr>
 """
 		return html
+
+
 		
 	# Property, Event, Method Listings:
-	html += getListing("Properties", cls.getPropertyList(refresh=True))
-	html += getListing("Events", cls.getEventList())
-	html += getListing("Methods", cls.getMethodList(refresh=True))
+	propList = cls.getPropertyList(refresh=True)
+	eventList = cls.getEventList()
+	methodList = cls.getMethodList(refresh=True)
+
+	html += getListing("Properties", propList)
+	html += getListing("Events", eventList)
+	html += getListing("Methods", methodList)
+
+	# Expanded entries - properties:
+	html += """
+<br><br><br>
+<h2>Properties</h2>
+<table border="0" width="100%" cellpadding="20" cellspacing="0">
+"""
+	for prop in propList:
+		d = cls.getPropertyInfo(prop)
+		if d["doc"] is None:
+			d["doc"] = ""
+		d["doc"] = "<br>".join(d["doc"].split("\n"))
+
+		html += """
+	<tr>
+		<td valign="top">
+			<b><a name="Properties_%(name)s">%(name)s</a></b><br>
+			%(doc)s
+		</td>
+	</tr>
+""" % d
+	html += """
+</table>
+"""
+
+	# Expanded entries - events:
+	html += """
+<br><br><br>
+<h2>Events</h2>
+<table border="0" width="100%" cellpadding="20" cellspacing="0">
+"""
+	for event in eventList:
+		e = dEvents.__dict__[event]
+		d = {"name": event,
+		     "doc": e.__doc__}
+		if d["doc"] is None:
+			d["doc"] = ""
+		d["doc"] = "<br>".join(d["doc"].split("\n"))
+
+		html += """
+	<tr>
+		<td valign="top">
+			<b><a name="Events_%(name)s">%(name)s</a></b><br>
+			%(doc)s
+		</td>
+	</tr>
+""" % d
+	html += """
+</table>
+"""
+
+	# Expanded entries - methods:
+	html += """
+<br><br><br>
+<h2>Methods</h2>
+<table border="0" width="100%" cellpadding="20" cellspacing="0">
+"""
+	for method in methodList:
+		m = None
+		for o in cls.__mro__:
+			try:
+				m = o.__dict__[method]
+			except KeyError:
+				continue
+			break
+		if m is None:
+			continue
+		d = {"name": method,
+		     "doc": m.__doc__}
+		if d["doc"] is None:
+			d["doc"] = ""
+		d["doc"] = "<br>".join(d["doc"].split("\n"))
+
+		html += """
+	<tr>
+		<td valign="top">
+			<b><a name="Methods_%(name)s">%(name)s()</a></b><br>
+			%(doc)s
+		</td>
+	</tr>
+""" % d
+	html += """
+</table>
+"""
 
 	return html
 
 if os.path.exists("./daboApiDoc"):
-	sys.exit("Please move existing ./daboApiDoc out of the way first.")
+	for f in os.listdir("./daboApiDoc"):
+		os.remove(os.path.join("./daboApiDoc", f))
+	os.rmdir("./daboApiDoc")	
+	#sys.exit("Please move existing ./daboApiDoc out of the way first.")
 
 os.mkdir("./daboApiDoc")
 os.chdir("./daboApiDoc")

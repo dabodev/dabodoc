@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import sys
 import os
@@ -11,7 +11,7 @@ def die(msg):
 cwd = os.getcwd()
 if not os.path.exists('book') \
    or not os.path.exists('Makefile'):
-  die('Please run this from the Subversion book source directory\n')
+  die('Please run this from the Dabo book source directory\n')
   
 if not os.getenv('JAVA_HOME'):
   die('JAVA_HOME is not set correctly.\n')
@@ -24,12 +24,12 @@ os.putenv('FOP_OPTS', '-Xms100m -Xmx200m')
 os.system('DESTDIR=. make book-clean install-book-html ' + \
           'install-book-html-chunk install-book-pdf')
 
-tarball = os.path.join(cwd, 'svnbook.tar.gz')
+tarball = os.path.join(cwd, 'dabobook.tar.gz')
 
 try:
-  os.chdir('./usr/share/doc/subversion')
-  os.rename('book', 'svnbook')
-  os.system('tar cvfz ' + tarball + ' svnbook')
+  os.chdir('./usr/share/doc/dabo')
+  os.rename('book', 'dabobook')
+  os.system('tar cvfz ' + tarball + ' dabobook')
 finally:
   os.chdir(cwd)
   shutil.rmtree('./usr')
@@ -37,4 +37,4 @@ finally:
 if not os.path.exists(tarball):
   die('Hrm.  It appears the tarball was not created.\n')
 
-print 'Your tarball sits in ./svnbook.tar.gz.  Enjoy!'
+print 'Your tarball sits in ./dabobook.tar.gz.  Enjoy!'
