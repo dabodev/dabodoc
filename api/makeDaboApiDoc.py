@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import inspect
 import os
 import sys
 import dabo
@@ -138,8 +139,13 @@ def getApiDoc(cls, outputType="html-single"):
 			break
 		if m is None:
 			continue
+
+		args = inspect.getargspec(m)
+		args = inspect.formatargspec(args[0], args[1], args[2], args[3])
+
 		d = {"name": method,
-		     "doc": m.__doc__}
+		     "doc": m.__doc__,
+		     "args": args}
 		if d["doc"] is None:
 			d["doc"] = ""
 		d["doc"] = "<br>".join(d["doc"].split("\n"))
@@ -147,7 +153,7 @@ def getApiDoc(cls, outputType="html-single"):
 		html += """
 	<tr>
 		<td valign="top">
-			<b><a name="Methods_%(name)s">%(name)s()</a></b><br>
+			<b><a name="Methods_%(name)s">%(name)s%(args)s</a></b><br>
 			%(doc)s
 		</td>
 	</tr>
