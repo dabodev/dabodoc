@@ -57,11 +57,18 @@ def getDaboModules():
 
 def getDaboClasses():
 	classes = []
-	for module in (dabo, dabo.db, dabo.biz, dabo.ui):
+	import dabo.db.dbMySQL
+	import dabo.db.dbPostgreSQL
+	import dabo.db.dbFirebird
+	import dabo.db.dbSQLite
+	for module in (dabo, dabo.dSecurityManager, dabo.common, dabo.db.dbPostgreSQL,
+	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
+	               dabo.db.dbFirebird):
 		for i in dir(module):
 			c = module.__dict__[i]
 			if type(c) == type and issubclass(c, dabo.common.dObject):
-				classes.append(c)
+				if c not in classes:
+					classes.append(c)
 	def sortfunc(a,b):
 		return cmp(a.__name__, b.__name__)
 		

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import datetime
 import inspect
 import os
 import sys
@@ -14,10 +15,57 @@ from getDaboModules import getDaboClasses
 ## PEM's for every Dabo object it finds, although it will need some help
 ## finding some things (dSecurityManager, dReportWriter, ...). I want to
 ## add cascading stylesheets and the ability to print to PDF (for an API
-## book). Next step: make the item listings for each PEM jump to the docstring
-## for those items. For methods, include the method signature. The detailed
-## docstrings will be at the bottom of each page.  --pkm
+## book).  --pkm
 
+d = datetime.datetime.now()
+
+footerString = """
+<hr>
+Dabo %s (rev. %s)<br>
+%s""" % (dabo.version["version"],
+         dabo.version["revision"],
+         d.strftime("%e %b %Y %T"))
+
+
+def formatDoc(doc):
+	"""Strip indentation whitespace from the docstring."""
+	docLines = doc.splitlines()
+	if len(docLines) == 0:
+		return doc
+
+	# All whitespace from first line:
+	docLines[0] = docLines[0].strip()
+
+	# Use the indentation from the second line (third if the second is blank)
+	# for the rest of the lines:
+	indent = ""
+	if len(docLines) > 1:
+		if len(docLines[1].strip()) > 0:
+			# use indent from this line
+			for l in docLines[1]:
+				if l.isspace():
+					indent += l
+				else:
+					break
+			docLines[1] = docLines[1].strip()
+		else:
+			if len(docLines) > 2:
+				if len(docLines[2].strip()) > 0:
+					# use indent from this line
+					for l in docLines[2]:
+						if l.isspace():
+							indent += l
+						else:
+							break
+					docLines[2] = docLines[2].strip()
+	for idx, line in enumerate(docLines):
+		if line.find(indent) == 0:
+			line = line.replace(indent, "", 1)
+			docLines[idx] = line
+
+	return '\n'.join(docLines)
+	
+classes = getDaboClasses()
 
 def getApiDoc(cls, outputType="html-single"):
 	PEM_COLUMNS = float(3)  ## float simply for round() to work right
@@ -26,11 +74,11 @@ def getApiDoc(cls, outputType="html-single"):
 	classDoc = cls.__doc__
 	if classDoc is None:
 		classDoc = ""
-	classDoc = "<br>".join(classDoc.split("\n"))
+	classDoc = formatDoc(classDoc)
 
 	html = """
 <h1>Class %(className)s</h1>
-<p>%(classDoc)s</p>
+<pre>%(classDoc)s</pre>
 <hr>
 """ % locals()
 
@@ -77,19 +125,29 @@ def getApiDoc(cls, outputType="html-single"):
 	html += """
 <br><br><br>
 <h2>Properties</h2>
-<table border="0" width="100%" cellpadding="20" cellspacing="0">
+<table border="1" cellpadding="20" cellspacing="0">
 """
 	for prop in propList:
 		d = cls.getPropertyInfo(prop)
 		if d["doc"] is None:
 			d["doc"] = ""
-		d["doc"] = "<br>".join(d["doc"].split("\n"))
+		d["doc"] = formatDoc(d["doc"])	
+
+		d["definedInString"] = ""
+		if d["definedIn"] != cls:
+			filename = "./%s.%s.html" % (d["definedIn"].__module__, d["definedIn"].__name__)
+			if d["definedIn"] in classes:
+				link = """<a href="%s">%s</a>""" % (filename, d["definedIn"].__name__)
+			else:
+				link = "%s" % d["definedIn"].__name__
+			d["definedInString"] = """<br><i>(inherited from <b>%s</b>)</i>""" % link
 
 		html += """
 	<tr>
 		<td valign="top">
-			<b><a name="Properties_%(name)s">%(name)s</a></b><br>
-			%(doc)s
+			<b><a name="Properties_%(name)s">%(name)s</a></b>
+			<pre>%(doc)s</pre>
+			%(definedInString)s
 		</td>
 	</tr>
 """ % d
@@ -101,7 +159,7 @@ def getApiDoc(cls, outputType="html-single"):
 	html += """
 <br><br><br>
 <h2>Events</h2>
-<table border="0" width="100%" cellpadding="20" cellspacing="0">
+<table border="1" cellpadding="20" cellspacing="0">
 """
 	for event in eventList:
 		e = dEvents.__dict__[event]
@@ -109,13 +167,13 @@ def getApiDoc(cls, outputType="html-single"):
 		     "doc": e.__doc__}
 		if d["doc"] is None:
 			d["doc"] = ""
-		d["doc"] = "<br>".join(d["doc"].split("\n"))
+		d["doc"] = formatDoc(d["doc"])	
 
 		html += """
 	<tr>
 		<td valign="top">
 			<b><a name="Events_%(name)s">%(name)s</a></b><br>
-			%(doc)s
+			<pre>%(doc)s</pre>
 		</td>
 	</tr>
 """ % d
@@ -127,13 +185,15 @@ def getApiDoc(cls, outputType="html-single"):
 	html += """
 <br><br><br>
 <h2>Methods</h2>
-<table border="0" width="100%" cellpadding="20" cellspacing="0">
+<table border="1" cellpadding="20" cellspacing="0">
 """
 	for method in methodList:
 		m = None
+		definedIn = None
 		for o in cls.__mro__:
 			try:
 				m = o.__dict__[method]
+				definedIn = o
 			except KeyError:
 				continue
 			break
@@ -148,20 +208,31 @@ def getApiDoc(cls, outputType="html-single"):
 		     "args": args}
 		if d["doc"] is None:
 			d["doc"] = ""
-		d["doc"] = "<br>".join(d["doc"].split("\n"))
+		d["doc"] = formatDoc(d["doc"])	
+
+		d["definedInString"] = ""
+		if definedIn != cls:
+			filename = "./%s.%s.html" % (definedIn.__module__, definedIn.__name__)
+			if definedIn in classes:
+				link = """<a href="%s">%s</a>""" % (filename, definedIn.__name__)
+			else:
+				link = "%s" % definedIn.__name__
+			d["definedInString"] = """<br><i>(inherited from <b>%s</b>)</i>""" % link
+
 
 		html += """
 	<tr>
 		<td valign="top">
-			<b><a name="Methods_%(name)s">%(name)s%(args)s</a></b><br>
-			%(doc)s
+			<b><a name="Methods_%(name)s">%(name)s%(args)s</a></b>
+			<pre>%(doc)s</pre>
+			%(definedInString)s
 		</td>
 	</tr>
 """ % d
 	html += """
 </table>
 """
-
+	html += footerString
 	return html
 
 if os.path.exists("./daboApiDoc"):
@@ -174,7 +245,6 @@ os.mkdir("./daboApiDoc")
 os.chdir("./daboApiDoc")
 
 
-classes = getDaboClasses()
 for class_ in classes:
 	filename = "%s.%s.html" % (class_.__module__, class_.__name__)
 	html = getApiDoc(class_)
@@ -190,13 +260,20 @@ html = """
 		<td width="33%" valign="top">
 			<b>Dabo:</b><br>"""
 
-for class_ in classes:
-	if "dabo.d" in class_.__module__ and "dabo.db" not in class_.__module__:
+remove = []
+for idx, class_ in enumerate(classes):
+	if ("dabo.d" in class_.__module__ or "dabo.common" in class_.__module__) \
+	and "dabo.db" not in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
-		                                     class_.__name__)
+		                                          class_.__name__)
+		remove.insert(0,idx)
+for i in remove:
+	del(classes[i])
 
 html += """
+			<br>
+			<br>
 		</td>
 		<td width="33%">&nbsp;</td>
 	</tr>
@@ -204,39 +281,54 @@ html += """
 		<td width="33%" valign="top">
 			<b>db:</b><br>"""
 
-for class_ in classes:
+remove = []
+for idx, class_ in enumerate(classes):
 	if "dabo.db" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                     class_.__name__)
+		remove.insert(0, idx)
+
+for i in remove:
+	del(classes[i])
 
 html += """
 		</td>
 		<td width="33%" valign="top">
 			<b>biz:</b><br>"""
 
-for class_ in classes:
+remove = []
+for idx, class_ in enumerate(classes):
 	if "dabo.biz" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                     class_.__name__)
+		remove.insert(0, idx)
+for i in remove:
+	del(classes[i])
 
 html += """
 		</td>
 		<td width="33%" valign="top">
 			<b>ui:</b><br>"""
 
-for class_ in classes:
-	if "dabo.ui" in class_.__module__:
+remove = []
+for idx, class_ in enumerate(classes):
+	if "dabo.ui":
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                     class_.__name__)
+		remove.insert(0, idx)
+for i in remove:
+	del(classes[i])
 
 html += """
 		</td>
 	</tr>
 </table>
 """
+
+html += footerString
 
 filename = "index.html"
 f = open(filename, "w")
