@@ -63,7 +63,9 @@ def formatDoc(doc):
 			line = line.replace(indent, "", 1)
 			docLines[idx] = line
 
-	return '\n'.join(docLines)
+	doc = '\n'.join(docLines)
+	doc = doc.replace("<", "&lt;")
+	return doc
 	
 classes = getDaboClasses()
 
