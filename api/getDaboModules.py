@@ -1,5 +1,5 @@
 import dabo
-import dabo.common
+from dabo.dObject import dObject
 dabo.ui.loadUI("wx")
 
 
@@ -61,12 +61,12 @@ def getDaboClasses():
 	import dabo.db.dbPostgreSQL
 	import dabo.db.dbFirebird
 	import dabo.db.dbSQLite
-	for module in (dabo, dabo.dSecurityManager, dabo.common, dabo.db.dbPostgreSQL,
+	for module in (dabo, dabo.dSecurityManager, dabo.db.dbPostgreSQL,
 	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
 	               dabo.db.dbFirebird):
 		for i in dir(module):
 			c = module.__dict__[i]
-			if type(c) == type and issubclass(c, dabo.common.dObject):
+			if type(c) == type and issubclass(c, dObject):
 				if c not in classes:
 					classes.append(c)
 	def sortfunc(a,b):
