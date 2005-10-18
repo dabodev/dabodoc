@@ -264,8 +264,7 @@ html = """
 
 remove = []
 for idx, class_ in enumerate(classes):
-	if ("dabo.d" in class_.__module__ or "dabo.common" in class_.__module__) \
-	and "dabo.db" not in class_.__module__:
+	if "dabo.d" in class_.__module__ and "dabo.db" not in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                          class_.__name__)
@@ -316,7 +315,7 @@ html += """
 
 remove = []
 for idx, class_ in enumerate(classes):
-	if "dabo.ui":
+	if "dabo.ui" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                     class_.__name__)
