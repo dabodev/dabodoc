@@ -61,9 +61,12 @@ def getDaboClasses():
 	import dabo.db.dbPostgreSQL
 	import dabo.db.dbFirebird
 	import dabo.db.dbSQLite
-	for module in (dabo, dabo.dSecurityManager, dabo.db.dbPostgreSQL,
+	import dabo.dReportWriter
+	for module in (dabo, dabo.dSecurityManager,
+	               dabo.dUserSettingProvider, 
+	               dabo.db.dbPostgreSQL,
 	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
-	               dabo.db.dbFirebird):
+	               dabo.db.dbFirebird, dabo.dReportWriter):
 		for i in dir(module):
 			c = module.__dict__[i]
 			if type(c) == type and issubclass(c, dObject):
