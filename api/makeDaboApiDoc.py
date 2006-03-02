@@ -69,6 +69,13 @@ def formatDoc(doc):
 	
 classes = getDaboClasses()
 
+def joinDynamicProps(propList):
+	dynProps = [prop[7:] for prop in propList if prop[:7] == "Dynamic"]
+	for dp in dynProps:
+#		propList.pop(propList.index("Dynamic%s" % dp))
+		propList[propList.index(dp)] = "[Dynamic]%s" % dp
+	return propList
+
 def getApiDoc(cls, outputType="html-single"):
 	PEM_COLUMNS = float(3)  ## float simply for round() to work right
 
@@ -90,19 +97,32 @@ def getApiDoc(cls, outputType="html-single"):
 <table width="100%%" cellpadding="5" cellspacing="0" border="0">
 """ % locals()
 
-		for idx, item in enumerate(items):
-			definedHere = (cls.__dict__.has_key(item))
+		idx = -1
+		for item in items:
+			if item[:7] == "Dynamic":
+				# Ignore the Dynamic* props in the listing
+				continue
+			idx += 1
 			if idx % PEM_COLUMNS == 0:
 				if idx > 0:
 					html += """	</tr>
 """
 				html += """	<tr>
 """
+
+			dynamicHref = ""
+			if item[:9] == "[Dynamic]":
+				item = item[9:]
+				dynamicHref = """<a href="#%(name)s_Dynamic%(item)s">[Dynamic]</a>""" % locals()
+
+			definedHere = (cls.__dict__.has_key(item))
+
+			formatBeg, formatEnd = "", ""
 			if definedHere:
-				html += """		<td><b><a href="#%(name)s_%(item)s">%(item)s</a></b></td>
-""" % locals()
-			else:
-					html += """		<td><a href="#%(name)s_%(item)s">%(item)s</a></td>
+				formatBeg = "<b>"
+				formatEnd = "</b>"
+
+			html += """		<td>%(formatBeg)s%(dynamicHref)s<a href="#%(name)s_%(item)s">%(item)s</a>%(formatEnd)s</td>
 """ % locals()
 
 		html += """
@@ -115,7 +135,7 @@ def getApiDoc(cls, outputType="html-single"):
 
 		
 	# Property, Event, Method Listings:
-	propList = cls.getPropertyList(refresh=True)
+	propList = joinDynamicProps(cls.getPropertyList(refresh=True))
 	eventList = cls.getEventList()
 	methodList = cls.getMethodList(refresh=True)
 
@@ -130,6 +150,8 @@ def getApiDoc(cls, outputType="html-single"):
 <table border="1" cellpadding="20" cellspacing="0">
 """
 	for prop in propList:
+		if prop[:9] == "[Dynamic]":
+			prop = prop[9:]
 		d = cls.getPropertyInfo(prop)
 		if d["doc"] is None:
 			d["doc"] = ""
