@@ -72,6 +72,9 @@ def getDaboClasses():
 			if type(c) == type and issubclass(c, dObject):
 				if c not in classes:
 					classes.append(c)
+
+	classes.append(dabo.ui)
+
 	def sortfunc(a,b):
 		return cmp(a.__name__, b.__name__)
 		

@@ -2,6 +2,7 @@
 
 import datetime
 import inspect
+import types
 import os
 import sys
 import dabo
@@ -85,8 +86,13 @@ def getApiDoc(cls, outputType="html-single"):
 		classDoc = ""
 	classDoc = formatDoc(classDoc)
 
+	if type(cls) == type:
+		objectType = "Class"
+	else:
+		objectType = "Module"
+
 	html = """
-<h1>Class %(className)s</h1>
+<h1>%(objectType)s %(className)s</h1>
 <pre>%(classDoc)s</pre>
 <hr>
 """ % locals()
@@ -132,41 +138,32 @@ def getApiDoc(cls, outputType="html-single"):
 """
 		return html
 
-
-		
-	# Property, Event, Method Listings:
-	propList = joinDynamicProps(cls.getPropertyList(refresh=True))
-	eventList = cls.getEventList()
-	methodList = cls.getMethodList(refresh=True)
-
-	html += getListing("Properties", propList)
-	html += getListing("Events", eventList)
-	html += getListing("Methods", methodList)
-
-	# Expanded entries - properties:
-	html += """
+	def getExpandedEntries(name, items):
+		html = """
 <br><br><br>
-<h2>Properties</h2>
+<h2>%s</h2>
 <table border="1" cellpadding="20" cellspacing="0">
-"""
-	for prop in propList:
-		if prop[:9] == "[Dynamic]":
-			prop = prop[9:]
-		d = cls.getPropertyInfo(prop)
-		if d["doc"] is None:
-			d["doc"] = ""
-		d["doc"] = formatDoc(d["doc"])	
+""" % name
+		
+		if name == "Properties":
+			for prop in items:
+				if prop[:9] == "[Dynamic]":
+					prop = prop[9:]
+				d = cls.getPropertyInfo(prop)
+				if d["doc"] is None:
+					d["doc"] = ""
+				d["doc"] = formatDoc(d["doc"])	
 
-		d["definedInString"] = ""
-		if d["definedIn"] != cls:
-			filename = "./%s.%s.html" % (d["definedIn"].__module__, d["definedIn"].__name__)
-			if d["definedIn"] in classes:
-				link = """<a href="%s">%s</a>""" % (filename, d["definedIn"].__name__)
-			else:
-				link = "%s" % d["definedIn"].__name__
-			d["definedInString"] = """<br><i>(inherited from <b>%s</b>)</i>""" % link
+				d["definedInString"] = ""
+				if d["definedIn"] != cls:
+					filename = "./%s.%s.html" % (d["definedIn"].__module__, d["definedIn"].__name__)
+					if d["definedIn"] in classes:
+						link = """<a href="%s">%s</a>""" % (filename, d["definedIn"].__name__)
+					else:
+						link = "%s" % d["definedIn"].__name__
+					d["definedInString"] = """<br><i>(inherited from <b>%s</b>)</i>""" % link
 
-		html += """
+				html += """
 	<tr>
 		<td valign="top">
 			<b><a name="Properties_%(name)s">%(name)s</a></b>
@@ -175,25 +172,18 @@ def getApiDoc(cls, outputType="html-single"):
 		</td>
 	</tr>
 """ % d
-	html += """
-</table>
-"""
 
-	# Expanded entries - events:
-	html += """
-<br><br><br>
-<h2>Events</h2>
-<table border="1" cellpadding="20" cellspacing="0">
-"""
-	for event in eventList:
-		e = dEvents.__dict__[event]
-		d = {"name": event,
-		     "doc": e.__doc__}
-		if d["doc"] is None:
-			d["doc"] = ""
-		d["doc"] = formatDoc(d["doc"])	
 
-		html += """
+		if name == "Events":
+			for event in items:
+				e = dEvents.__dict__[event]
+				d = {"name": event,
+				     "doc": e.__doc__}
+				if d["doc"] is None:
+					d["doc"] = ""
+				d["doc"] = formatDoc(d["doc"])	
+
+				html += """
 	<tr>
 		<td valign="top">
 			<b><a name="Events_%(name)s">%(name)s</a></b><br>
@@ -201,61 +191,86 @@ def getApiDoc(cls, outputType="html-single"):
 		</td>
 	</tr>
 """ % d
-	html += """
-</table>
-"""
 
-	# Expanded entries - methods:
-	html += """
-<br><br><br>
-<h2>Methods</h2>
-<table border="1" cellpadding="20" cellspacing="0">
-"""
-	for method in methodList:
-		m = None
-		definedIn = None
-		for o in cls.__mro__:
-			try:
-				m = o.__dict__[method]
-				definedIn = o
-			except KeyError:
-				continue
-			break
-		if m is None:
-			continue
+		if name in ("Methods", "Functions"):
+			for method in items:
+				if type(cls) == type:
+					m = None
+					definedIn = None
+					for o in cls.__mro__:
+						try:
+							m = o.__dict__[method]
+							definedIn = o
+						except KeyError:
+							continue
+						break
+					if m is None:
+						continue
+				else:
+					m = getattr(cls, method)
+					definedIn = cls
 
-		args = inspect.getargspec(m)
-		args = inspect.formatargspec(args[0], args[1], args[2], args[3])
+				args = inspect.getargspec(m)
+				args = inspect.formatargspec(args[0], args[1], args[2], args[3])
 
-		d = {"name": method,
-		     "doc": m.__doc__,
-		     "args": args}
-		if d["doc"] is None:
-			d["doc"] = ""
-		d["doc"] = formatDoc(d["doc"])	
+				d = {"typ": name,
+						"name": method,
+						"doc": m.__doc__,
+						"args": args}
+				if d["doc"] is None:
+					d["doc"] = ""
+				d["doc"] = formatDoc(d["doc"])	
 
-		d["definedInString"] = ""
-		if definedIn != cls:
-			filename = "./%s.%s.html" % (definedIn.__module__, definedIn.__name__)
-			if definedIn in classes:
-				link = """<a href="%s">%s</a>""" % (filename, definedIn.__name__)
-			else:
-				link = "%s" % definedIn.__name__
-			d["definedInString"] = """<br><i>(inherited from <b>%s</b>)</i>""" % link
+				d["definedInString"] = ""
+				if definedIn != cls:
+					filename = "./%s.%s.html" % (definedIn.__module__, definedIn.__name__)
+					if definedIn in classes:
+						link = """<a href="%s">%s</a>""" % (filename, definedIn.__name__)
+					else:
+						link = "%s" % definedIn.__name__
+					d["definedInString"] = """<br><i>(inherited from <b>%s</b>)</i>""" % link
+	
 
-
-		html += """
+				html += """
 	<tr>
 		<td valign="top">
-			<b><a name="Methods_%(name)s">%(name)s%(args)s</a></b>
+			<b><a name="%(typ)s_%(name)s">%(name)s%(args)s</a></b>
 			<pre>%(doc)s</pre>
 			%(definedInString)s
 		</td>
 	</tr>
 """ % d
-	html += """
+
+		html += """
 </table>
 """
+		return html
+
+		
+	# Property, Event, Method Listings:
+	propList = []
+	eventList = []
+	methodList = []
+	funcList = []
+	if type(cls) == type:
+		# cls is actually a class (good)
+		propList = joinDynamicProps(cls.getPropertyList(refresh=True))
+		eventList = cls.getEventList()
+		methodList = cls.getMethodList(refresh=True)
+		html += getListing("Properties", propList)
+		html += getListing("Events", eventList)
+		html += getListing("Methods", methodList)
+		html += getExpandedEntries("Properties", propList)
+		html += getExpandedEntries("Events", eventList)
+		html += getExpandedEntries("Methods", methodList)
+	else:
+		# cls is not really a class, perhaps a module like dabo.ui
+		for i in dir(cls):
+			if i.isalpha() and i[0].islower() and type(getattr(cls, i)) == types.FunctionType:
+				funcList.append(i)
+		html += getListing("Functions", funcList)
+		html += getExpandedEntries("Functions", funcList)
+
 	html += footerString
 	return html
 
@@ -270,7 +285,13 @@ os.chdir("./daboApiDoc")
 
 
 for class_ in classes:
-	filename = "%s.%s.html" % (class_.__module__, class_.__name__)
+	try:
+		module = "%s." % class_.__module__
+	except AttributeError:
+		# class_ could actually be a module (eg dabo.ui)
+		module = ""
+
+	filename = "%s%s.html" % (module, class_.__name__)
 	html = getApiDoc(class_)
 	f = open(filename, "w")
 	f.write(html)
@@ -286,6 +307,8 @@ html = """
 
 remove = []
 for idx, class_ in enumerate(classes):
+	if type(class_) != type:
+		continue
 	if "dabo.d" in class_.__module__ and "dabo.db" not in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
@@ -306,6 +329,8 @@ html += """
 
 remove = []
 for idx, class_ in enumerate(classes):
+	if type(class_) != type:
+		continue
 	if "dabo.db" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
@@ -322,6 +347,8 @@ html += """
 
 remove = []
 for idx, class_ in enumerate(classes):
+	if type(class_) != type:
+		continue
 	if "dabo.biz" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
@@ -333,10 +360,12 @@ for i in remove:
 html += """
 		</td>
 		<td width="33%" valign="top">
-			<b>ui:</b><br>"""
+			<b><a href="./dabo.ui.html">ui</a>:</b><br>"""
 
 remove = []
 for idx, class_ in enumerate(classes):
+	if type(class_) != type:
+		continue
 	if "dabo.ui" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
