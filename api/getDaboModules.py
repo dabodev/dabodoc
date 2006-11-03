@@ -20,7 +20,8 @@ def getDaboModules():
 		"dabo.biz", 
 		"dabo.biz.dBizobj",
 		"dabo.ui",
-		"dabo.ui.uiwx",]
+		"dabo.ui.uiwx",
+		"dabo.lib.datanav"]
 
 	# Now we dynamically gather the ui classes to document:
 	controlClasses = []
@@ -62,17 +63,22 @@ def getDaboClasses():
 	import dabo.db.dbFirebird
 	import dabo.db.dbSQLite
 	import dabo.dReportWriter
+	import dabo.lib
+	import dabo.lib.datanav
 	for module in (dabo, dabo.dSecurityManager,
 	               dabo.dUserSettingProvider, 
-	               dabo.db.dbPostgreSQL,
 	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
-	               dabo.db.dbFirebird, dabo.dReportWriter):
+	               dabo.db.dbPostgreSQL,
+	               dabo.db.dbFirebird, dabo.dReportWriter, 
+	               dabo.lib, dabo.lib.datanav):
 		for i in dir(module):
 			c = module.__dict__[i]
 			if type(c) == type and issubclass(c, dObject):
 				if c not in classes:
 					classes.append(c)
 
+#	classes.append(dabo.lib)
+#	classes.append(dabo.lib.datanav)
 	classes.append(dabo.ui)
 
 	def sortfunc(a,b):
