@@ -2,7 +2,6 @@ import dabo
 from dabo.dObject import dObject
 dabo.ui.loadUI("wx")
 
-
 def getDaboModules():
 	modules = [
 		"dabo", 

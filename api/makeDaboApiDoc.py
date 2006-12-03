@@ -5,7 +5,22 @@ import inspect
 import types
 import os
 import sys
+
+args = sys.argv[1:]
+
+if not args:
+	branch = "trunk"
+else:
+	branch = args[0]
+
+os.system("rm -rf dabo")
+os.system("svn checkout http://svn.dabodev.com/dabo/%s dabo" % branch)
+sys.path.insert(0, "./dabo")
+if not os.path.exists("./dabo"):
+	sys.exit("Please pass a valid dabo branch such as 'trunk', 'branches/stable' or 'tags/dabo-0.7'")
+
 import dabo
+
 dabo.ui.loadUI("wx")
 import dabo.dEvents as dEvents
 from getDaboModules import getDaboClasses
