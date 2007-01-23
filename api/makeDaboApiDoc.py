@@ -35,10 +35,63 @@ from getDaboModules import getDaboClasses
 
 d = datetime.datetime.now()
 
+headerString = """
+<html>
+<title>%(pageTitle)s</title>
+<head>
+	<style type="text/css">
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		#container {
+			width: 760px;
+			border: 1px solid gray;
+			margin: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 10px;
+			background-color: white;
+			text-align: left;
+		}
+
+		#banner {
+			padding: 5px;
+			margin-bottom: ;
+		}
+
+		#content {
+			padding: 5px;
+		}
+
+		#footer {
+			clear: both;
+			padding: 5px;
+			margin-top: ;
+		}
+
+	</style>
+</head>
+
+<body bgcolor="linen">
+
+<div id="#container">
+"""
+
 footerString = """
+</div>
+<div id="#footer">
+
 <hr>
 Dabo %s (rev. %s)<br>
-%s""" % (dabo.version["version"],
+%s
+
+</div>
+</div>
+
+</body>
+</html>
+""" % (dabo.version["version"],
          dabo.version["revision"],
          d.strftime("%e %b %Y %T"))
 
@@ -106,10 +159,16 @@ def getApiDoc(cls, outputType="html-single"):
 	else:
 		objectType = "Module"
 
-	html = """
+	pageTitle = "Dabo API Documentation: %(className)s" % locals()
+	html = headerString % locals()
+	html += """
+<div id="#banner">
 <h1>%(objectType)s %(className)s</h1>
 <pre>%(classDoc)s</pre>
+</div>
 <hr>
+
+<div id="#content">
 """ % locals()
 
 	def getListing(name, items):
@@ -312,8 +371,9 @@ for class_ in classes:
 	f.write(html)
 	f.close()
 
-
-html = """
+pageTitle = "Dabo API Documentation: Contents"
+html = headerString % locals()
+html += """
 <table border="0" cellpadding="5" cellspacing="0" width="100%">
 	<tr>
 		<td width="33%">&nbsp;</td>
