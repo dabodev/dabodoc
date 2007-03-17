@@ -149,15 +149,19 @@ def getApiDoc(cls, outputType="html-single"):
 	PEM_COLUMNS = float(3)  ## float simply for round() to work right
 
 	className = cls.__name__
-	classDoc = cls.__doc__
+	if type(cls) == type:
+		objectType = "Class"
+		for base in cls.__mro__:
+			classDoc = base.__doc__
+			if classDoc is not None:
+				break
+	else:
+		objectType = "Module"
+		classDoc = cls.__doc__
+
 	if classDoc is None:
 		classDoc = ""
 	classDoc = formatDoc(classDoc)
-
-	if type(cls) == type:
-		objectType = "Class"
-	else:
-		objectType = "Module"
 
 	pageTitle = "Dabo API Documentation: %(className)s" % locals()
 	html = headerString % locals()
