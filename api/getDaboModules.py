@@ -1,5 +1,6 @@
 import dabo
 from dabo.dObject import dObject
+from dabo.dEvents import dEvent
 dabo.ui.loadUI("wx")
 
 def getDaboModules():
@@ -61,18 +62,21 @@ def getDaboClasses():
 	import dabo.db.dbPostgreSQL
 	import dabo.db.dbFirebird
 	import dabo.db.dbSQLite
+	import dabo.db.dbMsSQL
 	import dabo.dReportWriter
 	import dabo.lib
-	import dabo.lib.datanav
-	for module in (dabo, dabo.dSecurityManager,
-	               dabo.dUserSettingProvider, 
+	import dabo.lib.datanav2
+
+	for module in (dabo, dabo.dSecurityManager, dabo.dEvents,
+	               dabo.dUserSettingProvider, dabo.dException,
 	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
-	               dabo.db.dbPostgreSQL,
+	               dabo.db.dbPostgreSQL, dabo.db.dbMsSQL,
 	               dabo.db.dbFirebird, dabo.dReportWriter, 
-	               dabo.lib, dabo.lib.datanav):
+	               dabo.lib, dabo.lib.datanav2):
 		for i in dir(module):
 			c = module.__dict__[i]
-			if type(c) == type and issubclass(c, dObject):
+			if type(c) == type and issubclass(c, dObject) and \
+					(not issubclass(c, dEvent) or c is dEvent):
 				if c not in classes:
 					classes.append(c)
 
