@@ -332,7 +332,7 @@ def getApiDoc(cls, outputType="html-single"):
 	funcList = []
 	if type(cls) == type:
 		# cls is actually a class (good)
-		propList = joinDynamicProps(cls.getPropertyList(refresh=True))
+		propList = joinDynamicProps(cls.getPropertyList(refresh=True, onlyDabo=True))
 		eventList = cls.getEventList()
 		methodList = cls.getMethodList(refresh=True)
 		html += getListing("Properties", propList)
