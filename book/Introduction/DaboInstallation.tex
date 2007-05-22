@@ -1,0 +1,45 @@
+%Chapter for installing and setting up dabo
+
+\chapter{Installation of the Dabo Development Environment}
+
+This chapter details the process for getting your computer set up for developing applications using Dabo. While these instructions would work for your deployment targets as well, there are better ways to deploy applications than by using the instructions here. Dabo has dependencies on a number of external libraries, and while developing your applications you'll want to keep all those libraries - and Dabo - as current as possible. For deployment, you want better control over the versions in use. Deploying applications is covered in <xref linkend="dabo-ap-b"/>.
+
+\section{Downloading and Installing}
+
+Dabo has dependencies on a number of external libraries, and those dependencies will vary depending on your choice of database and user-interface library. In general, you will want to install, in this order:
+\begin{enumerate}
+	\item Python (the most recent stable version available). Python is available for download from http://www.python.org. Follow the instructions there for installation instructions1 for your platform. Python is certainly already installed on your Linux or Macintosh system, but for Windows you may find that you need to install it yourself. No matter what, please check to see if the version you have is relatively recent and if not you should download and install the most recent stable Python release.
+
+	\item MySQL Client.2 MySQL is available for download from http://www.mysql.com. Download the most recent stable version available. If you already have a MySQL server installed somewhere on your network available to you (and you have the rights to create and drop databases), only the client is required. Otherwise, also install the server so that you'll be able to follow along with some later examples.
+
+	\item MySQLdb. This is the Python db-api wrapper that allows your Python code to talk to the MySQL client library. This is an easy install using the standard Python distutils3 method. Download MySQLdb from http://sourceforge.net/projects/mysql-python. Get the latest stable version.
+
+	\item wxPython. This is the standard user-interface toolkit for Dabo, and at the time of this writing is required for building applications that present an interface to the user. In the future, Dabo will support other user-interface toolkits as well, but for now the only supported toolkit is wxPython. wxPython is in a state of rapid development, so it is best to stay as current as you can with it. Download and install the most recent stable version from http://www.wxpython.org.
+
+	\item Dabo. Get the most recent version of Dabo from http://dabodev.com. Be sure to get the main Dabo package as well as dabodemo and daboIDE. Like MySQLdb, Dabo uses distutils so a simple python setup.py install should get Dabo into your Python installation's site-packages directory, which is where all third-party libraries for Python are normally installed.
+\end{enumerate}
+
+\section{Testing Your Installation}
+
+Now that you've downloaded and installed all the prerequisites, you need to run some tests to be reasonably sure everything is installed correctly. The tests involve interacting with your operating system's command line, which as a developer you really should try to get familiar with.
+
+Microsoft Windows: Go to Start|Run and type 'cmd' <enter>.
+Apple Macintosh: Navigate to your Applictions/Utilities directory and double-click on the Terminal application.
+Linux/UNIX: Different distributions put this in different places. Look for xterm, terminal, or command-line in your desktop menu system.
+	
+Open up your command line, and type python. You should get output like:	%NEED TO GET SETUP FOR STANDARD CODE OUTPUT SETUP
+\begin{verbatim}
+[pmcnett@sol book]$ python
+Python 2.3.2 (#1, Oct  6 2003, 10:07:16)
+[GCC 3.2.2 20030222 (Red Hat Linux 3.2.2-5)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+You are now inside Python's command interpreter. Test to make sure that <application>MySQLdb</application>, <application>wxPython</application>, and <application>dabo</application> load correctly. If there are no errors, they are installed correctly.
+
+>>> import MySQLdb
+>>> import wx
+>>> import dabo
+Dabo Info Log: Thu Sep  9 19:16:23 2004: No default UI set. (DABO_DEFAULT_UI)
+>>>
+\end{verbatim}
+The message from <application>dabo</application> is normal, and no errors happened during the import of the other packages, so everything is set up correctly on my system. 

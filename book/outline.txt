@@ -1,19 +1,19 @@
 0. Preface
 
-	A. Data-Aware Business Applications
-	B. Target audience
-	C. How the Book is Organized
-	D. Typographic conventions
-	E. Comments/Questions/Obtaining the Free Book
-	F. Acknowledgements
+	A. Data-Aware Business Applications					Started?????
+	B. Target audience									Started
+	C. How the Book is Organized						Barely Started
+	D. Typographic conventions							Not Present
+	E. Comments/Questions/Obtaining the Free Book		Not Present
+	F. Acknowledgements									Not Present
 
 I. Introduction
 
-	A. What is Dabo?
-	B. History of Dabo
-	C. Dabo's Features
-	D. The Components of Dabo
-	E. How To Install the Dabo Development Environment
+	A. What is Dabo?									Started
+	B. History of Dabo									Started
+	C. Dabo's Features									Not Present
+	D. The Components of Dabo							Not Present
+	E. How To Install the Dabo Development Environment	Started
 
 II. Basic Concepts
 
