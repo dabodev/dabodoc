@@ -312,7 +312,7 @@ def getApiDoc(cls, outputType="html-single"):
 				html += """
 	<tr>
 		<td valign="top">
-			<b><a name="%(typ)s_%(name)s">%(name)s%(args)s</a></b>
+			<a name="%(typ)s_%(name)s"><b>%(name)s</b>%(args)s</a>
 			<pre>%(doc)s</pre>
 			%(definedInString)s
 		</td>
