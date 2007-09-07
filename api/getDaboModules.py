@@ -21,7 +21,7 @@ def getDaboModules():
 		"dabo.biz.dBizobj",
 		"dabo.ui",
 		"dabo.ui.uiwx",
-		"dabo.lib.datanav"]
+		"dabo.lib.datanav2"]
 
 	# Now we dynamically gather the ui classes to document:
 	controlClasses = []
