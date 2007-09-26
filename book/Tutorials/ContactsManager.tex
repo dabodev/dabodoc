@@ -1,0 +1,27 @@
+% Build a Contacts Management Program chapter
+
+\chapter{Building a Contacts Management Program}
+
+Every business and home should have some way of managing contacts.  The traditional method for searching and sorting for most personal contacts is an address book, while business' used a Rolodex.  However, in the digitial age, it makes sense to move all of your contacts, whether business or personal, into a database on a computer.  Not only does this make things easier to sort, but it also provides the opportunity to link this management program library with inventory control, invoicing, office applications, project management software, and more.  In this first tutorial, we will walk through the design from database to GUI of a contacts management program.
+
+\subsection{Feature Requirements of the Customer}
+
+While this section is more project management and isn't Dabo related, it is absolutely nessecary for the completion of this project.  In this section, we will use an extreme programming approach to define the desired feature set for an initial release.  Even though this is an open source effort, this process helps us to prevent feature creep and allows us to complete the product in a reasonable amount of time.
+
+When we talked with the customer, we defined the minimum functionality feature set for the first release:
+\begin{enumerate}
+	\item The program has the ability to view all current customers and every piece of stored information through a clickable GUI.
+	\item The program will store First Name, Last Name, Phone Numbers, and Email addresses for a customer in a Postgres database.
+	\item The program has the ability to let the user input new customer data through a GUI.
+	\item The program has an installer for the Windows Operating System.
+\end{enumerate}
+
+These are the target features that we will shoot for.  It sounds basic, but the point of a minimum functionality initial release is to build a strong customer relationship by delivering a working product each 3 week release cycle.  This allows the customer to visually see the progress, prevents feature creep, and helps better define priorities.
+
+\subsection{Database design}
+
+Well, the database design for this application is quite simple.  However, we will review the design process for the database and generate corresponding UML databases.  Planning is your most important asset for designing system, especially where the database is concerned.  A good database has much forethought and planning with attention paid to the needs of the data; it can't be a reverse implosion just tossed together.
+
+Databases are the cornerstones of business projects.  If they are designed incorrectly, it is very difficult to make substantial changes to incorperate new needs later on down the road.  Proper planning is often neglected so a team can "get it done".  When problems arise and there is no time in the budget to fix them using proper techniques, we start "hacking" with a hope that we might someday come back and fix it.
+
+The first step of the design is 
