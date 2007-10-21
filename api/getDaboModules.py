@@ -66,13 +66,14 @@ def getDaboClasses():
 	import dabo.dReportWriter
 	import dabo.lib
 	import dabo.lib.datanav2
+	import dabo.ui.dialogs
 
 	for module in (dabo, dabo.dSecurityManager, dabo.dEvents,
 	               dabo.dUserSettingProvider, dabo.dException,
 	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
 	               dabo.db.dbPostgreSQL, dabo.db.dbMsSQL,
 	               dabo.db.dbFirebird, dabo.dReportWriter, 
-	               dabo.lib, dabo.lib.datanav2):
+	               dabo.lib, dabo.lib.datanav2, dabo.ui.dialogs):
 		for i in dir(module):
 			c = module.__dict__[i]
 			if type(c) == type and issubclass(c, dObject) and \

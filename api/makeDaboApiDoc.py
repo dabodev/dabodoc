@@ -446,10 +446,15 @@ remove = []
 for idx, class_ in enumerate(classes):
 	if type(class_) != type:
 		continue
-	if "dabo.ui" in class_.__module__:
+	if "dabo.ui.dialogs" in class_.__module__:
+		html += """
+			<a href="./%s.%s.html">dialogs.%s</a><br>""" % (class_.__module__, class_.__name__,
+		                                     class_.__name__)
+	elif "dabo.ui" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                     class_.__name__)
+
 		remove.insert(0, idx)
 for i in remove:
 	del(classes[i])
@@ -458,7 +463,7 @@ html += """
 		</td>
 	</tr>
 	<tr>
-		<td><b>Datanav2 Sub-Framework:</b><br>
+		<td><b>Datanav2 Sub-Framework</b> (from dabo.lib import datanav2 as datanav):<br>
 """
 
 remove = []
