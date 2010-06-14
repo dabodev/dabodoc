@@ -463,14 +463,14 @@ html += """
 		</td>
 	</tr>
 	<tr>
-		<td><b>Datanav2 Sub-Framework</b> (from dabo.lib import datanav2 as datanav):<br>
+		<td><b>Datanav Sub-Framework</b> (from dabo.lib import datanav):<br>
 """
 
 remove = []
 for idx, class_ in enumerate(classes):
 	if type(class_) != type:
 		continue
-	if "dabo.lib.datanav2" in class_.__module__:
+	if "dabo.lib.datanav" in class_.__module__:
 		html += """
 			<a href="./%s.%s.html">%s</a><br>""" % (class_.__module__, class_.__name__,
 		                                     class_.__name__)

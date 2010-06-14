@@ -21,7 +21,7 @@ def getDaboModules():
 		"dabo.biz.dBizobj",
 		"dabo.ui",
 		"dabo.ui.uiwx",
-		"dabo.lib.datanav2"]
+		"dabo.lib.datanav"]
 
 	# Now we dynamically gather the ui classes to document:
 	controlClasses = []
@@ -65,7 +65,7 @@ def getDaboClasses():
 	import dabo.db.dbMsSQL
 	import dabo.dReportWriter
 	import dabo.lib
-	import dabo.lib.datanav2
+	import dabo.lib.datanav
 	import dabo.ui.dialogs
 
 	for module in (dabo, dabo.dSecurityManager, dabo.dEvents,
@@ -73,7 +73,7 @@ def getDaboClasses():
 	               dabo.db, dabo.biz, dabo.ui, dabo.db.dbMySQL, dabo.db.dbSQLite,
 	               dabo.db.dbPostgreSQL, dabo.db.dbMsSQL,
 	               dabo.db.dbFirebird, dabo.dReportWriter, 
-	               dabo.lib, dabo.lib.datanav2, dabo.ui.dialogs):
+	               dabo.lib, dabo.lib.datanav, dabo.ui.dialogs):
 		for i in dir(module):
 			c = module.__dict__[i]
 			if type(c) == type and issubclass(c, dObject) and \
