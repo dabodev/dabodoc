@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-#
 
 import os
-import sys
 import platform
 
 # review and update as needed
@@ -9,7 +8,7 @@ import platform
 # folder where .rst files will be stored
 baseFolder = os.getcwd()
 docFolder = os.path.join(baseFolder, "source")
-# used to generate files, only changed ones will be copied to docFolder
+# used to generate files, only changed and new ones will be copied to docFolder
 # this speeds up the Sphinx build
 rstTempFolder = os.path.join(baseFolder, "tempsource")
 folderToDoc = os.path.join(baseFolder, "../dabo")
@@ -27,13 +26,19 @@ else:
 	graphVizDot = ' -D graphviz_dot="C:\\Program Files (x86)\\Graphviz2.26.3\\bin\\dot.exe" '
 	hhcExe = "C:\Program Files (x86)\HTML Help Workshop\hhc.exe "
 
-sErr = os.path.join(baseFolder, "sphinxerr.txt")
-sphinxErrFile = " -w %s " % sErr
 
-# only html is tested/done yet
+sStdErr = os.path.join(baseFolder, "sphinxstderr.txt")
+sphinxStdErrStr = " -w %s " % sStdErr
+sphinxStdErrFile = open(sStdErr, 'w')
+
+# supported builders
 normalHtml = "html"
 helpHtml = "htmlhelp"
-singleHtml = "singlehtml"
+pdfDoc = "pdf" # doesn't work yet
 
-hhcName = "daboDoc.hhp"
-chmName = "daboDoc.chm"
+validBuilders = [normalHtml, helpHtml]
+
+# match entry in conf.py for htmlhelp_basename
+hhpName = "dabo.hhp"
+
+

@@ -10,12 +10,9 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 del sys.setdefaultencoding
 
-#import traceback
 import subprocess
 
-import glob
-
-from config import *
+import config as sc
 
 def FractSec(s):
 
@@ -27,30 +24,31 @@ def MakeSphinx(builder, rebuildall):
 	startupinfo = subprocess.STARTUPINFO()
 	startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
-	sourceFolder = docFolder
-	targetFolder = os.path.join(os.path.join(baseFolder, 'build'), builder)
-	confFolder = docFolder
+	sourceFolder = sc.docFolder
+	targetFolder = os.path.join(os.path.join(sc.baseFolder, 'build'), builder)
+	confFolder = sc.docFolder
 	
-	sErr = os.path.join(baseFolder, "sphinxstderr.txt")
-	sphinxStdErr = open(sErr, 'wt')
-
 	if rebuildall:
 		# clear targetFolder
 		shutil.rmtree(targetFolder, ignore_errors=True)
 
 		# TO REBUILD ALL
 		# sphinxErrFile is a dup of sphinxStdErr
-		command = sphinxBuildCmd + ' -ac ' + confFolder +' -b '+ builder + graphVizDot + sourceFolder +' ' + targetFolder
+		command = sc.sphinxBuildCmd + ' -ac ' + confFolder +' -b '+ builder + \
+				sc.graphVizDot + sourceFolder +' ' + targetFolder
 	else:
 		# TO REBUILD CHANGED
-		command = sphinxBuildCmd + ' -c ' + confFolder +' -b '+ builder + graphVizDot + sourceFolder +' ' + targetFolder
+		command = sc.sphinxBuildCmd + ' -c ' + confFolder +' -b '+ builder + \
+				sc.graphVizDot + sourceFolder +' ' + targetFolder
 
-	p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, stderr=sphinxStdErr, startupinfo=startupinfo).communicate()
+	p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, 
+			stderr=sc.sphinxStdErrFile, startupinfo=startupinfo).communicate()
 
 	if builder == 'htmlhelp':
-		hhpFile = os.path.join(os.path.join(targetFolder), 'helpdoc.hhp')
-		command = hhpExe + hhpFile
-		p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, stderr=sphinxStdErr, startupinfo=startupinfo).communicate()
+		hhpFile = os.path.join(os.path.join(targetFolder), sc.hhpName)
+		command = sc.hhcExe + hhpFile
+		p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, 
+			stderr=sc.sphinxStdErrFile, startupinfo=startupinfo).communicate()
 
 
 start = time.time()
@@ -58,7 +56,7 @@ start = time.time()
 args = sys.argv[1:]
 
 if not args:
-	builder = normalHtml
+	builder = 'html'
 	rebuildall = False
 else:
 	if len(args) != 2:
@@ -66,12 +64,12 @@ else:
 		print "e.g. 'html True' to use the html builder and force a full rebuild"
 		sys.exit(2)
 	else:
-		if args[0] in ['html',]: # doesn't work yet, 'pdf']:
+		if args[0] in sc.validBuilders:
 			builder = args[0]
 		else:
 			print "builder %s is not valid" % args[0]
 			sys.exit(2)
-		if args[1]:
+		if args[1].lower() == 'true':
 			rebuildall = True
 		else:
 			rebuildall = False

@@ -197,7 +197,7 @@ html_additional_pages = {'gallery':'gallery.html'}
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Dabo-Thedesktopapplicationframeworkdoc'
+htmlhelp_basename = 'dabo'
 
 
 # -- Options for LaTeX output --------------------------------------------------

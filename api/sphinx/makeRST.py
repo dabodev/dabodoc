@@ -8,14 +8,10 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 del sys.setdefaultencoding
 
-#import traceback
-import subprocess
-
 import glob
 import inspect
 import operator
 
-#import wx
 import datetime
 import shutil
 import re
@@ -36,7 +32,7 @@ MAXWIDTH = 120
 BACKCOLOUR = (255, 255, 255, 255)
 
 # get config stuff
-from config import *
+import config as sc
 
 # needed for issubclass check
 import dabo
@@ -85,7 +81,7 @@ daboHackExceptions = ["dabo.ui.uiwx.alignmentMixin",
 					  "dabo.ui.uiwx.uiApp",
 					  ]
 
-# TODO: to be reviewed if there is no cleaner way of doing this
+# needed to make some links work
 daboHackForLinks = {"EventMixin": ".lib.eventMixin.",
 					"dPemMixin": ".ui.uiwx.",
 					"dPemMixinBase": ".ui.",
@@ -212,8 +208,8 @@ excludedClasses = ["modglob", "connHandler", "FuncProfile", "FuncSource", "HotSh
 				   "__builtin__",
 					]
 
-# TODO: the Dabo ones cause import errors, i.e. probably something to do with namespace, just exclude them for now
-# TODO: should this be full names, e.g. dabo.ui.uiwx.dPageFrame.onPageChanged?
+# Dabo ones cause import errors, i.e. probably something to do with namespace, just exclude them for now
+# TODO: should this be full names, e.g. dabo.ui.uiwx.dPageFrame.onPageChanged to be make sure to exclude the right thing?
 excludedFunctions = ["PageFrame", "onPageChanged", "readonly", "main", 
 					 "autoCreateTables", "setupAutoBiz", "resetHTML",
 					 "textChangeHandler",
@@ -478,12 +474,12 @@ messages and SVN diffs.
 
 """
 
-os.chdir(os.path.join(docFolder, "_static"))
+os.chdir(os.path.join(sc.docFolder, "_static"))
 
 fullImages = glob.glob("*.png")# + glob.glob("*.jpg")
 kImages = [os.path.splitext(img)[0] for img in fullImages]
 
-os.chdir(baseFolder)
+os.chdir(sc.baseFolder)
 
 moduleauthor = "\n\n.. moduleauthor:: Dabo community <dabo-users@leafe.com>\n\n\n\n"
 
@@ -493,45 +489,6 @@ pattern = re.compile(r'{(.*?)}', re.DOTALL)
 def bylength(word1, word2):
 
 	return len(word2) - len(word1)
-
-
-def replace_epydoc_links(name, obj, line):
-
-	matches = pattern.findall(line)
-	matches.sort(cmp=bylength)
-
-	classes = lastMethods["class"]
-	newMatches = matches[:]
-
-	for m in matches:
-		newM = "L{%s}"%m
-		for kls, dummy in classes:
-			if kls.endswith(m):
-				line = line.replace(newM, ":class:`~%s`"%kls)
-				newMatches.remove(m)
-				break
-
-	matches = newMatches[:]
-	methods = lastMethods["method"]
-
-	for m in matches:
-		newM = "L{%s}"%m
-		for kls, method in methods:
-			if method.endswith(m):
-				line = line.replace(newM, ":meth:`~%s`"%method)
-				newMatches.remove(m)
-				break
-
-	if newMatches:
-		print "\n==================================================="
-		print "UNCONVERTED LINKS IN %s:"%name
-		print "===================================================", "\n"
-		for m in newMatches:
-			print " "*4, m
-
-		print "\n\n"
-
-	return line
 
 
 def MangleDocs(myname, docs, strip=True, replacetabs=True):
@@ -567,10 +524,6 @@ def MangleDocs(myname, docs, strip=True, replacetabs=True):
 
 		if ":note:" in line:
 			addspace = 1
-
-	for i, line in enumerate(lines):
-		if "L{" in line:
-			lines[i] = replace_epydoc_links(myname, None, line)
 
 	stylesDone, extraDone = False, False
 
@@ -667,7 +620,7 @@ def MangleDocs(myname, docs, strip=True, replacetabs=True):
 
 def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
-	# TODO: is this to agressive
+	# ignore privat stuff, except __init__
 	if "_" in name and not "__init__" in name:
 		return
 
@@ -790,7 +743,6 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 		icon = "|doc_title| "
 
-		# TODO: just use tail for title of doc?
 		fixName = obj.__module__.split(".")[-1:][0]
 		leno = len(fixName) + 15 + len(icon)
 		text += "="*leno + "\n**" + fixName + "** functions\n" + "="*leno + "\n\n"
@@ -824,7 +776,7 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 
 def MakeInitDocs(name, raw):
-	os.chdir(rstTempFolder)
+	os.chdir(sc.rstTempFolder)
 
 	# prefix topLayer
 	tag = topLayer + "." + name
@@ -853,7 +805,7 @@ def MakeModuleDocs(folder=None, raw=""):
 	"""Get the .py files from the folder and generate a .rst file for each one found,
 	except for the ones defined in "toRemove"
 	"""
-	os.chdir(folderToDoc)
+	os.chdir(sc.folderToDoc)
 	if folder is None:
 		otherPython = glob.glob("*.py")
 	else:
@@ -870,7 +822,7 @@ def MakeModuleDocs(folder=None, raw=""):
 		if cItem in otherPython:
 			otherPython.remove(cItem)
 
-	os.chdir(rstTempFolder)
+	os.chdir(sc.rstTempFolder)
 
 	for item in otherPython:
 		moduleName = topLayer + os.path.sep + os.path.splitext(item)[0]
@@ -1304,7 +1256,6 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 			strs += "\n   :noindex:"
 		strs += "\n\n"
 
-	# TODO: is this really only getting "__init__"
 	for name, item in methodNames:
 		strs += describe_func(item, True, modName + "." + kls.__name__)
 
@@ -1528,116 +1479,6 @@ def AddJS(text):
 	return "\n".join(newText)
 
 
-def PostProcess(builder):
-
-	os.chdir(baseFolder)
-	folder = os.path.join(os.path.join(baseFolder, "build"), builder + '/%s')
-
-	fileNames = glob.glob(folder % "*.html")
-
-	for files in fileNames:
-
-		if "2to3" in files:
-			continue
-		if "genindex" in files or "modindex" in files:
-			continue
-
-		fid = open(files, "rt")
-		text = fid.read()
-		fid.close()
-
-		text = text.replace("doc-title-", "")
-		text = text.replace("doc_title  ", "")
-		text = text.replace("<em>doc_title ", "<em>")
-
-		isModule = "_module" in files
-		text = AddPrettyTable(text, isModule, files)
-
-		if folder == helpHtml:
-			text = AddJS(text)
-
-		text = text.replace('&#8211; <p>', '&#8211; ')
-		text = text.replace('<dl class="method">', '<br><hr />\n<dl class="method">')
-		text = text.replace('<dl class="function">', '<br><hr />\n<dl class="function">')
-		text = text.replace('<dl class="classmethod">', '<br><hr />\n<dl class="classmethod">')
-		text = text.replace('<dl class="attribute">', '<br><hr />\n<dl class="attribute">')
-
-		text = RemoveInheritanceTag(text)
-		text = DeleteSummaryHierarchy(text)
-
-		fid = open(files, "wt")
-		fid.write(text)
-		fid.close()
-
-	fid = open(folder%"index.html", "rt")
-	text = fid.read()
-	fid.close()
-
-	text = text.replace("module ", "")
-	text = text.replace(" library", "")
-
-	lines = text.split("\n")
-	keys = replaces.keys()
-
-	for indx, line in enumerate(lines):
-		for key in keys:
-			thekey = '<em>%s</em>' % key
-			repl = '<em>%s</em>'
-			if thekey in line:
-				lines[indx] = lines[indx].replace(thekey, repl % replaces[key])
-				break
-
-		if 'src="_images/Stats.png"' in line:
-			break
-
-	text = "\n".join(lines)
-	fid = open(folder % "index.html", "wt")
-	fid.write(text)
-	fid.close()
-
-	topM = ["general_index", ] + subPackagesMods
-	for f in topM:
-		fileName = folder % f + ".html"
-		if not os.path.isfile(fileName):
-			continue
-
-		fid = open(fileName, "rt")
-		text = fid.read()
-		fid.close()
-
-		text = text.replace("<em>module ", "<em>")
-		if "general_index" in f:
-			text = text.replace(" library", "")
-
-		fid = open(folder % f + ".html", "wt")
-		fid.write(text)
-		fid.close()
-
-
-def MakeHTMLHelp(folder):
-
-	print "\nGenerating CHM Help File..."
-	htmlProject = folder % hhcName
-	os.system("%s %s"%(hhcExe, htmlProject))
-	print "CHM help file generated."
-
-	source = folder % chmName
-	dest = normalHtml % chmName
-	shutil.copyfile(source, dest)
-
-
-def MakeBackups():
-
-	fileNames = glob.glob("_build/html/*.html")
-	htmlFiles = glob.glob("_dummyHtml/*.html")
-
-	for files in htmlFiles:
-		os.remove(files)
-
-	for files in fileNames:
-		shutil.copyfile(files, "_dummyHtml/"+os.path.split(files)[1])
-
-
 def WriteGeneralIndex():
 
 	fid = open("general_index.rst", "wt")
@@ -1660,7 +1501,7 @@ def WriteGeneralIndex():
 	fid.write("\n\n")
 	
 	# now do all the items within each package
-	all = glob.glob(rstTempFolder + "\*.rst")
+	all = glob.glob(sc.rstTempFolder + "\*.rst")
 	
 	dTop = []
 	dBiz = []
@@ -1827,7 +1668,7 @@ def WriteUiPackageIndex(dUi, dUix, dUid, dLibD):
 
 def WriteLayout(folder):
 
-	if folder in [normalHtml, singleHtml]:
+	if folder in [sc.normalHtml]:
 		layout = htmlLayout
 	else:
 		layout = otherLayout
@@ -1839,9 +1680,9 @@ def WriteLayout(folder):
 
 def WriteIndex(folder):
 
-	if folder in [normalHtml, singleHtml]:
+	if folder in [sc.normalHtml]:
 		fileName = "index_normal.rst"
-	elif folder == helpHtml:
+	elif folder == sc.helpHtml:
 		fileName = "index_htmlhelp.rst"
 	else:
 		fileName = "index_latex.rst"
@@ -1850,13 +1691,18 @@ def WriteIndex(folder):
 	text = fid.read()
 	fid.close()
 
+	# create the index.rst with the approriate data
 	fid = open("source/index.rst", "wt")
 	fid.write(text)
 	fid.close()
 
-	raw = FindRawModules()
+	# do the magic for the "Tree" button
+	if folder in [sc.normalHtml]:
+		raw = FindRawModules()
+	else:
+		# need the | otherwise we might have transitions "--------" at the end of a file, which is not allowed
+		raw = "\n|\n"
 	return raw
-
 
 def FindRawModules():
 
@@ -1878,22 +1724,19 @@ def MakeRst(builder):
 	WriteLayout(builder)
 	raw = WriteIndex(builder)
 
-	if builder == normalHtml:
+	# create the *_module.rst for top layer and packages
+	MakeInitDocs(topLayer, raw)
+	# create the module docs for the top level
+	MakeModuleDocs(None, raw)
+	# now process all packages defined in subPackages
+	for pkg in subPackages:
+		MakeModuleDocs(pkg, raw)
+		# now the ones for packages in packages
+		if subSubPackages.has_key(pkg):
+			for sPkg in subSubPackages[pkg]:
+				MakeModuleDocs(pkg + '.' + sPkg, raw)
 
-		# create the *_module.rst for top layer and packages
-		MakeInitDocs(topLayer, raw)
-		# create the module docs for the top level
-		MakeModuleDocs(None, raw)
-		# now process all packages defined in subPackages
-		for pkg in subPackages:
-			MakeModuleDocs(pkg, raw)
-			# now the ones for packages in packages
-			if subSubPackages.has_key(pkg):
-				for sPkg in subSubPackages[pkg]:
-					MakeModuleDocs(pkg + '.' + sPkg, raw)
-
-		WriteGeneralIndex()
-
+	WriteGeneralIndex()
 
 def FractSec(s):
 
@@ -1901,42 +1744,54 @@ def FractSec(s):
 	h, min = divmod(min, 60)
 	return h, min, s
 
-
 start = time.time()
 
 args = sys.argv[1:]
 
 if not args:
-	clearOldRst = False
+	builder = 'html'
+	rebuildall = False
 else:
-	# we just assume that is what was wanted
-	clearOldRst = True
+	if len(args) != 2:
+		print "you have to supply two args"
+		print "e.g. 'html True' to use the html builder and force a full rebuild"
+		sys.exit(2)
+	else:
+		if args[0] in sc.validBuilders:
+			builder = args[0]
+		else:
+			print "builder %s is not valid" % args[0]
+			sys.exit(2)
+		if args[1].lower() == 'true':
+			rebuildall = True
+		else:
+			rebuildall = False
 		
 print "================================================"
-print "removing files from previous run in %s" % rstTempFolder
+print "removing files from previous run in %s" % sc.rstTempFolder
 print "================================================"
-remRst = glob.glob(rstTempFolder + "\*.rst")
+remRst = glob.glob(sc.rstTempFolder + "\*.rst")
 for item in remRst:
 	os.remove(item)
 
 
-if clearOldRst:
+if rebuildall:
 	print "================================================"
-	print "removing files, forcing a full rebuild %s" % docFolder
+	print "removing files, forcing a full rebuild %s" % sc.docFolder
 	print "================================================"
 
-	oldRst = glob.glob(docFolder + "\*.rst")
+	oldRst = glob.glob(sc.docFolder + "\*.rst")
 	for item in oldRst:
 		os.remove(item)
 
 # generate .rst in tempFolder
-MakeRst(normalHtml)
+MakeRst(builder)
 
 # write picture index to a file
 genNote = """This file is generated by makeRST.py and used by genGallery.py,
 please do not change it by hand.
 """
-indexF = open(os.path.join(baseFolder, "galleryToClassIndex.py"), "w")
+indexF = open(os.path.join(sc.baseFolder, "galleryToClassIndex.py"), "w")
 indexF.write("# -*- coding: utf-8 -*-#\n\n")
 indexF.write('"""%s"""\n\n' % genNote)
 indexF.write("pictureIndex = {}\n")
@@ -1949,11 +1804,11 @@ print "========================================"
 print "check if file(s) have changed"
 print "========================================"
 
-checkRst = glob.glob(rstTempFolder + "\*.rst")
+checkRst = glob.glob(sc.rstTempFolder + "\*.rst")
 for item in checkRst:
 	path, fileName = os.path.split(item)
-	tmpFile = os.path.join(rstTempFolder, fileName)
-	docFile = os.path.join(docFolder, fileName)
+	tmpFile = os.path.join(sc.rstTempFolder, fileName)
+	docFile = os.path.join(sc.docFolder, fileName)
 	if os.path.isfile(docFile):
 		if not filecmp.cmp(tmpFile, docFile, False):
 			# file has changed, copy it
