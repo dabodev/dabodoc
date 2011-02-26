@@ -1,0 +1,20 @@
+
+{% extends "!layout.html" %}
+
+{%- block relbaritems %}
+  <li>{{ title }}</li>
+{% endblock %}
+
+{% block rootrellink %}
+				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
+				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
+				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
+				<li><a href="gallery.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery</a> |&nbsp;</li>
+				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
+{% endblock %}
+
+{% block header %}
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<img src="{{ pathto("_static/dabo_logo.png", 1) }}" alt="Dabo Logo" />
+</div>
+{% endblock %}
