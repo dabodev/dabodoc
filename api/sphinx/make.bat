@@ -21,6 +21,7 @@ if "%1" == "help" (
 	echo.  html       to make standalone HTML files
 	echo.  dirhtml    to make HTML files named index.html in directories
 	echo.  singlehtml to make a single large HTML file
+	echo.  pdf        to make a PDF file using rst2pdf
 	echo.  pickle     to make pickle files
 	echo.  json       to make JSON files
 	echo.  htmlhelp   to make HTML files and a HTML help project
@@ -63,6 +64,12 @@ if "%1" == "singlehtml" (
 	goto end
 )
 
+if "%1" == "pdf" (
+	%SPHINXBUILD% -b pdf %ALLSPHINXOPTS% %BUILDDIR%/pdf
+	echo.
+	echo.Build finished. The HTML pages are in %BUILDDIR%/pdf.
+	goto end
+)
 if "%1" == "pickle" (
 	%SPHINXBUILD% -b pickle %ALLSPHINXOPTS% %BUILDDIR%/pickle
 	echo.

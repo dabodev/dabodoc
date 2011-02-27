@@ -33,10 +33,11 @@ tags.add('pdf')
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.append(os.path.abspath("c:\dev\dabo\doc"))
-sys.path.append(os.path.abspath("c:\dev\dabo"))
+sys.path.append(os.path.abspath(r"C:\dev\dabodoc\api\sphinx"))
+sys.path.append(os.path.abspath(r"c:\dev\dabo"))
 sys.path.append("sphinxext")
 
+print sys.path
 # need to force it into English
 # not just for getting English only doc, but also due to encoding issues when not
 # running with utf-8 encoding
@@ -297,7 +298,7 @@ pdf_break_level = 1
 #pdf_inline_footnotes = True
 
 # verbosity level. 0 1 or 2
-#pdf_verbosity = 0
+pdf_verbosity = 1
 
 # If false, no index is generated.
 #pdf_use_index = True

@@ -7,11 +7,12 @@ import platform
 
 # folder where .rst files will be stored
 baseFolder = os.getcwd()
+
 docFolder = os.path.join(baseFolder, "source")
 # used to generate files, only changed and new ones will be copied to docFolder
 # this speeds up the Sphinx build
 rstTempFolder = os.path.join(baseFolder, "tempsource")
-folderToDoc = os.path.join(baseFolder, "../dabo")
+folderToDoc = r"c:\dev\dabo\dabo"
 
 if platform.system() == "Windows":
 	sphinxBuildCmd = "C:\\Python26\\Scripts\\sphinx-build.exe"
@@ -34,9 +35,10 @@ sphinxStdErrFile = open(sStdErr, 'w')
 # supported builders
 normalHtml = "html"
 helpHtml = "htmlhelp"
+singleHtml = "singlehtml"
 pdfDoc = "pdf" # doesn't work yet
 
-validBuilders = [normalHtml, helpHtml]
+validBuilders = [normalHtml, helpHtml, singleHtml, pdfDoc]
 
 # match entry in conf.py for htmlhelp_basename
 hhpName = "dabo.hhp"
