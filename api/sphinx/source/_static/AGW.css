@@ -7,7 +7,36 @@
 p.graphviz {
     overflow: auto
 }
+
 /**
+ * fix intro, search etc to the top, assumes no logo,
+ * need to adjust the document wrapper margin and use 
+ * z-index on div.related and div.floatcenter (used
+ * by the image on e.g. introduction page)
+ */
+div.related{
+    position: fixed;
+    z-index: 10;
+}
+
+/*div.document {
+    position: inherit;
+}
+*/
+
+div.sphinxsidebar {
+    margin-top: 60px;
+    overflow: hidden;
+}
+div.floatcenter {
+    z-index: 1;
+}
+
+div.bodywrapper {
+    margin-top: 60px;
+}
+
+ * /**
  * Spacing fixes
  */
 
@@ -93,6 +122,7 @@ div.sphinxsidebar {
 
 div.related {
     font-size: 1em;
+    
 }
 
 div.related ul {
@@ -362,7 +392,7 @@ div.note {
  .gallery_class table td { padding: 0; }
  .gallery_class table caption { font-size: 80%; }
  .gallery .caption { height: 4em; vertical-align: top; }
- .gallery table { width: 200px; }
+ .gallery table { width: 225px; }
 
 
 /**

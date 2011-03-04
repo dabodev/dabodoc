@@ -37,7 +37,6 @@ sys.path.append(os.path.abspath(r"C:\dev\dabodoc\api\sphinx"))
 sys.path.append(os.path.abspath(r"c:\dev\dabo"))
 sys.path.append("sphinxext")
 
-print sys.path
 # need to force it into English
 # not just for getting English only doc, but also due to encoding issues when not
 # running with utf-8 encoding
@@ -127,7 +126,8 @@ html_theme = 'dabo_theme'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {"stickysidebar": True, "rightsidebar": True}
+html_theme_options = {"stickysidebar": False, "rightsidebar": False,
+					  "collapsiblesidebar": True}
 
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = ["."]

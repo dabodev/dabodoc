@@ -385,7 +385,7 @@ noInheritance = """
 
 """
 
-
+# this one is with a big logo on the top
 htmlLayout = """
 {% extends "!layout.html" %}
 
@@ -405,6 +405,26 @@ htmlLayout = """
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <img src="{{ pathto("_static/dabo_logo.png", 1) }}" alt="Dabo Logo" />
 </div>
+{% endblock %}
+"""
+
+# this one has no logo at the top
+htmlLayout = """
+{% extends "!layout.html" %}
+
+{%- block relbaritems %}
+  <li>{{ title }}</li>
+{% endblock %}
+
+{% block rootrellink %}
+				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
+				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
+				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
+				<li><a href="gallery.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery</a> |&nbsp;</li>
+				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
+{% endblock %}
+
+{% block header %}
 {% endblock %}
 """
 
@@ -903,12 +923,12 @@ def describeDaboMethods(kls, methods):
 		args = inspect.getargspec(m)
 		args = inspect.formatargspec(args[0], args[1], args[2], args[3])
 	
-		rArgs = args.replace("*args", "\*args").replace("**kwargs", "\**kwargs").replace("**", "\**").replace("*", "\*")
-		# have to use kls info to prevent duplicate defintion, because of Dabo name mangling
+		rArgs = args.replace(" **", " \**").replace(" *", " \*")
+		# have to use kls info to prevent duplicate definition, because of Dabo name mangling
 		strs += ".. function:: " + kls.__module__ + "." + kls.__name__ + "." + method + rArgs
 		if isInherited:
 			strs += "\n   :noindex:\n"
-		
+	
 		strs += "\n\n"
 		if m.__doc__ is None:
 			strs += "\n"
