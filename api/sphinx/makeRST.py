@@ -42,6 +42,10 @@ from dabo import dEvents
 # use "en" for doc
 dabo.dLocalize.setLanguage("en")
 
+# need a counter to generate unique links for the property, method and event summaries
+uniqueLinkCounter = 0
+
+# used by genGallery
 pictureIndex = {}
 
 topLayer = "dabo"
@@ -80,6 +84,9 @@ daboHackExceptions = ["dabo.ui.uiwx.alignmentMixin",
 					  "dabo.ui.uiwx.uiApp.SplashScreen",
 					  "dabo.ui.uiwx.uiApp",
 					  ]
+
+# Currently only this one which doesn't fit into the above
+daboHackClassExceptions = ["dDockPanel", "dDockPane"]
 
 # needed to make some links work
 daboHackForLinks = {"EventMixin": ".lib.eventMixin.",
@@ -121,7 +128,8 @@ subPackagesMods = ["dabo_module", "biz_module", "db_module", "lib_module"]
 # don't create any TOC with glob for these
 noTOCforMods = ["dabo.dConstants", "dabo.settings", "dabo.ui.concordance",
 				"dabo.ui.uicurses", "dabo.biz.__init__", "dabo.lib.autosuper.__init__",
-				"dabo.lib.datanav.__init__", "dabo.ui.dialogs.__init__"]
+				"dabo.lib.datanav.__init__", "dabo.ui.dialogs.__init__",
+				"dabo.ui.dDockPanel"]
 
 # define classes which should use autoclass + members
 # otherwise we use getPropertyList, getMethodList and getEventList
@@ -175,6 +183,7 @@ noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper
 				 "dabo.ui.dPageFrameNoTabs.TestForm",
 				 
 				 "wx.lib.agw.aui",
+				 "wx.lib.agw.aui.auibook.AuiNotebook",
 				 "wx.lib.agw.FlatNotebook",
 				 "wx.lib.agw.hyperlink.HyperLinkCtrl",
 				 "wx.lib.agw.foldpanelbar.FoldPanelItem",
@@ -220,6 +229,24 @@ excludedIcons = ["info.png", "note.png", "seealso.png", "todo.png", "warning.png
 
 # used in postProcess, not sure that we still have a use for it
 replaces = {}
+
+eventSummary = """
+|method_summary| Events Summary
+===============================
+
+"""
+
+propertySummary = """
+|method_summary| Properties Summary
+===================================
+
+"""
+
+methodSummary = """
+|method_summary| Methods Summary
+================================
+
+"""
 
 functionSummary = """
 |method_summary| Function Summary
@@ -310,13 +337,6 @@ genindex = """
 This is the master index for **Dabo - the desktop framework** (**Dabo**).
 
 """
-
-thesummary = """
-|method_summary| Methods Summary
-================================
-
-"""
-
 
 knownSubs = """
 |subclasses| Known Subclasses
@@ -784,7 +804,7 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 	if klasses:
 		for kls, obj in klasses:
-			if daboHack[0] in obj.__module__ and not obj.__module__ in daboHackExceptions:
+			if daboHack[0] in obj.__module__ and not obj.__module__ in daboHackExceptions and not obj.__name__ in daboHackClassExceptions:
 				kModName = obj.__module__.replace(daboHack[0], daboHack[1])
 			else:
 				kModName = obj.__module__
@@ -892,8 +912,11 @@ def describe_builtin(obj):
 			if idx1 != -1 and idx2 != -1 and (idx2>idx1+1):
 				args = s[idx1+1:idx2]
 
-def describeDaboMethods(kls, methods):
+def describeDaboMethods(kls, methods, klsfilename):
 	""" Describe the methods object passed as argument."""
+
+	global uniqueLinkCounter
+	sumDict = {}
 
 	inheritedMethods = ""
 	ownMethods = ""
@@ -923,20 +946,35 @@ def describeDaboMethods(kls, methods):
 		args = inspect.getargspec(m)
 		args = inspect.formatargspec(args[0], args[1], args[2], args[3])
 	
+		# we need to create a unique label for use in the summary table
+		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
+		uniqueLinkCounter += 1
+		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
+				
 		rArgs = args.replace(" **", " \**").replace(" *", " \*")
 		# have to use kls info to prevent duplicate definition, because of Dabo name mangling
 		strs += ".. function:: " + kls.__module__ + "." + kls.__name__ + "." + method + rArgs
+		
+		
 		if isInherited:
 			strs += "\n   :noindex:\n"
 	
 		strs += "\n\n"
+		doc = ""
+		sumDoc = ""
 		if m.__doc__ is None:
 			strs += "\n"
 		else:
-			doc = ""
+			lc = 0
 			for line in m.__doc__.splitlines():
 				doc += "   " + line.replace("\t", "", 2).replace("\t", "    ") + "\n"
+				if lc == 0 and line.strip() != "":
+					sumDoc = line.replace("\t", "")
+					lc += 1
 			strs += doc + "\n\n"
+	
+		# summary info
+		sumDict[uniqueLinkLabel] = [method, sumDoc[:100].strip() ]
 	
 		if isInherited:
 			if definedIn.__module__ in noInheritLink:
@@ -957,6 +995,26 @@ def describeDaboMethods(kls, methods):
 			ownMethods += strs
 	
 	allStrs = ""
+
+	# do the summary
+	allStrs += methodSummary
+
+	# get longest entry
+	lEntry = 0
+	for key in sumDict.iterkeys():
+		tLen = len(sumDict[key][0]) + len(key)
+		if tLen > lEntry:
+			lEntry = tLen
+	# adjust it for :ref:, spaces and <>
+	lEntry = lEntry + 10
+	lTabDef = "="*lEntry
+	rTabDef = " ========================\n"
+	allStrs += "\n" + lTabDef + rTabDef
+	for key in sumDict.iterkeys():
+		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
+		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
+	allStrs += "\n" + lTabDef + rTabDef + "\n"
+	
 	if ownMethods:
 		allStrs += "\nMethods\n"
 		allStrs += "=======\n\n"
@@ -971,6 +1029,9 @@ def describeDaboMethods(kls, methods):
 def describeDaboProperties(kls, props):
 	""" Describe the properties object passed as argument."""
 
+	global uniqueLinkCounter
+	sumDict = {}
+
 	inheritedProps = ""
 	ownProps = ""
 
@@ -982,13 +1043,28 @@ def describeDaboProperties(kls, props):
 		d = kls.getPropertyInfo(prop)
 	
 		strs += "**" + prop + "** " + "\n\n"
+		sumDoc = ""
 		if d["doc"] is None:
 			strs += "\n"
 		else:
+			lc = 0
 			doc = ""
 			for line in d["doc"].splitlines():
 				doc += line.replace("\t", "", 2).replace("\t", "    ") + "\n"
+				if lc == 0 and line.strip() != "":
+					sumDoc = line.replace("\t", "")
+					lc += 1
+				
 			strs += doc + "\n\n"
+	
+		# we need to create a unique label for use in the summary table
+		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
+		uniqueLinkCounter += 1
+		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
+
+		# summary info
+		sumDict[uniqueLinkLabel] = [prop, sumDoc[:100].strip() ]
+	
 	
 		if d["definedIn"] != kls:
 			definedIn = d["definedIn"]
@@ -1012,6 +1088,26 @@ def describeDaboProperties(kls, props):
 			ownProps += strs
 
 	allStrs = ""
+
+	# do the summary
+	allStrs += propertySummary
+
+	# get longest entry
+	lEntry = 0
+	for key in sumDict.iterkeys():
+		tLen = len(sumDict[key][0]) + len(key)
+		if tLen > lEntry:
+			lEntry = tLen
+	# adjust it for :ref:, spaces and <>
+	lEntry = lEntry + 10
+	lTabDef = "="*lEntry
+	rTabDef = " ========================\n"
+	allStrs += "\n" + lTabDef + rTabDef
+	for key in sumDict.iterkeys():
+		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
+		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
+	allStrs += "\n" + lTabDef + rTabDef + "\n"
+	
 	if ownProps:
 		allStrs += "\nProperties\n"
 		allStrs += "==========\n\n"
@@ -1026,25 +1122,63 @@ def describeDaboProperties(kls, props):
 def describeDaboEvents(kls, events):
 	""" Describe the event objects passed as argument."""
 
+	global uniqueLinkCounter
+	sumDict = {}
+
 	allEvents = ""
 	for event in events:
 		strs = ""
 		e = dEvents.__dict__[event]
 	
 		strs += "**" + event + "** " + "\n\n"
+		sumDoc = ""
 		if e.__doc__ is None:
 			strs += "\n"
 		else:
+			lc = 0
 			doc = ""
 			for line in e.__doc__.splitlines():
 				doc += line.replace("\t", "", 1).replace("\t", "    ") + "\n"
+				if lc == 0 and line.strip() != "":
+					sumDoc = line.replace("\t", "")
+					lc += 1
+
 			strs += doc + "\n\n"
+
+		# we need to create a unique label for use in the summary table
+		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
+		uniqueLinkCounter += 1
+		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
+
+		# summary info
+		sumDict[uniqueLinkLabel] = [event, sumDoc[:100].strip() ]
 	
 		strs += "\n-------\n\n"
 
 		allEvents += strs
 
 	allStrs = ""
+
+	# do the summary
+	allStrs += eventSummary
+
+	# get longest entry
+	lEntry = 0
+	for key in sumDict.iterkeys():
+		tLen = len(sumDict[key][0]) + len(key)
+		if tLen > lEntry:
+			lEntry = tLen
+	# adjust it for :ref:, spaces and <>
+	lEntry = lEntry + 10
+	lTabDef = "="*lEntry
+	rTabDef = " ========================\n"
+	allStrs += "\n" + lTabDef + rTabDef
+	for key in sumDict.iterkeys():
+		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
+		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
+	allStrs += "\n" + lTabDef + rTabDef + "\n"
+	
+	
 	if allEvents:
 		allStrs += "\nEvents\n"
 		allStrs += "=======\n\n"
@@ -1189,18 +1323,23 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 		superclasses = knownSups % superclasses
 
 	name = obj.__module__
-	if daboHack[0] in name and not name in daboHackExceptions:
+	if daboHack[0] in name and not name in daboHackExceptions and not obj.__name__ in daboHackClassExceptions:
 		name = daboHack[1]
 	strs = ".. module:: %s\n\n" % name
 
-	if daboHack[0] in obj.__module__ and not obj.__module__ in daboHackExceptions:
+	if daboHack[0] in obj.__module__ and not obj.__module__ in daboHackExceptions and not obj.__name__ in daboHackClassExceptions:
 		tmp = obj.__module__.replace(daboHack[0], daboHack[1])
 		# an index for each name within the module, daboHack applied
 		strs += ".. _%s:\n\n" % (tmp + "." + obj.__name__)
 		# if source is in package, create another index
 		if "__init__" in tmp:
 			strs += ".. _%s:\n\n" % (tmp.replace(".__init__", "") + "." + obj.__name__)
+
 	if obj.__module__ in daboHackExceptions:
+		# we also need an index without daboHack for exceptions for links (e.g. superclasses)
+		strs += ".. _%s:\n\n" % (obj.__module__.replace(daboHack[0], daboHack[1]) + "." + obj.__name__)
+
+	if obj.__name__ in daboHackClassExceptions:
 		# we also need an index without daboHack for exceptions for links (e.g. superclasses)
 		strs += ".. _%s:\n\n" % (obj.__module__.replace(daboHack[0], daboHack[1]) + "." + obj.__name__)
 
@@ -1260,7 +1399,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 	strs += "\n|API| Class API\n"
 	strs += "===============\n\n"
 
-	if daboHack[0] in kls.__module__ and not kls.__module__ in daboHackExceptions:
+	if daboHack[0] in kls.__module__ and not kls.__module__ in daboHackExceptions and not kls.__name__ in daboHackClassExceptions:
 		modName = daboHack[1]
 	else:
 		modName = kls.__module__
@@ -1287,7 +1426,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 		strs += describeDaboEvents(kls, kls.getEventList())
 
 	if hasattr(kls, "getMethodList"):
-		strs += describeDaboMethods(kls, kls.getMethodList(refresh=True))
+		strs += describeDaboMethods(kls, kls.getMethodList(refresh=True), klsfilename)
 
 	return strs
 
