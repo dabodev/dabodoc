@@ -330,9 +330,12 @@ def getApiDoc(cls, outputType="html-single"):
 	eventList = []
 	methodList = []
 	funcList = []
+	onlyDabo = True
 	if type(cls) == type:
 		# cls is actually a class (good)
-		propList = joinDynamicProps(cls.getPropertyList(refresh=True, onlyDabo=True))
+		if cls.__name__ == "dReportWriter":
+			onlyDabo = False
+		propList = joinDynamicProps(cls.getPropertyList(refresh=True, onlyDabo=onlyDabo))
 		eventList = cls.getEventList()
 		methodList = cls.getMethodList(refresh=True)
 		html += getListing("Properties", propList)
