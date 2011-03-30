@@ -50,7 +50,6 @@ def MakeSphinx(builder, rebuildall):
 		p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, 
 			stderr=sc.sphinxStdErrFile, startupinfo=startupinfo).communicate()
 
-
 start = time.time()
 
 args = sys.argv[1:]
@@ -79,4 +78,12 @@ MakeSphinx(builder, rebuildall)
 current = time.time()
 h, m, s = FractSec(int(current - start))
 
-print "\nDabo Documentation Sphinx build '%s' is finished. Elapsed time %02d:%02d:%02d" % (builder, h, m, s)
+sc.sphinxStdErrFile.close()
+
+# check for errors
+errF = open(sc.sStdErr, 'r')
+anyErr = errF.read()
+if anyErr:
+    print "\nThere were errors during the documentation generation, check: %s" % sc.sStdErr
+else:
+    print "\nDabo Documentation Sphinx build '%s' is finished. Elapsed time %02d:%02d:%02d" % (builder, h, m, s)
