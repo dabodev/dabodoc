@@ -51,6 +51,9 @@ pictureIndex = {}
 topLayer = "dabo"
 
 subPackages = ["biz", "db", "lib", "ui"]
+### use following for quick(er) Sphinx tests only
+##subPackages = ["lib"]
+
 
 subSubPackages = {'lib': ["autosuper", "datanav"],
 				  'ui': ["dialogs", "uiwx"]
@@ -188,7 +191,7 @@ noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper
 				 "wx.lib.agw.hyperlink.HyperLinkCtrl",
 				 "wx.lib.agw.foldpanelbar.FoldPanelItem",
 				 "wx.lib.agw.foldpanelbar.FoldPanelBar",
-				 			 
+							 
 				 ]
 
 
@@ -310,15 +313,56 @@ classImage = """
 |appearance| Control Appearance
 ===============================
 
-.. figure:: _static/%s
-   :alt: %s
-   :figclass: floatcenter
-   :align: center
+.. tabularcolumns:: |C|C|C|
 
-   **%s**
+.. list-table::
+   :header-rows: 1
 
+   * - **Apple Mac**
+     - **Windows**
+     - **Linux**
 
 """
+
+classImageMac = """
+
+   * - .. image:: _static/macWidgets/%s
+          :scale: %s
+          :target: _static/macWidgets/%s
+          :alt: %s
+
+"""
+
+classImageMacNO = """
+
+   * - no image available
+
+"""
+
+classImageWin = """
+
+     - .. image:: _static/winWidgets/%s
+          :scale: %s
+          :target: _static/winWidgets/%s
+          :alt: %s
+
+"""
+
+classImageNix = """
+
+     - .. image:: _static/nixWidgets/%s
+          :scale: %s
+          :target: _static/nixWidgets/%s
+          :alt: %s
+
+"""
+
+classImageOthNO = """
+
+     - no image available
+
+"""
+
 
 autosummary = """
 .. autosummary::
@@ -514,11 +558,18 @@ messages and SVN diffs.
 
 """
 
-os.chdir(os.path.join(sc.docFolder, "_static"))
-
-fullImages = glob.glob("*.png")# + glob.glob("*.jpg")
-kImages = [os.path.splitext(img)[0] for img in fullImages]
-
+# windows
+os.chdir(os.path.join(sc.docFolder, "_static\\winWidgets"))
+fullImagesWin = glob.glob("*.png")
+kImagesWin = [os.path.splitext(img)[0] for img in fullImagesWin]
+# MAC
+os.chdir(os.path.join(sc.docFolder, "_static\\macWidgets"))
+fullImagesMac = glob.glob("*.png")
+kImagesMac = [os.path.splitext(img)[0] for img in fullImagesMac]
+# Linux
+os.chdir(os.path.join(sc.docFolder, "_static\\nixWidgets"))
+fullImagesNix = glob.glob("*.png")
+kImagesNix = [os.path.splitext(img)[0] for img in fullImagesNix]
 os.chdir(sc.baseFolder)
 
 moduleauthor = "\n\n.. moduleauthor:: Dabo community <dabo-users@leafe.com>\n\n\n\n"
@@ -1304,7 +1355,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 		for s in sortedSupClasses:
 			if "wx.lib.agw." in s:
 				# intersphinx is not yet working for this
-##				cls = "<agw:%s>" % s.replace("wx.lib.agw.", "")
+##              cls = "<agw:%s>" % s.replace("wx.lib.agw.", "")
 				cls = s
 			else:
 				if daboHack[0] in s and s not in daboHackExceptions:
@@ -1377,13 +1428,37 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 
 	strs += "\n"
 
-	if kls.__name__ in kImages:
-		index = kImages.index(kls.__name__)
-		img1, img2 = fullImages[index], kls.__name__
-		hasPicture = classImage % (img1, img2, img2)
-		pictureIndex[img2] = klsfilename.replace(".rst", ".html")
+	hasPicture = ""
+	# is there any image present?
+	if kls.__name__ in kImagesMac or kls.__name__ in kImagesWin or kls.__name__ in kImagesNix:
+		hasPicture = classImage
+		imgScale = "75 %"
+		if kls.__name__ in kImagesMac:
+			index = kImagesMac.index(kls.__name__)
+			imgName = fullImagesMac[index]
+			hasPicture += classImageMac % (imgName, imgScale, imgName, kls.__name__)
+		else:
+			hasPicture += classImageMacNO
+
+		if kls.__name__ in kImagesWin:
+			index = kImagesWin.index(kls.__name__)
+			imgName = fullImagesWin[index]
+			hasPicture += classImageWin % (imgName, imgScale, imgName, kls.__name__)
+		else:
+			hasPicture += classImageOthNO
+
+		if kls.__name__ in kImagesNix:
+			index = kImagesNix.index(kls.__name__)
+			imgName = fullImagesNix[index]
+			hasPicture += classImageNix % (imgName, imgScale, imgName, kls.__name__)
+		else:
+			hasPicture += classImageOthNO
+			
+		pictureIndex[kls.__name__] = klsfilename.replace(".rst", ".html")
+			
 	else:
 		hasPicture = ""
+
 
 	if superclasses:
 		strs += inheritanceDabo % (kls.__name__, kls.__name__)
@@ -1975,7 +2050,7 @@ for item in checkRst:
 			print "changed file, copy to: %s" % docFile
 	else:
 		shutil.copy(tmpFile, docFile)
-		print "new file, copy to: %s" % docFile		
+		print "new file, copy to: %s" % docFile     
 
 
 current = time.time()
