@@ -29,7 +29,6 @@ else:
 
 
 sStdErr = os.path.join(baseFolder, "sphinxstderr.txt")
-sphinxStdErrStr = " -w %s " % sStdErr
 sphinxStdErrFile = open(sStdErr, 'w')
 
 # supported builders
