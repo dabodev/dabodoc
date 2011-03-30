@@ -8,6 +8,14 @@ p.graphviz {
     overflow: auto
 }
 
+ * /**
+ * control appearance with scroll bars to make them more lisible
+ * "auto" still shows the bars all the time
+ */
+div.appearance-control-appearance {
+    overflow: auto
+}
+
 /**
  * fix intro, search etc to the top, assumes no logo,
  * need to adjust the document wrapper margin and use 
