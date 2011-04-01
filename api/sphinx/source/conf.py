@@ -94,7 +94,10 @@ release = '0.9.3'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns = ['_static/macWidgets/.svn',
+                    '_static/winWidgets/.svn',
+                    '_static/nixWidgets/.svn',
+                    '**/.svn']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -169,7 +172,9 @@ html_style = "AGW.css"
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-html_additional_pages = {'gallery':'gallery.html'}
+html_additional_pages = {'gallery_mac':'gallery_mac.html',
+                         'gallery_win':'gallery_win.html',
+                         'gallery_nix':'gallery_nix.html',}
 
 # If false, no module index is generated.
 #html_domain_indices = True
