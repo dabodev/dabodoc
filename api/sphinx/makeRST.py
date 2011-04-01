@@ -461,7 +461,9 @@ htmlLayout = """
 				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
 				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
 				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
-				<li><a href="gallery.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery</a> |&nbsp;</li>
+				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Mac</a> |&nbsp;</li>
+				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Win</a> |&nbsp;</li>
+				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Nix</a> |&nbsp;</li>
 				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
 {% endblock %}
 
@@ -484,7 +486,9 @@ htmlLayout = """
 				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
 				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
 				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
-				<li><a href="gallery.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery</a> |&nbsp;</li>
+				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Mac</a> |&nbsp;</li>
+				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Win</a> |&nbsp;</li>
+				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Nix</a> |&nbsp;</li>
 				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
 {% endblock %}
 

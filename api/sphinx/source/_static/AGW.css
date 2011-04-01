@@ -397,7 +397,11 @@ div.note {
  .gallery_class table { float: left;
                   margin: 0 5px 20px 0; }
  .gallery_class table { border-collapse: collapse; }
- .gallery_class table td { padding: 0; }
+ .gallery_class table td {
+         padding: 0;
+         width: 150px;
+         height: 128px;}
+}
  .gallery_class table caption { font-size: 80%; }
  .gallery .caption { height: 4em; vertical-align: top; }
  .gallery table { width: 225px; }

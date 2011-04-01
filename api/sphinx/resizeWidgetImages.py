@@ -22,7 +22,7 @@ def resizeWidgets(widgets):
             im.thumbnail((400, 400), Image.ANTIALIAS)
             im.save(img, orgFormat)
             print "resized image: %s\n" % img
-            im.thumbnail((200, 200), Image.ANTIALIAS)
+            im.thumbnail((128, 128), Image.ANTIALIAS)
             tName = file + "_thumb" + ext
             im.save(tName)
             print "resized image: %s\n" % tName
