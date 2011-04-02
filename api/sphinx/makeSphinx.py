@@ -75,6 +75,31 @@ else:
 	
 MakeSphinx(builder, rebuildall)
 
+import stat
+targetFolder = os.path.join(os.path.join(sc.baseFolder, 'build'), builder)
+# walk the tree to change files to writable
+svnFolder = os.path.join(targetFolder, '_static\\macWidgets\\.svn')
+if os.path.isdir(svnFolder):
+    print "remove from build folder: %s" % svnFolder
+    for top, dirs, files in os.walk(svnFolder):
+        for item in files:       
+            os.chmod(os.path.join(top, item), stat.S_IWRITE)  
+    shutil.rmtree(svnFolder)
+svnFolder = os.path.join(targetFolder, '_static\\winWidgets\\.svn')
+if os.path.isdir(svnFolder):
+    print "remove from build folder: %s" % svnFolder
+    for top, dirs, files in os.walk(svnFolder):
+        for item in files:       
+            os.chmod(os.path.join(top, item), stat.S_IWRITE)  
+    shutil.rmtree(svnFolder)
+svnFolder = os.path.join(targetFolder, '_static\\nixWidgets\\.svn')
+if os.path.isdir(svnFolder):
+    print "remove from build folder: %s" % svnFolder
+    for top, dirs, files in os.walk(svnFolder):
+        for item in files:       
+            os.chmod(os.path.join(top, item), stat.S_IWRITE)
+    shutil.rmtree(svnFolder)
+
 current = time.time()
 h, m, s = FractSec(int(current - start))
 
