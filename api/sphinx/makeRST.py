@@ -1093,6 +1093,12 @@ def describeDaboProperties(kls, props):
 	for prop in props:
 		isInherited = False
 		strs = ""
+
+		# we need to create a unique label for use in the summary table
+		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
+		uniqueLinkCounter += 1
+		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
+
 		if prop[:9] == "[Dynamic]":
 			prop = prop[9:]
 		d = kls.getPropertyInfo(prop)
@@ -1112,11 +1118,6 @@ def describeDaboProperties(kls, props):
 				
 			strs += doc + "\n\n"
 	
-		# we need to create a unique label for use in the summary table
-		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
-		uniqueLinkCounter += 1
-		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
-
 		# summary info
 		sumDict[uniqueLinkLabel] = [prop, sumDoc[:100].strip() ]
 	
@@ -1183,6 +1184,11 @@ def describeDaboEvents(kls, events):
 	allEvents = ""
 	for event in events:
 		strs = ""
+		# we need to create a unique label for use in the summary table
+		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
+		uniqueLinkCounter += 1
+		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
+
 		e = dEvents.__dict__[event]
 	
 		strs += "**" + event + "** " + "\n\n"
@@ -1199,11 +1205,6 @@ def describeDaboEvents(kls, events):
 					lc += 1
 
 			strs += doc + "\n\n"
-
-		# we need to create a unique label for use in the summary table
-		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
-		uniqueLinkCounter += 1
-		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
 
 		# summary info
 		sumDict[uniqueLinkLabel] = [event, sumDoc[:100].strip() ]
