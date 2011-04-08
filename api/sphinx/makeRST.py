@@ -59,52 +59,6 @@ subSubPackages = {'lib': ["autosuper", "datanav"],
 				  'ui': ["dialogs", "uiwx"]
 				 }
 
-# redefine the ui stuff
-daboHack = ["dabo.ui.uiwx", "dabo.ui"]
-
-# following cause import errors if I redefine them as e.g. dabo.ui.alignmentMixin
-daboHackExceptions = ["dabo.ui.uiwx.alignmentMixin",
-					  "dabo.ui.uiwx.dBaseMenuBar",
-					  "dabo.ui.uiwx.dCalendar",
-					  "dabo.ui.uiwx.dDateTextBox",
-					  "dabo.ui.uiwx.dEditor",
-					  "dabo.ui.uiwx.dFileDialog",
-					  "dabo.ui.uiwx.dForm",
-					  "dabo.ui.uiwx.dFormMain",
-					  "dabo.ui.uiwx.dGrid",
-					  "dabo.ui.uiwx.gridRenderers",
-					  "dabo.ui.uiwx.dImageMixin",
-					  "dabo.ui.uiwx.dLinePlot",
-					  "dabo.ui.uiwx.dMessageBox",
-					  "dabo.ui.uiwx.dPageFrame",
-					  "dabo.ui.uiwx.dPageFrameNoTabs",
-					  "dabo.ui.uiwx.dPemMixin",
-					  "dabo.ui.uiwx.dProgressDialog",
-					  "dabo.ui.uiwx.dRichTextBox",
-					  "dabo.ui.uiwx.dSplitter",
-					  "dabo.ui.uiwx.dTextBoxMixin",
-					  "dabo.ui.uiwx.dTreeView",
-					  "dabo.ui.uiwx.uiApp.SplashScreen",
-					  "dabo.ui.uiwx.uiApp",
-					  ]
-
-# Currently only this one which doesn't fit into the above
-daboHackClassExceptions = ["dDockPanel", "dDockPane"]
-
-# needed to make some links work
-daboHackForLinks = {"EventMixin": ".lib.eventMixin.",
-					"dPemMixin": ".ui.uiwx.",
-					"dPemMixinBase": ".ui.",
-					"PropertyHelperMixin": ".lib.",
-					"dScrollPanel": ".ui.dPanel.",
-					"dDateTextBox": ".ui.uiwx.",
-					"dFormMixin": ".ui.",
-					"dDataControlMixin": ".ui.",
-					"dNode": ".ui.dTreeView.",
-					"testNode": ".ui.uiwx.",
-					"dControlMixin": ".ui.",
-					}
-
 # no links for "inherited from" for the following, also this should be handled by getPropertyList
 # also used for methods, checks for the module name only
 noInheritLink = ["wx._core", "wx._windows", "wx._controls", 
@@ -129,11 +83,15 @@ noInheritLinkDabo = ["dabo.ui.uiwx.dPanel._BasePanelMixin",
 subPackagesMods = ["dabo_module", "biz_module", "db_module", "lib_module"]
 
 # don't create any TOC with glob for these
-noTOCforMods = ["dabo.dConstants", "dabo.settings", "dabo.ui.concordance",
+noTOCforMods = ["dabo.dConstants", "dabo.settings", "dabo.ui.uiwx.concordance",
 				"dabo.ui.uicurses", "dabo.biz.__init__", "dabo.lib.autosuper.__init__",
 				"dabo.lib.datanav.__init__", "dabo.ui.dialogs.__init__",
 				"dabo.ui.dDockPanel"]
 
+# deprecated, so don't include in TOC
+deprecatedClasses = ["dabo.ui.uiwx.dCheckListBox", "dabo.ui.uiwx.dFoldPanel", 
+                     "dabo.ui.uiwx.dFoldPanelBar"]
+                     
 # define classes which should use autoclass + members
 # otherwise we use getPropertyList, getMethodList and getEventList
 docMembers = ["EventMixin", "EasyDialogBuilder", "autosuper", "SplashScreen"]
@@ -182,8 +140,8 @@ noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper
 				 "dabo.ui.uiwx.dPanel._BasePanelMixin",
 				 "dabo.ui.uiwx.dMenuItem._AbstractExtendedMenuItem",
 				 "wx.lib.platebtn.PlateButton",
-				 "dabo.ui.dBorderSizer.TestForm",
-				 "dabo.ui.dPageFrameNoTabs.TestForm",
+				 "dabo.ui.uiwx.dBorderSizer.TestForm",
+				 "dabo.ui.uiwx.dPageFrameNoTabs.TestForm",
 				 
 				 "wx.lib.agw.aui",
 				 "wx.lib.agw.aui.auibook.AuiNotebook",
@@ -461,9 +419,9 @@ htmlLayout = """
 				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
 				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
 				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
-				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Mac</a> |&nbsp;</li>
-				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Win</a> |&nbsp;</li>
-				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Nix</a> |&nbsp;</li>
+				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Apple Mac</a> |&nbsp;</li>
+				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Ms Windows</a> |&nbsp;</li>
+				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Linux</a> |&nbsp;</li>
 				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
 {% endblock %}
 
@@ -486,9 +444,9 @@ htmlLayout = """
 				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
 				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
 				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
-				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Mac</a> |&nbsp;</li>
-				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Win</a> |&nbsp;</li>
-				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery - Nix</a> |&nbsp;</li>
+				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Apple Mac</a> |&nbsp;</li>
+				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Ms Windows</a> |&nbsp;</li>
+				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Linux</a> |&nbsp;</li>
 				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
 {% endblock %}
 
@@ -720,35 +678,17 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 		return
 
 	cross = ""
-	if daboHack[0] in name and not name in daboHackExceptions:
-		# some links use the "non" hacked name, e.g. dabo.ui.uiwx,
-		# therefore we need an index for it
-		cross = ".. _%s:\n\n" % name
-		name = name.replace(daboHack[0], daboHack[1])
-		# and the hacked index
-		cross = ".. _%s:\n\n" % name
-	else:
-		# an index for each module
-		cross = ".. _%s:\n\n" % name
-	if name in daboHackExceptions:
-		# we can't change the name, but we need an index with changed 
-		# name for links (e.g. superclasses)
-		cross += ".. _%s:\n\n" % name.replace(daboHack[0], daboHack[1])
+	# an index for each module
+	cross = ".. _%s:\n\n" % name
 
 	fileName = name + "_module.rst"
 
 	currentmodule = ""
 
 	if moduleData:
-		if daboHack[0] in name and not name in daboHackExceptions:
-			name = daboHack[1]
-			noIndex = True
 		module = ".. module:: %s\n\n" % name
 		currentName = moduleData.__name__
 	else:
-		if daboHack[0] in name and not name in daboHackExceptions:
-			name = daboHack[0]
-			noIndex = True
 		module = ".. module:: %s\n\n" % name
 		currentName = name
 
@@ -824,10 +764,7 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 	if functions:
 		fun, obj = functions[0]
-		if daboHack[0] in obj.__module__:
-			objName = obj.__module__.replace(daboHack[0], daboHack[1])
-		else:
-			objName = obj.__module__
+		objName = obj.__module__
 		funName = "%s.rst" % (objName)
 		fid = open(funName, "wt")
 		text = ".. module:: %s\n\n" % obj.__module__
@@ -859,16 +796,12 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 	if klasses:
 		for kls, obj in klasses:
-			if daboHack[0] in obj.__module__ and not obj.__module__ in daboHackExceptions and not obj.__name__ in daboHackClassExceptions:
-				kModName = obj.__module__.replace(daboHack[0], daboHack[1])
-			else:
-				kModName = obj.__module__
+			kModName = obj.__module__
 			klsName = "%s.rst" % (kModName + "." + kls)
 			fid = open(klsName, "wt")
 			text = describeDaboKlass(obj, kls, klsName)
 			fid.write(imagesLinks + text + raw)
 			fid.close()
-
 
 def MakeInitDocs(name, raw):
 	os.chdir(sc.rstTempFolder)
@@ -1037,10 +970,7 @@ def describeDaboMethods(kls, methods, klsfilename):
 			elif definedIn.__module__ + "." + definedIn.__name__ in noInheritLinkDabo:
 				strs += "Inherited from: '%s - can not provide a link\n" % (definedIn.__module__ + "." + definedIn.__name__)
 			else:
-				if daboHackForLinks.has_key(definedIn.__name__):
-					strs += "Inherited from: :ref:`%s`\n" % (topLayer + daboHackForLinks.get(definedIn.__name__) + definedIn.__name__)
-				else:
-					strs += "Inherited from: :ref:`%s`\n" % (definedIn.__module__ + "." + definedIn.__name__)
+				strs += "Inherited from: :ref:`%s`\n" % (definedIn.__module__ + "." + definedIn.__name__)
 	
 		strs += "\n-------\n\n"
 		
@@ -1131,10 +1061,7 @@ def describeDaboProperties(kls, props):
 			elif definedIn.__module__ + "." + definedIn.__name__ in noInheritLinkDabo:
 				strs += "Inherited from: '%s - can not provide a link\n" % (definedIn.__module__ + "." + definedIn.__name__)
 			else:
-				if daboHackForLinks.has_key(definedIn.__name__):
-					strs += "Inherited from: :ref:`%s`\n" % (topLayer + daboHackForLinks.get(definedIn.__name__) + definedIn.__name__)
-				else:
-					strs += "Inherited from: :ref:`%s`\n" % (definedIn.__module__ + "." + definedIn.__name__)
+				strs += "Inherited from: :ref:`%s`\n" % (definedIn.__module__ + "." + definedIn.__name__)
 
 		strs += "\n-------\n\n"
 		
@@ -1342,8 +1269,6 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 			sortedSubClasses.append(cls)
 		sortedSubClasses.sort()
 		for cls in sortedSubClasses:
-			if daboHack[0] in cls and cls not in daboHackExceptions:
-				cls = cls.replace(daboHack[0], daboHack[1])
 			if "._" in cls:
 				# ingore all the privat classes which somehow got here
 				continue
@@ -1363,10 +1288,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 ##              cls = "<agw:%s>" % s.replace("wx.lib.agw.", "")
 				cls = s
 			else:
-				if daboHack[0] in s and s not in daboHackExceptions:
-					cls = s.replace(daboHack[0], daboHack[1])
-				else:
-					cls = s
+				cls = s
 			if "._" in cls:
 				# ingore all the privat classes which somehow got here
 				continue
@@ -1379,25 +1301,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 		superclasses = knownSups % superclasses
 
 	name = obj.__module__
-	if daboHack[0] in name and not name in daboHackExceptions and not obj.__name__ in daboHackClassExceptions:
-		name = daboHack[1]
 	strs = ".. module:: %s\n\n" % name
-
-	if daboHack[0] in obj.__module__ and not obj.__module__ in daboHackExceptions and not obj.__name__ in daboHackClassExceptions:
-		tmp = obj.__module__.replace(daboHack[0], daboHack[1])
-		# an index for each name within the module, daboHack applied
-		strs += ".. _%s:\n\n" % (tmp + "." + obj.__name__)
-		# if source is in package, create another index
-		if "__init__" in tmp:
-			strs += ".. _%s:\n\n" % (tmp.replace(".__init__", "") + "." + obj.__name__)
-
-	if obj.__module__ in daboHackExceptions:
-		# we also need an index without daboHack for exceptions for links (e.g. superclasses)
-		strs += ".. _%s:\n\n" % (obj.__module__.replace(daboHack[0], daboHack[1]) + "." + obj.__name__)
-
-	if obj.__name__ in daboHackClassExceptions:
-		# we also need an index without daboHack for exceptions for links (e.g. superclasses)
-		strs += ".. _%s:\n\n" % (obj.__module__.replace(daboHack[0], daboHack[1]) + "." + obj.__name__)
 
 	# an index for each name within the module
 	# if daboHack then this will create one with original name e.g. dabo.ui.uiwx
@@ -1479,10 +1383,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 	strs += "\n|API| Class API\n"
 	strs += "===============\n\n"
 
-	if daboHack[0] in kls.__module__ and not kls.__module__ in daboHackExceptions and not kls.__name__ in daboHackClassExceptions:
-		modName = daboHack[1]
-	else:
-		modName = kls.__module__
+	modName = kls.__module__
 	
 	if kls.__name__ in docMembers:
 		strs += "\n.. autoclass:: %s" % (modName + "." + kls.__name__)
@@ -1629,95 +1530,6 @@ def AddPrettyTable(text, isModule, fileName):
 
 	return "\n".join(lines)
 
-
-def RemoveInheritanceTag(text):
-
-	if "digraph " not in text:
-		return text
-
-	indx1 = text.index("digraph ")
-	indx2 = text[indx1:].index("}")
-
-	text = text[0:indx1] + "Inheritance diagram" + text[indx1+indx2+1:]
-
-	return text
-
-
-def DeleteSummaryHierarchy(text):
-
-	newText = ""
-	found = False
-	todo = True
-
-	for line in text.split("\n"):
-		if 'style="width: 32px;" /> Methods Summary' in line:
-			found = True
-			newText += line + "\n"
-			continue
-
-		if not found:
-			newText += line + "\n"
-			continue
-
-		if "</tbody>" in line:
-			found = False
-			newText += line + "\n"
-			continue
-
-		if "</tr>" in line:
-			todo = True
-
-		if '<span class="pre">' in line and todo:
-			index = line.index('<span class="pre">') + len('<span class="pre">')
-			newBlock = line[index:]
-			if "." in newBlock:
-				index2 = newBlock.rindex(".")+1
-				newBlock2 = newBlock[index2:]
-			else:
-				newBlock2 = newBlock
-			newText += line[0:index] + newBlock2
-			todo = False
-		else:
-			newText += line + "\n"
-
-	return newText
-
-
-def RemovePanel(text):
-
-	tt = text.split("\n")
-	newText = []
-	toContinue = False
-
-	for line in tt:
-
-		if toContinue:
-			if '<a class="trigger" href="#">Tree</a>' in line:
-				toContinue = False
-				continue
-
-		if line.startswith('"<script type="text/javascript">') and line.strip() == '<script type="text/javascript">':
-			toContinue = True
-
-		if not toContinue:
-			newText.append(line)
-
-	return "\n".join(newText)
-
-
-def AddJS(text):
-
-	tt = text.split("\n")
-	newText = []
-
-	for line in tt:
-		newText.append(line)
-		if "meta http-equiv" in line:
-			newText.append('    <script type="text/javascript" src="_static/jquery.js"></script>')
-
-	return "\n".join(newText)
-
-
 def WriteGeneralIndex():
 
 	fid = open("general_index.rst", "wt")
@@ -1734,9 +1546,12 @@ def WriteGeneralIndex():
 	fid.write("\n=============\n\n")
 	fid.write(".. tocTree::\n")
 	fid.write("   :maxdepth: 1\n\n")
-	for item in allPackages:
-		if daboHack[0] not in item:
-			fid.write(("   %s_module\n" % item))
+	allPkgForIndex = allPackages
+	# these are already in dabo.ui, so don't show them here again
+	allPkgForIndex.remove("dabo.ui.dialogs")
+	allPkgForIndex.remove("dabo.ui.uiwx")
+	for item in allPkgForIndex:
+		fid.write(("   %s_module\n" % item))
 	fid.write("\n\n")
 	
 	# now do all the items within each package
@@ -1766,12 +1581,14 @@ def WriteGeneralIndex():
 			dLibD.append(item)
 		elif "dabo.lib" in item and not "_module.rst" in item:
 			dLib.append(item)
+
 		elif "dabo.ui.uiwx" in item and not "_module.rst" in item:
 			dUix.append(item)
 		elif "dabo.ui.dialogs" in item and not "_module.rst" in item:
 			dUid.append(item)
 		elif "dabo.ui" in item and not "_module.rst" in item:
 			dUi.append(item)
+
 		elif "index" in item and not "_module.rst" in item:
 			pass
 		elif not "_module.rst" in item:
@@ -1802,38 +1619,42 @@ def WriteGeneralIndex():
 	for item in dBiz:
 		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
 	fid.write("\n\n")
-
-	fid.write("Dabo - ui\n")
-	fid.write("=========\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dUi:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
-
-	fid.write("Dabo - ui dialogs\n")
-	fid.write("=================\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dUid:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
-
-	fid.write("Dabo - ui other\n")
-	fid.write("=================\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dUix:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
-
-	fid.write("Dabo - ui datanav\n")
-	fid.write("=================\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dLibD:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
+	
+	# write the UI index stuff, use it here and further below
+	uiIndexText = WriteUiPackageIndex(dUix, dUid, dLibD)
+	
+	fid.write(uiIndexText)
+##	fid.write("Dabo - ui\n")
+##	fid.write("=========\n\n")
+##	fid.write(".. tocTree::\n")
+##	fid.write("   :maxdepth: 1\n\n")
+##	for item in dUi:
+##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
+##	fid.write("\n\n")
+##
+##	fid.write("Dabo - ui dialogs\n")
+##	fid.write("=================\n\n")
+##	fid.write(".. tocTree::\n")
+##	fid.write("   :maxdepth: 1\n\n")
+##	for item in dUid:
+##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
+##	fid.write("\n\n")
+##
+##	fid.write("Dabo - ui other\n")
+##	fid.write("=================\n\n")
+##	fid.write(".. tocTree::\n")
+##	fid.write("   :maxdepth: 1\n\n")
+##	for item in dUix:
+##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
+##	fid.write("\n\n")
+##
+##	fid.write("Dabo - ui datanav\n")
+##	fid.write("=================\n\n")
+##	fid.write(".. tocTree::\n")
+##	fid.write("   :maxdepth: 1\n\n")
+##	for item in dLibD:
+##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
+##	fid.write("\n\n")
 
 	fid.write("Dabo - lib\n")
 	fid.write("==========\n\n")
@@ -1844,7 +1665,6 @@ def WriteGeneralIndex():
 	for item in dLibA:
 		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
 	fid.write("\n\n")
-
 
 	#
 	# a hack to get rid of the toc warning for these
@@ -1861,49 +1681,103 @@ def WriteGeneralIndex():
 
 	fid.close()
 	
-	WriteUiPackageIndex(dUi, dUix, dUid, dLibD)
-
-def WriteUiPackageIndex(dUi, dUix, dUid, dLibD):
-
+	# create the index for the ui_module
 	fid = open("dabo.ui_module.rst", "wt")
 	fid.write(imagesLinks + "\n")
 	fid.write(".. _dabo.ui:\n\n")
 	fid.write("=================================\n")
 	fid.write("|doc_title| **dabo - ui package**\n")
 	fid.write("=================================\n\n")
-
-	fid.write("Widgets and sizers\n")
-	fid.write("==================\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dUi:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
-
-	fid.write("Dialogs\n")
-	fid.write("========\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dUid:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
-
-	fid.write("Dabo - ui other\n")
-	fid.write("=================\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dUix:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
-
-	fid.write("Dabo - ui datanav\n")
-	fid.write("=================\n\n")
-	fid.write(".. tocTree::\n")
-	fid.write("   :maxdepth: 1\n\n")
-	for item in dLibD:
-		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-	fid.write("\n\n")
+	fid.write(uiIndexText)
 	fid.close()
+
+def WriteUiPackageIndex(dUix, dUid, dLibD):
+
+	indexText = ""
+	controlClasses, formClasses, sizerClasses = GetUiClasses()
+
+	indexText += "Dabo - UI - form classes\n"
+	indexText += "========================\n\n"
+	indexText += ".. tocTree::\n"
+	indexText += "   :maxdepth: 1\n\n"
+
+	for item in formClasses:
+		indexText += "   %s\n" % item
+	indexText += "\n\n"
+
+	indexText += "Dabo - UI - control classes\n"
+	indexText += "===========================\n\n"
+	indexText += ".. tocTree::\n"
+	indexText += "   :maxdepth: 1\n\n"
+
+	for item in controlClasses:
+		if not item in deprecatedClasses:
+			indexText += "   %s\n" % item
+	indexText += "\n\n"
+
+	indexText += "Dabo - UI - sizer classes\n"
+	indexText += "=========================\n\n"
+	indexText += ".. tocTree::\n"
+	indexText += "   :maxdepth: 1\n\n"
+
+	for item in sizerClasses:
+		indexText += "   %s\n" % item
+	indexText += "\n\n"
+
+	indexText += "Dabo - Dialogs\n"
+	indexText += "==============\n\n"
+	indexText += ".. tocTree::\n"
+	indexText += "   :maxdepth: 1\n\n"
+	for item in dUid:
+		indexText += "   %s\n" % os.path.split(item)[1].replace(".rst", "")
+	indexText += "\n\n"
+
+	indexText += "Dabo - ui other\n"
+	indexText += "===============\n\n"
+	indexText += ".. tocTree::\n"
+	indexText += "   :maxdepth: 1\n\n"
+
+	alreadyCovered = controlClasses + formClasses + sizerClasses
+	for item in dUix:
+		theItem = os.path.split(item)[1].replace(".rst", "")
+		if not theItem in alreadyCovered:
+			indexText += "   %s\n" % theItem
+	indexText += "\n\n"
+
+	indexText += "Dabo - ui datanav\n"
+	indexText += "=================\n\n"
+	indexText += ".. tocTree::\n"
+	indexText += "   :maxdepth: 1\n\n"
+	for item in dLibD:
+		indexText += "   %s\n" % os.path.split(item)[1].replace(".rst", "")
+	indexText += "\n\n"
+	
+	return indexText
+
+def GetUiClasses():
+	# Now we dynamically gather the ui classes to document:
+	controlClasses = []
+	formClasses = []
+	sizerClasses = []
+	
+	for i in dir(dabo.ui):
+		item = dabo.ui.__dict__[i]
+		if type(item) == type:
+			if "Mixin" not in item.__name__:
+				if issubclass(item, dabo.ui.dControlMixin):
+					itemName = str(item).replace("<class '", "")
+					itemName = itemName.replace("'>", "")
+					controlClasses.append(itemName)
+				if issubclass(item, dabo.ui.dFormMixin):
+					itemName = str(item).replace("<class '", "")
+					itemName = itemName.replace("'>", "")
+					formClasses.append(itemName)
+				if issubclass(item, dabo.ui.dSizerMixin):
+					itemName = str(item).replace("<class '", "")
+					itemName = itemName.replace("'>", "")
+					sizerClasses.append(itemName)
+
+	return controlClasses, formClasses, sizerClasses
 
 def WriteLayout(folder):
 

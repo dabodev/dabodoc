@@ -4,6 +4,7 @@ import os
 import sys
 import time
 import shutil
+import stat
 
 # force it, otherwise the none ASCII stuff causes a problem for Sphinx
 reload(sys)
@@ -72,11 +73,19 @@ else:
 			rebuildall = True
 		else:
 			rebuildall = False
-	
+
+# hack for Sphinx, clear out build/_images folder not to duplicate stuff
+targetFolder = os.path.join(os.path.join(sc.baseFolder, 'build'), builder)
+imgFolder = os.path.join(targetFolder, '_images')
+if os.path.isdir(imgFolder):
+    print "remove from build folder: %s" % imgFolder
+    shutil.rmtree(imgFolder)
+
+
+# build	
 MakeSphinx(builder, rebuildall)
 
-import stat
-targetFolder = os.path.join(os.path.join(sc.baseFolder, 'build'), builder)
+
 # walk the tree to change files to writable
 svnFolder = os.path.join(targetFolder, '_static\\macWidgets\\.svn')
 if os.path.isdir(svnFolder):
