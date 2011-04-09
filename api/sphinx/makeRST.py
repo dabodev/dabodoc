@@ -407,74 +407,6 @@ noInheritance = """
 
 """
 
-# this one is with a big logo on the top
-htmlLayout = """
-{% extends "!layout.html" %}
-
-{%- block relbaritems %}
-  <li>{{ title }}</li>
-{% endblock %}
-
-{% block rootrellink %}
-				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
-				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
-				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
-				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Apple Mac</a> |&nbsp;</li>
-				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Ms Windows</a> |&nbsp;</li>
-				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Linux</a> |&nbsp;</li>
-				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
-{% endblock %}
-
-{% block header %}
-<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
-<img src="{{ pathto("_static/dabo_logo.png", 1) }}" alt="Dabo Logo" />
-</div>
-{% endblock %}
-"""
-
-# this one has no logo at the top
-htmlLayout = """
-{% extends "!layout.html" %}
-
-{%- block relbaritems %}
-  <li>{{ title }}</li>
-{% endblock %}
-
-{% block rootrellink %}
-				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
-				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Introduction</a> |&nbsp;</li>
-				<li><a href="search.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Search</a> |&nbsp;</li>
-				<li><a href="gallery_mac.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Apple Mac</a> |&nbsp;</li>
-				<li><a href="gallery_win.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Ms Windows</a> |&nbsp;</li>
-				<li><a href="gallery_nix.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Linux</a> |&nbsp;</li>
-				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
-{% endblock %}
-
-{% block header %}
-{% endblock %}
-"""
-
-otherLayout = """
-{% extends "!layout.html" %}
-
-{%- block relbaritems %}
-  <li>{{ title }}</li>
-{% endblock %}
-
-{% block rootrellink %}
-				<li><img src="_static/dabo_small.png" alt="" style="vertical-align: middle; margin-top: 7px"/></li>
-				<li><a href="index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Home</a> |&nbsp;</li>
-				<li><a href="gallery.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Gallery</a> |&nbsp;</li>
-				<li><a href="general_index.html" style="color: rgb(238, 152, 22); hover: rgb(53, 95, 124);">Contents</a>&raquo;</li>
-{% endblock %}
-
-{% block header %}
-<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
-<img src="{{ pathto("_static/dabo_logo.png", 1) }}" alt="Dabo Logo" />
-</div>
-{% endblock %}
-"""
-
 rawhtmlfull = """
 
 .. raw:: html
@@ -1624,37 +1556,6 @@ def WriteGeneralIndex():
 	uiIndexText = WriteUiPackageIndex(dUix, dUid, dLibD)
 	
 	fid.write(uiIndexText)
-##	fid.write("Dabo - ui\n")
-##	fid.write("=========\n\n")
-##	fid.write(".. tocTree::\n")
-##	fid.write("   :maxdepth: 1\n\n")
-##	for item in dUi:
-##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-##	fid.write("\n\n")
-##
-##	fid.write("Dabo - ui dialogs\n")
-##	fid.write("=================\n\n")
-##	fid.write(".. tocTree::\n")
-##	fid.write("   :maxdepth: 1\n\n")
-##	for item in dUid:
-##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-##	fid.write("\n\n")
-##
-##	fid.write("Dabo - ui other\n")
-##	fid.write("=================\n\n")
-##	fid.write(".. tocTree::\n")
-##	fid.write("   :maxdepth: 1\n\n")
-##	for item in dUix:
-##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-##	fid.write("\n\n")
-##
-##	fid.write("Dabo - ui datanav\n")
-##	fid.write("=================\n\n")
-##	fid.write(".. tocTree::\n")
-##	fid.write("   :maxdepth: 1\n\n")
-##	for item in dLibD:
-##		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
-##	fid.write("\n\n")
 
 	fid.write("Dabo - lib\n")
 	fid.write("==========\n\n")
@@ -1688,6 +1589,7 @@ def WriteGeneralIndex():
 	fid.write("=================================\n")
 	fid.write("|doc_title| **dabo - ui package**\n")
 	fid.write("=================================\n\n")
+
 	fid.write(uiIndexText)
 	fid.close()
 
@@ -1779,18 +1681,6 @@ def GetUiClasses():
 
 	return controlClasses, formClasses, sizerClasses
 
-def WriteLayout(folder):
-
-	if folder in [sc.normalHtml]:
-		layout = htmlLayout
-	else:
-		layout = otherLayout
-
-	fid = open("source/_templates/layout.html", "wt")
-	fid.write(layout)
-	fid.close()
-
-
 def WriteIndex(folder):
 
 	if folder in [sc.normalHtml]:
@@ -1809,32 +1699,12 @@ def WriteIndex(folder):
 	fid.write(text)
 	fid.close()
 
-	# do the magic for the "Tree" button
-	if folder in [sc.normalHtml]:
-		raw = FindRawModules()
-	else:
-		# need the | otherwise we might have transitions "--------" at the end of a file, which is not allowed
-		raw = "\n|\n"
+	# need the | otherwise we might have transitions "--------" at the end of a file, which is not allowed
+	raw = "\n|\n"
+
 	return raw
 
-def FindRawModules():
-
-	fid = open("_rst_basefiles/tree_module_list.rst", "rt")
-	found = False
-	moduleList = ""
-	for tline in fid:
-
-		tline = tline.strip()
-		mod, name = tline.split(',')
-
-		moduleList += rawhtmlsingle % (mod+".html", name) + "\n"
-
-	fid.close()
-
-	return rawhtmlfull % moduleList
-
 def MakeRst(builder):
-	WriteLayout(builder)
 	raw = WriteIndex(builder)
 
 	# create the *_module.rst for top layer and packages

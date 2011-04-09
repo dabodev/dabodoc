@@ -70,8 +70,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Dabo - The desktop application framework'
-copyright = u'2011, Ed Leafe and Paul McNett'
+project = u'Dabo'
+copyright_year = '2011'
+copyright = copyright_year + u' by Ed Leafe and Paul McNett'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -129,8 +130,7 @@ html_theme = 'dabo_theme'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {"stickysidebar": False, "rightsidebar": False,
-					  "collapsiblesidebar": True}
+#html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = ["."]
@@ -155,8 +155,6 @@ html_theme_path = ["."]
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-html_style = "AGW.css"
 
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
@@ -217,7 +215,7 @@ htmlhelp_basename = 'dabo'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Dabo-Thedesktopapplicationframework.tex', u'Dabo - The desktop application framework Documentation',
+  ('index', 'Dabo-Thedesktopapplicationframework.tex', u'Dabo',
    u'Ed Leafe and Paul McNett', 'manual'),
 ]
 

@@ -1,8 +1,8 @@
 .. include:: _static/headings.txt
 
-========================================================
-|doc_title| **Dabo - The desktop application framework**
-========================================================
+====================
+|doc_title| **Dabo**
+====================
 
 Desktop applications. That's what Dabo does. It's not YAWF (yet another web framework).
 There are plenty of excellent web frameworks out there, so if that's what you are looking
@@ -11,19 +11,56 @@ and if you want to create applications that run on Windows, OS X or Linux, Dabo 
 
 |
 
-.. figure:: _static/dabo_horizontal_sidebar.png
-   :alt: dabo screenshots
-   :figclass: floatcenter
-   :align: center
-   :target: gallery.html
+.. tabularcolumns:: |C|C|C|
 
-   **Dabo** sample screenshots
+.. list-table::
+   :header-rows: 1
+
+   * - **Apple Mac**
+     - **Windows**
+     - **Linux**
+
+
+
+   * - .. image:: _static/macWidgets/dGrid.png
+          :scale: 75 %
+          :target: gallery_mac.html
+          :alt: dGrid on Mac
+
+
+
+     - .. image:: _static/winWidgets/dGrid.png
+          :scale: 75 %
+          :target: gallery_win.html
+          :alt: dGrid on Windows
+
+
+
+     - .. image:: _static/nixWidgets/dGrid.png
+          :scale: 75 %
+          :target: gallery_nix.html
+          :alt: dGrid on Linux
 
 |
 
-:Version: |version|
-:Date: |today|
 
+
+|table_contents| Table of Contents
+==================================
+
+|
+
++-----------------------------------+-----------------------------------+
+| Main modules                      | Databases supported               |
++===================================+===================================+
+| * :ref:`dabo.dabo`                | * :ref:`dabo.db.dbFirebird`       |
+| * :ref:`dabo.biz`                 | * :ref:`dabo.db.dbMSSQL`          |
+| * :ref:`dabo.db`                  | * :ref:`dabo.db.dbMySQL`          |
+| * :ref:`dabo.ui`                  | * :ref:`dabo.db.dbPostgreSQL`     |
+|                                   | * :ref:`dabo.db.dbSQLite`         |
++-----------------------------------+-----------------------------------+
+
+|
 
 =========================
 |description| Description
@@ -130,44 +167,6 @@ Please let us know if you are using **Dabo**!
 
 ---------------
 
-**Dabo** version: |version|
-
-Last updated: |today|, 10.00 GMT
-
----------------
-
-
-|table_contents| Table of Contents
-==================================
-
-|
-
-+-----------------------------------+-----------------------------------+
-| Dabo                              | Databases supported               |
-+===================================+===================================+
-| * :ref:`dabo.dApp`                | * :ref:`dabo.db.dbFirebird`       |
-| * :ref:`dabo.dObject`             | * :ref:`dabo.db.dbMSSQL`          |
-| * :ref:`dabo.dReportWriter`       | * :ref:`dabo.db.dbMySQL`          |
-| * :ref:`dabo.dSecurityManager`    | * :ref:`dabo.db.dbPostgreSQL`     |
-| * :ref:`dabo.dUserSettingProvider`| * :ref:`dabo.db.dbSQLite`         |
-+-----------------------------------+-----------------------------------+
-| db module                         | biz module                        |
-+-----------------------------------+-----------------------------------+
-| * :ref:`dabo.db.dBackend`         | * :ref:`dabo.biz.dBizobj`         |
-| * :ref:`dabo.db.dConnectInfo`     | * :ref:`dabo.biz.dAutoBizobj`     |
-| * :ref:`dabo.db.dConnection`      | * :ref:`dabo.biz.RemoteBizObj`    |
-| * :ref:`dabo.db.dCursorMixin`     |                                   |
-| * :ref:`dabo.db.dNoEscQuoteStr`   |                                   |
-| * :ref:`dabo.db.dTable`           |                                   |
-|                                   |                                   |
-+-----------------------------------+-----------------------------------+
-| ui module                         |                                   |
-+-----------------------------------+-----------------------------------+
-| * :ref:`dabo.ui`                  |                                   |
-+-----------------------------------+-----------------------------------+
-
-
-
 |indices| Indices and tables
 ============================
 
@@ -175,6 +174,13 @@ Last updated: |today|, 10.00 GMT
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Build information:
+==================
+
+:Version: |version|
+:Date: |today|
+
 
 .. toctree::
    :hidden:
