@@ -33,8 +33,10 @@ tags.add('pdf')
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-sys.path.append(os.path.abspath(r"C:\dev\dabodoc\api\sphinx"))
-sys.path.append(os.path.abspath(r"c:\dev\dabo"))
+#sys.path.append(os.path.abspath(r"C:\dev\dabodoc\api\sphinx")) # win
+#sys.path.append(os.path.abspath(r"c:\dev\dabo")) # win
+sys.path.append(os.path.abspath(r"/home/wbruhin/devTools/dabodoc/api/sphinx")) # nix
+sys.path.append(os.path.abspath(r"/home/wbruhin/devTools/dabo/dabo")) # nix
 sys.path.append("sphinxext")
 
 # need to force it into English

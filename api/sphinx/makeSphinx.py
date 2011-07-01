@@ -5,6 +5,7 @@ import sys
 import time
 import shutil
 import stat
+import platform
 
 # force it, otherwise the none ASCII stuff causes a problem for Sphinx
 reload(sys)
@@ -22,13 +23,14 @@ def FractSec(s):
 	return h, min, s
 
 def MakeSphinx(builder, rebuildall):
-	startupinfo = subprocess.STARTUPINFO()
-	startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+	if platform.system() == "Windows":
+		startupinfo = subprocess.STARTUPINFO()
+		startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
 	sourceFolder = sc.docFolder
 	targetFolder = os.path.join(os.path.join(sc.baseFolder, 'build'), builder)
 	confFolder = sc.docFolder
-	
+
 	if rebuildall:
 		# clear targetFolder
 		shutil.rmtree(targetFolder, ignore_errors=True)
@@ -37,19 +39,31 @@ def MakeSphinx(builder, rebuildall):
 		# sphinxErrFile is a dup of sphinxStdErr
 		command = sc.sphinxBuildCmd + ' -ac ' + confFolder +' -b '+ builder + \
 				sc.graphVizDot + sourceFolder +' ' + targetFolder
+		commandArgs = [sc.sphinxBuildCmd, ' -ac ', confFolder, ' -b ', builder,
+				sc.graphVizDot, sourceFolder, ' ', targetFolder]
 	else:
 		# TO REBUILD CHANGED
 		command = sc.sphinxBuildCmd + ' -c ' + confFolder +' -b '+ builder + \
 				sc.graphVizDot + sourceFolder +' ' + targetFolder
+		commandArgs = [sc.sphinxBuildCmd, ' -c ' + confFolder, ' -b ', builder, \
+				sc.graphVizDot, sourceFolder, ' ', targetFolder]
 
-	p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, 
+	if platform.system() == "Windows":
+		p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None,
 			stderr=sc.sphinxStdErrFile, startupinfo=startupinfo).communicate()
+	else:
+		p = subprocess.Popen(commandArgs, stdin=subprocess.PIPE, stdout=None,
+			stderr=sc.sphinxStdErrFile).communicate()
 
 	if builder == 'htmlhelp':
 		hhpFile = os.path.join(os.path.join(targetFolder), sc.hhpName)
 		command = sc.hhcExe + hhpFile
-		p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None, 
-			stderr=sc.sphinxStdErrFile, startupinfo=startupinfo).communicate()
+		if platform.system() == "Windows":
+			p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None,
+				stderr=sc.sphinxStdErrFile, startupinfo=startupinfo).communicate()
+		else:
+			p = subprocess.Popen(commandArgs, stdin=subprocess.PIPE, stdout=None,
+				stderr=sc.sphinxStdErrFile).communicate()
 
 start = time.time()
 
@@ -82,7 +96,7 @@ if os.path.isdir(imgFolder):
     shutil.rmtree(imgFolder)
 
 
-# build	
+# build
 MakeSphinx(builder, rebuildall)
 
 
@@ -91,21 +105,21 @@ svnFolder = os.path.join(targetFolder, '_static\\macWidgets\\.svn')
 if os.path.isdir(svnFolder):
     print "remove from build folder: %s" % svnFolder
     for top, dirs, files in os.walk(svnFolder):
-        for item in files:       
-            os.chmod(os.path.join(top, item), stat.S_IWRITE)  
+        for item in files:
+            os.chmod(os.path.join(top, item), stat.S_IWRITE)
     shutil.rmtree(svnFolder)
 svnFolder = os.path.join(targetFolder, '_static\\winWidgets\\.svn')
 if os.path.isdir(svnFolder):
     print "remove from build folder: %s" % svnFolder
     for top, dirs, files in os.walk(svnFolder):
-        for item in files:       
-            os.chmod(os.path.join(top, item), stat.S_IWRITE)  
+        for item in files:
+            os.chmod(os.path.join(top, item), stat.S_IWRITE)
     shutil.rmtree(svnFolder)
 svnFolder = os.path.join(targetFolder, '_static\\nixWidgets\\.svn')
 if os.path.isdir(svnFolder):
     print "remove from build folder: %s" % svnFolder
     for top, dirs, files in os.walk(svnFolder):
-        for item in files:       
+        for item in files:
             os.chmod(os.path.join(top, item), stat.S_IWRITE)
     shutil.rmtree(svnFolder)
 

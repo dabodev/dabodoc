@@ -36,6 +36,7 @@ import config as sc
 
 # needed for issubclass check
 import dabo
+dabo.ui.loadUI("wx")
 # needed for describeDaboEvents
 from dabo import dEvents
 
@@ -61,14 +62,14 @@ subSubPackages = {'lib': ["autosuper", "datanav"],
 
 # no links for "inherited from" for the following, also this should be handled by getPropertyList
 # also used for methods, checks for the module name only
-noInheritLink = ["wx._core", "wx._windows", "wx._controls", 
+noInheritLink = ["wx._core", "wx._windows", "wx._controls",
 				 "wx.richtext", "wx.lib.pdfwin",
-				 "wx.grid", 
+				 "wx.grid",
 				 "wx.html", "wx.lib.plot",
 				 "simplejson.decoder", "wx.glcanvas",
 				 "wx.gizmos", "wx._core",
 				 "wx.lib.mixins.listctrl",
-				 "wx.lib.masked.textctrl", 
+				 "wx.lib.masked.textctrl",
 				 "wx.lib.pdfwin","wx._misc",
 				 "wx.lib.buttons",
 				 "wx.calendar", "wx.stc",
@@ -89,9 +90,9 @@ noTOCforMods = ["dabo.dConstants", "dabo.settings", "dabo.ui.uiwx.concordance",
 				"dabo.ui.dDockPanel"]
 
 # deprecated, so don't include in TOC
-deprecatedClasses = ["dabo.ui.uiwx.dCheckListBox", "dabo.ui.uiwx.dFoldPanel", 
+deprecatedClasses = ["dabo.ui.uiwx.dCheckListBox", "dabo.ui.uiwx.dFoldPanel",
                      "dabo.ui.uiwx.dFoldPanelBar"]
-                     
+
 # define classes which should use autoclass + members
 # otherwise we use getPropertyList, getMethodList and getEventList
 docMembers = ["EventMixin", "EasyDialogBuilder", "autosuper", "SplashScreen"]
@@ -100,7 +101,7 @@ docMembers = ["EventMixin", "EasyDialogBuilder", "autosuper", "SplashScreen"]
 dupNoindex = ["Rect", "Rectangle", "autosuper", "lbl", "txt"]
 
 # following can't be linked at the moment
-noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper.autosuper", 
+noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper.autosuper",
 				 "wx._controls.StaticBitmap", "wx._controls.BitmapButton",
 				 "wx._controls.StaticBox", "wx._controls.Button",
 				 "wx._controls.CheckBox", "wx._controls.CheckListBox",
@@ -123,7 +124,7 @@ noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper
 				 "wx.grid.PyGridCellRenderer", "wx.grid.GridCellChoiceEditor",
 				 "wx.grid.Grid", "wx.grid.PyGridTableBase",
 				 "wx.html.HtmlWindow", "wx.lib.plot.PlotCanvas",
-				 "simplejson.decoder.JSONDecoder", "simplejson.encoder.JSONEncoder", 
+				 "simplejson.decoder.JSONDecoder", "simplejson.encoder.JSONEncoder",
 				 "wx.glcanvas.GLCanvas",
 				 "wx.gizmos.EditableListBox", "wx._core.GridBagSizer",
 				 "wx.lib.mixins.listctrl.ListCtrlAutoWidthMixin",
@@ -142,14 +143,14 @@ noSuClassLink = ["dabo.db.dConnection.DaboCursor", "dabo.lib.autosuper.autosuper
 				 "wx.lib.platebtn.PlateButton",
 				 "dabo.ui.uiwx.dBorderSizer.TestForm",
 				 "dabo.ui.uiwx.dPageFrameNoTabs.TestForm",
-				 
+
 				 "wx.lib.agw.aui",
 				 "wx.lib.agw.aui.auibook.AuiNotebook",
 				 "wx.lib.agw.FlatNotebook",
 				 "wx.lib.agw.hyperlink.HyperLinkCtrl",
 				 "wx.lib.agw.foldpanelbar.FoldPanelItem",
 				 "wx.lib.agw.foldpanelbar.FoldPanelBar",
-							 
+
 				 ]
 
 
@@ -174,16 +175,16 @@ for pkg in subSubPackages:
 excludedClasses = ["modglob", "connHandler", "FuncProfile", "FuncSource", "HotShotFuncCoverage",
 				   "HotShotFuncProfile", "TraceFuncCoverage", "PageCountCanvas",
 				   "specHandler", "Event", "TestForm", "Rect",
-					
+
 				   "__builtin__",
 					]
 
 # Dabo ones cause import errors, i.e. probably something to do with namespace, just exclude them for now
 # TODO: should this be full names, e.g. dabo.ui.uiwx.dPageFrame.onPageChanged to be make sure to exclude the right thing?
-excludedFunctions = ["PageFrame", "onPageChanged", "readonly", "main", 
+excludedFunctions = ["PageFrame", "onPageChanged", "readonly", "main",
 					 "autoCreateTables", "setupAutoBiz", "resetHTML",
 					 "textChangeHandler",
-					 
+
 					 "GetTranslation", "_gdi"]
 
 excludedIcons = ["info.png", "note.png", "seealso.png", "todo.png", "warning.png", "navigation.png"]
@@ -453,15 +454,15 @@ messages and SVN diffs.
 """
 
 # windows
-os.chdir(os.path.join(sc.docFolder, "_static\\winWidgets"))
+os.chdir(os.path.join(sc.docFolder, "_static/winWidgets"))
 fullImagesWin = glob.glob("*.png")
 kImagesWin = [os.path.splitext(img)[0] for img in fullImagesWin]
 # MAC
-os.chdir(os.path.join(sc.docFolder, "_static\\macWidgets"))
+os.chdir(os.path.join(sc.docFolder, "_static/macWidgets"))
 fullImagesMac = glob.glob("*.png")
 kImagesMac = [os.path.splitext(img)[0] for img in fullImagesMac]
 # Linux
-os.chdir(os.path.join(sc.docFolder, "_static\\nixWidgets"))
+os.chdir(os.path.join(sc.docFolder, "_static/nixWidgets"))
 fullImagesNix = glob.glob("*.png")
 kImagesNix = [os.path.splitext(img)[0] for img in fullImagesNix]
 os.chdir(sc.baseFolder)
@@ -599,7 +600,7 @@ def MangleDocs(myname, docs, strip=True, replacetabs=True):
 
 		if found:
 			lines[i+1] = lines[i+1].strip() + "===================\n"
-			
+
 	return "\n".join(lines)
 
 
@@ -843,7 +844,7 @@ def describeDaboMethods(kls, methods, klsfilename):
 	for method in methods:
 		isInherited = False
 		strs = ""
-	
+
 		if type(kls) == type:
 			m = None
 			definedIn = None
@@ -862,23 +863,23 @@ def describeDaboMethods(kls, methods, klsfilename):
 
 		if definedIn != kls:
 			isInherited = True
-	
+
 		args = inspect.getargspec(m)
 		args = inspect.formatargspec(args[0], args[1], args[2], args[3])
-	
+
 		# we need to create a unique label for use in the summary table
 		uniqueLinkLabel = "no-" + str(uniqueLinkCounter)
 		uniqueLinkCounter += 1
 		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
-				
+
 		rArgs = args.replace(" **", " \**").replace(" *", " \*")
 		# have to use kls info to prevent duplicate definition, because of Dabo name mangling
 		strs += ".. function:: " + kls.__module__ + "." + kls.__name__ + "." + method + rArgs
-		
-		
+
+
 		if isInherited:
 			strs += "\n   :noindex:\n"
-	
+
 		strs += "\n\n"
 		doc = ""
 		sumDoc = ""
@@ -892,10 +893,10 @@ def describeDaboMethods(kls, methods, klsfilename):
 					sumDoc = line.replace("\t", "")
 					lc += 1
 			strs += doc + "\n\n"
-	
+
 		# summary info
 		sumDict[uniqueLinkLabel] = [method, sumDoc[:100].strip() ]
-	
+
 		if isInherited:
 			if definedIn.__module__ in noInheritLink:
 				strs += "Inherited from: '%s - can not provide a link\n" % (definedIn.__module__ + "." + definedIn.__name__)
@@ -903,14 +904,14 @@ def describeDaboMethods(kls, methods, klsfilename):
 				strs += "Inherited from: '%s - can not provide a link\n" % (definedIn.__module__ + "." + definedIn.__name__)
 			else:
 				strs += "Inherited from: :ref:`%s`\n" % (definedIn.__module__ + "." + definedIn.__name__)
-	
+
 		strs += "\n-------\n\n"
-		
+
 		if isInherited:
 			inheritedMethods += strs
 		else:
 			ownMethods += strs
-	
+
 	allStrs = ""
 
 	# do the summary
@@ -931,7 +932,7 @@ def describeDaboMethods(kls, methods, klsfilename):
 		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
 		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
 	allStrs += "\n" + lTabDef + rTabDef + "\n"
-	
+
 	if ownMethods:
 		allStrs += "\nMethods\n"
 		allStrs += "=======\n\n"
@@ -964,7 +965,7 @@ def describeDaboProperties(kls, props):
 		if prop[:9] == "[Dynamic]":
 			prop = prop[9:]
 		d = kls.getPropertyInfo(prop)
-	
+
 		strs += "**" + prop + "** " + "\n\n"
 		sumDoc = ""
 		if d["doc"] is None:
@@ -977,13 +978,13 @@ def describeDaboProperties(kls, props):
 				if lc == 0 and line.strip() != "":
 					sumDoc = line.replace("\t", "")
 					lc += 1
-				
+
 			strs += doc + "\n\n"
-	
+
 		# summary info
 		sumDict[uniqueLinkLabel] = [prop, sumDoc[:100].strip() ]
-	
-	
+
+
 		if d["definedIn"] != kls:
 			definedIn = d["definedIn"]
 			isInherited = True
@@ -996,7 +997,7 @@ def describeDaboProperties(kls, props):
 				strs += "Inherited from: :ref:`%s`\n" % (definedIn.__module__ + "." + definedIn.__name__)
 
 		strs += "\n-------\n\n"
-		
+
 		if isInherited:
 			inheritedProps += strs
 		else:
@@ -1022,7 +1023,7 @@ def describeDaboProperties(kls, props):
 		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
 		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
 	allStrs += "\n" + lTabDef + rTabDef + "\n"
-	
+
 	if ownProps:
 		allStrs += "\nProperties\n"
 		allStrs += "==========\n\n"
@@ -1049,7 +1050,7 @@ def describeDaboEvents(kls, events):
 		strs += ".. _%s:\n\n" % (uniqueLinkLabel, )
 
 		e = dEvents.__dict__[event]
-	
+
 		strs += "**" + event + "** " + "\n\n"
 		sumDoc = ""
 		if e.__doc__ is None:
@@ -1067,7 +1068,7 @@ def describeDaboEvents(kls, events):
 
 		# summary info
 		sumDict[uniqueLinkLabel] = [event, sumDoc[:100].strip() ]
-	
+
 		strs += "\n-------\n\n"
 
 		allEvents += strs
@@ -1092,8 +1093,8 @@ def describeDaboEvents(kls, events):
 		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
 		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
 	allStrs += "\n" + lTabDef + rTabDef + "\n"
-	
-	
+
+
 	if allEvents:
 		allStrs += "\nEvents\n"
 		allStrs += "=======\n\n"
@@ -1165,7 +1166,7 @@ def describe_func(obj, method=False, kls=""):
 def describeDaboKlass(obj, klsinc, klsfilename):
 	"""Describe the class object passed as argument,
 	including its methods
-	
+
 	klsinc is just used to see if we need noindex
 	"""
 
@@ -1294,9 +1295,9 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 			hasPicture += classImageNix % (imgName, imgScale, imgName, kls.__name__)
 		else:
 			hasPicture += classImageOthNO
-			
+
 		pictureIndex[kls.__name__] = klsfilename.replace(".rst", ".html")
-			
+
 	else:
 		hasPicture = ""
 
@@ -1316,7 +1317,7 @@ def describeDaboKlass(obj, klsinc, klsfilename):
 	strs += "===============\n\n"
 
 	modName = kls.__module__
-	
+
 	if kls.__name__ in docMembers:
 		strs += "\n.. autoclass:: %s" % (modName + "." + kls.__name__)
 		if noIndex:
@@ -1485,10 +1486,10 @@ def WriteGeneralIndex():
 	for item in allPkgForIndex:
 		fid.write(("   %s_module\n" % item))
 	fid.write("\n\n")
-	
+
 	# now do all the items within each package
 	all = glob.glob(sc.rstTempFolder + "\*.rst")
-	
+
 	dTop = []
 	dBiz = []
 	dLib = []
@@ -1499,7 +1500,7 @@ def WriteGeneralIndex():
 	dUi = []
 	dUix = []
 	dUid = []
-	
+
 	for item in all:
 		if "dabo.biz" in item and not "_module.rst" in item:
 			dBiz.append(item)
@@ -1551,10 +1552,10 @@ def WriteGeneralIndex():
 	for item in dBiz:
 		fid.write("   %s\n" % os.path.split(item)[1].replace(".rst", ""))
 	fid.write("\n\n")
-	
+
 	# write the UI index stuff, use it here and further below
 	uiIndexText = WriteUiPackageIndex(dUix, dUid, dLibD)
-	
+
 	fid.write(uiIndexText)
 
 	fid.write("Dabo - lib\n")
@@ -1581,7 +1582,7 @@ def WriteGeneralIndex():
 	fid.write("   dabo.ui*\n")
 
 	fid.close()
-	
+
 	# create the index for the ui_module
 	fid = open("dabo.ui_module.rst", "wt")
 	fid.write(imagesLinks + "\n")
@@ -1653,7 +1654,7 @@ def WriteUiPackageIndex(dUix, dUid, dLibD):
 	for item in dLibD:
 		indexText += "   %s\n" % os.path.split(item)[1].replace(".rst", "")
 	indexText += "\n\n"
-	
+
 	return indexText
 
 def GetUiClasses():
@@ -1661,7 +1662,7 @@ def GetUiClasses():
 	controlClasses = []
 	formClasses = []
 	sizerClasses = []
-	
+
 	for i in dir(dabo.ui):
 		item = dabo.ui.__dict__[i]
 		if type(item) == type:
@@ -1749,11 +1750,11 @@ else:
 			rebuildall = True
 		else:
 			rebuildall = False
-		
+
 print "================================================"
 print "removing files from previous run in %s" % sc.rstTempFolder
 print "================================================"
-remRst = glob.glob(sc.rstTempFolder + "\*.rst")
+remRst = glob.glob(sc.rstTempFolder + "//*.rst")
 for item in remRst:
 	os.remove(item)
 
@@ -1763,7 +1764,7 @@ if rebuildall:
 	print "removing files, forcing a full rebuild %s" % sc.docFolder
 	print "================================================"
 
-	oldRst = glob.glob(sc.docFolder + "\*.rst")
+	oldRst = glob.glob(sc.docFolder + "//*.rst")
 	for item in oldRst:
 		os.remove(item)
 
@@ -1787,7 +1788,7 @@ print "========================================"
 print "check if file(s) have changed"
 print "========================================"
 
-checkRst = glob.glob(sc.rstTempFolder + "\*.rst")
+checkRst = glob.glob(sc.rstTempFolder + "//*.rst")
 for item in checkRst:
 	path, fileName = os.path.split(item)
 	tmpFile = os.path.join(sc.rstTempFolder, fileName)
@@ -1799,7 +1800,7 @@ for item in checkRst:
 			print "changed file, copy to: %s" % docFile
 	else:
 		shutil.copy(tmpFile, docFile)
-		print "new file, copy to: %s" % docFile     
+		print "new file, copy to: %s" % docFile
 
 
 current = time.time()
