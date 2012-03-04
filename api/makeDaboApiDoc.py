@@ -75,8 +75,7 @@ headerString = """
 
 <body bgcolor="linen">
 
-<font size="-1"><p>New API reference documentation is available for testing at <a href="http://thewinecellarbook.com/daboDocTestAlt/
-">http://thewinecellarbook.com/daboDocTestAlt/</a>. Please report any problems or suggestions on the
+<font size="-1"><p>New API reference documentation is available at <a href="http://docs.dabodev.com/">http://docs.dabodev.com</a>. Please report any problems or suggestions on the
 <a href="http://leafe.com/mailman/listinfo/dabo-users">dabo-users</a> mailing list.</p></font>
 
 <div id="#container">
