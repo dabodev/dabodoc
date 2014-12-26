@@ -1,0 +1,2527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dPanel.dScrollPanel - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.ui.uiwx.dPanel"></span><div class="section" id="doc-title-dpanel-dscrollpanel-class">
+<span id="dabo-ui-uiwx-dpanel-dscrollpanel"></span><h1><a class="reference internal" href="../_images/doc_title.png"><img alt="doc_title" class="align-top" src="../_images/doc_title.png" style="width: 32px;" /></a>  <strong>dPanel.dScrollPanel</strong> - class<a class="headerlink" href="#doc-title-dpanel-dscrollpanel-class" title="Permalink to this headline">¶</a></h1>
+<p>This is a basic container for controls that allows scrolling.</p>
+<p>Panels can contain subpanels to unlimited depth, making them quite
+flexible for many uses. Consider laying out your forms on panels
+instead, and then adding the panel to the form.</p>
+<div class="section" id="hierarchy-inheritance-diagram">
+<h2><a class="reference internal" href="../_images/Class_Hierarchy.png"><img alt="hierarchy" class="align-top" src="../_images/Class_Hierarchy.png" style="width: 32px;" /></a> Inheritance Diagram<a class="headerlink" href="#hierarchy-inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Inheritance diagram for: <strong>dScrollPanel</strong></p>
+</div>
+<div class="section" id="supclasses-known-superclasses">
+<h2><a class="reference internal" href="../_images/SuperClasses.png"><img alt="supclasses" class="align-top" src="../_images/SuperClasses.png" style="width: 32px;" /></a> Known Superclasses<a class="headerlink" href="#supclasses-known-superclasses" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="subclasses-known-subclasses">
+<h2><a class="reference internal" href="../_images/SubClasses.png"><img alt="subclasses" class="align-top" src="../_images/SubClasses.png" style="width: 32px;" /></a> Known Subclasses<a class="headerlink" href="#subclasses-known-subclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../tempsource/dabo.ui.dialogs.WizardPage.WizardPage.html#dabo-ui-dialogs-wizardpage-wizardpage"><em>|doc_title|  WizardPage.WizardPage - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPage.dPage.html#dabo-ui-uiwx-dpage-dpage"><em>|doc_title|  dPage.dPage - class</em></a></li>
+</ul>
+</div>
+<div class="section" id="appearance-control-appearance">
+<h2><a class="reference internal" href="../_images/Appearance.png"><img alt="appearance" class="align-top" src="../_images/Appearance.png" style="width: 32px;" /></a> Control Appearance<a class="headerlink" href="#appearance-control-appearance" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Apple Mac</strong></th>
+<th class="head"><strong>Windows</strong></th>
+<th class="head"><strong>Linux</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>no image available</td>
+<td><a class="first last reference external image-reference" href="_static/winWidgets/dScrollPanel.png"><img alt="dScrollPanel" src="../_images/dScrollPanel.png" style="width: 300.0px; height: 241.5px;" /></a>
+</td>
+<td><a class="first last reference external image-reference" href="_static/nixWidgets/dScrollPanel.png"><img alt="dScrollPanel" src="../_images/dScrollPanel1.png" style="width: 232.5px; height: 60.0px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api-class-api">
+<h2><a class="reference internal" href="../_images/API.png"><img alt="API" class="align-top" src="../_images/API.png" style="width: 32px;" /></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.ui.uiwx.dPanel.dScrollPanel">
+<em class="property">class </em><code class="descclassname">dabo.ui.uiwx.dPanel.</code><code class="descname">dScrollPanel</code><span class="sig-paren">(</span><em>parent</em>, <em>properties=None</em>, <em>attProperties=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dScrollPanel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a basic container for controls that allows scrolling.</p>
+<p>Panels can contain subpanels to unlimited depth, making them quite
+flexible for many uses. Consider laying out your forms on panels
+instead, and then adding the panel to the form.</p>
+<dl class="method">
+<dt id="dabo.ui.uiwx.dPanel.dScrollPanel.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>parent</em>, <em>properties=None</em>, <em>attProperties=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dScrollPanel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="method-summary-properties-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Properties Summary<a class="headerlink" href="#method-summary-properties-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13798"><em>PreferenceManager</em></a></td>
+<td>Reference to the Preference Management object  (dPref)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13799"><em>RegID</em></a></td>
+<td>A unique identifier used for referencing by other objects. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13792"><em>MinimumWidth</em></a></td>
+<td>Minimum allowable width for the control in pixels.  (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13793"><em>MousePointer</em></a></td>
+<td>Specifies the shape of the mouse pointer when it enters this window. (obj)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13790"><em>MinimumHeight</em></a></td>
+<td>Minimum allowable height for the control in pixels.  (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13791"><em>MinimumSize</em></a></td>
+<td>Minimum allowable size for the control in pixels.  (2-tuple of int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13796"><em>Parent</em></a></td>
+<td>The containing object. (obj)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13797"><em>Position</em></a></td>
+<td>The (x,y) position of the object. (tuple)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13794"><em>Name</em></a></td>
+<td>Specifies the name of the object, which must be unique among siblings.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13795"><em>NameBase</em></a></td>
+<td>Specifies the base name of the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13814"><em>WindowHandle</em></a></td>
+<td>The platform-specific handle for the window. Read-only. (long)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13811"><em>Visible</em></a></td>
+<td>Specifies whether the object is visible at runtime.  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13810"><em>VerticalScroll</em></a></td>
+<td>Controls whether this object will scroll vertically (default=True)  (bool)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13813"><em>Width</em></a></td>
+<td>The width of the object. (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13812"><em>VisibleOnScreen</em></a></td>
+<td>Specifies whether the object is physically visible at runtime.  (bool)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13729"><em>BasePrefKey</em></a></td>
+<td>Base key used when saving/restoring preferences  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13728"><em>BaseClass</em></a></td>
+<td>The base Dabo class of the object. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13727"><em>BackColor</em></a></td>
+<td>Specifies the background color of the object. (str, 3-tuple, or wx.Colour)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13726"><em>Application</em></a></td>
+<td>Read-only object reference to the Dabo Application object.  (dApp).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13789"><em>MaximumWidth</em></a></td>
+<td>Maximum allowable width for the control in pixels.  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13788"><em>MaximumSize</em></a></td>
+<td>Maximum allowable size for the control in pixels.  (2-tuple of int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13785"><em>Left</em></a></td>
+<td>Specifies the left position of the object. (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13784"><em>Hover</em></a></td>
+<td>When True, Mouse Enter events fire the onHover method, and</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13787"><em>MaximumHeight</em></a></td>
+<td>Maximum allowable height for the control in pixels.  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13786"><em>LogEvents</em></a></td>
+<td>Specifies which events to log.  (list of strings)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13781"><em>Height</em></a></td>
+<td>Specifies the height of the object. (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13780"><em>Form</em></a></td>
+<td>Object reference to the dForm containing the object. Read-only. (dForm).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13783"><em>HorizontalScroll</em></a></td>
+<td>Controls whether this object will scroll horizontally (default=True)  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13782"><em>HelpContextText</em></a></td>
+<td>Specifies the context-sensitive help text associated with this</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13770"><em>Enabled</em></a></td>
+<td>Specifies whether the object and children can get user input. (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13771"><em>Font</em></a></td>
+<td>Specifies font object for this control. (dFont)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13772"><em>FontBold</em></a></td>
+<td>Specifies if the font is bold-faced. (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13773"><em>FontDescription</em></a></td>
+<td>Human-readable description of the current font settings. (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13774"><em>FontFace</em></a></td>
+<td>Specifies the font face. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13775"><em>FontInfo</em></a></td>
+<td>Specifies the platform-native font info string. Read-only. (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13776"><em>FontItalic</em></a></td>
+<td>Specifies whether font is italicized. (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13777"><em>FontSize</em></a></td>
+<td>Specifies the point size of the font. (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13778"><em>FontUnderline</em></a></td>
+<td>Specifies whether text is underlined. (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13779"><em>ForeColor</em></a></td>
+<td>Specifies the foreground color of the object. (str, 3-tuple, or wx.Colour)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13763"><em>DynamicTag</em></a></td>
+<td>Dynamically determine the value of the Tag property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13762"><em>DynamicStatusText</em></a></td>
+<td>Dynamically determine the value of the StatusText property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13761"><em>DynamicSize</em></a></td>
+<td>Dynamically determine the value of the Size property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13760"><em>DynamicPosition</em></a></td>
+<td>Dynamically determine the value of the Position property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13767"><em>DynamicVerticalScroll</em></a></td>
+<td>Dynamically determine the value of the VerticalScroll property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13766"><em>DynamicTransparency</em></a></td>
+<td>Dynamically determine the value of the Transparency property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13765"><em>DynamicTop</em></a></td>
+<td>Dynamically determine the value of the Top property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13764"><em>DynamicToolTipText</em></a></td>
+<td>Dynamically determine the value of the ToolTipText property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13769"><em>DynamicWidth</em></a></td>
+<td>Dynamically determine the value of the Width property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13768"><em>DynamicVisible</em></a></td>
+<td>Dynamically determine the value of the Visible property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13756"><em>DynamicHeight</em></a></td>
+<td>Dynamically determine the value of the Height property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13757"><em>DynamicHorizontalScroll</em></a></td>
+<td>Dynamically determine the value of the HorizontalScroll property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13754"><em>DynamicFontUnderline</em></a></td>
+<td>Dynamically determine the value of the FontUnderline property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13755"><em>DynamicForeColor</em></a></td>
+<td>Dynamically determine the value of the ForeColor property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13752"><em>DynamicFontItalic</em></a></td>
+<td>Dynamically determine the value of the FontItalic property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13753"><em>DynamicFontSize</em></a></td>
+<td>Dynamically determine the value of the FontSize property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13750"><em>DynamicFontBold</em></a></td>
+<td>Dynamically determine the value of the FontBold property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13751"><em>DynamicFontFace</em></a></td>
+<td>Dynamically determine the value of the FontFace property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13758"><em>DynamicLeft</em></a></td>
+<td>Dynamically determine the value of the Left property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13759"><em>DynamicMousePointer</em></a></td>
+<td>Dynamically determine the value of the MousePointer property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13749"><em>DynamicFont</em></a></td>
+<td>Dynamically determine the value of the Font property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13748"><em>DynamicEnabled</em></a></td>
+<td>Dynamically determine the value of the Enabled property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13741"><em>DroppedTextHandler</em></a></td>
+<td>Reference to the object that will handle text dropped on this control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13740"><em>DroppedFileHandler</em></a></td>
+<td>Reference to the object that will handle files dropped on this control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13743"><em>DynamicBorderColor</em></a></td>
+<td>Dynamically determine the value of the BorderColor property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13742"><em>DynamicBackColor</em></a></td>
+<td>Dynamically determine the value of the BackColor property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13745"><em>DynamicBorderStyle</em></a></td>
+<td>Dynamically determine the value of the BorderStyle property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13744"><em>DynamicBorderLineStyle</em></a></td>
+<td>Dynamically determine the value of the BorderLineStyle property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13747"><em>DynamicCaption</em></a></td>
+<td>Dynamically determine the value of the Caption property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13746"><em>DynamicBorderWidth</em></a></td>
+<td>Dynamically determine the value of the BorderWidth property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13802"><em>Sizer</em></a></td>
+<td>The sizer for the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13803"><em>StatusText</em></a></td>
+<td>Specifies the text that displays in the form&#8217;s status bar, if any.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13800"><em>Right</em></a></td>
+<td>The position of the right side of the object. This is a</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13801"><em>Size</em></a></td>
+<td>The size of the object. (tuple)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13806"><em>ToolTipText</em></a></td>
+<td>Specifies the tooltip text associated with this window. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13807"><em>Top</em></a></td>
+<td>The top position of the object. (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13804"><em>TabStop</em></a></td>
+<td>Specifies whether this control can receive focus from keyboard navigation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13805"><em>Tag</em></a></td>
+<td>A property that user code can safely use for specific purposes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13808"><em>Transparency</em></a></td>
+<td>Transparency level of the control; ranges from 0 (transparent) to 255 (opaque).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13809"><em>TransparencyDelay</em></a></td>
+<td>Time in seconds to change transparency. Set it to zero to see instant changes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13738"><em>ControllingSizer</em></a></td>
+<td>Reference to the sizer that controls this control&#8217;s layout.  (dSizer)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13739"><em>ControllingSizerItem</em></a></td>
+<td>Reference to the sizer item that control&#8217;s this control&#8217;s layout.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13734"><em>Bottom</em></a></td>
+<td>The position of the bottom side of the object. This is a</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13735"><em>Caption</em></a></td>
+<td>The caption of the object. (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13736"><em>Children</em></a></td>
+<td>Child controls of this panel. This excludes the wx-specific</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13737"><em>Class</em></a></td>
+<td>The class the object is based on. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13730"><em>BorderColor</em></a></td>
+<td>Specifies the color of the border drawn around the control, if any.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13731"><em>BorderLineStyle</em></a></td>
+<td>Style of line for the border drawn around the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13732"><em>BorderStyle</em></a></td>
+<td>Specifies the type of border for this window. (str).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13733"><em>BorderWidth</em></a></td>
+<td>Width of the border drawn around the control, if any. (int)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p id="no-13757"><strong>DynamicHorizontalScroll</strong></p>
+<p>Dynamically determine the value of the HorizontalScroll property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+HorizontalScroll property. If DynamicHorizontalScroll is set to None (the default), HorizontalScroll
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-13767"><strong>DynamicVerticalScroll</strong></p>
+<p>Dynamically determine the value of the VerticalScroll property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+VerticalScroll property. If DynamicVerticalScroll is set to None (the default), VerticalScroll
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-13783"><strong>HorizontalScroll</strong></p>
+<p>Controls whether this object will scroll horizontally (default=True)  (bool)</p>
+<hr class="docutils" />
+<p id="no-13810"><strong>VerticalScroll</strong></p>
+<p>Controls whether this object will scroll vertically (default=True)  (bool)</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="properties-inherited">
+<h2>Properties - inherited<a class="headerlink" href="#properties-inherited" title="Permalink to this headline">¶</a></h2>
+<p id="no-13726"><strong>Application</strong></p>
+<p>Read-only object reference to the Dabo Application object.  (dApp).</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13727"><strong>BackColor</strong></p>
+<p>Specifies the background color of the object. (str, 3-tuple, or wx.Colour)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13728"><strong>BaseClass</strong></p>
+<p>The base Dabo class of the object. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13729"><strong>BasePrefKey</strong></p>
+<p>Base key used when saving/restoring preferences  (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13730"><strong>BorderColor</strong></p>
+<p>Specifies the color of the border drawn around the control, if any.</p>
+<blockquote>
+<div>Default=&#8217;black&#8217;  (str, 3-tuple, or wx.Colour)</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13731"><strong>BorderLineStyle</strong></p>
+<p>Style of line for the border drawn around the control.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Possible choices are:</dt>
+<dd>&#8220;Solid&#8221;  (default)
+&#8220;Dash&#8221;
+&#8220;Dot&#8221;
+&#8220;DotDash&#8221;
+&#8220;DashDot&#8221;</dd>
+</dl>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13732"><strong>BorderStyle</strong></p>
+<p>Specifies the type of border for this window. (str).</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Possible choices are:</dt>
+<dd>&#8220;None&#8221;
+&#8220;Simple&#8221;
+&#8220;Sunken&#8221;
+&#8220;Raised&#8221;</dd>
+</dl>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13733"><strong>BorderWidth</strong></p>
+<p>Width of the border drawn around the control, if any. (int)</p>
+<blockquote>
+<div>Default=0 (no border)</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13734"><strong>Bottom</strong></p>
+<dl class="docutils">
+<dt>The position of the bottom side of the object. This is a</dt>
+<dd>convenience property, and is equivalent to setting the Top property
+to this value minus the Height of the control.  (int)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13735"><strong>Caption</strong></p>
+<p>The caption of the object. (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13736"><strong>Children</strong></p>
+<dl class="docutils">
+<dt>Child controls of this panel. This excludes the wx-specific</dt>
+<dd>scroll bars  (list of objects)</dd>
+</dl>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13737"><strong>Class</strong></p>
+<p>The class the object is based on. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13738"><strong>ControllingSizer</strong></p>
+<p>Reference to the sizer that controls this control&#8217;s layout.  (dSizer)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13739"><strong>ControllingSizerItem</strong></p>
+<p>Reference to the sizer item that control&#8217;s this control&#8217;s layout.</p>
+<blockquote>
+<div>This is useful for getting information about how the item is being
+sized, and for changing those settings.  (SizerItem)</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13740"><strong>DroppedFileHandler</strong></p>
+<dl class="docutils">
+<dt>Reference to the object that will handle files dropped on this control.</dt>
+<dd>When files are dropped, a list of them will be passed to this object&#8217;s
+&#8216;processDroppedFiles()&#8217; method. Default=None  (object or None)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13741"><strong>DroppedTextHandler</strong></p>
+<dl class="docutils">
+<dt>Reference to the object that will handle text dropped on this control.</dt>
+<dd>When text is dropped, that text will be passed to this object&#8217;s
+&#8216;processDroppedText()&#8217; method. Default=None  (object or None)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13742"><strong>DynamicBackColor</strong></p>
+<p>Dynamically determine the value of the BackColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BackColor property. If DynamicBackColor is set to None (the default), BackColor
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13743"><strong>DynamicBorderColor</strong></p>
+<p>Dynamically determine the value of the BorderColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BorderColor property. If DynamicBorderColor is set to None (the default), BorderColor
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13744"><strong>DynamicBorderLineStyle</strong></p>
+<p>Dynamically determine the value of the BorderLineStyle property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BorderLineStyle property. If DynamicBorderLineStyle is set to None (the default), BorderLineStyle
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13745"><strong>DynamicBorderStyle</strong></p>
+<p>Dynamically determine the value of the BorderStyle property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BorderStyle property. If DynamicBorderStyle is set to None (the default), BorderStyle
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13746"><strong>DynamicBorderWidth</strong></p>
+<p>Dynamically determine the value of the BorderWidth property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BorderWidth property. If DynamicBorderWidth is set to None (the default), BorderWidth
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13747"><strong>DynamicCaption</strong></p>
+<p>Dynamically determine the value of the Caption property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Caption property. If DynamicCaption is set to None (the default), Caption
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13748"><strong>DynamicEnabled</strong></p>
+<p>Dynamically determine the value of the Enabled property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Enabled property. If DynamicEnabled is set to None (the default), Enabled
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13749"><strong>DynamicFont</strong></p>
+<p>Dynamically determine the value of the Font property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Font property. If DynamicFont is set to None (the default), Font
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13750"><strong>DynamicFontBold</strong></p>
+<p>Dynamically determine the value of the FontBold property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontBold property. If DynamicFontBold is set to None (the default), FontBold
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13751"><strong>DynamicFontFace</strong></p>
+<p>Dynamically determine the value of the FontFace property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontFace property. If DynamicFontFace is set to None (the default), FontFace
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13752"><strong>DynamicFontItalic</strong></p>
+<p>Dynamically determine the value of the FontItalic property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontItalic property. If DynamicFontItalic is set to None (the default), FontItalic
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13753"><strong>DynamicFontSize</strong></p>
+<p>Dynamically determine the value of the FontSize property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontSize property. If DynamicFontSize is set to None (the default), FontSize
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13754"><strong>DynamicFontUnderline</strong></p>
+<p>Dynamically determine the value of the FontUnderline property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontUnderline property. If DynamicFontUnderline is set to None (the default), FontUnderline
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13755"><strong>DynamicForeColor</strong></p>
+<p>Dynamically determine the value of the ForeColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+ForeColor property. If DynamicForeColor is set to None (the default), ForeColor
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13756"><strong>DynamicHeight</strong></p>
+<p>Dynamically determine the value of the Height property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Height property. If DynamicHeight is set to None (the default), Height
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13758"><strong>DynamicLeft</strong></p>
+<p>Dynamically determine the value of the Left property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Left property. If DynamicLeft is set to None (the default), Left
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13759"><strong>DynamicMousePointer</strong></p>
+<p>Dynamically determine the value of the MousePointer property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+MousePointer property. If DynamicMousePointer is set to None (the default), MousePointer
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13760"><strong>DynamicPosition</strong></p>
+<p>Dynamically determine the value of the Position property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Position property. If DynamicPosition is set to None (the default), Position
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13761"><strong>DynamicSize</strong></p>
+<p>Dynamically determine the value of the Size property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Size property. If DynamicSize is set to None (the default), Size
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13762"><strong>DynamicStatusText</strong></p>
+<p>Dynamically determine the value of the StatusText property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+StatusText property. If DynamicStatusText is set to None (the default), StatusText
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13763"><strong>DynamicTag</strong></p>
+<p>Dynamically determine the value of the Tag property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Tag property. If DynamicTag is set to None (the default), Tag
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13764"><strong>DynamicToolTipText</strong></p>
+<p>Dynamically determine the value of the ToolTipText property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+ToolTipText property. If DynamicToolTipText is set to None (the default), ToolTipText
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13765"><strong>DynamicTop</strong></p>
+<p>Dynamically determine the value of the Top property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Top property. If DynamicTop is set to None (the default), Top
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13766"><strong>DynamicTransparency</strong></p>
+<p>Dynamically determine the value of the Transparency property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Transparency property. If DynamicTransparency is set to None (the default), Transparency
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13768"><strong>DynamicVisible</strong></p>
+<p>Dynamically determine the value of the Visible property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Visible property. If DynamicVisible is set to None (the default), Visible
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13769"><strong>DynamicWidth</strong></p>
+<p>Dynamically determine the value of the Width property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Width property. If DynamicWidth is set to None (the default), Width
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13770"><strong>Enabled</strong></p>
+<p>Specifies whether the object and children can get user input. (bool)</p>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13771"><strong>Font</strong></p>
+<p>Specifies font object for this control. (dFont)</p>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13772"><strong>FontBold</strong></p>
+<p>Specifies if the font is bold-faced. (bool)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13773"><strong>FontDescription</strong></p>
+<p>Human-readable description of the current font settings. (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13774"><strong>FontFace</strong></p>
+<p>Specifies the font face. (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13775"><strong>FontInfo</strong></p>
+<p>Specifies the platform-native font info string. Read-only. (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13776"><strong>FontItalic</strong></p>
+<p>Specifies whether font is italicized. (bool)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13777"><strong>FontSize</strong></p>
+<p>Specifies the point size of the font. (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13778"><strong>FontUnderline</strong></p>
+<p>Specifies whether text is underlined. (bool)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13779"><strong>ForeColor</strong></p>
+<p>Specifies the foreground color of the object. (str, 3-tuple, or wx.Colour)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13780"><strong>Form</strong></p>
+<p>Object reference to the dForm containing the object. Read-only. (dForm).</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13781"><strong>Height</strong></p>
+<p>Specifies the height of the object. (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13782"><strong>HelpContextText</strong></p>
+<dl class="docutils">
+<dt>Specifies the context-sensitive help text associated with this</dt>
+<dd>window. (str)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13784"><strong>Hover</strong></p>
+<dl class="docutils">
+<dt>When True, Mouse Enter events fire the onHover method, and</dt>
+<dd>MouseLeave events fire the endHover method  (bool)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13785"><strong>Left</strong></p>
+<p>Specifies the left position of the object. (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13786"><strong>LogEvents</strong></p>
+<blockquote>
+<div><p>Specifies which events to log.  (list of strings)</p>
+<p>If the first element is &#8216;All&#8217;, all events except the following listed events
+will be logged.
+Event logging is resource-intensive, so in addition to setting this LogEvents
+property, you also need to make the following call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dabo</span><span class="o">.</span><span class="n">eventLogging</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13787"><strong>MaximumHeight</strong></p>
+<p>Maximum allowable height for the control in pixels.  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13788"><strong>MaximumSize</strong></p>
+<p>Maximum allowable size for the control in pixels.  (2-tuple of int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13789"><strong>MaximumWidth</strong></p>
+<p>Maximum allowable width for the control in pixels.  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13790"><strong>MinimumHeight</strong></p>
+<p>Minimum allowable height for the control in pixels.  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13791"><strong>MinimumSize</strong></p>
+<p>Minimum allowable size for the control in pixels.  (2-tuple of int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13792"><strong>MinimumWidth</strong></p>
+<p>Minimum allowable width for the control in pixels.  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13793"><strong>MousePointer</strong></p>
+<p>Specifies the shape of the mouse pointer when it enters this window. (obj)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13794"><strong>Name</strong></p>
+<p>Specifies the name of the object, which must be unique among siblings.</p>
+<blockquote>
+<div>If the specified name isn&#8217;t unique, an exception will be raised. See also
+NameBase, which let&#8217;s you set a base name and Dabo will automatically append
+integers to make it unique.</div></blockquote>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13795"><strong>NameBase</strong></p>
+<p>Specifies the base name of the object.</p>
+<blockquote>
+<div><p>The base name specified will become the object&#8217;s Name, unless another sibling
+already has that name, in which case Dabo will find the next unique name by
+adding integers to the end of the base name. For example, if your code says:</p>
+<blockquote>
+<div>self.NameBase = &#8220;txtAddress&#8221;</div></blockquote>
+<p>and there is already a sibling object with that name, your object will end up
+with Name = &#8220;txtAddress1&#8221;.</p>
+<p>This property is write-only at runtime.</p>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13796"><strong>Parent</strong></p>
+<p>The containing object. (obj)</p>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13797"><strong>Position</strong></p>
+<p>The (x,y) position of the object. (tuple)</p>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13798"><strong>PreferenceManager</strong></p>
+<p>Reference to the Preference Management object  (dPref)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13799"><strong>RegID</strong></p>
+<p>A unique identifier used for referencing by other objects. (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13800"><strong>Right</strong></p>
+<dl class="docutils">
+<dt>The position of the right side of the object. This is a</dt>
+<dd>convenience property, and is equivalent to setting the Left property
+to this value minus the Width of the control.  (int)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13801"><strong>Size</strong></p>
+<p>The size of the object. (tuple)</p>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13802"><strong>Sizer</strong></p>
+<p>The sizer for the object.</p>
+<p>Inherited from: &#8216;wx._core.Window - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-13803"><strong>StatusText</strong></p>
+<p>Specifies the text that displays in the form&#8217;s status bar, if any.</p>
+<blockquote>
+<div><p>The text will appear when the control gets the focus, or when the
+mouse hovers over the control, and will clear when the control loses
+the focus, or when the mouse is no longer hovering.</p>
+<p>For forms, set StatusText whenever you want to display a message.</p>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13804"><strong>TabStop</strong></p>
+<p>Specifies whether this control can receive focus from keyboard navigation.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dControlMixin.dControlMixin.html#dabo-ui-uiwx-dcontrolmixin-dcontrolmixin"><em>|doc_title|  dControlMixin.dControlMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13805"><strong>Tag</strong></p>
+<p>A property that user code can safely use for specific purposes.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13806"><strong>ToolTipText</strong></p>
+<p>Specifies the tooltip text associated with this window. (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13807"><strong>Top</strong></p>
+<p>The top position of the object. (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13808"><strong>Transparency</strong></p>
+<dl class="docutils">
+<dt>Transparency level of the control; ranges from 0 (transparent) to 255 (opaque).</dt>
+<dd>Default=0. Does not currently work on Gtk/Linux.  (int)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13809"><strong>TransparencyDelay</strong></p>
+<dl class="docutils">
+<dt>Time in seconds to change transparency. Set it to zero to see instant changes.</dt>
+<dd>Default=0.25 (float)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13811"><strong>Visible</strong></p>
+<p>Specifies whether the object is visible at runtime.  (bool)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13812"><strong>VisibleOnScreen</strong></p>
+<p>Specifies whether the object is physically visible at runtime.  (bool)</p>
+<blockquote>
+<div><p>The Visible property could return True even if the object isn&#8217;t actually
+shown on screen, due to a parent object or sizer being invisible.</p>
+<p>The VisibleOnScreen property will return True only if the object and all
+parents are visible.</p>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13813"><strong>Width</strong></p>
+<p>The width of the object. (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-13814"><strong>WindowHandle</strong></p>
+<p>The platform-specific handle for the window. Read-only. (long)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-events-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Events Summary<a class="headerlink" href="#method-summary-events-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13852"><em>ScrollPageDown</em></a></td>
+<td>Occurs when a scrollable window is scrolled down or right by a full page.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13855"><em>ScrollThumbRelease</em></a></td>
+<td>Occurs when the &#8216;thumb&#8217; control of a scrollable window&#8217;s scrollbars is released.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13833"><em>MouseLeftDown</em></a></td>
+<td>Occurs when the mouse&#8217;s left button is depressed on the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13832"><em>MouseLeftDoubleClick</em></a></td>
+<td>Occurs when the mouse&#8217;s left button is double-clicked on the control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13857"><em>TreeBeginDrag</em></a></td>
+<td>Occurs when a drag operation begins in a tree.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13856"><em>ScrollTop</em></a></td>
+<td>Occurs when a scrollable window reaches the top or left.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13815"><em>BackgroundErased</em></a></td>
+<td>Occurs when a window background has been erased and needs repainting.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13858"><em>TreeEndDrag</em></a></td>
+<td>Occurs when a drag operation ends in a tree.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13817"><em>Destroy</em></a></td>
+<td>Occurs when the control or form is destroyed.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13816"><em>Create</em></a></td>
+<td>Occurs after the control or form is created.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13854"><em>ScrollThumbDrag</em></a></td>
+<td>Occurs when the &#8216;thumb&#8217; control of a scrollable window&#8217;s scrollbars is moved.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13839"><em>MouseMove</em></a></td>
+<td>Occurs when the mouse moves in the control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13838"><em>MouseMiddleUp</em></a></td>
+<td>Occurs when the mouse&#8217;s middle button is released on the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13837"><em>MouseMiddleDown</em></a></td>
+<td>Occurs when the mouse&#8217;s middle button is depressed on the control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13836"><em>MouseMiddleDoubleClick</em></a></td>
+<td>Occurs when the mouse&#8217;s middle button is double-clicked</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13835"><em>MouseMiddleClick</em></a></td>
+<td>Occurs when the mouse mouse&#8217;s middle button is depressed</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13834"><em>MouseLeftUp</em></a></td>
+<td>Occurs when the mouse&#8217;s left button is released on the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13819"><em>GotFocus</em></a></td>
+<td>Occurs when the control gets the focus.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13818"><em>FontPropertiesChanged</em></a></td>
+<td>Occurs when the properties of a dFont have changed.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13831"><em>MouseLeftClick</em></a></td>
+<td>Occurs when the mouse&#8217;s left button is depressed</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13830"><em>MouseLeave</em></a></td>
+<td>Occurs when the mouse pointer leaves the form or control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13859"><em>Update</em></a></td>
+<td>Occurs when a container wants its controls to update</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13851"><em>ScrollLineUp</em></a></td>
+<td>Occurs when a scrollable window is scrolled a line up or left.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13850"><em>ScrollLineDown</em></a></td>
+<td>Occurs when a scrollable window is scrolled a line down or right.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13828"><em>MouseEnter</em></a></td>
+<td>Occurs when the mouse pointer enters the form or control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13829"><em>MouseEvent</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13824"><em>KeyUp</em></a></td>
+<td>Occurs when any key is released on the focused control or form.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13825"><em>LostFocus</em></a></td>
+<td>Occurs when the control loses the focus.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13826"><em>MenuClose</em></a></td>
+<td>Occurs when a menu has just been closed.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13827"><em>MenuOpen</em></a></td>
+<td>Occurs when a menu is about to be opened.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13820"><em>Idle</em></a></td>
+<td>Occurs when the event loop has no active events to process.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13821"><em>KeyChar</em></a></td>
+<td>Occurs when a key is depressed and released on the</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13822"><em>KeyDown</em></a></td>
+<td>Occurs when any key is depressed on the focused control or form.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13823"><em>KeyEvent</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13846"><em>Paint</em></a></td>
+<td>Occurs when it is time to paint the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13847"><em>Resize</em></a></td>
+<td>Occurs when the control or form is resized.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13844"><em>MouseWheel</em></a></td>
+<td>Occurs when the user scrolls the mouse wheel.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13845"><em>Move</em></a></td>
+<td>Occurs when the control&#8217;s position changes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13842"><em>MouseRightDown</em></a></td>
+<td>Occurs when the mouse&#8217;s right button is depressed on the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13843"><em>MouseRightUp</em></a></td>
+<td>Occurs when the mouse&#8217;s right button is released on the control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13840"><em>MouseRightClick</em></a></td>
+<td>Occurs when the mouse mouse&#8217;s right button is depressed</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13841"><em>MouseRightDoubleClick</em></a></td>
+<td>Occurs when the mouse&#8217;s right button is double-clicked on the control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13853"><em>ScrollPageUp</em></a></td>
+<td>Occurs when a scrollable window is scrolled up or left by a full page.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13848"><em>ScrollBottom</em></a></td>
+<td>Occurs when a scrollable window reaches the bottom or right.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13849"><em>ScrollEvent</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<p id="no-13815"><strong>BackgroundErased</strong></p>
+<p>Occurs when a window background has been erased and needs repainting.</p>
+<hr class="docutils" />
+<p id="no-13816"><strong>Create</strong></p>
+<p>Occurs after the control or form is created.</p>
+<hr class="docutils" />
+<p id="no-13817"><strong>Destroy</strong></p>
+<p>Occurs when the control or form is destroyed.</p>
+<hr class="docutils" />
+<p id="no-13818"><strong>FontPropertiesChanged</strong></p>
+<p>Occurs when the properties of a dFont have changed.</p>
+<hr class="docutils" />
+<p id="no-13819"><strong>GotFocus</strong></p>
+<p>Occurs when the control gets the focus.</p>
+<hr class="docutils" />
+<p id="no-13820"><strong>Idle</strong></p>
+<p>Occurs when the event loop has no active events to process.</p>
+<p>This is a good place to put redraw or other such UI-intensive code, so that it
+will only run when the application is otherwise not busy doing other (more
+important) things.</p>
+<hr class="docutils" />
+<p id="no-13821"><strong>KeyChar</strong></p>
+<p>Occurs when a key is depressed and released on the
+focused control or form.</p>
+<hr class="docutils" />
+<p id="no-13822"><strong>KeyDown</strong></p>
+<p>Occurs when any key is depressed on the focused control or form.</p>
+<hr class="docutils" />
+<p id="no-13823"><strong>KeyEvent</strong></p>
+<hr class="docutils" />
+<p id="no-13824"><strong>KeyUp</strong></p>
+<p>Occurs when any key is released on the focused control or form.</p>
+<hr class="docutils" />
+<p id="no-13825"><strong>LostFocus</strong></p>
+<p>Occurs when the control loses the focus.</p>
+<hr class="docutils" />
+<p id="no-13826"><strong>MenuClose</strong></p>
+<p>Occurs when a menu has just been closed.</p>
+<hr class="docutils" />
+<p id="no-13827"><strong>MenuOpen</strong></p>
+<p>Occurs when a menu is about to be opened.</p>
+<hr class="docutils" />
+<p id="no-13828"><strong>MouseEnter</strong></p>
+<p>Occurs when the mouse pointer enters the form or control.</p>
+<hr class="docutils" />
+<p id="no-13829"><strong>MouseEvent</strong></p>
+<hr class="docutils" />
+<p id="no-13830"><strong>MouseLeave</strong></p>
+<p>Occurs when the mouse pointer leaves the form or control.</p>
+<hr class="docutils" />
+<p id="no-13831"><strong>MouseLeftClick</strong></p>
+<p>Occurs when the mouse&#8217;s left button is depressed
+and released on the control.</p>
+<hr class="docutils" />
+<p id="no-13832"><strong>MouseLeftDoubleClick</strong></p>
+<p>Occurs when the mouse&#8217;s left button is double-clicked on the control.</p>
+<hr class="docutils" />
+<p id="no-13833"><strong>MouseLeftDown</strong></p>
+<p>Occurs when the mouse&#8217;s left button is depressed on the control.</p>
+<hr class="docutils" />
+<p id="no-13834"><strong>MouseLeftUp</strong></p>
+<p>Occurs when the mouse&#8217;s left button is released on the control.</p>
+<hr class="docutils" />
+<p id="no-13835"><strong>MouseMiddleClick</strong></p>
+<p>Occurs when the mouse mouse&#8217;s middle button is depressed
+and released on the control.</p>
+<hr class="docutils" />
+<p id="no-13836"><strong>MouseMiddleDoubleClick</strong></p>
+<p>Occurs when the mouse&#8217;s middle button is double-clicked
+on the control.</p>
+<hr class="docutils" />
+<p id="no-13837"><strong>MouseMiddleDown</strong></p>
+<p>Occurs when the mouse&#8217;s middle button is depressed on the control.</p>
+<hr class="docutils" />
+<p id="no-13838"><strong>MouseMiddleUp</strong></p>
+<p>Occurs when the mouse&#8217;s middle button is released on the control.</p>
+<hr class="docutils" />
+<p id="no-13839"><strong>MouseMove</strong></p>
+<p>Occurs when the mouse moves in the control.</p>
+<hr class="docutils" />
+<p id="no-13840"><strong>MouseRightClick</strong></p>
+<p>Occurs when the mouse mouse&#8217;s right button is depressed
+and released on the control.</p>
+<hr class="docutils" />
+<p id="no-13841"><strong>MouseRightDoubleClick</strong></p>
+<p>Occurs when the mouse&#8217;s right button is double-clicked on the control.</p>
+<hr class="docutils" />
+<p id="no-13842"><strong>MouseRightDown</strong></p>
+<p>Occurs when the mouse&#8217;s right button is depressed on the control.</p>
+<hr class="docutils" />
+<p id="no-13843"><strong>MouseRightUp</strong></p>
+<p>Occurs when the mouse&#8217;s right button is released on the control.</p>
+<hr class="docutils" />
+<p id="no-13844"><strong>MouseWheel</strong></p>
+<p>Occurs when the user scrolls the mouse wheel.</p>
+<hr class="docutils" />
+<p id="no-13845"><strong>Move</strong></p>
+<p>Occurs when the control&#8217;s position changes.</p>
+<hr class="docutils" />
+<p id="no-13846"><strong>Paint</strong></p>
+<p>Occurs when it is time to paint the control.</p>
+<hr class="docutils" />
+<p id="no-13847"><strong>Resize</strong></p>
+<p>Occurs when the control or form is resized.</p>
+<hr class="docutils" />
+<p id="no-13848"><strong>ScrollBottom</strong></p>
+<p>Occurs when a scrollable window reaches the bottom or right.</p>
+<hr class="docutils" />
+<p id="no-13849"><strong>ScrollEvent</strong></p>
+<hr class="docutils" />
+<p id="no-13850"><strong>ScrollLineDown</strong></p>
+<p>Occurs when a scrollable window is scrolled a line down or right.</p>
+<hr class="docutils" />
+<p id="no-13851"><strong>ScrollLineUp</strong></p>
+<p>Occurs when a scrollable window is scrolled a line up or left.</p>
+<hr class="docutils" />
+<p id="no-13852"><strong>ScrollPageDown</strong></p>
+<p>Occurs when a scrollable window is scrolled down or right by a full page.</p>
+<hr class="docutils" />
+<p id="no-13853"><strong>ScrollPageUp</strong></p>
+<p>Occurs when a scrollable window is scrolled up or left by a full page.</p>
+<hr class="docutils" />
+<p id="no-13854"><strong>ScrollThumbDrag</strong></p>
+<p>Occurs when the &#8216;thumb&#8217; control of a scrollable window&#8217;s scrollbars is moved.</p>
+<hr class="docutils" />
+<p id="no-13855"><strong>ScrollThumbRelease</strong></p>
+<p>Occurs when the &#8216;thumb&#8217; control of a scrollable window&#8217;s scrollbars is released.</p>
+<hr class="docutils" />
+<p id="no-13856"><strong>ScrollTop</strong></p>
+<p>Occurs when a scrollable window reaches the top or left.</p>
+<hr class="docutils" />
+<p id="no-13857"><strong>TreeBeginDrag</strong></p>
+<blockquote>
+<div>Occurs when a drag operation begins in a tree.</div></blockquote>
+<hr class="docutils" />
+<p id="no-13858"><strong>TreeEndDrag</strong></p>
+<blockquote>
+<div>Occurs when a drag operation ends in a tree.</div></blockquote>
+<hr class="docutils" />
+<p id="no-13859"><strong>Update</strong></p>
+<p>Occurs when a container wants its controls to update
+their properties.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-methods-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Methods Summary<a class="headerlink" href="#method-summary-methods-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13947"><em>unbindEvent</em></a></td>
+<td>Remove a previously registered event binding.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13946"><em>super</em></a></td>
+<td>This method used to call superclass code, but it&#8217;s been removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13945"><em>showContextMenu</em></a></td>
+<td>Display a context menu (popup) at the specified position.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13944"><em>showContainingPage</em></a></td>
+<td>If this object is inside of any paged control, it will force all containing</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13943"><em>show</em></a></td>
+<td>Make the object visible.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13942"><em>setSizerProps</em></a></td>
+<td>Convenience method for setting multiple sizer item properties at once. The</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13941"><em>setSizerProp</em></a></td>
+<td>Tells the object&#8217;s ControllingSizer to adjust the requested property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13940"><em>setPropertiesFromAtts</em></a></td>
+<td>Sets a group of properties on the object all at once. This</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13895"><em>getAbsoluteName</em></a></td>
+<td>Return the fully qualified name of the object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13894"><em>formCoordinates</em></a></td>
+<td>Given a position relative to this control, return a position relative</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13897"><em>getContainingPage</em></a></td>
+<td>Return the dPage or WizardPage that contains self.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13896"><em>getCaptureBitmap</em></a></td>
+<td>Return a bitmap snapshot of self as it appears in the UI at this moment.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13891"><em>fontZoomIn</em></a></td>
+<td>Zoom in on the font, by setting a higher point size.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13890"><em>fitToSizer</em></a></td>
+<td>Resize the control to fit the size required by its sizer.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13893"><em>fontZoomOut</em></a></td>
+<td>Zoom out on the font, by setting a lower point size.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13892"><em>fontZoomNormal</em></a></td>
+<td>Reset the font zoom back to zero.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13948"><em>unbindKey</em></a></td>
+<td>Unbind a previously bound key combination.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13860"><em>absoluteCoordinates</em></a></td>
+<td>Translates a position value for a control to absolute screen position.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13861"><em>addObject</em></a></td>
+<td>Instantiate object as a child of self.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13862"><em>afterInit</em></a></td>
+<td>Subclass hook. Called after the object&#8217;s __init__ has run fully.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13863"><em>afterInitAll</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13864"><em>afterSetProperties</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13865"><em>autoBindEvents</em></a></td>
+<td>Automatically bind any on*() methods to the associated event.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13866"><em>beforeInit</em></a></td>
+<td>Subclass hook. Called before the object is fully instantiated.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13867"><em>beforeSetProperties</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13868"><em>bindEvent</em></a></td>
+<td>Bind a dEvent to a callback function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13869"><em>bindEvents</em></a></td>
+<td>Bind a sequence of [dEvent, callback] lists.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13873"><em>clone</em></a></td>
+<td>Create another object just like the passed object. It assumes that the</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13872"><em>clear</em></a></td>
+<td>Clears the background of custom-drawn objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13871"><em>bringToFront</em></a></td>
+<td>Makes this object topmost</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13870"><em>bindKey</em></a></td>
+<td>Bind a key combination such as &#8220;ctrl+c&#8221; to a callback function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13877"><em>drawArc</em></a></td>
+<td>Draws an arc (pie slice) of a circle centered around the specified point,</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13876"><em>cut</em></a></td>
+<td>Called by uiApp when the user requests a cut operation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13875"><em>copy</em></a></td>
+<td>Called by uiApp when the user requests a copy operation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13874"><em>containerCoordinates</em></a></td>
+<td>Given a position relative to this control, return a position relative</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13879"><em>drawCircle</em></a></td>
+<td>Draws a circle of the specified radius around the specified point.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13878"><em>drawBitmap</em></a></td>
+<td>Draws a bitmap on the object at the specified position.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13918"><em>pageRight</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13919"><em>pageUp</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13910"><em>lockDisplay</em></a></td>
+<td>Locks the visual updates to the control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13911"><em>moveTabOrderAfter</em></a></td>
+<td>Moves this object&#8217;s tab order after the passed obj.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13912"><em>moveTabOrderBefore</em></a></td>
+<td>Moves this object&#8217;s tab order before the passed obj.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13913"><em>objectCoordinates</em></a></td>
+<td>Given a position relative to the form, return a position relative</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13914"><em>onHover</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13915"><em>pageDown</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13916"><em>pageHorizontally</em></a></td>
+<td>Scroll horizontally one &#8216;page&#8217; width.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13917"><em>pageLeft</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13909"><em>layout</em></a></td>
+<td>Wrap the wx version of the call, if possible.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13908"><em>iterateCall</em></a></td>
+<td>Call the given function on this object and all of its Children. If</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13903"><em>getSizerProps</em></a></td>
+<td>Returns a dict containing the object&#8217;s sizer property info. The</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13899"><em>getMousePosition</em></a></td>
+<td>Returns the current mouse position on the entire screen</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13901"><em>getProperties</em></a></td>
+<td>Returns a dictionary of property name/value pairs.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13900"><em>getPositionInSizer</em></a></td>
+<td>Convenience method to let you call this directly on the object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13907"><em>isContainedBy</em></a></td>
+<td>Returns True if the containership hierarchy for this control</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13906"><em>initProperties</em></a></td>
+<td>Hook for subclasses. User subclasses should set properties</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13905"><em>initEvents</em></a></td>
+<td>Hook for subclasses. User code should do custom event binding</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13904"><em>hide</em></a></td>
+<td>Make the object invisible.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13902"><em>getSizerProp</em></a></td>
+<td>Gets the current setting for the given property from the object&#8217;s</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13949"><em>unlockDisplay</em></a></td>
+<td>Unlocks the visual updates to the control.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13938"><em>setPositionInSizer</em></a></td>
+<td>Convenience method to let you call this directly on the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13939"><em>setProperties</em></a></td>
+<td>Sets a group of properties on the object all at once.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13936"><em>setAll</em></a></td>
+<td>Set all child object properties to the passed value.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13937"><em>setFocus</em></a></td>
+<td>Sets focus to the object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13934"><em>scrollVertically</em></a></td>
+<td>Change the vertical scroll position by &#8216;amt&#8217; units.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13935"><em>sendToBack</em></a></td>
+<td>Places this object behind all others.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13932"><em>removeDrawnObject</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13933"><em>scrollHorizontally</em></a></td>
+<td>Change the horizontal scroll position by &#8216;amt&#8217; units.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13930"><em>relativeCoordinates</em></a></td>
+<td>Translates an absolute screen position to position value for a control.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13931"><em>release</em></a></td>
+<td>Destroys the object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13921"><em>paste</em></a></td>
+<td>Called by uiApp when the user requests a paste operation.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13920"><em>pageVertically</em></a></td>
+<td>Scroll vertically one &#8216;page&#8217; height.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13923"><em>processDroppedFiles</em></a></td>
+<td>Handler for files dropped on the control. Override in your</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13922"><em>posIsWithin</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13925"><em>raiseEvent</em></a></td>
+<td>Raise the passed Dabo event.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13924"><em>processDroppedText</em></a></td>
+<td>Handler for text dropped on the control. Override in your</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13927"><em>recreate</em></a></td>
+<td>Recreate the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13926"><em>reCreate</em></a></td>
+<td>Abstract method: subclasses MUST override for UI-specifics.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13929"><em>refresh</em></a></td>
+<td>Repaints this control and all contained objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13928"><em>redraw</em></a></td>
+<td>Called when the object is (re)drawn.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13898"><em>getDisplayLocker</em></a></td>
+<td>Returns an object that locks the current display when created, and</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13888"><em>drawText</em></a></td>
+<td>Draws text on the object at the specified position</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13889"><em>endHover</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13950"><em>unlockDisplayAll</em></a></td>
+<td>Immediately unlocks the display, no matter how many previous</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13951"><em>update</em></a></td>
+<td>Update the properties of this object and all contained objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13882"><em>drawGradient</em></a></td>
+<td>Draws a horizontal or vertical gradient on the control. Default</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13883"><em>drawLine</em></a></td>
+<td>Draws a line between (x1,y1) and (x2, y2).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13880"><em>drawEllipse</em></a></td>
+<td>Draws an ellipse contained within the rectangular space defined by</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13881"><em>drawEllipticArc</em></a></td>
+<td>Draws an arc (pie slice) of a ellipse contained by the specified</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13886"><em>drawRectangle</em></a></td>
+<td>Draws a rectangle of the specified size beginning at the specified</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13887"><em>drawRoundedRectangle</em></a></td>
+<td>Draws a rounded rectangle of the specified size beginning at the specified</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13884"><em>drawPolyLines</em></a></td>
+<td>Draws a series of connected line segments defined by the specified points.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPanel.dScrollPanel.html#no-13885"><em>drawPolygon</em></a></td>
+<td>Draws a polygon defined by the specified points.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-13915"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageDown">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">pageDown</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13916"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageHorizontally">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">pageHorizontally</code><span class="sig-paren">(</span><em>self</em>, <em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageHorizontally" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll horizontally one &#8216;page&#8217; width.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13917"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageLeft">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">pageLeft</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageLeft" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13918"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageRight">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">pageRight</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageRight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13919"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageUp">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">pageUp</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13920"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageVertically">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">pageVertically</code><span class="sig-paren">(</span><em>self</em>, <em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.pageVertically" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll vertically one &#8216;page&#8217; height.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13933"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.scrollHorizontally">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">scrollHorizontally</code><span class="sig-paren">(</span><em>self</em>, <em>amt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.scrollHorizontally" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the horizontal scroll position by &#8216;amt&#8217; units.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-13934"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.scrollVertically">
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">scrollVertically</code><span class="sig-paren">(</span><em>self</em>, <em>amt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPanel.dabo.ui.uiwx.dPanel.dScrollPanel.scrollVertically" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the vertical scroll position by &#8216;amt&#8217; units.</p>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="methods-inherited">
+<h2>Methods - inherited<a class="headerlink" href="#methods-inherited" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-13860"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">absoluteCoordinates</code><span class="sig-paren">(</span><em>self</em>, <em>pos=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Translates a position value for a control to absolute screen position.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13861"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">addObject</code><span class="sig-paren">(</span><em>self</em>, <em>classRef</em>, <em>Name=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Instantiate object as a child of self.</p>
+<p>The classRef argument must be a Dabo UI class definition. (it must inherit
+dPemMixin). Alternatively, it can be a saved class definition in XML format,
+as created by the Class Designer.</p>
+<p>The name argument, if passed, will be sent along to the object&#8217;s
+constructor, which will attempt to set its Name accordingly. If the name
+argument is not passed (or None), the object will get a default Name as
+defined in the object&#8217;s class definition.</p>
+<p>Additional positional and/or keyword arguments will be sent along to the
+object&#8217;s constructor.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13862"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">afterInit</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called after the object&#8217;s __init__ has run fully.
+Subclasses should place their __init__ code here in this hook, instead of
+overriding __init__ directly, to avoid conflicting with base Dabo behavior.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13863"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">afterInitAll</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13864"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">afterSetProperties</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13865"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">autoBindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>force=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Automatically bind any on*() methods to the associated event.</p>
+<p>User code only needs to define the callback, and Dabo will automatically
+set up the event binding. This will satisfy lots of common cases where
+you want an object or its parent to respond to the object&#8217;s events.</p>
+<p>To use this feature, just define a method on&lt;EventName&gt;(), or    if you
+want a parent container to respond to the event, make a method in the
+parent on&lt;EventName&gt;_&lt;object Name or RegID&gt;().</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyButton</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dButton</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onHit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Hit!&quot;</span>
+
+<span class="k">class</span> <span class="nc">MyPanel</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">afterInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">MyButton</span><span class="p">,</span> <span class="n">RegID</span><span class="o">=</span><span class="s">&quot;btn1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">onHit_btn1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;panel: button hit!&quot;</span>
+</pre></div>
+</div>
+<p>When the button is pressed, you&#8217;ll see both &#8216;hit&#8217; messages because of
+auto event binding.</p>
+<p>If you want to bind your events explicitly, you can turn off auto event
+binding by issuing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dabo</span><span class="o">.</span><span class="n">autoBindEvents</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>This feature is inspired by PythonCard.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13866"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">beforeInit</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called before the object is fully instantiated.
+Usually, user code should override afterInit() instead, but there may be
+cases where you need to set an attribute before the init stage is fully
+underway.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13867"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">beforeSetProperties</code><span class="sig-paren">(</span><em>self</em>, <em>properties</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13868"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">bindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>function</em>, <em>_auto=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a dEvent to a callback function.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13869"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">bindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>bindings</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a sequence of [dEvent, callback] lists.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13870"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">bindKey</code><span class="sig-paren">(</span><em>self</em>, <em>keyCombo</em>, <em>callback</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a key combination such as &#8220;ctrl+c&#8221; to a callback function.</p>
+<p>See dKeys.keyStrings for the valid string key codes.
+See dKeys.modifierStrings for the valid modifier codes.</p>
+<p>Examples:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># When user presses &lt;esc&gt;, close the form:</span>
+<span class="n">form</span><span class="o">.</span><span class="n">bindKey</span><span class="p">(</span><span class="s">&quot;esc&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+
+<span class="c"># When user presses &lt;ctrl&gt;&lt;alt&gt;&lt;w&gt;, close the form:</span>
+<span class="n">form</span><span class="o">.</span><span class="n">bindKey</span><span class="p">(</span><span class="s">&quot;ctrl+alt+w&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">Close</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13871"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">bringToFront</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Makes this object topmost</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13872"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">clear</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Clears the background of custom-drawn objects.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13873"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">clone</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>name=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Create another object just like the passed object. It assumes that the
+calling object will be the container of the newly created object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13874"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">containerCoordinates</code><span class="sig-paren">(</span><em>self</em>, <em>cnt</em>, <em>pos=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Given a position relative to this control, return a position relative
+to the specified container. If no position is passed, returns the position
+of this control relative to the container.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13875"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Called by uiApp when the user requests a copy operation.</p>
+<p>Return None (the default) and uiApp will try a default copy operation.
+Return anything other than None and uiApp will assume that the copy
+operation has been handled.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13876"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">cut</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Called by uiApp when the user requests a cut operation.</p>
+<p>Return None (the default) and uiApp will try a default cut operation.
+Return anything other than None and uiApp will assume that the cut
+operation has been handled.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13877"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawArc</code><span class="sig-paren">(</span><em>self</em>, <em>xPos</em>, <em>yPos</em>, <em>rad</em>, <em>startAngle</em>, <em>endAngle</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws an arc (pie slice) of a circle centered around the specified point,
+starting from &#8216;startAngle&#8217; degrees, and sweeping counter-clockwise
+until &#8216;endAngle&#8217; is reached.</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13878"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawBitmap</code><span class="sig-paren">(</span><em>self</em>, <em>bmp</em>, <em>x=0</em>, <em>y=0</em>, <em>mode=None</em>, <em>persist=True</em>, <em>transparent=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a bitmap on the object at the specified position.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13879"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawCircle</code><span class="sig-paren">(</span><em>self</em>, <em>xPos</em>, <em>yPos</em>, <em>rad</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a circle of the specified radius around the specified point.</p>
+<p>You can set the color and thickness of the line, as well as the
+color and hatching style of the fill. Normally, when persist=True,
+the circle will be re-drawn on paint events, but if you pass False,
+it will be drawn once only.</p>
+<p>A drawing object is returned, or None if persist=False. You can
+&#8216;remove&#8217; the drawing by setting the Visible property of the
+returned object to False. You can also manipulate the position, size,
+color, and fill by changing the various properties of the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13880"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawEllipse</code><span class="sig-paren">(</span><em>self</em>, <em>xPos</em>, <em>yPos</em>, <em>width</em>, <em>height</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws an ellipse contained within the rectangular space defined by
+the position and size coordinates</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13881"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawEllipticArc</code><span class="sig-paren">(</span><em>self</em>, <em>xPos</em>, <em>yPos</em>, <em>width</em>, <em>height</em>, <em>startAngle</em>, <em>endAngle</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws an arc (pie slice) of a ellipse contained by the specified
+dimensions, starting from &#8216;startAngle&#8217; degrees, and sweeping
+counter-clockwise until &#8216;endAngle&#8217; is reached.</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13882"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawGradient</code><span class="sig-paren">(</span><em>self</em>, <em>orientation</em>, <em>x=0</em>, <em>y=0</em>, <em>width=None</em>, <em>height=None</em>, <em>color1=None</em>, <em>color2=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a horizontal or vertical gradient on the control. Default
+is to cover the entire control, although you can specify positions.
+The gradient is drawn with &#8216;color1&#8217; as the top/left color, and &#8216;color2&#8217;
+as the bottom/right color.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13883"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawLine</code><span class="sig-paren">(</span><em>self</em>, <em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a line between (x1,y1) and (x2, y2).</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13884"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawPolyLines</code><span class="sig-paren">(</span><em>self</em>, <em>points</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>lineStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a series of connected line segments defined by the specified points.</p>
+<p>The &#8216;points&#8217; parameter should be a tuple of (x,y) pairs defining the shape. Lines
+are drawn connecting the points sequentially, but a segment from the last
+point to the first is not drawn, leaving an &#8216;open&#8217; polygon. As a result, there is no
+FillColor or HatchStyle defined for this.</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13885"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawPolygon</code><span class="sig-paren">(</span><em>self</em>, <em>points</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a polygon defined by the specified points.</p>
+<p>The &#8216;points&#8217; parameter should be a tuple of (x,y) pairs defining the
+polygon.</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13886"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawRectangle</code><span class="sig-paren">(</span><em>self</em>, <em>xPos</em>, <em>yPos</em>, <em>width</em>, <em>height</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a rectangle of the specified size beginning at the specified
+point.</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13887"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawRoundedRectangle</code><span class="sig-paren">(</span><em>self</em>, <em>xPos</em>, <em>yPos</em>, <em>width</em>, <em>height</em>, <em>radius</em>, <em>penColor='black'</em>, <em>penWidth=1</em>, <em>fillColor=None</em>, <em>lineStyle=None</em>, <em>hatchStyle=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws a rounded rectangle of the specified size beginning at the specified
+point, with the specified corner radius.</p>
+<p>See the &#8216;drawCircle()&#8217; method above for more details.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13888"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">drawText</code><span class="sig-paren">(</span><em>self</em>, <em>text</em>, <em>x=0</em>, <em>y=0</em>, <em>angle=0</em>, <em>fontFace=None</em>, <em>fontSize=None</em>, <em>fontBold=None</em>, <em>fontItalic=None</em>, <em>fontUnderline=None</em>, <em>foreColor=None</em>, <em>backColor=None</em>, <em>mode=None</em>, <em>persist=True</em>, <em>visible=True</em>, <em>dc=None</em>, <em>useDefaults=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Draws text on the object at the specified position
+using the specified characteristics. Any characteristics
+not specified will be set to the system default.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13889"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">endHover</code><span class="sig-paren">(</span><em>self</em>, <em>evt=None</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13890"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">fitToSizer</code><span class="sig-paren">(</span><em>self</em>, <em>extraWidth=0</em>, <em>extraHeight=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Resize the control to fit the size required by its sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13891"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">fontZoomIn</code><span class="sig-paren">(</span><em>self</em>, <em>amt=1</em><span class="sig-paren">)</span></dt>
+<dd><p>Zoom in on the font, by setting a higher point size.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13892"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">fontZoomNormal</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Reset the font zoom back to zero.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13893"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">fontZoomOut</code><span class="sig-paren">(</span><em>self</em>, <em>amt=1</em><span class="sig-paren">)</span></dt>
+<dd><p>Zoom out on the font, by setting a lower point size.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13894"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">formCoordinates</code><span class="sig-paren">(</span><em>self</em>, <em>pos=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Given a position relative to this control, return a position relative
+to the containing form. If no position is passed, returns the position
+of this control relative to the form.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13895"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getAbsoluteName</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return the fully qualified name of the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13896"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getCaptureBitmap</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return a bitmap snapshot of self as it appears in the UI at this moment.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13897"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getContainingPage</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return the dPage or WizardPage that contains self.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13898"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getDisplayLocker</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns an object that locks the current display when created, and
+unlocks it when destroyed. This is generally safer than calling lockDisplay()
+and unlockDisplay(), especially when used with callAfterInterval(), when
+the unlockDisplay() calls may not all happen.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13899"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getMousePosition</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns the current mouse position on the entire screen
+relative to this object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13900"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getPositionInSizer</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Convenience method to let you call this directly on the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13901"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propertySequence=()</em>, <em>propsToSkip=()</em>, <em>ignoreErrors=False</em>, <em>*propertyArguments</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dictionary of property name/value pairs.</p>
+<p>If a sequence of properties is passed, just those property values
+will be returned. Otherwise, all property values will be returned.
+The sequence of properties can be a list, tuple, or plain string
+positional arguments. For instance, all of the following are
+equivilent:</p>
+<div class="highlight-python"><div class="highlight"><pre>print self.getProperties(&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties([&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;])
+t = (&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties(t)
+print self.getProperties(\*t)
+</pre></div>
+</div>
+<p>An exception will be raised if any passed property names don&#8217;t
+exist, aren&#8217;t actual properties, or are not readable (do not have
+getter functions).</p>
+<p>However, if an exception is raised from the property getter function,
+the exception will get caught and used as the property value in the
+returned property dictionary. This allows the property list to be
+returned even if some properties can&#8217;t be evaluated correctly by the
+object yet.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13902"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getSizerProp</code><span class="sig-paren">(</span><em>self</em>, <em>prop</em><span class="sig-paren">)</span></dt>
+<dd><p>Gets the current setting for the given property from the object&#8217;s
+ControllingSizer. Returns None if object is not in a sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13903"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">getSizerProps</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dict containing the object&#8217;s sizer property info. The
+keys are the property names, and the values are the current
+values for those props.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13904"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">hide</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Make the object invisible.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13905"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">initEvents</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User code should do custom event binding
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">bindEvent</span><span class="p">(</span><span class="n">dEvents</span><span class="o">.</span><span class="n">GotFocus</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">customGotFocusHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13906"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">initProperties</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User subclasses should set properties
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;MyTextBox&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">BackColor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13907"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">isContainedBy</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns True if the containership hierarchy for this control
+includes the passed object reference.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13908"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">iterateCall</code><span class="sig-paren">(</span><em>self</em>, <em>funcName</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Call the given function on this object and all of its Children. If
+any object does not have the given function, no error is raised; it
+is simply ignored.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13909"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">layout</code><span class="sig-paren">(</span><em>self</em>, <em>resetMin=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Wrap the wx version of the call, if possible.</p>
+</dd></dl>
+
+<p>Inherited from: &#8216;dabo.ui.uiwx.dPanel._BasePanelMixin - can not provide a link</p>
+<hr class="docutils" />
+<span class="target" id="no-13910"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">lockDisplay</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Locks the visual updates to the control.</p>
+<p>This can significantly improve performance when many items are being
+updated at once.</p>
+<p>IMPORTANT: you must call unlockDisplay() when you are done, or your
+object will never draw. unlockDisplay() must be called once for every
+time lockDisplay() is called in order to resume repainting of the
+control. Alternatively, you can call lockDisplay() many times, and
+then call unlockDisplayAll() once when you are done.</p>
+<p>Note that lockDisplay currently doesn&#8217;t do anything on GTK.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13911"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">moveTabOrderAfter</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em><span class="sig-paren">)</span></dt>
+<dd><p>Moves this object&#8217;s tab order after the passed obj.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13912"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">moveTabOrderBefore</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em><span class="sig-paren">)</span></dt>
+<dd><p>Moves this object&#8217;s tab order before the passed obj.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13913"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">objectCoordinates</code><span class="sig-paren">(</span><em>self</em>, <em>pos=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Given a position relative to the form, return a position relative
+to this object. If no position is passed, returns the position
+of this control relative to the form.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13914"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">onHover</code><span class="sig-paren">(</span><em>self</em>, <em>evt=None</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13921"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">paste</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Called by uiApp when the user requests a paste operation.</p>
+<p>Return None (the default) and uiApp will try a default paste operation.
+Return anything other than None and uiApp will assume that the paste
+operation has been handled.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13922"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">posIsWithin</code><span class="sig-paren">(</span><em>self</em>, <em>xpos</em>, <em>ypos=None</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13923"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">processDroppedFiles</code><span class="sig-paren">(</span><em>self</em>, <em>filelist</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span></dt>
+<dd><p>Handler for files dropped on the control. Override in your
+subclass/instance for your needs .</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13924"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">processDroppedText</code><span class="sig-paren">(</span><em>self</em>, <em>txt</em>, <em>x</em>, <em>y</em><span class="sig-paren">)</span></dt>
+<dd><p>Handler for text dropped on the control. Override in your
+subclass/instance for your needs .</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13925"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">raiseEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>nativeEvent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Raise the passed Dabo event.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13926"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">reCreate</code><span class="sig-paren">(</span><em>self</em>, <em>child=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Abstract method: subclasses MUST override for UI-specifics.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.dPemMixinBase.dPemMixinBase.html#dabo-ui-dpemmixinbase-dpemmixinbase"><em>|doc_title|  dPemMixinBase.dPemMixinBase - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13927"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">recreate</code><span class="sig-paren">(</span><em>self</em>, <em>child=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Recreate the object.</p>
+<p>Warning: this is experimental and is known to cause hair loss.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13928"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">redraw</code><span class="sig-paren">(</span><em>self</em>, <em>dc</em><span class="sig-paren">)</span></dt>
+<dd><p>Called when the object is (re)drawn.</p>
+<p>This is a user subclass hook, where you should put any drawing routines
+to affect the object appearance.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13929"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">refresh</code><span class="sig-paren">(</span><em>self</em>, <em>fromRefresh=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Repaints this control and all contained objects.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13930"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">relativeCoordinates</code><span class="sig-paren">(</span><em>self</em>, <em>pos=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Translates an absolute screen position to position value for a control.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13931"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">release</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Destroys the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13932"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">removeDrawnObject</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13935"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">sendToBack</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Places this object behind all others.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13936"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setAll</code><span class="sig-paren">(</span><em>self</em>, <em>prop</em>, <em>val</em>, <em>recurse=True</em>, <em>filt=None</em>, <em>instancesOf=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Set all child object properties to the passed value.</p>
+<p>No bad effects will happen if the property doesn&#8217;t apply to a child - only
+children with the property will have their property updated.</p>
+<p>If &#8216;recurse&#8217; is True, setAll() will be called on each child as well.</p>
+<p>If &#8216;filt&#8217; is not empty, only children that match the expression in &#8216;filt&#8217;
+will be affected. The expression will be evaluated assuming the child
+object is prefixed to the expression. For example, if you want to only
+affect objects that are instances of dButton, you&#8217;d call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">form</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="s">&quot;FontBold&quot;</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="s">&quot;BaseClass == dabo.ui.dButton&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the instancesOf sequence is passed, the property will only be set if
+the child object is an instance of one of the passed classes.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13937"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setFocus</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets focus to the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13938"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setPositionInSizer</code><span class="sig-paren">(</span><em>self</em>, <em>pos</em><span class="sig-paren">)</span></dt>
+<dd><p>Convenience method to let you call this directly on the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13939"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreErrors=False</em>, <em>**propKw</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once.</p>
+<p>You have the following options for sending the properties:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Property/Value pair dictionary</li>
+<li>Keyword arguments</li>
+<li>Both</li>
+</ol>
+</div></blockquote>
+<p>The following examples all do the same thing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">FontBold</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&quot;ForeColor&quot;</span><span class="p">:</span> <span class="s">&quot;Red&quot;</span><span class="p">})</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13940"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setPropertiesFromAtts</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreExtra=True</em>, <em>context=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once. This
+is different from the regular setProperties() method because
+it only accepts a dict containing prop:value pairs, and it
+assumes that the value is always a string. It will convert
+the value to the correct type for the property, and then set
+the property to that converted value. If the value needs to be evaluated
+in a specific namespace, pass that as the &#8216;context&#8217; parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13941"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setSizerProp</code><span class="sig-paren">(</span><em>self</em>, <em>prop</em>, <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Tells the object&#8217;s ControllingSizer to adjust the requested property.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13942"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">setSizerProps</code><span class="sig-paren">(</span><em>self</em>, <em>propDict</em><span class="sig-paren">)</span></dt>
+<dd><p>Convenience method for setting multiple sizer item properties at once. The
+dict should have the property name as the key and the desired new value
+as the associated value.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13943"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">show</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Make the object visible.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13944"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">showContainingPage</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>If this object is inside of any paged control, it will force all containing
+paged controls to switch to the page that contains this object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13945"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">showContextMenu</code><span class="sig-paren">(</span><em>self</em>, <em>menu</em>, <em>pos=None</em>, <em>release=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Display a context menu (popup) at the specified position.</p>
+<p>If no position is specified, the menu will be displayed at the current
+mouse position.</p>
+<p>If release is True (the default), the menu will be released after the user
+has dismissed it.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13946"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">super</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>This method used to call superclass code, but it&#8217;s been removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13947"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">unbindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass=None</em>, <em>function=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove a previously registered event binding.</p>
+<p>Removes all registrations that exist for the given binding for this
+object. If event is None, all bindings for the passed function are
+removed. If function is None, all bindings for the passed event are
+removed. If both event and function are None, all event bindings are
+removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13948"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">unbindKey</code><span class="sig-paren">(</span><em>self</em>, <em>keyCombo</em><span class="sig-paren">)</span></dt>
+<dd><p>Unbind a previously bound key combination.</p>
+<p>Fail silently if the key combination didn&#8217;t exist already.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13949"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">unlockDisplay</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Unlocks the visual updates to the control.</p>
+<p>Use in conjunction with lockDisplay(), when you are doing lots of things
+that would result in lengthy screen updates.</p>
+<p>Since lockDisplay() may be called several times on an object, calling
+unlockDisplay() will &#8220;undo&#8221; one locking call. When all locks have been
+removed, repainting of the display will resume.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13950"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">unlockDisplayAll</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Immediately unlocks the display, no matter how many previous
+lockDisplay calls have been made. Useful in a callAfterInterval()
+construction to avoid flicker.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-13951"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPanel.dScrollPanel.</code><code class="descname">update</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Update the properties of this object and all contained objects.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dPemMixin.dPemMixin.html#dabo-ui-uiwx-dpemmixin-dpemmixin"><em>|doc_title|  dPemMixin.dPemMixin - class</em></a></p>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">  <strong>dPanel.dScrollPanel</strong> - class</a><ul>
+<li><a class="reference internal" href="#hierarchy-inheritance-diagram"> Inheritance Diagram</a></li>
+<li><a class="reference internal" href="#supclasses-known-superclasses"> Known Superclasses</a></li>
+<li><a class="reference internal" href="#subclasses-known-subclasses"> Known Subclasses</a></li>
+<li><a class="reference internal" href="#appearance-control-appearance"> Control Appearance</a></li>
+<li><a class="reference internal" href="#api-class-api"> Class API</a></li>
+<li><a class="reference internal" href="#method-summary-properties-summary"> Properties Summary</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#properties-inherited">Properties - inherited</a></li>
+<li><a class="reference internal" href="#method-summary-events-summary"> Events Summary</a></li>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#method-summary-methods-summary"> Methods Summary</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#methods-inherited">Methods - inherited</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/dabo.ui.uiwx.dPanel.dScrollPanel.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

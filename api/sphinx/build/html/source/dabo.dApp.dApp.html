@@ -1,0 +1,1657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dApp.dApp - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.dApp"></span><div class="section" id="doc-title-dapp-dapp-class">
+<span id="dabo-dapp-dapp"></span><h1><a class="reference internal" href="../_images/doc_title.png"><img alt="doc_title" class="align-top" src="../_images/doc_title.png" style="width: 32px;" /></a>  <strong>dApp.dApp</strong> - class<a class="headerlink" href="#doc-title-dapp-dapp-class" title="Permalink to this headline">¶</a></h1>
+<p>The containing object for the entire application.</p>
+<p>All Dabo objects have an Application property which refers to the dApp
+instance. Instantiate your dApp object from your main script, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dabo.dApp</span> <span class="kn">import</span> <span class="n">dApp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">dApp</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="go">Normally, dApp gets instantiated from the client app&#39;s main Python script,</span>
+<span class="go">and lives through the life of the application.</span>
+
+<span class="go">    -- Set up an empty data connections dict that contains connection objects</span>
+<span class="go">    -- that use descriptive names as their keys. Obviously this requires that</span>
+<span class="go">    -- each connection has a unique name; if you create connections with</span>
+<span class="go">    -- identical names, the second one read in will overwrite the first, and</span>
+<span class="go">    -- the results are not guaranteed. Once read in, the only identifier for a</span>
+<span class="go">    -- connection is its name; the file from which it was read in, if any, is</span>
+<span class="go">    -- irrelevant. Any .cnxml files found in the app home directory, the</span>
+<span class="go">    -- current directory (if different) or any subdirectory named &#39;db&#39; or</span>
+<span class="go">    -- &#39;data&#39; of the home/current directory will be automatically read into the</span>
+<span class="go">    -- connections dict, but the connections aren&#39;t made until requested by the</span>
+<span class="go">    -- app. Additionally, connections defined in Python code in a file named</span>
+<span class="go">    -- &#39;dbConnectionDefs.py&#39; will be imported. This is an old behavior that</span>
+<span class="go">    -- should no longer be used.</span>
+
+<span class="go">    -- Set up a DB Connection manager, that is basically a dictionary</span>
+<span class="go">    -- of dConnection objects. This allows connections to be shared</span>
+<span class="go">    -- application-wide.</span>
+
+<span class="go">    -- decide which ui to use (wx) and gets that ball rolling</span>
+
+<span class="go">    -- look for a MainForm in an expected place, otherwise use default dabo</span>
+<span class="go">    -- dFormMain, and instantiate that.</span>
+
+<span class="go">    -- maintain a forms collection and provide interfaces for</span>
+<span class="go">    -- opening dForms, closing them, and iterating through them.</span>
+
+<span class="go">    -- start the main app event loop.</span>
+
+<span class="go">    -- clean up and exit gracefully</span>
+</pre></div>
+</div>
+<div class="section" id="hierarchy-inheritance-diagram">
+<h2><a class="reference internal" href="../_images/Class_Hierarchy.png"><img alt="hierarchy" class="align-top" src="../_images/Class_Hierarchy.png" style="width: 32px;" /></a> Inheritance Diagram<a class="headerlink" href="#hierarchy-inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Inheritance diagram for: <strong>dApp</strong></p>
+</div>
+<div class="section" id="supclasses-known-superclasses">
+<h2><a class="reference internal" href="../_images/SuperClasses.png"><img alt="supclasses" class="align-top" src="../_images/SuperClasses.png" style="width: 32px;" /></a> Known Superclasses<a class="headerlink" href="#supclasses-known-superclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></li>
+</ul>
+</div>
+<div class="section" id="api-class-api">
+<h2><a class="reference internal" href="../_images/API.png"><img alt="API" class="align-top" src="../_images/API.png" style="width: 32px;" /></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.dApp.dApp">
+<em class="property">class </em><code class="descclassname">dabo.dApp.</code><code class="descname">dApp</code><span class="sig-paren">(</span><em>selfStart=False</em>, <em>ignoreScriptDir=False</em>, <em>properties=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The containing object for the entire application.</p>
+<p>All Dabo objects have an Application property which refers to the dApp
+instance. Instantiate your dApp object from your main script, like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dabo.dApp</span> <span class="kn">import</span> <span class="n">dApp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">dApp</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Normally, dApp gets instantiated from the client app&#8217;s main Python script,
+and lives through the life of the application.</p>
+<blockquote>
+<div><p>&#8211; Set up an empty data connections dict that contains connection objects
+&#8211; that use descriptive names as their keys. Obviously this requires that
+&#8211; each connection has a unique name; if you create connections with
+&#8211; identical names, the second one read in will overwrite the first, and
+&#8211; the results are not guaranteed. Once read in, the only identifier for a
+&#8211; connection is its name; the file from which it was read in, if any, is
+&#8211; irrelevant. Any .cnxml files found in the app home directory, the
+&#8211; current directory (if different) or any subdirectory named &#8216;db&#8217; or
+&#8211; &#8216;data&#8217; of the home/current directory will be automatically read into the
+&#8211; connections dict, but the connections aren&#8217;t made until requested by the
+&#8211; app. Additionally, connections defined in Python code in a file named
+&#8211; &#8216;dbConnectionDefs.py&#8217; will be imported. This is an old behavior that
+&#8211; should no longer be used.</p>
+<p class="attribution">&mdash;Set up a DB Connection manager, that is basically a dictionary
+&#8211; of dConnection objects. This allows connections to be shared
+&#8211; application-wide.</p>
+</div></blockquote>
+<blockquote>
+<div><p>&#8211; decide which ui to use (wx) and gets that ball rolling</p>
+<p class="attribution">&mdash;look for a MainForm in an expected place, otherwise use default dabo
+&#8211; dFormMain, and instantiate that.</p>
+</div></blockquote>
+<blockquote>
+<div><p>&#8211; maintain a forms collection and provide interfaces for
+&#8211; opening dForms, closing them, and iterating through them.</p>
+<p class="attribution">&mdash;start the main app event loop.</p>
+</div></blockquote>
+<blockquote>
+<div>&#8211; clean up and exit gracefully</div></blockquote>
+<dl class="method">
+<dt id="dabo.dApp.dApp.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>selfStart=False</em>, <em>ignoreScriptDir=False</em>, <em>properties=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dApp.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="method-summary-properties-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Properties Summary<a class="headerlink" href="#method-summary-properties-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-109"><em>Platform</em></a></td>
+<td>Returns the platform we are running on. This will be</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-108"><em>Parent</em></a></td>
+<td>The containing object.  (obj)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-89"><em>AutoImportConnections</em></a></td>
+<td>Specifies whether .cnxml connection files are automatically imported. (Default True)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-88"><em>Application</em></a></td>
+<td>Read-only object reference to the Dabo Application object.  (dApp).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-87"><em>ActiveForm</em></a></td>
+<td>Returns the form that currently has focus, or None.  (dForm)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-86"><em>AboutFormClass</em></a></td>
+<td>Specifies the form class to use for the application&#8217;s About screen.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-103"><em>LoginDialogClass</em></a></td>
+<td>The class to use for logging in.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-102"><em>LogEvents</em></a></td>
+<td>Specifies which events to log.  (list of strings)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-105"><em>MainFormClass</em></a></td>
+<td>Specifies the class to instantiate for the main form. Can be a</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-104"><em>MainForm</em></a></td>
+<td>The object reference to the main form of the application, or None.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-107"><em>NoneDisplay</em></a></td>
+<td>Text to display for null (None) values.  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-106"><em>Name</em></a></td>
+<td>The name of the object.  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-119"><em>UIAppClass</em></a></td>
+<td>The name of the ui-specific app subclass to instantiate.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-116"><em>ShowSizerLinesMenu</em></a></td>
+<td>Specifies whether the &#8220;Show Sizer Lines&#8221; option is shown in the menu.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-101"><em>Icon</em></a></td>
+<td>Specifies the icon to use on all forms and dialogs by default.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-100"><em>HomeDirectory</em></a></td>
+<td>Specifies the application&#8217;s home directory. (string)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-112"><em>ReleasePreferenceDialog</em></a></td>
+<td>If False, the preference dialog will remain hidden in memory after closed,</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-110"><em>PreferenceDialogClass</em></a></td>
+<td>Specifies the dialog to use for the application&#8217;s user preferences.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-98"><em>Encoding</em></a></td>
+<td>Name of encoding to use for unicode  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-99"><em>FormsToOpen</em></a></td>
+<td>List of forms to open after App instantiation.  (list of form class references)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-118"><em>UI</em></a></td>
+<td>Specifies the user interface to load, or None. (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-111"><em>PreferenceManager</em></a></td>
+<td>Reference to the Preference Management object  (dPref)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-90"><em>BaseClass</em></a></td>
+<td>The base Dabo class of the object. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-91"><em>BasePrefKey</em></a></td>
+<td>Base key used when saving/restoring preferences. This differs</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-92"><em>Class</em></a></td>
+<td>The class the object is based on. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-93"><em>Crypto</em></a></td>
+<td>Reference to the object that provides cryptographic services.  (varies)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-94"><em>CryptoKey</em></a></td>
+<td>When set, creates a DES crypto object if PyCrypto is installed. Note that</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-95"><em>DefaultForm</em></a></td>
+<td>The form class to open by default, automatically, after app instantiation.  (form class reference)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-96"><em>DefaultMenuBarClass</em></a></td>
+<td>The class used by all forms in the application when no specific MenuBarClass</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-97"><em>DrawSizerOutlines</em></a></td>
+<td>Determines if sizer outlines are drawn on the ActiveForm.  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-114"><em>SecurityManager</em></a></td>
+<td>Specifies the Security Manager, if any.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-113"><em>SearchDelay</em></a></td>
+<td>Specifies the delay before incrementeal searching begins.  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-115"><em>ShowCommandWindowMenu</em></a></td>
+<td>Specifies whether the command window option is shown in the menu.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-121"><em>UserSettingProviderClass</em></a></td>
+<td>Specifies the class to use for user preference persistence.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-120"><em>UserSettingProvider</em></a></td>
+<td>Specifies the reference to the object providing user preference persistence.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-117"><em>SourceURL</em></a></td>
+<td>If this app&#8217;s source files are updated dynamically via the web,</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p id="no-86"><strong>AboutFormClass</strong></p>
+<p>Specifies the form class to use for the application&#8217;s About screen.</p>
+<hr class="docutils" />
+<p id="no-87"><strong>ActiveForm</strong></p>
+<p>Returns the form that currently has focus, or None.  (dForm)</p>
+<hr class="docutils" />
+<p id="no-89"><strong>AutoImportConnections</strong></p>
+<p>Specifies whether .cnxml connection files are automatically imported. (Default True)</p>
+<hr class="docutils" />
+<p id="no-93"><strong>Crypto</strong></p>
+<p>Reference to the object that provides cryptographic services.  (varies)</p>
+<hr class="docutils" />
+<p id="no-94"><strong>CryptoKey</strong></p>
+<dl class="docutils">
+<dt>When set, creates a DES crypto object if PyCrypto is installed. Note that</dt>
+<dd>each time this property is set, a new PyCrypto instance is created, and
+any previous crypto objects are released. Write-only.  (varies)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-95"><strong>DefaultForm</strong></p>
+<p>The form class to open by default, automatically, after app instantiation.  (form class reference)</p>
+<hr class="docutils" />
+<p id="no-96"><strong>DefaultMenuBarClass</strong></p>
+<dl class="docutils">
+<dt>The class used by all forms in the application when no specific MenuBarClass</dt>
+<dd>is specified  (dabo.ui.dMenuBar)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-97"><strong>DrawSizerOutlines</strong></p>
+<p>Determines if sizer outlines are drawn on the ActiveForm.  (bool)</p>
+<hr class="docutils" />
+<p id="no-98"><strong>Encoding</strong></p>
+<p>Name of encoding to use for unicode  (str)</p>
+<hr class="docutils" />
+<p id="no-99"><strong>FormsToOpen</strong></p>
+<p>List of forms to open after App instantiation.  (list of form class references)</p>
+<hr class="docutils" />
+<p id="no-100"><strong>HomeDirectory</strong></p>
+<p>Specifies the application&#8217;s home directory. (string)</p>
+<blockquote>
+<div>The HomeDirectory is the top-level directory for your application files,
+the directory where your main script lives. You never know what the
+current directory will be on a given system, but HomeDirectory will always
+get you to your files.</div></blockquote>
+<hr class="docutils" />
+<p id="no-101"><strong>Icon</strong></p>
+<p>Specifies the icon to use on all forms and dialogs by default.</p>
+<blockquote>
+<div>The value passed can be a binary icon bitmap, a filename, or a
+sequence of filenames. Providing a sequence of filenames pointing to
+icons at expected dimensions like 16, 22, and 32 px means that the
+system will not have to scale the icon, resulting in a much better
+appearance.</div></blockquote>
+<hr class="docutils" />
+<p id="no-103"><strong>LoginDialogClass</strong></p>
+<p>The class to use for logging in.</p>
+<hr class="docutils" />
+<p id="no-104"><strong>MainForm</strong></p>
+<p>The object reference to the main form of the application, or None.</p>
+<blockquote>
+<div><p>The MainForm gets instantiated automatically during application setup,
+based on the value of MainFormClass. If you want to swap in your own
+MainForm instance, do it after setup() but before start(), as in:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dabo.dApp</span> <span class="kn">import</span> <span class="n">dApp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">dApp</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">MainForm</span> <span class="o">=</span> <span class="n">myMainFormInstance</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<hr class="docutils" />
+<p id="no-105"><strong>MainFormClass</strong></p>
+<dl class="docutils">
+<dt>Specifies the class to instantiate for the main form. Can be a</dt>
+<dd><p class="first">class reference, or the path to a .cdxml file.</p>
+<p>Defaults to the dFormMain base class. Set to None if you don&#8217;t want a
+main form, or set to your own main form class. Do this before calling
+dApp.start(), as in:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">dabo.dApp</span> <span class="kn">import</span> <span class="n">dApp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">dApp</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">MainFormClass</span> <span class="o">=</span> <span class="n">MyMainFormClass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-107"><strong>NoneDisplay</strong></p>
+<p>Text to display for null (None) values.  (str)</p>
+<hr class="docutils" />
+<p id="no-109"><strong>Platform</strong></p>
+<dl class="docutils">
+<dt>Returns the platform we are running on. This will be</dt>
+<dd>one of &#8216;Mac&#8217;, &#8216;Win&#8217; or &#8216;GTK&#8217;.  (str)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-110"><strong>PreferenceDialogClass</strong></p>
+<p>Specifies the dialog to use for the application&#8217;s user preferences.</p>
+<blockquote>
+<div>If None, the application will try to run the active form&#8217;s onEditPreferences()
+method, if any. Otherwise, the preference dialog will be instantiated and
+shown when the user chooses to see the preferences.</div></blockquote>
+<hr class="docutils" />
+<p id="no-112"><strong>ReleasePreferenceDialog</strong></p>
+<dl class="docutils">
+<dt>If False, the preference dialog will remain hidden in memory after closed,</dt>
+<dd><p class="first">resulting in better performance when bringing up the dialog more than once.</p>
+<p class="last">Note that you&#8217;ll still have to handle intercepting your dialog&#8217;s Close event and
+hiding it instead of releasing, or you&#8217;ll be battling dead object errors.</p>
+</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-113"><strong>SearchDelay</strong></p>
+<p>Specifies the delay before incrementeal searching begins.  (int)</p>
+<blockquote>
+<div><p>As the user types, the search string is modified. If the time between
+keystrokes exceeds SearchDelay (milliseconds), the search will run and
+the search string    will be cleared.</p>
+<p>The value set here in the Application object will become the default for
+all objects that provide incremental searching application-wide.</p>
+</div></blockquote>
+<hr class="docutils" />
+<p id="no-114"><strong>SecurityManager</strong></p>
+<p>Specifies the Security Manager, if any.</p>
+<blockquote>
+<div>You must subclass dSecurityManager, overriding the appropriate hooks
+and properties, and then set dApp.SecurityManager to an instance of your
+subclass. There is no security manager by default - you explicitly set
+this to use Dabo security.</div></blockquote>
+<hr class="docutils" />
+<p id="no-115"><strong>ShowCommandWindowMenu</strong></p>
+<p>Specifies whether the command window option is shown in the menu.</p>
+<blockquote>
+<div>If True (the default), there will be a File|Command Window option
+available in the base menu. If False, your code can still start the
+command window by calling app.showCommandWindow() directly.</div></blockquote>
+<hr class="docutils" />
+<p id="no-116"><strong>ShowSizerLinesMenu</strong></p>
+<p>Specifies whether the &#8220;Show Sizer Lines&#8221; option is shown in the menu.</p>
+<blockquote>
+<div>If True (the default), there will be a View|Show Sizer Lines option
+available in the base menu.</div></blockquote>
+<hr class="docutils" />
+<p id="no-117"><strong>SourceURL</strong></p>
+<dl class="docutils">
+<dt>If this app&#8217;s source files are updated dynamically via the web,</dt>
+<dd>this is the base URL to which the source file&#8217;s name will be appended.
+Default=&#8221;&#8221; (i.e., no source on the internet).  (str)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-118"><strong>UI</strong></p>
+<p>Specifies the user interface to load, or None. (str)</p>
+<blockquote>
+<div>This is the user interface library, such as &#8216;wx&#8217; or &#8216;tk&#8217;. Note that
+&#8216;wx&#8217; is the only supported user interface library at this point.</div></blockquote>
+<hr class="docutils" />
+<p id="no-119"><strong>UIAppClass</strong></p>
+<p>The name of the ui-specific app subclass to instantiate.</p>
+<blockquote>
+<div>This will allow ui toolkit-specific behaviors to be added to a Dabo
+application. It MUST be either defined in the application subclass, or
+passed in the call to create the app object, since the UI App cannot
+be changed once the app is running. Defaults to dabo.ui.uiApp
+if not specified.  (dabo.ui.uiApp)</div></blockquote>
+<hr class="docutils" />
+<p id="no-120"><strong>UserSettingProvider</strong></p>
+<p>Specifies the reference to the object providing user preference persistence.</p>
+<blockquote>
+<div>The default UserSettingProvider will save user preferences inside the .dabo
+directory inside the user&#8217;s home directory.</div></blockquote>
+<hr class="docutils" />
+<p id="no-121"><strong>UserSettingProviderClass</strong></p>
+<p>Specifies the class to use for user preference persistence.</p>
+<blockquote>
+<div>The default UserSettingProviderClass will save user preferences inside the .dabo
+directory inside the user&#8217;s home directory, and will be instantiated by Dabo
+automatically.</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="properties-inherited">
+<h2>Properties - inherited<a class="headerlink" href="#properties-inherited" title="Permalink to this headline">¶</a></h2>
+<p id="no-88"><strong>Application</strong></p>
+<p>Read-only object reference to the Dabo Application object.  (dApp).</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-90"><strong>BaseClass</strong></p>
+<p>The base Dabo class of the object. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-91"><strong>BasePrefKey</strong></p>
+<dl class="docutils">
+<dt>Base key used when saving/restoring preferences. This differs</dt>
+<dd>from the default definition of this property in that if it is empty, it
+will return the ActiveForm&#8217;s BasePrefKey or the MainForm&#8217;s BasePrefKey
+in that order. (str)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-92"><strong>Class</strong></p>
+<p>The class the object is based on. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-102"><strong>LogEvents</strong></p>
+<blockquote>
+<div><p>Specifies which events to log.  (list of strings)</p>
+<p>If the first element is &#8216;All&#8217;, all events except the following listed events
+will be logged.
+Event logging is resource-intensive, so in addition to setting this LogEvents
+property, you also need to make the following call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dabo</span><span class="o">.</span><span class="n">eventLogging</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-106"><strong>Name</strong></p>
+<p>The name of the object.  (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-108"><strong>Parent</strong></p>
+<p>The containing object.  (obj)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-111"><strong>PreferenceManager</strong></p>
+<p>Reference to the Preference Management object  (dPref)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-events-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Events Summary<a class="headerlink" href="#method-summary-events-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-123"><em>Deactivate</em></a></td>
+<td>Occurs when another form becomes active.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-122"><em>Activate</em></a></td>
+<td>Occurs when the form or application becomes active.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-127"><em>KeyUp</em></a></td>
+<td>Occurs when any key is released on the focused control or form.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-126"><em>KeyEvent</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-125"><em>KeyDown</em></a></td>
+<td>Occurs when any key is depressed on the focused control or form.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-124"><em>KeyChar</em></a></td>
+<td>Occurs when a key is depressed and released on the</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<p id="no-122"><strong>Activate</strong></p>
+<p>Occurs when the form or application becomes active.</p>
+<hr class="docutils" />
+<p id="no-123"><strong>Deactivate</strong></p>
+<p>Occurs when another form becomes active.</p>
+<hr class="docutils" />
+<p id="no-124"><strong>KeyChar</strong></p>
+<p>Occurs when a key is depressed and released on the
+focused control or form.</p>
+<hr class="docutils" />
+<p id="no-125"><strong>KeyDown</strong></p>
+<p>Occurs when any key is depressed on the focused control or form.</p>
+<hr class="docutils" />
+<p id="no-126"><strong>KeyEvent</strong></p>
+<hr class="docutils" />
+<p id="no-127"><strong>KeyUp</strong></p>
+<p>Occurs when any key is released on the focused control or form.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-methods-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Methods Summary<a class="headerlink" href="#method-summary-methods-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-169"><em>hasTransactionToken</em></a></td>
+<td>Returns True/False, depending on whether the specified</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-168"><em>getWebUpdateInfo</em></a></td>
+<td>Returns a 2-tuple that reflects the current settings for web updates.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-167"><em>getUserSettingKeys</em></a></td>
+<td>Return a list of all keys underneath &lt;spec&gt; in the user settings table.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-166"><em>getUserSetting</em></a></td>
+<td>Return the value of the item in the user settings table.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-165"><em>getUserCaption</em></a></td>
+<td>Return the full name of the currently logged-on user.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-164"><em>getTransactionToken</em></a></td>
+<td>Only one bizobj at a time can begin and end transactions per connection.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-163"><em>getStandardDirectories</em></a></td>
+<td>Return a tuple of the fullpath to each standard directory</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-162"><em>getStandardAppDirectory</em></a></td>
+<td>Return the path to one of the standard Dabo application directories.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-161"><em>getProperties</em></a></td>
+<td>Returns a dictionary of property name/value pairs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-160"><em>getLoginInfo</em></a></td>
+<td>Return a tuple of (user, password) to dSecurityManager.login(). The default</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-192"><em>onUiNewFile</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-193"><em>onUiOpenFile</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-190"><em>onReloadForm</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-191"><em>onShowSizerLines</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-196"><em>onWinClose</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-197"><em>raiseEvent</em></a></td>
+<td>Send the event to all registered listeners.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-194"><em>onUiPrintFile</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-195"><em>onUiReopenApp</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-198"><em>releaseTransactionToken</em></a></td>
+<td>When a process that would normally close a transaction happens, the</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-199"><em>resyncFiles</em></a></td>
+<td>In the middle of an app&#8217;s lifetime, files on the remote server may</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-202"><em>setProperties</em></a></td>
+<td>Sets a group of properties on the object all at once.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-203"><em>setPropertiesFromAtts</em></a></td>
+<td>Sets a group of properties on the object all at once. This</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-200"><em>setAppInfo</em></a></td>
+<td>Set item to value in the appinfo table.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-201"><em>setLanguage</em></a></td>
+<td>Allows you to change the language used for localization. If the language</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-206"><em>setup</em></a></td>
+<td>Set up the application object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-207"><em>showCommandWindow</em></a></td>
+<td>Shows a command window with a full Python interpreter.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-204"><em>setUserSetting</em></a></td>
+<td>Persist a value to the user settings file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-205"><em>setUserSettings</em></a></td>
+<td>Convenience method for setting several settings with one</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-208"><em>start</em></a></td>
+<td>Start the application event loop.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-209"><em>startupForms</em></a></td>
+<td>Open one or more of the defined forms. The default one is specified</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-181"><em>onEditPaste</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-180"><em>onEditFindAlone</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-183"><em>onEditRedo</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-182"><em>onEditPreferences</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-185"><em>onEditUndo</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-184"><em>onEditSelectAll</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-187"><em>onHelpAbout</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-186"><em>onFileExit</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-189"><em>onObjectInspectorWin</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-188"><em>onMenuOpenMRU</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-211"><em>toggleDebugWindow</em></a></td>
+<td>Shows/hodes a debug output window. It will</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-210"><em>super</em></a></td>
+<td>This method used to call superclass code, but it&#8217;s been removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-213"><em>updateFromSource</em></a></td>
+<td>This method takes either a single file path or a list of paths, and if there</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-212"><em>unbindEvent</em></a></td>
+<td>Remove a previously registered event binding.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-214"><em>urlFetch</em></a></td>
+<td>Fetches the specified resource from the internet using the SourceURL value</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-134"><em>afterInit</em></a></td>
+<td>Subclass hook. Called after the object&#8217;s __init__ has run fully.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-135"><em>afterSetup</em></a></td>
+<td>Hook method that is called after the app&#8217;s setup code has run, and the</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-136"><em>autoBindEvents</em></a></td>
+<td>Automatically bind any on*() methods to the associated event.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-137"><em>beforeEditPreferences</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-130"><em>addToAbout</em></a></td>
+<td>Adds additional app-specific information to the About form.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-131"><em>addToMRU</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-132"><em>afterEditPreferences</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-133"><em>afterFinish</em></a></td>
+<td>Stub method. When this is called, the app has already terminated, and you have</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-138"><em>beforeInit</em></a></td>
+<td>Subclass hook. Called before the object is fully instantiated.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-139"><em>bindEvent</em></a></td>
+<td>Bind a dEvent to a callback function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-156"><em>getCharset</em></a></td>
+<td>Returns one of &#8216;unicode&#8217; or &#8216;ascii&#8217;.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-157"><em>getConnectionByName</em></a></td>
+<td>Given the name of a connection, returns the actual</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-154"><em>getAbsoluteName</em></a></td>
+<td>Return the fully qualified name of the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-155"><em>getAppInfo</em></a></td>
+<td>Look up the item, and return the value.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-152"><em>fontZoomNormal</em></a></td>
+<td>Reset the font size to normal on the active form.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-153"><em>fontZoomOut</em></a></td>
+<td>Decrease the font size on the active form.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-150"><em>finish</em></a></td>
+<td>Called when the application event loop has ended. You may also</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-151"><em>fontZoomIn</em></a></td>
+<td>Increase the font size on the active form.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-158"><em>getConnectionNames</em></a></td>
+<td>Returns a list of all defined connection names</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-159"><em>getConnectionsFromFile</em></a></td>
+<td>Given an absolute path to a .cnxml file, return the connection defs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-129"><em>addConnectInfo</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-128"><em>addConnectFile</em></a></td>
+<td>Accepts a cnxml file path, and reads in the connections</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-145"><em>decrypt</em></a></td>
+<td>Return decrypted string value. The request is passed to</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-144"><em>copyToClipboard</em></a></td>
+<td>Place the passed text onto the clipboard.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-147"><em>deleteUserSetting</em></a></td>
+<td>Removes the given item from the user settings file.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-146"><em>deleteAllUserSettings</em></a></td>
+<td>Deletes all settings that begin with the supplied spec.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-141"><em>checkForUpdates</em></a></td>
+<td>Public interface to the web updates mechanism. Returns a boolean</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-140"><em>bindEvents</em></a></td>
+<td>Bind a sequence of [dEvent, callback] lists.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-143"><em>closeConnections</em></a></td>
+<td>Cleanup as the app is exiting.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-142"><em>clearActiveForm</em></a></td>
+<td>Called by the form when it is deactivated.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-149"><em>encrypt</em></a></td>
+<td>Return the encrypted string value. The request is passed</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-148"><em>displayInfoMessage</em></a></td>
+<td>Displays a messagebox dialog along with a checkbox for the user</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-170"><em>initEvents</em></a></td>
+<td>Hook for subclasses. User code should do custom event binding</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-171"><em>initProperties</em></a></td>
+<td>Hook for subclasses. User subclasses should set properties</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-172"><em>initUIApp</em></a></td>
+<td>Callback from the initial app setup. Used to allow the</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-173"><em>loginDialogHook</em></a></td>
+<td>Hook method; modify the dialog as needed.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-174"><em>onCmdWin</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-175"><em>onDebugWin</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-176"><em>onEditCopy</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-177"><em>onEditCut</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-178"><em>onEditFind</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.dApp.dApp.html#no-179"><em>onEditFindAgain</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-128"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.addConnectFile">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">addConnectFile</code><span class="sig-paren">(</span><em>self</em>, <em>connFile</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.addConnectFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accepts a cnxml file path, and reads in the connections
+defined in it, adding them to self.dbConnectionDefs. If the
+file cannot be found, an exception is raised.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-129"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.addConnectInfo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">addConnectInfo</code><span class="sig-paren">(</span><em>self</em>, <em>ci</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.addConnectInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-130"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.addToAbout">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">addToAbout</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.addToAbout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds additional app-specific information to the About form.
+By default, add the contents of the app&#8217;s docstring.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-131"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.addToMRU">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">addToMRU</code><span class="sig-paren">(</span><em>self</em>, <em>menu</em>, <em>prmpt</em>, <em>bindfunc=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.addToMRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-132"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.afterEditPreferences">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">afterEditPreferences</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.afterEditPreferences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-133"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.afterFinish">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">afterFinish</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.afterFinish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stub method. When this is called, the app has already terminated, and you have
+one last chance to execute code by overriding this method.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-135"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.afterSetup">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">afterSetup</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.afterSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method that is called after the app&#8217;s setup code has run, and the
+database, UI and module references have all been established.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-137"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.beforeEditPreferences">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">beforeEditPreferences</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.beforeEditPreferences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-141"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.checkForUpdates">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">checkForUpdates</code><span class="sig-paren">(</span><em>self</em>, <em>evt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.checkForUpdates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Public interface to the web updates mechanism. Returns a boolean
+indicating whether the update was successful.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-142"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.clearActiveForm">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">clearActiveForm</code><span class="sig-paren">(</span><em>self</em>, <em>frm</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.clearActiveForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called by the form when it is deactivated.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-143"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.closeConnections">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">closeConnections</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.closeConnections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleanup as the app is exiting.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-144"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.copyToClipboard">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">copyToClipboard</code><span class="sig-paren">(</span><em>self</em>, <em>txt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.copyToClipboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Place the passed text onto the clipboard.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-145"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.decrypt">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">decrypt</code><span class="sig-paren">(</span><em>self</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return decrypted string value. The request is passed to
+the Crypto object for processing.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-146"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.deleteAllUserSettings">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">deleteAllUserSettings</code><span class="sig-paren">(</span><em>self</em>, <em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.deleteAllUserSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes all settings that begin with the supplied spec.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-147"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.deleteUserSetting">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">deleteUserSetting</code><span class="sig-paren">(</span><em>self</em>, <em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.deleteUserSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes the given item from the user settings file.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-148"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.displayInfoMessage">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">displayInfoMessage</code><span class="sig-paren">(</span><em>self</em>, <em>msgId</em>, <em>msg</em>, <em>defaultShowInFuture=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.displayInfoMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays a messagebox dialog along with a checkbox for the user
+to specify whether or not to show this particular message again
+in the future.</p>
+<p>If user unchecks &#8220;show in future&#8221;, saves that to the user&#8217;s
+preference file and future calls to this function with that
+msgId will result in no message being shown.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-149"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.encrypt">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">encrypt</code><span class="sig-paren">(</span><em>self</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the encrypted string value. The request is passed
+to the Crypto object for processing.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-150"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.finish">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">finish</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when the application event loop has ended. You may also
+call this explicitly to exit the application event loop.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-151"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.fontZoomIn">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">fontZoomIn</code><span class="sig-paren">(</span><em>self</em>, <em>evt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.fontZoomIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase the font size on the active form.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-152"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.fontZoomNormal">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">fontZoomNormal</code><span class="sig-paren">(</span><em>self</em>, <em>evt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.fontZoomNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the font size to normal on the active form.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-153"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.fontZoomOut">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">fontZoomOut</code><span class="sig-paren">(</span><em>self</em>, <em>evt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.fontZoomOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrease the font size on the active form.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-155"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getAppInfo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getAppInfo</code><span class="sig-paren">(</span><em>self</em>, <em>item</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getAppInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look up the item, and return the value.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-156"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getCharset">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getCharset</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getCharset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns one of &#8216;unicode&#8217; or &#8216;ascii&#8217;.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-157"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getConnectionByName">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getConnectionByName</code><span class="sig-paren">(</span><em>self</em>, <em>connName</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getConnectionByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the name of a connection, returns the actual
+connection. Stores the connection so that multiple requests
+for the same named connection will not open multiple
+connections. If the name doesn&#8217;t exist in self.dbConnectionDefs,
+then an exception is raised.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-158"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getConnectionNames">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getConnectionNames</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getConnectionNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all defined connection names</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-159"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getConnectionsFromFile">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getConnectionsFromFile</code><span class="sig-paren">(</span><em>self</em>, <em>filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getConnectionsFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an absolute path to a .cnxml file, return the connection defs.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-160"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getLoginInfo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getLoginInfo</code><span class="sig-paren">(</span><em>self</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getLoginInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tuple of (user, password) to dSecurityManager.login(). The default
+is to display the standard login dialog, and return the user/password as
+entered by the user, but subclasses can override to get the information from
+where ever is appropriate. You can customize the default dialog by adding
+your own code to the loginDialogHook() method, which will receive a
+reference to the login dialog.</p>
+<p>Return a tuple of (user, pass).</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-162"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getStandardAppDirectory">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getStandardAppDirectory</code><span class="sig-paren">(</span><em>self</em>, <em>dirname</em>, <em>start=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getStandardAppDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path to one of the standard Dabo application directories.
+If a starting file path is provided, use that first. If not, use the
+HomeDirectory as the starting point.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-163"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getStandardDirectories">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getStandardDirectories</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getStandardDirectories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tuple of the fullpath to each standard directory</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-164"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getTransactionToken">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getTransactionToken</code><span class="sig-paren">(</span><em>self</em>, <em>biz</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getTransactionToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Only one bizobj at a time can begin and end transactions per connection.
+This allows the bizobj to query the app for the &#8216;token&#8217;, which is simply an
+acknowledgement that there is no other transaction pending for that connection.
+If the bizobj gets the token, further requests for the token from bizobjs using the
+same transaction will receive a reply of False, meaning that they should not be
+handling the transaction.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-165"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getUserCaption">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getUserCaption</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getUserCaption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the full name of the currently logged-on user.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-166"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getUserSetting">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getUserSetting</code><span class="sig-paren">(</span><em>self</em>, <em>item</em>, <em>default=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getUserSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the item in the user settings table.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-167"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getUserSettingKeys">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getUserSettingKeys</code><span class="sig-paren">(</span><em>self</em>, <em>spec</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getUserSettingKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all keys underneath &lt;spec&gt; in the user settings table.</p>
+<p>For example, if spec is &#8220;appWizard.dbDefaults&#8221;, and there are
+userSettings entries for:</p>
+<blockquote>
+<div>appWizard.dbDefaults.pkm.Host
+appWizard.dbDefaults.pkm.User
+appWizard.dbDefaults.egl.Host</div></blockquote>
+<p>The return value would be [&#8220;pkm&#8221;, &#8220;egl&#8221;]</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-168"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.getWebUpdateInfo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getWebUpdateInfo</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.getWebUpdateInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a 2-tuple that reflects the current settings for web updates.
+The first position is a boolean that reflects whether auto-checking is turned
+on; the second is the update frequency in minutes.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-169"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.hasTransactionToken">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">hasTransactionToken</code><span class="sig-paren">(</span><em>self</em>, <em>biz</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.hasTransactionToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True/False, depending on whether the specified
+bizobj currently &#8220;holds&#8221; the transaction token.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-172"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.initUIApp">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">initUIApp</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.initUIApp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback from the initial app setup. Used to allow the
+splash screen, if any, to be shown quickly.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-173"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.loginDialogHook">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">loginDialogHook</code><span class="sig-paren">(</span><em>self</em>, <em>dlg</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.loginDialogHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method; modify the dialog as needed.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-174"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onCmdWin">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onCmdWin</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onCmdWin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-175"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onDebugWin">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onDebugWin</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onDebugWin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-176"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditCopy">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditCopy</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditCopy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-177"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditCut">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditCut</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditCut" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-178"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditFind">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditFind</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditFind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-179"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditFindAgain">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditFindAgain</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditFindAgain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-180"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditFindAlone">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditFindAlone</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditFindAlone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-181"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditPaste">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditPaste</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditPaste" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-182"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditPreferences">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditPreferences</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditPreferences" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-183"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditRedo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditRedo</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditRedo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-184"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditSelectAll">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditSelectAll</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditSelectAll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-185"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onEditUndo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onEditUndo</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onEditUndo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-186"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onFileExit">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onFileExit</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onFileExit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-187"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onHelpAbout">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onHelpAbout</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onHelpAbout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-188"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onMenuOpenMRU">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onMenuOpenMRU</code><span class="sig-paren">(</span><em>self</em>, <em>menu</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onMenuOpenMRU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-189"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onObjectInspectorWin">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onObjectInspectorWin</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onObjectInspectorWin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-190"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onReloadForm">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onReloadForm</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onReloadForm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-191"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onShowSizerLines">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onShowSizerLines</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onShowSizerLines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-192"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onUiNewFile">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onUiNewFile</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onUiNewFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-193"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onUiOpenFile">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onUiOpenFile</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onUiOpenFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-194"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onUiPrintFile">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onUiPrintFile</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onUiPrintFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-195"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onUiReopenApp">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onUiReopenApp</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onUiReopenApp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-196"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.onWinClose">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">onWinClose</code><span class="sig-paren">(</span><em>self</em>, <em>evt</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.onWinClose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-198"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.releaseTransactionToken">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">releaseTransactionToken</code><span class="sig-paren">(</span><em>self</em>, <em>biz</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.releaseTransactionToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>When a process that would normally close a transaction happens, the
+bizobj that is holding the transaction token for its connection calls this
+method to return the token. A check is run to ensure that the releasing bizobj
+is the one currently holding the token for its connection; if it is, the item is
+removed from the _transactionTokens dict.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-199"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.resyncFiles">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">resyncFiles</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.resyncFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>In the middle of an app&#8217;s lifetime, files on the remote server may
+have been updated. This will ensure that the local copy is in sync.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-200"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.setAppInfo">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setAppInfo</code><span class="sig-paren">(</span><em>self</em>, <em>item</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.setAppInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set item to value in the appinfo table.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-201"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.setLanguage">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setLanguage</code><span class="sig-paren">(</span><em>self</em>, <em>lang</em>, <em>charset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.setLanguage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows you to change the language used for localization. If the language
+passed is not one for which there is a translation file, an IOError exception
+will be raised. You may optionally pass a character set to use.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-204"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.setUserSetting">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setUserSetting</code><span class="sig-paren">(</span><em>self</em>, <em>item</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.setUserSetting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Persist a value to the user settings file.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-205"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.setUserSettings">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setUserSettings</code><span class="sig-paren">(</span><em>self</em>, <em>setDict</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.setUserSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience method for setting several settings with one
+call. Pass a dict containing {settingName: settingValue} pairs.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-206"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.setup">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setup</code><span class="sig-paren">(</span><em>self</em>, <em>initUI=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the application object.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-207"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.showCommandWindow">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">showCommandWindow</code><span class="sig-paren">(</span><em>self</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.showCommandWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows a command window with a full Python interpreter.</p>
+<p>This is great for debugging during development, but you should turn off
+app.ShowCommandWindowMenu in production, perhaps leaving backdoor
+access to this function.</p>
+<p>The context argument tells dShellForm what object becomes &#8216;self&#8217;. If not
+passed, context will be app.ActiveForm.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-208"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.start">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">start</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the application event loop.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-209"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.startupForms">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">startupForms</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.startupForms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open one or more of the defined forms. The default one is specified
+in self.DefaultForm. If form names were passed on the command line,
+they will be opened instead of the default one as long as they exist.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-211"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.toggleDebugWindow">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">toggleDebugWindow</code><span class="sig-paren">(</span><em>self</em>, <em>context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.toggleDebugWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shows/hodes a debug output window. It will
+display the output of the debugging commands
+from your program.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-213"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.updateFromSource">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">updateFromSource</code><span class="sig-paren">(</span><em>self</em>, <em>fileOrFiles</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.updateFromSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method takes either a single file path or a list of paths, and if there
+is a SourceURL set, checks the source to see if there are newer versions available,
+and if so, downloads them.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-214"></span><dl class="function">
+<dt id="dabo.dApp.dabo.dApp.dApp.urlFetch">
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">urlFetch</code><span class="sig-paren">(</span><em>self</em>, <em>pth</em>, <em>errorOnNotFound=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dApp.dabo.dApp.dApp.urlFetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetches the specified resource from the internet using the SourceURL value
+as the base for the resource URL. If a newer version is found, the local copy
+is updated with the retrieved resource. If the resource isn&#8217;t found, nothing
+happens by default. If you want the error to be raised, pass True for the
+parameter &#8216;errorOnNotFound&#8217;.</p>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="methods-inherited">
+<h2>Methods - inherited<a class="headerlink" href="#methods-inherited" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-134"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">afterInit</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called after the object&#8217;s __init__ has run fully.
+Subclasses should place their __init__ code here in this hook, instead of
+overriding __init__ directly, to avoid conflicting with base Dabo behavior.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-136"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">autoBindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>force=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Automatically bind any on*() methods to the associated event.</p>
+<p>User code only needs to define the callback, and Dabo will automatically
+set up the event binding. This will satisfy lots of common cases where
+you want an object or its parent to respond to the object&#8217;s events.</p>
+<p>To use this feature, just define a method on&lt;EventName&gt;(), or    if you
+want a parent container to respond to the event, make a method in the
+parent on&lt;EventName&gt;_&lt;object Name or RegID&gt;().</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyButton</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dButton</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onHit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Hit!&quot;</span>
+
+<span class="k">class</span> <span class="nc">MyPanel</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">afterInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">MyButton</span><span class="p">,</span> <span class="n">RegID</span><span class="o">=</span><span class="s">&quot;btn1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">onHit_btn1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;panel: button hit!&quot;</span>
+</pre></div>
+</div>
+<p>When the button is pressed, you&#8217;ll see both &#8216;hit&#8217; messages because of
+auto event binding.</p>
+<p>If you want to bind your events explicitly, you can turn off auto event
+binding by issuing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dabo</span><span class="o">.</span><span class="n">autoBindEvents</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>This feature is inspired by PythonCard.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-138"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">beforeInit</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called before the object is fully instantiated.
+Usually, user code should override afterInit() instead, but there may be
+cases where you need to set an attribute before the init stage is fully
+underway.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-139"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">bindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>function</em>, <em>_auto=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a dEvent to a callback function.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-140"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">bindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>bindings</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a sequence of [dEvent, callback] lists.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-154"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getAbsoluteName</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return the fully qualified name of the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-161"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">getProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propertySequence=()</em>, <em>propsToSkip=()</em>, <em>ignoreErrors=False</em>, <em>*propertyArguments</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dictionary of property name/value pairs.</p>
+<p>If a sequence of properties is passed, just those property values
+will be returned. Otherwise, all property values will be returned.
+The sequence of properties can be a list, tuple, or plain string
+positional arguments. For instance, all of the following are
+equivilent:</p>
+<div class="highlight-python"><div class="highlight"><pre>print self.getProperties(&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties([&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;])
+t = (&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties(t)
+print self.getProperties(\*t)
+</pre></div>
+</div>
+<p>An exception will be raised if any passed property names don&#8217;t
+exist, aren&#8217;t actual properties, or are not readable (do not have
+getter functions).</p>
+<p>However, if an exception is raised from the property getter function,
+the exception will get caught and used as the property value in the
+returned property dictionary. This allows the property list to be
+returned even if some properties can&#8217;t be evaluated correctly by the
+object yet.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-170"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">initEvents</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User code should do custom event binding
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">bindEvent</span><span class="p">(</span><span class="n">dEvents</span><span class="o">.</span><span class="n">GotFocus</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">customGotFocusHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-171"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">initProperties</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User subclasses should set properties
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;MyTextBox&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">BackColor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-197"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">raiseEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>uiEvent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Send the event to all registered listeners.</p>
+<p>If uiEvent is sent, dEvents.Event will be able to parse it for useful
+information to send along to the callback.</p>
+<p>Additional arguments, if any, are sent along to the constructor    of the
+event. While this feature exists so that UI-lib event handlers can pass
+along information (such as the keystroke information in a key event), user
+code may pass along additional arguments as well, which    will exist in the
+event.EventData dictionary property.</p>
+<p>In most cases, user code should call raiseEvent() with
+the event class (dEvents.Hit, for example) as the only parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-202"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreErrors=False</em>, <em>**propKw</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once.</p>
+<p>You have the following options for sending the properties:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Property/Value pair dictionary</li>
+<li>Keyword arguments</li>
+<li>Both</li>
+</ol>
+</div></blockquote>
+<p>The following examples all do the same thing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">FontBold</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&quot;ForeColor&quot;</span><span class="p">:</span> <span class="s">&quot;Red&quot;</span><span class="p">})</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-203"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">setPropertiesFromAtts</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreExtra=True</em>, <em>context=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once. This
+is different from the regular setProperties() method because
+it only accepts a dict containing prop:value pairs, and it
+assumes that the value is always a string. It will convert
+the value to the correct type for the property, and then set
+the property to that converted value. If the value needs to be evaluated
+in a specific namespace, pass that as the &#8216;context&#8217; parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-210"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">super</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>This method used to call superclass code, but it&#8217;s been removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-212"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.dApp.dApp.</code><code class="descname">unbindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass=None</em>, <em>function=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove a previously registered event binding.</p>
+<p>Removes all registrations that exist for the given binding for this
+object. If event is None, all bindings for the passed function are
+removed. If function is None, all bindings for the passed event are
+removed. If both event and function are None, all event bindings are
+removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">  <strong>dApp.dApp</strong> - class</a><ul>
+<li><a class="reference internal" href="#hierarchy-inheritance-diagram"> Inheritance Diagram</a></li>
+<li><a class="reference internal" href="#supclasses-known-superclasses"> Known Superclasses</a></li>
+<li><a class="reference internal" href="#api-class-api"> Class API</a></li>
+<li><a class="reference internal" href="#method-summary-properties-summary"> Properties Summary</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#properties-inherited">Properties - inherited</a></li>
+<li><a class="reference internal" href="#method-summary-events-summary"> Events Summary</a></li>
+<li><a class="reference internal" href="#events">Events</a></li>
+<li><a class="reference internal" href="#method-summary-methods-summary"> Methods Summary</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#methods-inherited">Methods - inherited</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/dabo.dApp.dApp.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

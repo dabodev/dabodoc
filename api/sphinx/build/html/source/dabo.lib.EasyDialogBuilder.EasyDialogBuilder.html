@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>EasyDialogBuilder.EasyDialogBuilder - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.lib.EasyDialogBuilder"></span><div class="section" id="doc-title-easydialogbuilder-easydialogbuilder-class">
+<span id="dabo-lib-easydialogbuilder-easydialogbuilder"></span><h1><a class="reference internal" href="../_images/doc_title.png"><img alt="doc_title" class="align-top" src="../_images/doc_title.png" style="width: 32px;" /></a>  <strong>EasyDialogBuilder.EasyDialogBuilder</strong> - class<a class="headerlink" href="#doc-title-easydialogbuilder-easydialogbuilder-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="appearance-control-appearance">
+<h2><a class="reference internal" href="../_images/Appearance.png"><img alt="appearance" class="align-top" src="../_images/Appearance.png" style="width: 32px;" /></a> Control Appearance<a class="headerlink" href="#appearance-control-appearance" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Apple Mac</strong></th>
+<th class="head"><strong>Windows</strong></th>
+<th class="head"><strong>Linux</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>no image available</td>
+<td><a class="first last reference external image-reference" href="_static/winWidgets/EasyDialogBuilder.png"><img alt="EasyDialogBuilder" src="../_images/EasyDialogBuilder.png" style="width: 300.0px; height: 192.0px;" /></a>
+</td>
+<td>no image available</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api-class-api">
+<h2><a class="reference internal" href="../_images/API.png"><img alt="API" class="align-top" src="../_images/API.png" style="width: 32px;" /></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder">
+<em class="property">class </em><code class="descclassname">dabo.lib.EasyDialogBuilder.</code><code class="descname">EasyDialogBuilder</code><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeButtonBar">
+<code class="descname">makeButtonBar</code><span class="sig-paren">(</span><em>buttonData</em>, <em>orientation='horizontal'</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeButtonBar" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>buttonData</strong> (<em>tuple</em>) &#8211; A tuple of tuples, see below</li>
+<li><strong>orientation</strong> (<em>str</em>) &#8211; &#8220;horizontal&#8221; or &#8220;vertical&#8221;</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dabo.ui.dSizer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>buttonData tuple:</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>caption</td>
+<td>The caption for the button</td>
+</tr>
+<tr class="row-even"><td>regID</td>
+<td>The regID for the button</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeControlBox">
+<code class="descname">makeControlBox</code><span class="sig-paren">(</span><em>parent</em>, <em>caption</em>, <em>controlFields</em>, <em>border=5</em>, <em>spacing=5</em>, <em>grid=True</em>, <em>hasRegIDs=True</em>, <em>bindHitEvents=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeControlBox" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> &#8211; Dabo object that is the parent of the controls, normally a panel or a form</li>
+<li><strong>caption</strong> (<em>str</em>) &#8211; The caption for the control box</li>
+<li><strong>controlFields</strong> (<em>tuple</em>) &#8211; A tuple of tuples, see below</li>
+<li><strong>grid</strong> (<em>bool</em>) &#8211; When True objects are put into a grid sizer for even controlfield alignment.  When False all objects are put into boxSizers so the control fields line up with the end of their labels</li>
+<li><strong>hasRegIDs</strong> (<em>bool</em>) &#8211; When True all control objects will be assigned regIDs.</li>
+<li><strong>bindHitEvents</strong> (<em>bool</em>) &#8211; When True all the control objects hit events will be found to functions in the form of onHit_controlName</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dabo.ui.dSizer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>controlFields tuple:</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>control</td>
+<td>a Dabo control or the string &#8220;file&#8221; which produces a textbox with a button to get a file</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>a string to name this particular control</td>
+</tr>
+<tr class="row-odd"><td>label</td>
+<td>a string that appears on the label</td>
+</tr>
+<tr class="row-even"><td>properties</td>
+<td>optional dictionary of properties for the control</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have &#8220;file&#8221; as a control, following properties as special:
+&#8220;directory&#8221; = True will cause the control to browse for a directory
+&#8220;format&#8221; = string will cause the control to only allow the user to select that file type</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeControlField">
+<code class="descname">makeControlField</code><span class="sig-paren">(</span><em>parent</em>, <em>control</em>, <em>name</em>, <em>labelTitle</em>, <em>Properties</em>, <em>hasRegIDs=True</em>, <em>bindHitEvents=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeControlField" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> &#8211; Dabo object that is the parent of the controls, normally a panel or a form</li>
+<li><strong>control</strong> &#8211; Dabo class (not an instantiated object) of the control that you want in the form.</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; Name of the control</li>
+<li><strong>labelTitle</strong> (<em>str</em>) &#8211; The label next to the control</li>
+<li><strong>hasRegIDs</strong> (<em>bool</em>) &#8211; When True all control objects will be assigned regIDs.</li>
+<li><strong>bindHitEvents</strong> (<em>bool</em>) &#8211; When True all the control objects hit events will be found to functions in the form of onHit_controlName</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of controls</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeControlSizer">
+<code class="descname">makeControlSizer</code><span class="sig-paren">(</span><em>parent</em>, <em>controlFields</em>, <em>border=5</em>, <em>spacing=5</em>, <em>grid=True</em>, <em>hasRegIDs=True</em>, <em>bindHitEvents=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makeControlSizer" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> &#8211; Dabo object that is the parent of the controls, normally a panel or a form</li>
+<li><strong>caption</strong> &#8211; The caption for the control box</li>
+<li><strong>controlFields</strong> (<em>tuple</em>) &#8211; A tuple of tuples, see below</li>
+<li><strong>grid</strong> (<em>bool</em>) &#8211; When True objects are put into a grid sizer for even controlfield alignment.  When False all objects are put into boxSizers so the control fields line up with the end of their labels</li>
+<li><strong>hasRegIDs</strong> (<em>bool</em>) &#8211; When True all control objects will be assigned regIDs.</li>
+<li><strong>bindHitEvents</strong> (<em>bool</em>) &#8211; When True all the control objects hit events will be found to functions in the form of onHit_controlName</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dabo.ui.dSizer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>controlFields tuple:</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>control</td>
+<td>a Dabo control or the string &#8220;file&#8221; which produces a textbox with a button to get a file</td>
+</tr>
+<tr class="row-even"><td>name</td>
+<td>a string to name this particular control</td>
+</tr>
+<tr class="row-odd"><td>label</td>
+<td>a string that appears on the label</td>
+</tr>
+<tr class="row-even"><td>properties</td>
+<td>optional dictionary of properties for the control</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have &#8220;file&#8221; as a control, following properties as special:
+&#8220;directory&#8221; = True will cause the control to browse for a directory
+&#8220;format&#8221; = string will cause the control to only allow the user to select that file type</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makePageFrame">
+<code class="descname">makePageFrame</code><span class="sig-paren">(</span><em>parent</em>, <em>pageData</em>, <em>properties=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder.makePageFrame" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> &#8211; dabo object that is the parent of the controls, normally a panel or form</li>
+<li><strong>pageData</strong> (<em>tuple</em>) &#8211; a tuple of dictionaries, see below</li>
+<li><strong>properties</strong> (<em>dict</em>) &#8211; optional dictionary of properties for the control</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dabo.ui.dPageFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>pageData tuple:</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>pageData</td>
+<td>object that is the page.  Normally a dPage or Panel</td>
+</tr>
+<tr class="row-even"><td>caption</td>
+<td>optional if defined image, string that is the tab label</td>
+</tr>
+<tr class="row-odd"><td>image</td>
+<td>optional, dabo image that is the tab label</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="dabo.lib.EasyDialogBuilder.EasyDialogBuilder.setupStandardSizer">
+<code class="descname">setupStandardSizer</code><span class="sig-paren">(</span><em>orientation='vertical'</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.EasyDialogBuilder.EasyDialogBuilder.setupStandardSizer" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dabo.ui.dSizer</td>
+</tr>
+</tbody>
+</table>
+<p>Convienence function that sets up a standard sizer with some spacing and borders
+and returns it to the user</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">  <strong>EasyDialogBuilder.EasyDialogBuilder</strong> - class</a><ul>
+<li><a class="reference internal" href="#appearance-control-appearance"> Control Appearance</a></li>
+<li><a class="reference internal" href="#api-class-api"> Class API</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/dabo.lib.EasyDialogBuilder.EasyDialogBuilder.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

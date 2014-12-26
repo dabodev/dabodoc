@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dEvents.dEvent - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.dEvents"></span><div class="section" id="doc-title-devents-devent-class">
+<span id="dabo-devents-devent"></span><h1><a class="reference internal" href="../_images/doc_title.png"><img alt="doc_title" class="align-top" src="../_images/doc_title.png" style="width: 32px;" /></a>  <strong>dEvents.dEvent</strong> - class<a class="headerlink" href="#doc-title-devents-devent-class" title="Permalink to this headline">¶</a></h1>
+<p>Base class for Dabo events.</p>
+<p>Event objects are instantiated in self.raiseEvent(), and passed to all
+callbacks registered with self.bindEvent().</p>
+<p>User code can define custom events by simply subclassing Event and then
+using self.bindEvent() and self.raiseEvent() in your objects.</p>
+<div class="section" id="subclasses-known-subclasses">
+<h2><a class="reference internal" href="../_images/SubClasses.png"><img alt="subclasses" class="align-top" src="../_images/SubClasses.png" style="width: 32px;" /></a> Known Subclasses<a class="headerlink" href="#subclasses-known-subclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Activate.html#dabo-devents-activate"><em>|doc_title|  dEvents.Activate - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.BackgroundErased.html#dabo-devents-backgrounderased"><em>|doc_title|  dEvents.BackgroundErased - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.CalendarEvent.html#dabo-devents-calendarevent"><em>|doc_title|  dEvents.CalendarEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ChildBorn.html#dabo-devents-childborn"><em>|doc_title|  dEvents.ChildBorn - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Close.html#dabo-devents-close"><em>|doc_title|  dEvents.Close - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ContextMenu.html#dabo-devents-contextmenu"><em>|doc_title|  dEvents.ContextMenu - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ControlNavigationEvent.html#dabo-devents-controlnavigationevent"><em>|doc_title|  dEvents.ControlNavigationEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Create.html#dabo-devents-create"><em>|doc_title|  dEvents.Create - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.DataEvent.html#dabo-devents-dataevent"><em>|doc_title|  dEvents.DataEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Deactivate.html#dabo-devents-deactivate"><em>|doc_title|  dEvents.Deactivate - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Destroy.html#dabo-devents-destroy"><em>|doc_title|  dEvents.Destroy - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.EditorEvent.html#dabo-devents-editorevent"><em>|doc_title|  dEvents.EditorEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.FontPropertiesChanged.html#dabo-devents-fontpropertieschanged"><em>|doc_title|  dEvents.FontPropertiesChanged - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.GotFocus.html#dabo-devents-gotfocus"><em>|doc_title|  dEvents.GotFocus - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.GridEvent.html#dabo-devents-gridevent"><em>|doc_title|  dEvents.GridEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Hit.html#dabo-devents-hit"><em>|doc_title|  dEvents.Hit - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.HtmlLinkClicked.html#dabo-devents-htmllinkclicked"><em>|doc_title|  dEvents.HtmlLinkClicked - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Idle.html#dabo-devents-idle"><em>|doc_title|  dEvents.Idle - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.InteractiveChange.html#dabo-devents-interactivechange"><em>|doc_title|  dEvents.InteractiveChange - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.KeyEvent.html#dabo-devents-keyevent"><em>|doc_title|  dEvents.KeyEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ListControlEvent.html#dabo-devents-listcontrolevent"><em>|doc_title|  dEvents.ListControlEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.LostFocus.html#dabo-devents-lostfocus"><em>|doc_title|  dEvents.LostFocus - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.MediaEvent.html#dabo-devents-mediaevent"><em>|doc_title|  dEvents.MediaEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.MenuEvent.html#dabo-devents-menuevent"><em>|doc_title|  dEvents.MenuEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.MouseEvent.html#dabo-devents-mouseevent"><em>|doc_title|  dEvents.MouseEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Move.html#dabo-devents-move"><em>|doc_title|  dEvents.Move - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageChanged.html#dabo-devents-pagechanged"><em>|doc_title|  dEvents.PageChanged - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageChanging.html#dabo-devents-pagechanging"><em>|doc_title|  dEvents.PageChanging - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageClosed.html#dabo-devents-pageclosed"><em>|doc_title|  dEvents.PageClosed - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageClosing.html#dabo-devents-pageclosing"><em>|doc_title|  dEvents.PageClosing - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageContextMenu.html#dabo-devents-pagecontextmenu"><em>|doc_title|  dEvents.PageContextMenu - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageEnter.html#dabo-devents-pageenter"><em>|doc_title|  dEvents.PageEnter - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.PageLeave.html#dabo-devents-pageleave"><em>|doc_title|  dEvents.PageLeave - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Paint.html#dabo-devents-paint"><em>|doc_title|  dEvents.Paint - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ReportEvent.html#dabo-devents-reportevent"><em>|doc_title|  dEvents.ReportEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Resize.html#dabo-devents-resize"><em>|doc_title|  dEvents.Resize - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.SashEvent.html#dabo-devents-sashevent"><em>|doc_title|  dEvents.SashEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ScrollEvent.html#dabo-devents-scrollevent"><em>|doc_title|  dEvents.ScrollEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.SearchButtonClicked.html#dabo-devents-searchbuttonclicked"><em>|doc_title|  dEvents.SearchButtonClicked - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.SearchCancelButtonClicked.html#dabo-devents-searchcancelbuttonclicked"><em>|doc_title|  dEvents.SearchCancelButtonClicked - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ShellCommandRun.html#dabo-devents-shellcommandrun"><em>|doc_title|  dEvents.ShellCommandRun - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.SlidePanelCaptionClick.html#dabo-devents-slidepanelcaptionclick"><em>|doc_title|  dEvents.SlidePanelCaptionClick - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.SlidePanelChange.html#dabo-devents-slidepanelchange"><em>|doc_title|  dEvents.SlidePanelChange - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.SpinnerEvent.html#dabo-devents-spinnerevent"><em>|doc_title|  dEvents.SpinnerEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.TreeEvent.html#dabo-devents-treeevent"><em>|doc_title|  dEvents.TreeEvent - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.Update.html#dabo-devents-update"><em>|doc_title|  dEvents.Update - class</em></a></li>
+<li><a class="reference internal" href="../tempsource/dabo.dEvents.ValueChanged.html#dabo-devents-valuechanged"><em>|doc_title|  dEvents.ValueChanged - class</em></a></li>
+</ul>
+</div>
+<div class="section" id="api-class-api">
+<h2><a class="reference internal" href="../_images/API.png"><img alt="API" class="align-top" src="../_images/API.png" style="width: 32px;" /></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.dEvents.dEvent">
+<em class="property">class </em><code class="descclassname">dabo.dEvents.</code><code class="descname">dEvent</code><span class="sig-paren">(</span><em>eventObject</em>, <em>uiEvent=None</em>, <em>eventData=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dEvents.dEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for Dabo events.</p>
+<p>Event objects are instantiated in self.raiseEvent(), and passed to all
+callbacks registered with self.bindEvent().</p>
+<p>User code can define custom events by simply subclassing Event and then
+using self.bindEvent() and self.raiseEvent() in your objects.</p>
+<dl class="method">
+<dt id="dabo.dEvents.dEvent.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>eventObject</em>, <em>uiEvent=None</em>, <em>eventData=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dEvents.dEvent.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">  <strong>dEvents.dEvent</strong> - class</a><ul>
+<li><a class="reference internal" href="#subclasses-known-subclasses"> Known Subclasses</a></li>
+<li><a class="reference internal" href="#api-class-api"> Class API</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/dabo.dEvents.dEvent.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

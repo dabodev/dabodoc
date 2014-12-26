@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>|doc_title| profilehooks module &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.lib.profilehooks"></span><div class="section" id="doc-title-profilehooks-module">
+<span id="dabo-lib-profilehooks"></span><h1><a href="#id1"><span class="problematic" id="id2">|doc_title|</span></a>  <strong>profilehooks module</strong><a class="headerlink" href="#doc-title-profilehooks-module" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Profiling hooks</p>
+<p>This module contains a couple of decorators (<cite>profile</cite> and <cite>coverage</cite>) that
+can be used to wrap functions and/or methods to produce profiles and line
+coverage reports.</p>
+<p>Usage example (Python 2.4 or newer):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profilehooks</span> <span class="kn">import</span> <span class="n">profile</span><span class="p">,</span> <span class="n">coverage</span>
+
+<span class="nd">@profile</span>    <span class="c"># or @coverage</span>
+<span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fn</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">fn</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Usage example (Python 2.3 or older):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">profilehooks</span> <span class="kn">import</span> <span class="n">profile</span><span class="p">,</span> <span class="n">coverage</span>
+
+<span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fn</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># Now wrap that function in a decorator</span>
+<span class="n">fn</span> <span class="o">=</span> <span class="n">profile</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span> <span class="c"># or coverage(fn)</span>
+
+<span class="k">print</span> <span class="n">fn</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Reports for all thusly decorated functions will be printed to sys.stdout
+on program termination.  You can alternatively request for immediate
+reports for each call by passing immediate=True to the profile decorator.</p>
+<p>There&#8217;s also a &#64;timecall decorator for printing the time to sys.stderr
+every time a function is called, when you just want to get a rough measure
+instead of a detailed (but costly) profile.</p>
+<p>Caveats</p>
+<blockquote>
+<div><p>A thread on python-dev convinced me that hotshot produces bogus numbers.
+See <a class="reference external" href="http://mail.python.org/pipermail/python-dev/2005-November/058264.html">http://mail.python.org/pipermail/python-dev/2005-November/058264.html</a></p>
+<p>I don&#8217;t know what will happen if a decorated function will try to call
+another decorated function.  All decorators probably need to explicitly
+support nested profiling (currently TraceFuncCoverage is the only one that
+supports this, while HotShotFuncProfile has support for recursive functions.)</p>
+<p>Profiling with hotshot creates temporary files (*.prof and *.prof.pickle for
+profiling, *.cprof for coverage) in the current directory.  These files are
+not cleaned up.  (In fact, the *.pickle versions are intentionally written
+out in case you want to look at the profiler results without having to parse
+the big *.prof file with hotshot.stats.load, which takes ages.  Just unpickle
+the file and you&#8217;ll get a pstats object.)</p>
+<p>Coverage analysis with hotshot seems to miss some executions resulting in
+lower line counts and some lines errorneously marked as never executed.  For
+this reason coverage analysis now uses trace.py which is slower, but more
+accurate.</p>
+<p>Decorating functions causes doctest.testmod() to ignore doctests in those
+functions.</p>
+</div></blockquote>
+<p>Copyright (c) 2004&#8211;2006 Marius Gedminas &lt;<a class="reference external" href="mailto:marius&#37;&#52;&#48;pov&#46;lt">marius<span>&#64;</span>pov<span>&#46;</span>lt</a>&gt;</p>
+<p>Released under the MIT licence since December 2006:</p>
+<blockquote>
+<div><p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the &#8220;Software&#8221;),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+</div></blockquote>
+<p>(Previously it was distributed under the GNU General Public Licence.)</p>
+<div class="section" id="method-summary-function-summary">
+<h2><a href="#id3"><span class="problematic" id="id4">|method_summary|</span></a> Function Summary<a class="headerlink" href="#method-summary-function-summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="dabo.lib.profilehooks.html#dabo.lib.profilehooks.coverage" title="dabo.lib.profilehooks.coverage"><code class="xref py py-meth docutils literal"><span class="pre">coverage()</span></code></a></li>
+<li><a class="reference internal" href="dabo.lib.profilehooks.html#dabo.lib.profilehooks.coverage_with_hotshot" title="dabo.lib.profilehooks.coverage_with_hotshot"><code class="xref py py-meth docutils literal"><span class="pre">coverage_with_hotshot()</span></code></a></li>
+<li><a class="reference internal" href="dabo.lib.profilehooks.html#dabo.lib.profilehooks.profile" title="dabo.lib.profilehooks.profile"><code class="xref py py-meth docutils literal"><span class="pre">profile()</span></code></a></li>
+<li><a class="reference internal" href="dabo.lib.profilehooks.html#dabo.lib.profilehooks.timecall" title="dabo.lib.profilehooks.timecall"><code class="xref py py-meth docutils literal"><span class="pre">timecall()</span></code></a></li>
+</ul>
+</div>
+<div class="section" id="module-summary">
+<h2>Module Summary<a class="headerlink" href="#module-summary" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dabo.lib.profilehooks.html"><strong>profilehooks</strong> functions</a></li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">|doc_title|  <strong>profilehooks module</strong></a><ul>
+<li><a class="reference internal" href="#method-summary-function-summary">|method_summary| Function Summary</a></li>
+<li><a class="reference internal" href="#module-summary">Module Summary</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tempsource/dabo.lib.profilehooks_module.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

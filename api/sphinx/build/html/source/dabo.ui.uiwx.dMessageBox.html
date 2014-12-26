@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dMessageBox functions &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.ui.uiwx.dMessageBox"></span><div class="section" id="dmessagebox-functions">
+<span id="dabo-ui-uiwx-dmessagebox-functions"></span><h1><strong>dMessageBox</strong> functions<a class="headerlink" href="#dmessagebox-functions" title="Permalink to this headline">¶</a></h1>
+<p>This is the description of standalone Python functions in the <strong>dabo.ui.uiwx.dMessageBox</strong> module.</p>
+<div class="section" id="method-summary-functions-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Functions Summary<a class="headerlink" href="#method-summary-functions-summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-functions-api">
+<h2><a class="reference internal" href="../_images/API.png"><img alt="API" class="align-top" src="../_images/API.png" style="width: 32px;" /></a> Functions API<a class="headerlink" href="#api-functions-api" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.areYouSure">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">areYouSure</code><span class="sig-paren">(</span><em>message='Are you sure?'</em>, <em>title=None</em>, <em>defaultNo=False</em>, <em>cancelButton=True</em>, <em>parent=None</em>, <em>requestUserAttention=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.areYouSure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a dMessageBox asking the user to answer yes or no to a question.</p>
+<p>Returns True, False, or None, for choices &#8220;Yes&#8221;, &#8220;No&#8221;, or &#8220;Cancel&#8221;.</p>
+<p>The default title comes from app.getAppInfo(&#8220;appName&#8221;), or if the
+application object isn&#8217;t available it will be &#8220;Dabo Application&#8221;.</p>
+<p>If defaultNo is True, the &#8216;No&#8217; button will be the default button.</p>
+<p>If cancelButton is True (default), a third &#8216;Cancel&#8217; button will appear.</p>
+<p>If parent isn&#8217;t passed, it will automatically resolve to the current
+active form.</p>
+<p>If requestUserAttention is True, if the operating system supports it,
+the taskbar will flash (Windows) or the dock item will jump (Mac),
+showing the user that your application needs attention.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.exclaim">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">exclaim</code><span class="sig-paren">(</span><em>message='Important!'</em>, <em>title=None</em>, <em>parent=None</em>, <em>requestUserAttention=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.exclaim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a dMessageBox urgently informing the user that we cannot proceed.</p>
+<p>Returns None.</p>
+<p>The default title comes from app.getAppInfo(&#8220;appName&#8221;), or if the
+application object isn&#8217;t available it will be &#8220;Dabo Application&#8221;.</p>
+<p>If parent isn&#8217;t passed, it will automatically resolve to the current
+active form.</p>
+<p>If requestUserAttention is True, if the operating system supports it,
+the taskbar will flash (Windows) or the dock item will jump (Mac),
+showing the user that your application needs attention.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.getDefaultTitle">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">getDefaultTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.getDefaultTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a default title for the messageboxes.</p>
+<p>Comes from app.getAppInfo(&#8220;appName&#8221;), or if the application
+object isn&#8217;t available the title will be &#8220;Dabo Application&#8221;.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.getForm">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">getForm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.getForm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.info">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">info</code><span class="sig-paren">(</span><em>message='Information'</em>, <em>title=None</em>, <em>parent=None</em>, <em>requestUserAttention=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a dMessageBox offering the user some useful information.</p>
+<p>Returns None.</p>
+<p>The default title comes from app.getAppInfo(&#8220;appName&#8221;), or if the
+application object isn&#8217;t available it will be &#8220;Dabo Application&#8221;.</p>
+<p>If parent isn&#8217;t passed, it will automatically resolve to the current
+active form.</p>
+<p>If requestUserAttention is True, if the operating system supports it,
+the taskbar will flash (Windows) or the dock item will jump (Mac),
+showing the user that your application needs attention.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.showMessageBox">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">showMessageBox</code><span class="sig-paren">(</span><em>message</em>, <em>title</em>, <em>icon</em>, <em>parent=None</em>, <em>requestUserAttention=True</em>, <em>userAttentionMode=1</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.showMessageBox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.ui.uiwx.dMessageBox.stop">
+<code class="descclassname">dabo.ui.uiwx.dMessageBox.</code><code class="descname">stop</code><span class="sig-paren">(</span><em>message='Stop'</em>, <em>title=None</em>, <em>parent=None</em>, <em>requestUserAttention=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dMessageBox.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a dMessageBox informing the user that the operation cannot proceed.</p>
+<p>Returns None.</p>
+<p>The default title comes from app.getAppInfo(&#8220;appName&#8221;), or if the
+application object isn&#8217;t available it will be &#8220;Dabo Application&#8221;.</p>
+<p>If parent isn&#8217;t passed, it will automatically resolve to the current
+active form.</p>
+<p>If requestUserAttention is True, if the operating system supports it,
+the taskbar will flash (Windows) or the dock item will jump (Mac),
+showing the user that your application needs attention.</p>
+</dd></dl>
+
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>dMessageBox</strong> functions</a><ul>
+<li><a class="reference internal" href="#method-summary-functions-summary"> Functions Summary</a></li>
+<li><a class="reference internal" href="#api-functions-api"> Functions API</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/dabo.ui.uiwx.dMessageBox.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

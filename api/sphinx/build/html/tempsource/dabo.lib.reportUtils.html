@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>reportUtils functions &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.lib.reportUtils"></span><div class="section" id="reportutils-functions">
+<span id="dabo-lib-reportutils-functions"></span><h1><strong>reportUtils</strong> functions<a class="headerlink" href="#reportutils-functions" title="Permalink to this headline">¶</a></h1>
+<p>This is the description of standalone Python functions in the <strong>dabo.lib.reportUtils</strong> module.</p>
+<div class="section" id="method-summary-functions-summary">
+<h2><a href="#id1"><span class="problematic" id="id2">|method_summary|</span></a> Functions Summary<a class="headerlink" href="#method-summary-functions-summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-functions-api">
+<h2><a href="#id3"><span class="problematic" id="id4">|API|</span></a> Functions API<a class="headerlink" href="#api-functions-api" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="dabo.lib.reportUtils.getTestCursorXmlFromDataSet">
+<code class="descclassname">dabo.lib.reportUtils.</code><code class="descname">getTestCursorXmlFromDataSet</code><span class="sig-paren">(</span><em>dataset</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.reportUtils.getTestCursorXmlFromDataSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the xml for insertion into a .rfxml file from a dataset.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.reportUtils.previewPDF">
+<code class="descclassname">dabo.lib.reportUtils.</code><code class="descname">previewPDF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.reportUtils.previewPDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated; use previewReport() instead.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.reportUtils.previewReport">
+<code class="descclassname">dabo.lib.reportUtils.</code><code class="descname">previewReport</code><span class="sig-paren">(</span><em>path</em>, <em>modal=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.reportUtils.previewReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preview the passed report (txt or pdf) file in the default viewer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.reportUtils.printPDF">
+<code class="descclassname">dabo.lib.reportUtils.</code><code class="descname">printPDF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.reportUtils.printPDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deprecated; use printReport() instead.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.reportUtils.printReport">
+<code class="descclassname">dabo.lib.reportUtils.</code><code class="descname">printReport</code><span class="sig-paren">(</span><em>path</em>, <em>printerName=None</em>, <em>printerPort=None</em>, <em>copies=1</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.reportUtils.printReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the passed report (txt or pdf) to the default printer.</p>
+<dl class="docutils">
+<dt>If gsprint is installed and on the path:</dt>
+<dd><ol class="first last arabic simple">
+<li>printerName specifies which printer to output to. (None: use default printer)</li>
+<li>printerPort specifies which port to output to. (None: use default port)</li>
+<li>multiple copies are handled more efficiently.</li>
+</ol>
+</dd>
+</dl>
+<p>NOTE: gsprint   is part of gsview, and gsview depends on ghostscript.
+These packages are GPL - to avoid legal issues make sure your end
+user installs them separately from your application.</p>
+</dd></dl>
+
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>reportUtils</strong> functions</a><ul>
+<li><a class="reference internal" href="#method-summary-functions-summary">|method_summary| Functions Summary</a></li>
+<li><a class="reference internal" href="#api-functions-api">|API| Functions API</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tempsource/dabo.lib.reportUtils.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

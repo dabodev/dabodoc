@@ -1,0 +1,1391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dBorderSizer.dBorderSizer - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.ui.uiwx.dBorderSizer"></span><div class="section" id="doc-title-dbordersizer-dbordersizer-class">
+<span id="dabo-ui-uiwx-dbordersizer-dbordersizer"></span><h1><a class="reference internal" href="../_images/doc_title.png"><img alt="doc_title" class="align-top" src="../_images/doc_title.png" style="width: 32px;" /></a>  <strong>dBorderSizer.dBorderSizer</strong> - class<a class="headerlink" href="#doc-title-dbordersizer-dbordersizer-class" title="Permalink to this headline">¶</a></h1>
+<p>A BorderSizer is a regular box sizer, but with a visible box around
+the perimiter. You must either create the box first and pass it to the
+dBorderSizer&#8217;s constructor, or pass a parent object, and the box
+will be created for you in the constructor as a child object of the parent
+you passed.</p>
+<div class="section" id="hierarchy-inheritance-diagram">
+<h2><a class="reference internal" href="../_images/Class_Hierarchy.png"><img alt="hierarchy" class="align-top" src="../_images/Class_Hierarchy.png" style="width: 32px;" /></a> Inheritance Diagram<a class="headerlink" href="#hierarchy-inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Inheritance diagram for: <strong>dBorderSizer</strong></p>
+</div>
+<div class="section" id="supclasses-known-superclasses">
+<h2><a class="reference internal" href="../_images/SuperClasses.png"><img alt="supclasses" class="align-top" src="../_images/SuperClasses.png" style="width: 32px;" /></a> Known Superclasses<a class="headerlink" href="#supclasses-known-superclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></li>
+</ul>
+</div>
+<div class="section" id="subclasses-known-subclasses">
+<h2><a class="reference internal" href="../_images/SubClasses.png"><img alt="subclasses" class="align-top" src="../_images/SubClasses.png" style="width: 32px;" /></a> Known Subclasses<a class="headerlink" href="#subclasses-known-subclasses" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="appearance-control-appearance">
+<h2><a class="reference internal" href="../_images/Appearance.png"><img alt="appearance" class="align-top" src="../_images/Appearance.png" style="width: 32px;" /></a> Control Appearance<a class="headerlink" href="#appearance-control-appearance" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Apple Mac</strong></th>
+<th class="head"><strong>Windows</strong></th>
+<th class="head"><strong>Linux</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="first last reference external image-reference" href="_static/macWidgets/dBorderSizer.png"><img alt="dBorderSizer" src="../_images/dBorderSizer.png" style="width: 300.0px; height: 206.25px;" /></a>
+</td>
+<td><a class="first last reference external image-reference" href="_static/winWidgets/dBorderSizer.png"><img alt="dBorderSizer" src="../_images/dBorderSizer1.png" style="width: 213.75px; height: 196.5px;" /></a>
+</td>
+<td><a class="first last reference external image-reference" href="_static/nixWidgets/dBorderSizer.png"><img alt="dBorderSizer" src="../_images/dBorderSizer2.png" style="width: 300.0px; height: 228.0px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="api-class-api">
+<h2><a class="reference internal" href="../_images/API.png"><img alt="API" class="align-top" src="../_images/API.png" style="width: 32px;" /></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.ui.uiwx.dBorderSizer.dBorderSizer">
+<em class="property">class </em><code class="descclassname">dabo.ui.uiwx.dBorderSizer.</code><code class="descname">dBorderSizer</code><span class="sig-paren">(</span><em>box</em>, <em>orientation='h'</em>, <em>properties=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dBorderSizer.dBorderSizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A BorderSizer is a regular box sizer, but with a visible box around
+the perimiter. You must either create the box first and pass it to the
+dBorderSizer&#8217;s constructor, or pass a parent object, and the box
+will be created for you in the constructor as a child object of the parent
+you passed.</p>
+<dl class="method">
+<dt id="dabo.ui.uiwx.dBorderSizer.dBorderSizer.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>box</em>, <em>orientation='h'</em>, <em>properties=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dBorderSizer.dBorderSizer.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="method-summary-properties-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Properties Summary<a class="headerlink" href="#method-summary-properties-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19637"><em>FontSize</em></a></td>
+<td>Size of the box caption font  (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19636"><em>FontItalic</em></a></td>
+<td>Controls the italic setting of the box caption  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19635"><em>FontFace</em></a></td>
+<td>Controls the type face of the box caption  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19634"><em>FontBold</em></a></td>
+<td>Controls the bold setting of the box caption  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19633"><em>DynamicVisible</em></a></td>
+<td>Dynamically determine the value of the Visible property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19632"><em>DynamicFontUnderline</em></a></td>
+<td>Dynamically determine the value of the FontUnderline property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19631"><em>DynamicFontSize</em></a></td>
+<td>Dynamically determine the value of the FontSize property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19630"><em>DynamicFontItalic</em></a></td>
+<td>Dynamically determine the value of the FontItalic property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19639"><em>Form</em></a></td>
+<td>Form with which the sizer is associated.  (dForm or None)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19638"><em>FontUnderline</em></a></td>
+<td>Controls the underline setting of the box caption  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19608"><em>Box</em></a></td>
+<td>Reference to the box used in the sizer  (dBox)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19609"><em>Caption</em></a></td>
+<td>Caption for the box  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19647"><em>Width</em></a></td>
+<td>Width of this sizer  (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19606"><em>BaseClass</em></a></td>
+<td>The base Dabo class of the object. Read-only.  (class)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19607"><em>BasePrefKey</em></a></td>
+<td>Base key used when saving/restoring preferences  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19604"><em>Application</em></a></td>
+<td>Read-only object reference to the Dabo Application object.  (dApp).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19605"><em>BackColor</em></a></td>
+<td>Color of the box background  (str or tuple)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19624"><em>DefaultSpacing</em></a></td>
+<td>Amount of space automatically inserted between elements.  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19625"><em>DynamicBackColor</em></a></td>
+<td>Dynamically determine the value of the BackColor property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19626"><em>DynamicCaption</em></a></td>
+<td>Dynamically determine the value of the Caption property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19627"><em>DynamicDefaultBorder</em></a></td>
+<td>Dynamically determine the value of the DefaultBorder property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19620"><em>DefaultBorderBottom</em></a></td>
+<td>Affects whether the DefaultBorder property is applied to the Bottom</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19621"><em>DefaultBorderLeft</em></a></td>
+<td>Affects whether the DefaultBorder property is applied to the Left</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19622"><em>DefaultBorderRight</em></a></td>
+<td>Affects whether the DefaultBorder property is applied to the Right</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19623"><em>DefaultBorderTop</em></a></td>
+<td>Affects whether the DefaultBorder property is applied to the Top</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19646"><em>Visible</em></a></td>
+<td>Specifies whether the sizer and contained items are shown  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19642"><em>Name</em></a></td>
+<td>The name of the object.  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19644"><em>Parent</em></a></td>
+<td>The object that contains this sizer. In the case of nested</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19645"><em>PreferenceManager</em></a></td>
+<td>Reference to the Preference Management object  (dPref)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19628"><em>DynamicFontBold</em></a></td>
+<td>Dynamically determine the value of the FontBold property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19629"><em>DynamicFontFace</em></a></td>
+<td>Dynamically determine the value of the FontFace property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19640"><em>Height</em></a></td>
+<td>Height of the sizer  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19641"><em>LogEvents</em></a></td>
+<td>Specifies which events to log.  (list of strings)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19619"><em>DefaultBorderAll</em></a></td>
+<td>When True, the DefaultBorder property is applied to all of the sides of</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19618"><em>DefaultBorder</em></a></td>
+<td>Sets a default value for the border that will be applied to any controls added</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19643"><em>Orientation</em></a></td>
+<td>Sets the orientation of the sizer, either &#8216;Vertical&#8217; or &#8216;Horizontal&#8217;.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19615"><em>Class</em></a></td>
+<td>The class the object is based on. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19614"><em>Children</em></a></td>
+<td>List of all the sizer items managed by this sizer  (list of sizerItems</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19617"><em>ControllingSizerItem</em></a></td>
+<td>Reference to the sizer item that control&#8217;s this control&#8217;s layout.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19616"><em>ControllingSizer</em></a></td>
+<td>Reference to the sizer that controls this control&#8217;s layout.  (dSizer)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19611"><em>ChildSizers</em></a></td>
+<td>List of all the sizers that are directly managed by this sizer  (list of sizers</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19610"><em>ChildObjects</em></a></td>
+<td>List of all the objects (controls, sizers, spacers) that are directly managed</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19613"><em>ChildWindows</em></a></td>
+<td>List of all the windows that are directly managed by this sizer  (list of controls</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19612"><em>ChildSpacers</em></a></td>
+<td>List of all the spacer items that are directly managed by this sizer  (list of spacer items</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p id="no-19605"><strong>BackColor</strong></p>
+<p>Color of the box background  (str or tuple)</p>
+<hr class="docutils" />
+<p id="no-19608"><strong>Box</strong></p>
+<p>Reference to the box used in the sizer  (dBox)</p>
+<hr class="docutils" />
+<p id="no-19609"><strong>Caption</strong></p>
+<p>Caption for the box  (str)</p>
+<hr class="docutils" />
+<p id="no-19625"><strong>DynamicBackColor</strong></p>
+<p>Dynamically determine the value of the BackColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BackColor property. If DynamicBackColor is set to None (the default), BackColor
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19626"><strong>DynamicCaption</strong></p>
+<p>Dynamically determine the value of the Caption property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Caption property. If DynamicCaption is set to None (the default), Caption
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19628"><strong>DynamicFontBold</strong></p>
+<p>Dynamically determine the value of the FontBold property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontBold property. If DynamicFontBold is set to None (the default), FontBold
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19629"><strong>DynamicFontFace</strong></p>
+<p>Dynamically determine the value of the FontFace property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontFace property. If DynamicFontFace is set to None (the default), FontFace
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19630"><strong>DynamicFontItalic</strong></p>
+<p>Dynamically determine the value of the FontItalic property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontItalic property. If DynamicFontItalic is set to None (the default), FontItalic
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19631"><strong>DynamicFontSize</strong></p>
+<p>Dynamically determine the value of the FontSize property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontSize property. If DynamicFontSize is set to None (the default), FontSize
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19632"><strong>DynamicFontUnderline</strong></p>
+<p>Dynamically determine the value of the FontUnderline property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontUnderline property. If DynamicFontUnderline is set to None (the default), FontUnderline
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-19634"><strong>FontBold</strong></p>
+<p>Controls the bold setting of the box caption  (bool)</p>
+<hr class="docutils" />
+<p id="no-19635"><strong>FontFace</strong></p>
+<p>Controls the type face of the box caption  (str)</p>
+<hr class="docutils" />
+<p id="no-19636"><strong>FontItalic</strong></p>
+<p>Controls the italic setting of the box caption  (bool)</p>
+<hr class="docutils" />
+<p id="no-19637"><strong>FontSize</strong></p>
+<p>Size of the box caption font  (int)</p>
+<hr class="docutils" />
+<p id="no-19638"><strong>FontUnderline</strong></p>
+<p>Controls the underline setting of the box caption  (bool)</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="properties-inherited">
+<h2>Properties - inherited<a class="headerlink" href="#properties-inherited" title="Permalink to this headline">¶</a></h2>
+<p id="no-19604"><strong>Application</strong></p>
+<p>Read-only object reference to the Dabo Application object.  (dApp).</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19606"><strong>BaseClass</strong></p>
+<p>The base Dabo class of the object. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19607"><strong>BasePrefKey</strong></p>
+<p>Base key used when saving/restoring preferences  (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19610"><strong>ChildObjects</strong></p>
+<dl class="docutils">
+<dt>List of all the objects (controls, sizers, spacers) that are directly managed</dt>
+<dd>by this sizer  (list of objects</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19611"><strong>ChildSizers</strong></p>
+<p>List of all the sizers that are directly managed by this sizer  (list of sizers</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19612"><strong>ChildSpacers</strong></p>
+<p>List of all the spacer items that are directly managed by this sizer  (list of spacer items</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19613"><strong>ChildWindows</strong></p>
+<p>List of all the windows that are directly managed by this sizer  (list of controls</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19614"><strong>Children</strong></p>
+<p>List of all the sizer items managed by this sizer  (list of sizerItems</p>
+<p>Inherited from: &#8216;wx._core.Sizer - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-19615"><strong>Class</strong></p>
+<p>The class the object is based on. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19616"><strong>ControllingSizer</strong></p>
+<p>Reference to the sizer that controls this control&#8217;s layout.  (dSizer)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19617"><strong>ControllingSizerItem</strong></p>
+<dl class="docutils">
+<dt>Reference to the sizer item that control&#8217;s this control&#8217;s layout.</dt>
+<dd>This is useful for getting information about how the item is being
+sized, and for changing those settings.</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19618"><strong>DefaultBorder</strong></p>
+<dl class="docutils">
+<dt>Sets a default value for the border that will be applied to any controls added</dt>
+<dd>to the sizer afterwards for whom an explicit value for the border is not set.
+Note that it does not affect the border of items already added to the control.
+This property is useful when you want to add a series of items to a sizer with
+the same border: just set this property once, and then add your items.
+Default=0  (int)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19619"><strong>DefaultBorderAll</strong></p>
+<dl class="docutils">
+<dt>When True, the DefaultBorder property is applied to all of the sides of</dt>
+<dd>any controls added to the sizer. If any of the individual side properties,
+such as DefaultBorderTop, are set to False, this property will return False.
+Setting DefaultBorderAll will effectively set all of the individual side properties
+to that value. Default=True  (bool)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19620"><strong>DefaultBorderBottom</strong></p>
+<dl class="docutils">
+<dt>Affects whether the DefaultBorder property is applied to the Bottom</dt>
+<dd>side of controls added to the sizer. Default=True  (bool)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19621"><strong>DefaultBorderLeft</strong></p>
+<dl class="docutils">
+<dt>Affects whether the DefaultBorder property is applied to the Left</dt>
+<dd>side of controls added to the sizer. Default=True  (bool)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19622"><strong>DefaultBorderRight</strong></p>
+<dl class="docutils">
+<dt>Affects whether the DefaultBorder property is applied to the Right</dt>
+<dd>side of controls added to the sizer. Default=True  (bool)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19623"><strong>DefaultBorderTop</strong></p>
+<dl class="docutils">
+<dt>Affects whether the DefaultBorder property is applied to the Top</dt>
+<dd>side of controls added to the sizer. Default=True  (bool)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19624"><strong>DefaultSpacing</strong></p>
+<p>Amount of space automatically inserted between elements.  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19627"><strong>DynamicDefaultBorder</strong></p>
+<p>Dynamically determine the value of the DefaultBorder property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+DefaultBorder property. If DynamicDefaultBorder is set to None (the default), DefaultBorder
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19633"><strong>DynamicVisible</strong></p>
+<p>Dynamically determine the value of the Visible property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Visible property. If DynamicVisible is set to None (the default), Visible
+will not be dynamically evaluated.</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19639"><strong>Form</strong></p>
+<p>Form with which the sizer is associated.  (dForm or None)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19640"><strong>Height</strong></p>
+<p>Height of the sizer  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19641"><strong>LogEvents</strong></p>
+<blockquote>
+<div><p>Specifies which events to log.  (list of strings)</p>
+<p>If the first element is &#8216;All&#8217;, all events except the following listed events
+will be logged.
+Event logging is resource-intensive, so in addition to setting this LogEvents
+property, you also need to make the following call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dabo</span><span class="o">.</span><span class="n">eventLogging</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19642"><strong>Name</strong></p>
+<p>The name of the object.  (str)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19643"><strong>Orientation</strong></p>
+<p>Sets the orientation of the sizer, either &#8216;Vertical&#8217; or &#8216;Horizontal&#8217;.</p>
+<p>Inherited from: &#8216;wx._core.BoxSizer - can not provide a link</p>
+<hr class="docutils" />
+<p id="no-19644"><strong>Parent</strong></p>
+<dl class="docutils">
+<dt>The object that contains this sizer. In the case of nested</dt>
+<dd>sizers, it is the object that the outermost sizer belongs to. (obj)</dd>
+</dl>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19645"><strong>PreferenceManager</strong></p>
+<p>Reference to the Preference Management object  (dPref)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19646"><strong>Visible</strong></p>
+<p>Specifies whether the sizer and contained items are shown  (bool)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<p id="no-19647"><strong>Width</strong></p>
+<p>Width of this sizer  (int)</p>
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-events-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Events Summary<a class="headerlink" href="#method-summary-events-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="method-summary-methods-summary">
+<h2><a class="reference internal" href="../_images/Method_Summary.png"><img alt="method_summary" class="align-top" src="../_images/Method_Summary.png" style="width: 32px;" /></a> Methods Summary<a class="headerlink" href="#method-summary-methods-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19651"><em>append</em></a></td>
+<td>Adds the passed object to the end of the sizer layout.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19650"><em>afterInit</em></a></td>
+<td>Subclass hook. Called after the object&#8217;s __init__ has run fully.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19653"><em>appendItems</em></a></td>
+<td>Append each item to the sizer.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19652"><em>append1x</em></a></td>
+<td>Shorthand for sizer.append(obj, 1, &#8220;expand&#8221;).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19655"><em>autoBindEvents</em></a></td>
+<td>Automatically bind any on*() methods to the associated event.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19654"><em>appendSpacer</em></a></td>
+<td>Appends a spacer to the sizer.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19657"><em>bindEvent</em></a></td>
+<td>Bind a dEvent to a callback function.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19656"><em>beforeInit</em></a></td>
+<td>Subclass hook. Called before the object is fully instantiated.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19659"><em>clear</em></a></td>
+<td>This method is called to remove all items from the sizer. If the</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19658"><em>bindEvents</em></a></td>
+<td>Bind a sequence of [dEvent, callback] lists.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19671"><em>initProperties</em></a></td>
+<td>Hook for subclasses. User subclasses should set properties</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19670"><em>initEvents</em></a></td>
+<td>Hook for subclasses. User code should do custom event binding</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19677"><em>prepend</em></a></td>
+<td>Insert the object at the beginning of the sizer layout.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19676"><em>listMembers</em></a></td>
+<td>Debugging method. This will list all the members of this sizer,</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19675"><em>layout</em></a></td>
+<td>Layout the items in the sizer.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19674"><em>isContainedBy</em></a></td>
+<td>Returns True if this the containership hierarchy for this control</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19678"><em>prependSpacer</em></a></td>
+<td>Added to be consistent with the sizers&#8217; add/insert</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19679"><em>raiseEvent</em></a></td>
+<td>Send the event to all registered listeners.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19682"><em>setItemProp</em></a></td>
+<td>Given a sizer item, a property and a value, sets things as you</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19683"><em>setItemProps</em></a></td>
+<td>This accepts a dict of properties and values, and</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19680"><em>release</em></a></td>
+<td>Normally just destroys the sizer, leaving any objects</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19681"><em>remove</em></a></td>
+<td>This will remove the item from the sizer. It will not cause</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19686"><em>setPropertiesFromAtts</em></a></td>
+<td>Sets a group of properties on the object all at once. This</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19687"><em>showItem</em></a></td>
+<td>Makes sure that the passed item is visible</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19684"><em>setPositionInSizer</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19685"><em>setProperties</em></a></td>
+<td>Sets a group of properties on the object all at once.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19688"><em>super</em></a></td>
+<td>This method used to call superclass code, but it&#8217;s been removed.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19689"><em>unbindEvent</em></a></td>
+<td>Remove a previously registered event binding.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19673"><em>insertSpacer</em></a></td>
+<td>Added to be consistent with the sizers&#8217; add/insert</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19672"><em>insert</em></a></td>
+<td>Inserts the passed object into the sizer layout at the specified position.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19668"><em>getProperties</em></a></td>
+<td>Returns a dictionary of property name/value pairs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19669"><em>hideItem</em></a></td>
+<td>Hides the passed item</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19648"><em>addDefaultSpacer</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19649"><em>addSpacer</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19660"><em>drawOutline</em></a></td>
+<td>There are some cases where being able to see the sizer</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19661"><em>getAbsoluteName</em></a></td>
+<td>Return the fully qualified name of the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19662"><em>getContainingWindow</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19663"><em>getItem</em></a></td>
+<td>Querying sizers for their contents returns sizer items, not</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19664"><em>getItemProp</em></a></td>
+<td>Get the current value of the specified property for the sizer item.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19665"><em>getItemProps</em></a></td>
+<td>Returns a dict containing all the sizer properties as keys along with</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19666"><em>getNonBorderedClass</em></a></td>
+<td>Return the class that is the non-border sizer version of this class.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../tempsource/dabo.ui.uiwx.dBorderSizer.dBorderSizer.html#no-19667"><em>getPositionInSizer</em></a></td>
+<td>Returns the current position of this sizer in its containing sizer, or None</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-19666"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dBorderSizer.dabo.ui.uiwx.dBorderSizer.dBorderSizer.getNonBorderedClass">
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getNonBorderedClass</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dBorderSizer.dabo.ui.uiwx.dBorderSizer.dBorderSizer.getNonBorderedClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the class that is the non-border sizer version of this class.</p>
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="methods-inherited">
+<h2>Methods - inherited<a class="headerlink" href="#methods-inherited" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-19648"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">addDefaultSpacer</code><span class="sig-paren">(</span><em>self</em>, <em>pos=None</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19649"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">addSpacer</code><span class="sig-paren">(</span><em>self</em>, <em>val</em>, <em>pos=None</em>, <em>proportion=0</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19650"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">afterInit</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called after the object&#8217;s __init__ has run fully.
+Subclasses should place their __init__ code here in this hook, instead of
+overriding __init__ directly, to avoid conflicting with base Dabo behavior.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19651"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">append</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>layout='normal'</em>, <em>proportion=0</em>, <em>alignment=None</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>border=None</em>, <em>borderSides=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Adds the passed object to the end of the sizer layout.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Additional arguments:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>layout:</td>
+<td>Specifies how the object expands in the opposite dimension
+of the sizer. If &#8220;normal&#8221; (the default), no expansion takes
+place. If &#8220;expand&#8221; (a common setting), the item will expand
+to fill up otherwise unoccupied space in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>proportion</td>
+<td>Specifies the proportional amount of space that the object
+can grow to in the same dimension as this sizer. If 0 (the
+default), the object will maintain its size. If &gt; 0, the
+object will get a spacing in the sizer proportional to
+other objects in the sizer with proportions &gt; 0. So if this
+is a horizontal sizer, and the proportion for the object is
+set to 1, and no other objects in the sizer have proportion
+set, the object will fill up all extra horizontal space.</td>
+</tr>
+<tr class="row-even"><td>alignment</td>
+<td>Possible values are &#8220;top&#8221;, &#8220;middle&#8221;, and &#8220;bottom&#8221; for
+horizontal sizers, and &#8220;left&#8221;, &#8220;center&#8221;, and &#8220;right&#8221; for
+vertical sizers. Specifies where the object appears within
+the available area in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>halign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-even"><td>valign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-odd"><td>border</td>
+<td>Specifies the number of pixels to put around the object in
+the sizer, on the sides specified by the borderSides
+argument, or by the value of the DefaultBorderLeft,
+DefaultBorderRight, DefaultBorderTop, and
+DefaultBorderBottom boolean properties.</td>
+</tr>
+<tr class="row-even"><td>borderSides</td>
+<td>Specifies the sides around the object to place the border
+specified in the border argument or the DefaultBorder
+property. This should be a tuple that contains at least
+some of the values (&#8220;left&#8221;, &#8220;right&#8221;, &#8220;top&#8221;, &#8220;bottom&#8221;)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19652"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">append1x</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Shorthand for sizer.append(obj, 1, &#8220;expand&#8221;).</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19653"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">appendItems</code><span class="sig-paren">(</span><em>self</em>, <em>items</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Append each item to the sizer.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Additional arguments:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>layout:</td>
+<td>Specifies how the object expands in the opposite dimension
+of the sizer. If &#8220;normal&#8221; (the default), no expansion takes
+place. If &#8220;expand&#8221; (a common setting), the item will expand
+to fill up otherwise unoccupied space in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>proportion</td>
+<td>Specifies the proportional amount of space that the object
+can grow to in the same dimension as this sizer. If 0 (the
+default), the object will maintain its size. If &gt; 0, the
+object will get a spacing in the sizer proportional to
+other objects in the sizer with proportions &gt; 0. So if this
+is a horizontal sizer, and the proportion for the object is
+set to 1, and no other objects in the sizer have proportion
+set, the object will fill up all extra horizontal space.</td>
+</tr>
+<tr class="row-even"><td>alignment</td>
+<td>Possible values are &#8220;top&#8221;, &#8220;middle&#8221;, and &#8220;bottom&#8221; for
+horizontal sizers, and &#8220;left&#8221;, &#8220;center&#8221;, and &#8220;right&#8221; for
+vertical sizers. Specifies where the object appears within
+the available area in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>halign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-even"><td>valign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-odd"><td>border</td>
+<td>Specifies the number of pixels to put around the object in
+the sizer, on the sides specified by the borderSides
+argument, or by the value of the DefaultBorderLeft,
+DefaultBorderRight, DefaultBorderTop, and
+DefaultBorderBottom boolean properties.</td>
+</tr>
+<tr class="row-even"><td>borderSides</td>
+<td>Specifies the sides around the object to place the border
+specified in the border argument or the DefaultBorder
+property. This should be a tuple that contains at least
+some of the values (&#8220;left&#8221;, &#8220;right&#8221;, &#8220;top&#8221;, &#8220;bottom&#8221;)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19654"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">appendSpacer</code><span class="sig-paren">(</span><em>self</em>, <em>val</em>, <em>proportion=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Appends a spacer to the sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19655"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">autoBindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>force=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Automatically bind any on*() methods to the associated event.</p>
+<p>User code only needs to define the callback, and Dabo will automatically
+set up the event binding. This will satisfy lots of common cases where
+you want an object or its parent to respond to the object&#8217;s events.</p>
+<p>To use this feature, just define a method on&lt;EventName&gt;(), or    if you
+want a parent container to respond to the event, make a method in the
+parent on&lt;EventName&gt;_&lt;object Name or RegID&gt;().</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyButton</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dButton</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onHit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Hit!&quot;</span>
+
+<span class="k">class</span> <span class="nc">MyPanel</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">afterInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">MyButton</span><span class="p">,</span> <span class="n">RegID</span><span class="o">=</span><span class="s">&quot;btn1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">onHit_btn1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;panel: button hit!&quot;</span>
+</pre></div>
+</div>
+<p>When the button is pressed, you&#8217;ll see both &#8216;hit&#8217; messages because of
+auto event binding.</p>
+<p>If you want to bind your events explicitly, you can turn off auto event
+binding by issuing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dabo</span><span class="o">.</span><span class="n">autoBindEvents</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>This feature is inspired by PythonCard.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19656"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">beforeInit</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called before the object is fully instantiated.
+Usually, user code should override afterInit() instead, but there may be
+cases where you need to set an attribute before the init stage is fully
+underway.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19657"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">bindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>function</em>, <em>_auto=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a dEvent to a callback function.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19658"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">bindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>bindings</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a sequence of [dEvent, callback] lists.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19659"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">clear</code><span class="sig-paren">(</span><em>self</em>, <em>destroy=False</em><span class="sig-paren">)</span></dt>
+<dd><p>This method is called to remove all items from the sizer. If the
+optional &#8216;destroy&#8217; parameter is set to True, any contained items
+will be destroyed. Otherwise, they will remain as is, but no longer
+under control of the sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19660"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">drawOutline</code><span class="sig-paren">(</span><em>self</em>, <em>win</em>, <em>recurse=False</em>, <em>drawChildren=False</em><span class="sig-paren">)</span></dt>
+<dd><p>There are some cases where being able to see the sizer
+is helpful, such as at design time. This method can be called
+to see the outline; it needs to be called whenever the containing
+window is resized or repainted.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19661"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getAbsoluteName</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return the fully qualified name of the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19662"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getContainingWindow</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19663"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getItem</code><span class="sig-paren">(</span><em>self</em>, <em>szItem</em><span class="sig-paren">)</span></dt>
+<dd><p>Querying sizers for their contents returns sizer items, not
+the actual items. So given a sizer item, this method will return
+the actual item in the sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19664"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getItemProp</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em>, <em>prop</em><span class="sig-paren">)</span></dt>
+<dd><p>Get the current value of the specified property for the sizer item.
+Grid sizers must override with their specific props.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19665"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getItemProps</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dict containing all the sizer properties as keys along with
+their associated values.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19667"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getPositionInSizer</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns the current position of this sizer in its containing sizer, or None
+if there isn&#8217;t a containing sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19668"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">getProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propertySequence=()</em>, <em>propsToSkip=()</em>, <em>ignoreErrors=False</em>, <em>*propertyArguments</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dictionary of property name/value pairs.</p>
+<p>If a sequence of properties is passed, just those property values
+will be returned. Otherwise, all property values will be returned.
+The sequence of properties can be a list, tuple, or plain string
+positional arguments. For instance, all of the following are
+equivilent:</p>
+<div class="highlight-python"><div class="highlight"><pre>print self.getProperties(&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties([&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;])
+t = (&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties(t)
+print self.getProperties(\*t)
+</pre></div>
+</div>
+<p>An exception will be raised if any passed property names don&#8217;t
+exist, aren&#8217;t actual properties, or are not readable (do not have
+getter functions).</p>
+<p>However, if an exception is raised from the property getter function,
+the exception will get caught and used as the property value in the
+returned property dictionary. This allows the property list to be
+returned even if some properties can&#8217;t be evaluated correctly by the
+object yet.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19669"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">hideItem</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em><span class="sig-paren">)</span></dt>
+<dd><p>Hides the passed item</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19670"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">initEvents</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User code should do custom event binding
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">bindEvent</span><span class="p">(</span><span class="n">dEvents</span><span class="o">.</span><span class="n">GotFocus</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">customGotFocusHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19671"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">initProperties</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User subclasses should set properties
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;MyTextBox&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">BackColor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19672"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">insert</code><span class="sig-paren">(</span><em>self</em>, <em>index</em>, <em>obj</em>, <em>layout='normal'</em>, <em>proportion=0</em>, <em>alignment=None</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>border=None</em>, <em>borderSides=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Inserts the passed object into the sizer layout at the specified position.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Additional arguments:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>layout:</td>
+<td>Specifies how the object expands in the opposite dimension
+of the sizer. If &#8220;normal&#8221; (the default), no expansion takes
+place. If &#8220;expand&#8221; (a common setting), the item will expand
+to fill up otherwise unoccupied space in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>proportion</td>
+<td>Specifies the proportional amount of space that the object
+can grow to in the same dimension as this sizer. If 0 (the
+default), the object will maintain its size. If &gt; 0, the
+object will get a spacing in the sizer proportional to
+other objects in the sizer with proportions &gt; 0. So if this
+is a horizontal sizer, and the proportion for the object is
+set to 1, and no other objects in the sizer have proportion
+set, the object will fill up all extra horizontal space.</td>
+</tr>
+<tr class="row-even"><td>alignment</td>
+<td>Possible values are &#8220;top&#8221;, &#8220;middle&#8221;, and &#8220;bottom&#8221; for
+horizontal sizers, and &#8220;left&#8221;, &#8220;center&#8221;, and &#8220;right&#8221; for
+vertical sizers. Specifies where the object appears within
+the available area in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>halign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-even"><td>valign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-odd"><td>border</td>
+<td>Specifies the number of pixels to put around the object in
+the sizer, on the sides specified by the borderSides
+argument, or by the value of the DefaultBorderLeft,
+DefaultBorderRight, DefaultBorderTop, and
+DefaultBorderBottom boolean properties.</td>
+</tr>
+<tr class="row-even"><td>borderSides</td>
+<td>Specifies the sides around the object to place the border
+specified in the border argument or the DefaultBorder
+property. This should be a tuple that contains at least
+some of the values (&#8220;left&#8221;, &#8220;right&#8221;, &#8220;top&#8221;, &#8220;bottom&#8221;)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19673"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">insertSpacer</code><span class="sig-paren">(</span><em>self</em>, <em>pos</em>, <em>val</em>, <em>proportion=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Added to be consistent with the sizers&#8217; add/insert
+design. Inserts a spacer at the specified position.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19674"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">isContainedBy</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns True if this the containership hierarchy for this control
+includes obj.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19675"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">layout</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Layout the items in the sizer.</p>
+<p>This is handled automatically when the sizer is resized, but you&#8217;ll have
+to call it manually after you are done adding items to the sizer.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19676"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">listMembers</code><span class="sig-paren">(</span><em>self</em>, <em>recurse=False</em>, <em>lvl=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Debugging method. This will list all the members of this sizer,
+and if recurse is True, drill down into all contained sizers.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19677"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">prepend</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>layout='normal'</em>, <em>proportion=0</em>, <em>alignment=None</em>, <em>halign='left'</em>, <em>valign='top'</em>, <em>border=None</em>, <em>borderSides=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Insert the object at the beginning of the sizer layout.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Additional arguments:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>layout:</td>
+<td>Specifies how the object expands in the opposite dimension
+of the sizer. If &#8220;normal&#8221; (the default), no expansion takes
+place. If &#8220;expand&#8221; (a common setting), the item will expand
+to fill up otherwise unoccupied space in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>proportion</td>
+<td>Specifies the proportional amount of space that the object
+can grow to in the same dimension as this sizer. If 0 (the
+default), the object will maintain its size. If &gt; 0, the
+object will get a spacing in the sizer proportional to
+other objects in the sizer with proportions &gt; 0. So if this
+is a horizontal sizer, and the proportion for the object is
+set to 1, and no other objects in the sizer have proportion
+set, the object will fill up all extra horizontal space.</td>
+</tr>
+<tr class="row-even"><td>alignment</td>
+<td>Possible values are &#8220;top&#8221;, &#8220;middle&#8221;, and &#8220;bottom&#8221; for
+horizontal sizers, and &#8220;left&#8221;, &#8220;center&#8221;, and &#8220;right&#8221; for
+vertical sizers. Specifies where the object appears within
+the available area in the sizer.</td>
+</tr>
+<tr class="row-odd"><td>halign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-even"><td>valign</td>
+<td>Only used if the alignment property not set.</td>
+</tr>
+<tr class="row-odd"><td>border</td>
+<td>Specifies the number of pixels to put around the object in
+the sizer, on the sides specified by the borderSides
+argument, or by the value of the DefaultBorderLeft,
+DefaultBorderRight, DefaultBorderTop, and
+DefaultBorderBottom boolean properties.</td>
+</tr>
+<tr class="row-even"><td>borderSides</td>
+<td>Specifies the sides around the object to place the border
+specified in the border argument or the DefaultBorder
+property. This should be a tuple that contains at least
+some of the values (&#8220;left&#8221;, &#8220;right&#8221;, &#8220;top&#8221;, &#8220;bottom&#8221;)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19678"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">prependSpacer</code><span class="sig-paren">(</span><em>self</em>, <em>val</em>, <em>proportion=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Added to be consistent with the sizers&#8217; add/insert
+design. Inserts a spacer in the first position.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19679"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">raiseEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>uiEvent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Send the event to all registered listeners.</p>
+<p>If uiEvent is sent, dEvents.Event will be able to parse it for useful
+information to send along to the callback.</p>
+<p>Additional arguments, if any, are sent along to the constructor    of the
+event. While this feature exists so that UI-lib event handlers can pass
+along information (such as the keystroke information in a key event), user
+code may pass along additional arguments as well, which    will exist in the
+event.EventData dictionary property.</p>
+<p>In most cases, user code should call raiseEvent() with
+the event class (dEvents.Hit, for example) as the only parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19680"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">release</code><span class="sig-paren">(</span><em>self</em>, <em>releaseContents=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Normally just destroys the sizer, leaving any objects
+controlled by the sizer intact. But if the &#8216;releaseContents&#8217;
+parameter is passed as True, all objects contained in the
+sizer are destroyed first.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19681"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">remove</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em>, <em>destroy=None</em><span class="sig-paren">)</span></dt>
+<dd><p>This will remove the item from the sizer. It will not cause
+the item to be destroyed unless the &#8216;destroy&#8217; parameter is True.
+If the item is not one of this sizer&#8217;s items, no error will be
+raised - it will simply do nothing.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19682"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">setItemProp</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em>, <em>prop</em>, <em>val</em><span class="sig-paren">)</span></dt>
+<dd><p>Given a sizer item, a property and a value, sets things as you
+would expect.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19683"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">setItemProps</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em>, <em>props</em><span class="sig-paren">)</span></dt>
+<dd><p>This accepts a dict of properties and values, and
+applies them to the specified sizer item.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19684"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">setPositionInSizer</code><span class="sig-paren">(</span><em>self</em>, <em>obj</em>, <em>pos</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19685"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">setProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreErrors=False</em>, <em>**propKw</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once.</p>
+<p>You have the following options for sending the properties:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Property/Value pair dictionary</li>
+<li>Keyword arguments</li>
+<li>Both</li>
+</ol>
+</div></blockquote>
+<p>The following examples all do the same thing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">FontBold</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&quot;ForeColor&quot;</span><span class="p">:</span> <span class="s">&quot;Red&quot;</span><span class="p">})</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19686"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">setPropertiesFromAtts</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreExtra=True</em>, <em>context=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once. This
+is different from the regular setProperties() method because
+it only accepts a dict containing prop:value pairs, and it
+assumes that the value is always a string. It will convert
+the value to the correct type for the property, and then set
+the property to that converted value. If the value needs to be evaluated
+in a specific namespace, pass that as the &#8216;context&#8217; parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19687"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">showItem</code><span class="sig-paren">(</span><em>self</em>, <em>itm</em><span class="sig-paren">)</span></dt>
+<dd><p>Makes sure that the passed item is visible</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.ui.uiwx.dSizerMixin.dSizerMixin.html#dabo-ui-uiwx-dsizermixin-dsizermixin"><em>|doc_title|  dSizerMixin.dSizerMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19688"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">super</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>This method used to call superclass code, but it&#8217;s been removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-19689"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dBorderSizer.dBorderSizer.</code><code class="descname">unbindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass=None</em>, <em>function=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove a previously registered event binding.</p>
+<p>Removes all registrations that exist for the given binding for this
+object. If event is None, all bindings for the passed function are
+removed. If function is None, all bindings for the passed event are
+removed. If both event and function are None, all event bindings are
+removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="../tempsource/dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">  <strong>dBorderSizer.dBorderSizer</strong> - class</a><ul>
+<li><a class="reference internal" href="#hierarchy-inheritance-diagram"> Inheritance Diagram</a></li>
+<li><a class="reference internal" href="#supclasses-known-superclasses"> Known Superclasses</a></li>
+<li><a class="reference internal" href="#subclasses-known-subclasses"> Known Subclasses</a></li>
+<li><a class="reference internal" href="#appearance-control-appearance"> Control Appearance</a></li>
+<li><a class="reference internal" href="#api-class-api"> Class API</a></li>
+<li><a class="reference internal" href="#method-summary-properties-summary"> Properties Summary</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#properties-inherited">Properties - inherited</a></li>
+<li><a class="reference internal" href="#method-summary-events-summary"> Events Summary</a></li>
+<li><a class="reference internal" href="#method-summary-methods-summary"> Methods Summary</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#methods-inherited">Methods - inherited</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/dabo.ui.uiwx.dBorderSizer.dBorderSizer.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

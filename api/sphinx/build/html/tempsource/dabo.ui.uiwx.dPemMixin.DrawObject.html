@@ -1,0 +1,1093 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>|doc_title| dPemMixin.DrawObject - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.ui.uiwx.dPemMixin"></span><div class="section" id="doc-title-dpemmixin-drawobject-class">
+<span id="dabo-ui-uiwx-dpemmixin-drawobject"></span><h1><a href="#id1"><span class="problematic" id="id2">|doc_title|</span></a>  <strong>dPemMixin.DrawObject</strong> - class<a class="headerlink" href="#doc-title-dpemmixin-drawobject-class" title="Permalink to this headline">¶</a></h1>
+<p>Class to handle drawing on an object.</p>
+<p>It is not meant to be used directly; instead, it is returned after a drawing
+instruction is called on the object.</p>
+<div class="section" id="hierarchy-inheritance-diagram">
+<h2><a href="#id3"><span class="problematic" id="id4">|hierarchy|</span></a> Inheritance Diagram<a class="headerlink" href="#hierarchy-inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Inheritance diagram for: <strong>DrawObject</strong></p>
+</div>
+<div class="section" id="supclasses-known-superclasses">
+<h2><a href="#id5"><span class="problematic" id="id6">|supclasses|</span></a> Known Superclasses<a class="headerlink" href="#supclasses-known-superclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></li>
+</ul>
+</div>
+<div class="section" id="api-class-api">
+<h2><a href="#id7"><span class="problematic" id="id8">|API|</span></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.ui.uiwx.dPemMixin.DrawObject">
+<em class="property">class </em><code class="descclassname">dabo.ui.uiwx.dPemMixin.</code><code class="descname">DrawObject</code><span class="sig-paren">(</span><em>parent</em>, <em>dc=None</em>, <em>useDefaults=False</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.DrawObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to handle drawing on an object.</p>
+<p>It is not meant to be used directly; instead, it is returned after a drawing
+instruction is called on the object.</p>
+<dl class="method">
+<dt id="dabo.ui.uiwx.dPemMixin.DrawObject.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>parent</em>, <em>dc=None</em>, <em>useDefaults=False</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.DrawObject.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="method-summary-properties-summary">
+<h2><a href="#id9"><span class="problematic" id="id10">|method_summary|</span></a> Properties Summary<a class="headerlink" href="#method-summary-properties-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#no-11598"><em>Visible</em></a></td>
+<td>Controls whether the shape is drawn.  (bool)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11581"><em>LineStyle</em></a></td>
+<td>Line style (solid, dash, dot) drawn  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11579"><em>HatchStyle</em></a></td>
+<td>Hatching style for the fill.  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11583"><em>Name</em></a></td>
+<td>The name of the object.  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11582"><em>LogEvents</em></a></td>
+<td>Specifies which events to log.  (list of strings)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11585"><em>Parent</em></a></td>
+<td>Reference to the object being drawn upon.  (object)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11584"><em>Orientation</em></a></td>
+<td>Direction of the drawn gradient (&#8216;v&#8217; or &#8216;h&#8217;)  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11587"><em>PenWidth</em></a></td>
+<td>Width of the shape&#8217;s lines  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11586"><em>PenColor</em></a></td>
+<td>ForeColor of the shape&#8217;s lines  (color)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11589"><em>Position</em></a></td>
+<td>Shorthand for (Xpos, Ypos).  (2-tuple)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11588"><em>Points</em></a></td>
+<td>Tuple of (x,y) pairs defining a polygon.  (tuple)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11600"><em>Xpos</em></a></td>
+<td>For circles, the x position of the center. For rectangles,</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11593"><em>Shape</em></a></td>
+<td>Type of shape to draw  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11552"><em>DynamicGradientColor1</em></a></td>
+<td>Dynamically determine the value of the GradientColor1 property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11553"><em>DynamicGradientColor2</em></a></td>
+<td>Dynamically determine the value of the GradientColor2 property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11550"><em>DynamicFontUnderline</em></a></td>
+<td>Dynamically determine the value of the FontUnderline property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11551"><em>DynamicForeColor</em></a></td>
+<td>Dynamically determine the value of the ForeColor property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11556"><em>DynamicOrientation</em></a></td>
+<td>Dynamically determine the value of the Orientation property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11557"><em>DynamicParent</em></a></td>
+<td>Dynamically determine the value of the Parent property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11554"><em>DynamicHeight</em></a></td>
+<td>Dynamically determine the value of the Height property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11555"><em>DynamicLineStyle</em></a></td>
+<td>Dynamically determine the value of the LineStyle property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11574"><em>FontSize</em></a></td>
+<td>Size of the font used for text objects  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11575"><em>FontUnderline</em></a></td>
+<td>Underline setting for text objects  (bool)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11558"><em>DynamicPenColor</em></a></td>
+<td>Dynamically determine the value of the PenColor property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11559"><em>DynamicPenWidth</em></a></td>
+<td>Dynamically determine the value of the PenWidth property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11570"><em>FillColor</em></a></td>
+<td>Background color for the shape  (color)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11571"><em>FontBold</em></a></td>
+<td>Bold setting for text objects  (bool)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11572"><em>FontFace</em></a></td>
+<td>Face of the font used for text objects  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11573"><em>FontItalic</em></a></td>
+<td>Italic setting for text objects  (bool)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11569"><em>EndAngle</em></a></td>
+<td>Angle (in degrees) used to end drawing a circular or elliptic arc  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11533"><em>Angle</em></a></td>
+<td>Angle (in degrees) to draw text  (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11534"><em>Application</em></a></td>
+<td>Read-only object reference to the Dabo Application object.  (dApp).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11535"><em>BackColor</em></a></td>
+<td>Background color of text when using text objects  (str or tuple)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11536"><em>BaseClass</em></a></td>
+<td>The base Dabo class of the object. Read-only.  (class)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11537"><em>BasePrefKey</em></a></td>
+<td>Base key used when saving/restoring preferences  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11538"><em>Bitmap</em></a></td>
+<td>Bitmap to be drawn on the object  (dBitmap)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11539"><em>Class</em></a></td>
+<td>The class the object is based on. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11568"><em>DynamicYpos</em></a></td>
+<td>Dynamically determine the value of the Ypos property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11578"><em>GradientColor2</em></a></td>
+<td>Bottom/Right color for the gradient  (color: str or tuple)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11599"><em>Width</em></a></td>
+<td>For rectangles, the width of the shape  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11596"><em>Text</em></a></td>
+<td>Text to be drawn  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11597"><em>Transparent</em></a></td>
+<td>Should the bitmap be drawn transparently?  (bool)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11594"><em>Size</em></a></td>
+<td>Convenience property, equivalent to (Width, Height)  (2-tuple)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11595"><em>StartAngle</em></a></td>
+<td>Angle (in degrees) used to start drawing a circular or elliptic arc  (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11592"><em>Rect</em></a></td>
+<td>Reference to a wx.Rect that encompasses the drawn object (read-only) (wx.Rect)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11576"><em>ForeColor</em></a></td>
+<td>Color of text when using text objects  (str or tuple)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11590"><em>PreferenceManager</em></a></td>
+<td>Reference to the Preference Management object  (dPref)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11591"><em>Radius</em></a></td>
+<td>For circles, the radius of the shape. For Rounded Rectangles,</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11601"><em>Ypos</em></a></td>
+<td>For circles, the y position of the center. For rectangles,</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11577"><em>GradientColor1</em></a></td>
+<td>Top/Left color for the gradient  (color: str or tuple)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11580"><em>Height</em></a></td>
+<td>For rectangles, the height of the shape  (int)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11563"><em>DynamicText</em></a></td>
+<td>Dynamically determine the value of the Text property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11562"><em>DynamicShape</em></a></td>
+<td>Dynamically determine the value of the Shape property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11545"><em>DynamicFillColor</em></a></td>
+<td>Dynamically determine the value of the FillColor property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11544"><em>DynamicDrawMode</em></a></td>
+<td>Dynamically determine the value of the DrawMode property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11547"><em>DynamicFontFace</em></a></td>
+<td>Dynamically determine the value of the FontFace property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11546"><em>DynamicFontBold</em></a></td>
+<td>Dynamically determine the value of the FontBold property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11541"><em>DynamicAngle</em></a></td>
+<td>Dynamically determine the value of the Angle property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11540"><em>DrawMode</em></a></td>
+<td>Logical operation for how the drawing is done. Can be one of:  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11543"><em>DynamicBitmap</em></a></td>
+<td>Dynamically determine the value of the Bitmap property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11542"><em>DynamicBackColor</em></a></td>
+<td>Dynamically determine the value of the BackColor property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11567"><em>DynamicXpos</em></a></td>
+<td>Dynamically determine the value of the Xpos property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11566"><em>DynamicWidth</em></a></td>
+<td>Dynamically determine the value of the Width property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11565"><em>DynamicVisible</em></a></td>
+<td>Dynamically determine the value of the Visible property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11564"><em>DynamicTransparent</em></a></td>
+<td>Dynamically determine the value of the Transparent property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11549"><em>DynamicFontSize</em></a></td>
+<td>Dynamically determine the value of the FontSize property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11548"><em>DynamicFontItalic</em></a></td>
+<td>Dynamically determine the value of the FontItalic property.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11561"><em>DynamicRadius</em></a></td>
+<td>Dynamically determine the value of the Radius property.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11560"><em>DynamicPoints</em></a></td>
+<td>Dynamically determine the value of the Points property.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p id="no-11533"><strong>Angle</strong></p>
+<p>Angle (in degrees) to draw text  (int)</p>
+<hr class="docutils" />
+<p id="no-11535"><strong>BackColor</strong></p>
+<p>Background color of text when using text objects  (str or tuple)</p>
+<hr class="docutils" />
+<p id="no-11538"><strong>Bitmap</strong></p>
+<p>Bitmap to be drawn on the object  (dBitmap)</p>
+<hr class="docutils" />
+<p id="no-11540"><strong>DrawMode</strong></p>
+<p>Logical operation for how the drawing is done. Can be one of:  (str)</p>
+<blockquote>
+<div>copy (or None) - default
+invert
+and
+and_invert
+and_reverse
+clear
+equiv
+nand
+nor
+no_op
+or
+or_invert
+or_reverse
+set
+src_invert
+xor</div></blockquote>
+<hr class="docutils" />
+<p id="no-11541"><strong>DynamicAngle</strong></p>
+<p>Dynamically determine the value of the Angle property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Angle property. If DynamicAngle is set to None (the default), Angle
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11542"><strong>DynamicBackColor</strong></p>
+<p>Dynamically determine the value of the BackColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+BackColor property. If DynamicBackColor is set to None (the default), BackColor
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11543"><strong>DynamicBitmap</strong></p>
+<p>Dynamically determine the value of the Bitmap property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Bitmap property. If DynamicBitmap is set to None (the default), Bitmap
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11544"><strong>DynamicDrawMode</strong></p>
+<p>Dynamically determine the value of the DrawMode property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+DrawMode property. If DynamicDrawMode is set to None (the default), DrawMode
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11545"><strong>DynamicFillColor</strong></p>
+<p>Dynamically determine the value of the FillColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FillColor property. If DynamicFillColor is set to None (the default), FillColor
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11546"><strong>DynamicFontBold</strong></p>
+<p>Dynamically determine the value of the FontBold property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontBold property. If DynamicFontBold is set to None (the default), FontBold
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11547"><strong>DynamicFontFace</strong></p>
+<p>Dynamically determine the value of the FontFace property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontFace property. If DynamicFontFace is set to None (the default), FontFace
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11548"><strong>DynamicFontItalic</strong></p>
+<p>Dynamically determine the value of the FontItalic property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontItalic property. If DynamicFontItalic is set to None (the default), FontItalic
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11549"><strong>DynamicFontSize</strong></p>
+<p>Dynamically determine the value of the FontSize property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontSize property. If DynamicFontSize is set to None (the default), FontSize
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11550"><strong>DynamicFontUnderline</strong></p>
+<p>Dynamically determine the value of the FontUnderline property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+FontUnderline property. If DynamicFontUnderline is set to None (the default), FontUnderline
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11551"><strong>DynamicForeColor</strong></p>
+<p>Dynamically determine the value of the ForeColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+ForeColor property. If DynamicForeColor is set to None (the default), ForeColor
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11552"><strong>DynamicGradientColor1</strong></p>
+<p>Dynamically determine the value of the GradientColor1 property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+GradientColor1 property. If DynamicGradientColor1 is set to None (the default), GradientColor1
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11553"><strong>DynamicGradientColor2</strong></p>
+<p>Dynamically determine the value of the GradientColor2 property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+GradientColor2 property. If DynamicGradientColor2 is set to None (the default), GradientColor2
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11554"><strong>DynamicHeight</strong></p>
+<p>Dynamically determine the value of the Height property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Height property. If DynamicHeight is set to None (the default), Height
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11555"><strong>DynamicLineStyle</strong></p>
+<p>Dynamically determine the value of the LineStyle property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+LineStyle property. If DynamicLineStyle is set to None (the default), LineStyle
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11556"><strong>DynamicOrientation</strong></p>
+<p>Dynamically determine the value of the Orientation property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Orientation property. If DynamicOrientation is set to None (the default), Orientation
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11557"><strong>DynamicParent</strong></p>
+<p>Dynamically determine the value of the Parent property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Parent property. If DynamicParent is set to None (the default), Parent
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11558"><strong>DynamicPenColor</strong></p>
+<p>Dynamically determine the value of the PenColor property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+PenColor property. If DynamicPenColor is set to None (the default), PenColor
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11559"><strong>DynamicPenWidth</strong></p>
+<p>Dynamically determine the value of the PenWidth property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+PenWidth property. If DynamicPenWidth is set to None (the default), PenWidth
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11560"><strong>DynamicPoints</strong></p>
+<p>Dynamically determine the value of the Points property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Points property. If DynamicPoints is set to None (the default), Points
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11561"><strong>DynamicRadius</strong></p>
+<p>Dynamically determine the value of the Radius property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Radius property. If DynamicRadius is set to None (the default), Radius
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11562"><strong>DynamicShape</strong></p>
+<p>Dynamically determine the value of the Shape property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Shape property. If DynamicShape is set to None (the default), Shape
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11563"><strong>DynamicText</strong></p>
+<p>Dynamically determine the value of the Text property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Text property. If DynamicText is set to None (the default), Text
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11564"><strong>DynamicTransparent</strong></p>
+<p>Dynamically determine the value of the Transparent property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Transparent property. If DynamicTransparent is set to None (the default), Transparent
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11565"><strong>DynamicVisible</strong></p>
+<p>Dynamically determine the value of the Visible property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Visible property. If DynamicVisible is set to None (the default), Visible
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11566"><strong>DynamicWidth</strong></p>
+<p>Dynamically determine the value of the Width property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Width property. If DynamicWidth is set to None (the default), Width
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11567"><strong>DynamicXpos</strong></p>
+<p>Dynamically determine the value of the Xpos property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Xpos property. If DynamicXpos is set to None (the default), Xpos
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11568"><strong>DynamicYpos</strong></p>
+<p>Dynamically determine the value of the Ypos property.</p>
+<p>Specify a function and optional arguments that will get called from the
+update() method. The return value of the function will get set to the
+Ypos property. If DynamicYpos is set to None (the default), Ypos
+will not be dynamically evaluated.</p>
+<hr class="docutils" />
+<p id="no-11569"><strong>EndAngle</strong></p>
+<p>Angle (in degrees) used to end drawing a circular or elliptic arc  (int)</p>
+<hr class="docutils" />
+<p id="no-11570"><strong>FillColor</strong></p>
+<p>Background color for the shape  (color)</p>
+<hr class="docutils" />
+<p id="no-11571"><strong>FontBold</strong></p>
+<p>Bold setting for text objects  (bool)</p>
+<hr class="docutils" />
+<p id="no-11572"><strong>FontFace</strong></p>
+<p>Face of the font used for text objects  (str)</p>
+<hr class="docutils" />
+<p id="no-11573"><strong>FontItalic</strong></p>
+<p>Italic setting for text objects  (bool)</p>
+<hr class="docutils" />
+<p id="no-11574"><strong>FontSize</strong></p>
+<p>Size of the font used for text objects  (int)</p>
+<hr class="docutils" />
+<p id="no-11575"><strong>FontUnderline</strong></p>
+<p>Underline setting for text objects  (bool)</p>
+<hr class="docutils" />
+<p id="no-11576"><strong>ForeColor</strong></p>
+<p>Color of text when using text objects  (str or tuple)</p>
+<hr class="docutils" />
+<p id="no-11577"><strong>GradientColor1</strong></p>
+<p>Top/Left color for the gradient  (color: str or tuple)</p>
+<hr class="docutils" />
+<p id="no-11578"><strong>GradientColor2</strong></p>
+<p>Bottom/Right color for the gradient  (color: str or tuple)</p>
+<hr class="docutils" />
+<p id="no-11579"><strong>HatchStyle</strong></p>
+<dl class="docutils">
+<dt>Hatching style for the fill.  (str)</dt>
+<dd><p class="first">Options are:</p>
+<blockquote class="last">
+<div>Solid (default)
+Transparent
+Cross
+Horizontal
+Vertical
+Diagonal
+ReverseDiagonal
+CrossDiagonal</div></blockquote>
+</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-11580"><strong>Height</strong></p>
+<p>For rectangles, the height of the shape  (int)</p>
+<hr class="docutils" />
+<p id="no-11581"><strong>LineStyle</strong></p>
+<p>Line style (solid, dash, dot) drawn  (str)</p>
+<hr class="docutils" />
+<p id="no-11584"><strong>Orientation</strong></p>
+<p>Direction of the drawn gradient (&#8216;v&#8217; or &#8216;h&#8217;)  (str)</p>
+<hr class="docutils" />
+<p id="no-11586"><strong>PenColor</strong></p>
+<p>ForeColor of the shape&#8217;s lines  (color)</p>
+<hr class="docutils" />
+<p id="no-11587"><strong>PenWidth</strong></p>
+<p>Width of the shape&#8217;s lines  (int)</p>
+<hr class="docutils" />
+<p id="no-11588"><strong>Points</strong></p>
+<p>Tuple of (x,y) pairs defining a polygon.  (tuple)</p>
+<hr class="docutils" />
+<p id="no-11589"><strong>Position</strong></p>
+<p>Shorthand for (Xpos, Ypos).  (2-tuple)</p>
+<hr class="docutils" />
+<p id="no-11591"><strong>Radius</strong></p>
+<dl class="docutils">
+<dt>For circles, the radius of the shape. For Rounded Rectangles,</dt>
+<dd>the radius of the rounded corner. (int)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-11592"><strong>Rect</strong></p>
+<p>Reference to a wx.Rect that encompasses the drawn object (read-only) (wx.Rect)</p>
+<hr class="docutils" />
+<p id="no-11593"><strong>Shape</strong></p>
+<p>Type of shape to draw  (str)</p>
+<hr class="docutils" />
+<p id="no-11594"><strong>Size</strong></p>
+<p>Convenience property, equivalent to (Width, Height)  (2-tuple)</p>
+<hr class="docutils" />
+<p id="no-11595"><strong>StartAngle</strong></p>
+<p>Angle (in degrees) used to start drawing a circular or elliptic arc  (int)</p>
+<hr class="docutils" />
+<p id="no-11596"><strong>Text</strong></p>
+<p>Text to be drawn  (str)</p>
+<hr class="docutils" />
+<p id="no-11597"><strong>Transparent</strong></p>
+<p>Should the bitmap be drawn transparently?  (bool)</p>
+<hr class="docutils" />
+<p id="no-11598"><strong>Visible</strong></p>
+<p>Controls whether the shape is drawn.  (bool)</p>
+<hr class="docutils" />
+<p id="no-11599"><strong>Width</strong></p>
+<p>For rectangles, the width of the shape  (int)</p>
+<hr class="docutils" />
+<p id="no-11600"><strong>Xpos</strong></p>
+<dl class="docutils">
+<dt>For circles, the x position of the center. For rectangles,</dt>
+<dd>the x position of the top left corner. (int)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-11601"><strong>Ypos</strong></p>
+<dl class="docutils">
+<dt>For circles, the y position of the center. For rectangles,</dt>
+<dd>the y position of the top left corner. (int)</dd>
+</dl>
+</div>
+<hr class="docutils" />
+<div class="section" id="properties-inherited">
+<h2>Properties - inherited<a class="headerlink" href="#properties-inherited" title="Permalink to this headline">¶</a></h2>
+<p id="no-11534"><strong>Application</strong></p>
+<p>Read-only object reference to the Dabo Application object.  (dApp).</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11536"><strong>BaseClass</strong></p>
+<p>The base Dabo class of the object. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11537"><strong>BasePrefKey</strong></p>
+<p>Base key used when saving/restoring preferences  (str)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11539"><strong>Class</strong></p>
+<p>The class the object is based on. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11582"><strong>LogEvents</strong></p>
+<blockquote>
+<div><p>Specifies which events to log.  (list of strings)</p>
+<p>If the first element is &#8216;All&#8217;, all events except the following listed events
+will be logged.
+Event logging is resource-intensive, so in addition to setting this LogEvents
+property, you also need to make the following call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dabo</span><span class="o">.</span><span class="n">eventLogging</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11583"><strong>Name</strong></p>
+<p>The name of the object.  (str)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11585"><strong>Parent</strong></p>
+<p>Reference to the object being drawn upon.  (object)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-11590"><strong>PreferenceManager</strong></p>
+<p>Reference to the Preference Management object  (dPref)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-events-summary">
+<h2><a href="#id11"><span class="problematic" id="id12">|method_summary|</span></a> Events Summary<a class="headerlink" href="#method-summary-events-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="method-summary-methods-summary">
+<h2><a href="#id13"><span class="problematic" id="id14">|method_summary|</span></a> Methods Summary<a class="headerlink" href="#method-summary-methods-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#no-11615"><em>raiseEvent</em></a></td>
+<td>Send the event to all registered listeners.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11613"><em>moveDown</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11614"><em>moveUp</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11620"><em>super</em></a></td>
+<td>This method used to call superclass code, but it&#8217;s been removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11612"><em>initProperties</em></a></td>
+<td>Hook for subclasses. User subclasses should set properties</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11621"><em>unbindEvent</em></a></td>
+<td>Remove a previously registered event binding.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11602"><em>afterInit</em></a></td>
+<td>Subclass hook. Called after the object&#8217;s __init__ has run fully.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11603"><em>autoBindEvents</em></a></td>
+<td>Automatically bind any on*() methods to the associated event.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11617"><em>sendToBack</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11616"><em>release</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11606"><em>bindEvents</em></a></td>
+<td>Bind a sequence of [dEvent, callback] lists.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11607"><em>bringToFront</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11604"><em>beforeInit</em></a></td>
+<td>Subclass hook. Called before the object is fully instantiated.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11605"><em>bindEvent</em></a></td>
+<td>Bind a dEvent to a callback function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11611"><em>initEvents</em></a></td>
+<td>Hook for subclasses. User code should do custom event binding</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11608"><em>draw</em></a></td>
+<td>Does the actual drawing.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11609"><em>getAbsoluteName</em></a></td>
+<td>Return the fully qualified name of the object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11619"><em>setPropertiesFromAtts</em></a></td>
+<td>Sets a group of properties on the object all at once. This</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11618"><em>setProperties</em></a></td>
+<td>Sets a group of properties on the object all at once.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-11622"><em>update</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-11610"><em>getProperties</em></a></td>
+<td>Returns a dictionary of property name/value pairs.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-11607"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.bringToFront">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">bringToFront</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.bringToFront" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-11608"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.draw">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">draw</code><span class="sig-paren">(</span><em>self</em>, <em>dc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the actual drawing.</p>
+<p>NOTE: it does not clear any old drawings of the shape, so this shouldn&#8217;t be
+called except as part of a method of the parent that first clears the
+background.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-11613"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.moveDown">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">moveDown</code><span class="sig-paren">(</span><em>self</em>, <em>levels=1</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.moveDown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-11614"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.moveUp">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">moveUp</code><span class="sig-paren">(</span><em>self</em>, <em>levels=1</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.moveUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-11616"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.release">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">release</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-11617"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.sendToBack">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">sendToBack</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.sendToBack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-11622"></span><dl class="function">
+<dt id="dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.update">
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">update</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.ui.uiwx.dPemMixin.dabo.ui.uiwx.dPemMixin.DrawObject.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="methods-inherited">
+<h2>Methods - inherited<a class="headerlink" href="#methods-inherited" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-11602"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">afterInit</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called after the object&#8217;s __init__ has run fully.
+Subclasses should place their __init__ code here in this hook, instead of
+overriding __init__ directly, to avoid conflicting with base Dabo behavior.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11603"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">autoBindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>force=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Automatically bind any on*() methods to the associated event.</p>
+<p>User code only needs to define the callback, and Dabo will automatically
+set up the event binding. This will satisfy lots of common cases where
+you want an object or its parent to respond to the object&#8217;s events.</p>
+<p>To use this feature, just define a method on&lt;EventName&gt;(), or    if you
+want a parent container to respond to the event, make a method in the
+parent on&lt;EventName&gt;_&lt;object Name or RegID&gt;().</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyButton</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dButton</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onHit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Hit!&quot;</span>
+
+<span class="k">class</span> <span class="nc">MyPanel</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">afterInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">MyButton</span><span class="p">,</span> <span class="n">RegID</span><span class="o">=</span><span class="s">&quot;btn1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">onHit_btn1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;panel: button hit!&quot;</span>
+</pre></div>
+</div>
+<p>When the button is pressed, you&#8217;ll see both &#8216;hit&#8217; messages because of
+auto event binding.</p>
+<p>If you want to bind your events explicitly, you can turn off auto event
+binding by issuing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dabo</span><span class="o">.</span><span class="n">autoBindEvents</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>This feature is inspired by PythonCard.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11604"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">beforeInit</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called before the object is fully instantiated.
+Usually, user code should override afterInit() instead, but there may be
+cases where you need to set an attribute before the init stage is fully
+underway.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11605"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">bindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>function</em>, <em>_auto=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a dEvent to a callback function.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11606"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">bindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>bindings</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a sequence of [dEvent, callback] lists.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11609"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">getAbsoluteName</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return the fully qualified name of the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11610"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">getProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propertySequence=()</em>, <em>propsToSkip=()</em>, <em>ignoreErrors=False</em>, <em>*propertyArguments</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dictionary of property name/value pairs.</p>
+<p>If a sequence of properties is passed, just those property values
+will be returned. Otherwise, all property values will be returned.
+The sequence of properties can be a list, tuple, or plain string
+positional arguments. For instance, all of the following are
+equivilent:</p>
+<div class="highlight-python"><div class="highlight"><pre>print self.getProperties(&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties([&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;])
+t = (&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties(t)
+print self.getProperties(\*t)
+</pre></div>
+</div>
+<p>An exception will be raised if any passed property names don&#8217;t
+exist, aren&#8217;t actual properties, or are not readable (do not have
+getter functions).</p>
+<p>However, if an exception is raised from the property getter function,
+the exception will get caught and used as the property value in the
+returned property dictionary. This allows the property list to be
+returned even if some properties can&#8217;t be evaluated correctly by the
+object yet.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11611"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">initEvents</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User code should do custom event binding
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">bindEvent</span><span class="p">(</span><span class="n">dEvents</span><span class="o">.</span><span class="n">GotFocus</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">customGotFocusHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11612"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">initProperties</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User subclasses should set properties
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;MyTextBox&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">BackColor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11615"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">raiseEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>uiEvent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Send the event to all registered listeners.</p>
+<p>If uiEvent is sent, dEvents.Event will be able to parse it for useful
+information to send along to the callback.</p>
+<p>Additional arguments, if any, are sent along to the constructor    of the
+event. While this feature exists so that UI-lib event handlers can pass
+along information (such as the keystroke information in a key event), user
+code may pass along additional arguments as well, which    will exist in the
+event.EventData dictionary property.</p>
+<p>In most cases, user code should call raiseEvent() with
+the event class (dEvents.Hit, for example) as the only parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11618"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">setProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreErrors=False</em>, <em>**propKw</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once.</p>
+<p>You have the following options for sending the properties:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Property/Value pair dictionary</li>
+<li>Keyword arguments</li>
+<li>Both</li>
+</ol>
+</div></blockquote>
+<p>The following examples all do the same thing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">FontBold</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&quot;ForeColor&quot;</span><span class="p">:</span> <span class="s">&quot;Red&quot;</span><span class="p">})</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11619"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">setPropertiesFromAtts</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreExtra=True</em>, <em>context=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once. This
+is different from the regular setProperties() method because
+it only accepts a dict containing prop:value pairs, and it
+assumes that the value is always a string. It will convert
+the value to the correct type for the property, and then set
+the property to that converted value. If the value needs to be evaluated
+in a specific namespace, pass that as the &#8216;context&#8217; parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11620"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">super</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>This method used to call superclass code, but it&#8217;s been removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-11621"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.ui.uiwx.dPemMixin.DrawObject.</code><code class="descname">unbindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass=None</em>, <em>function=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove a previously registered event binding.</p>
+<p>Removes all registrations that exist for the given binding for this
+object. If event is None, all bindings for the passed function are
+removed. If function is None, all bindings for the passed event are
+removed. If both event and function are None, all event bindings are
+removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">|doc_title|  <strong>dPemMixin.DrawObject</strong> - class</a><ul>
+<li><a class="reference internal" href="#hierarchy-inheritance-diagram">|hierarchy| Inheritance Diagram</a></li>
+<li><a class="reference internal" href="#supclasses-known-superclasses">|supclasses| Known Superclasses</a></li>
+<li><a class="reference internal" href="#api-class-api">|API| Class API</a></li>
+<li><a class="reference internal" href="#method-summary-properties-summary">|method_summary| Properties Summary</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#properties-inherited">Properties - inherited</a></li>
+<li><a class="reference internal" href="#method-summary-events-summary">|method_summary| Events Summary</a></li>
+<li><a class="reference internal" href="#method-summary-methods-summary">|method_summary| Methods Summary</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#methods-inherited">Methods - inherited</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tempsource/dabo.ui.uiwx.dPemMixin.DrawObject.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

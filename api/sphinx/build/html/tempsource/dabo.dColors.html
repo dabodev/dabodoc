@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>dColors functions &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.dColors"></span><div class="section" id="dcolors-functions">
+<span id="dabo-dcolors-functions"></span><h1><strong>dColors</strong> functions<a class="headerlink" href="#dcolors-functions" title="Permalink to this headline">¶</a></h1>
+<p>This is the description of standalone Python functions in the <strong>dabo.dColors</strong> module.</p>
+<div class="section" id="method-summary-functions-summary">
+<h2><a href="#id1"><span class="problematic" id="id2">|method_summary|</span></a> Functions Summary<a class="headerlink" href="#method-summary-functions-summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-functions-api">
+<h2><a href="#id3"><span class="problematic" id="id4">|API|</span></a> Functions API<a class="headerlink" href="#api-functions-api" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="dabo.dColors.colorNameFromTuple">
+<code class="descclassname">dabo.dColors.</code><code class="descname">colorNameFromTuple</code><span class="sig-paren">(</span><em>colorTuple</em>, <em>firstOnly=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.colorNameFromTuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of color names, if any, whose RGB tuple matches
+the specified tuple. If &#8216;firstOnly&#8217; is True, then a single color name
+will be returned as a string, not a list; the string will be empty
+if there is no match.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.colorTupleFromHex">
+<code class="descclassname">dabo.dColors.</code><code class="descname">colorTupleFromHex</code><span class="sig-paren">(</span><em>hx</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.colorTupleFromHex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.colorTupleFromName">
+<code class="descclassname">dabo.dColors.</code><code class="descname">colorTupleFromName</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.colorTupleFromName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a color name, such as &#8220;Blue&#8221; or &#8220;Aquamarine&#8221;, return a color tuple.</p>
+<p>This is used internally in the ForeColor and BackColor property setters. The
+color name is not case-sensitive. If the color name doesn&#8217;t exist, an exception
+is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.colorTupleFromString">
+<code class="descclassname">dabo.dColors.</code><code class="descname">colorTupleFromString</code><span class="sig-paren">(</span><em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.colorTupleFromString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.hexToDec">
+<code class="descclassname">dabo.dColors.</code><code class="descname">hexToDec</code><span class="sig-paren">(</span><em>hx</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.hexToDec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.randomColor">
+<code class="descclassname">dabo.dColors.</code><code class="descname">randomColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.randomColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random color tuple</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.randomColorName">
+<code class="descclassname">dabo.dColors.</code><code class="descname">randomColorName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.randomColorName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random color name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.dColors.tupleToHex">
+<code class="descclassname">dabo.dColors.</code><code class="descname">tupleToHex</code><span class="sig-paren">(</span><em>t</em>, <em>includeHash=True</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.dColors.tupleToHex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a color tuple into an HTML hex format.</p>
+</dd></dl>
+
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>dColors</strong> functions</a><ul>
+<li><a class="reference internal" href="#method-summary-functions-summary">|method_summary| Functions Summary</a></li>
+<li><a class="reference internal" href="#api-functions-api">|API| Functions API</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tempsource/dabo.dColors.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

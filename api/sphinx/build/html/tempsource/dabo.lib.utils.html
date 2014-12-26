@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>utils functions &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.lib.utils"></span><div class="section" id="utils-functions">
+<span id="dabo-lib-utils-functions"></span><h1><strong>utils</strong> functions<a class="headerlink" href="#utils-functions" title="Permalink to this headline">¶</a></h1>
+<p>This is the description of standalone Python functions in the <strong>dabo.lib.utils</strong> module.</p>
+<div class="section" id="method-summary-functions-summary">
+<h2><a href="#id1"><span class="problematic" id="id2">|method_summary|</span></a> Functions Summary<a class="headerlink" href="#method-summary-functions-summary" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="api-functions-api">
+<h2><a href="#id3"><span class="problematic" id="id4">|API|</span></a> Functions API<a class="headerlink" href="#api-functions-api" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="function">
+<dt id="dabo.lib.utils.caseInsensitiveSortKey">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">caseInsensitiveSortKey</code><span class="sig-paren">(</span><em>vv</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.caseInsensitiveSortKey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.cleanMenuCaption">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">cleanMenuCaption</code><span class="sig-paren">(</span><em>cap</em>, <em>bad=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.cleanMenuCaption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu captions can contain several special characters that make them
+unsuitable for things such as preference settings. This method provides
+a simple way of getting the &#8216;clean&#8217; version of these captions. By default it
+strips ampersands, spaces and periods; you can change that by passing
+the characters you want stripped in the &#8216;bad&#8217; parameter.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.dictStringify">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">dictStringify</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.dictStringify" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ability to pass a properties dict to an object relies on
+the practice of passing &#8216;**properties&#8217; to a function. Seems that
+Python requires that the keys in any dict being expanded like
+this be strings, not unicode. This method returns a dict with all
+unicode keys changed to strings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.exceptionToUnicode">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">exceptionToUnicode</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.exceptionToUnicode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.getEncodings">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">getEncodings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.getEncodings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.getPathAttributePrefix">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">getPathAttributePrefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.getPathAttributePrefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.getSharedAppDataDirectory">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">getSharedAppDataDirectory</code><span class="sig-paren">(</span><em>appName='Dabo'</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.getSharedAppDataDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the directory where Dabo can store shared mutable data.</p>
+<p>On *nix, this will be something like /var/lib/dabo
+On Windows, it will be more like c:Documents and SettingsAll UsersApplication DataDabo</p>
+<p>This function relies on platform conventions to determine this information. If it
+cannot be determined (because platform conventions were circumvented), the return
+value will be None.</p>
+<p>if appName is passed, the directory will be named accordingly.</p>
+<p>This function will try to create the directory if it doesn&#8217;t already exist, but if the
+creation of the directory fails, the return value will revert to None.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.getUserAppDataDirectory">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">getUserAppDataDirectory</code><span class="sig-paren">(</span><em>appName='Dabo'</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.getUserAppDataDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the directory where Dabo can save user preference and setting information.</p>
+<p>On *nix, this will be something like /home/pmcnett/.dabo
+On Windows, it will be more like c:Documents and SettingspmcnettApplication DataDabo</p>
+<p>This function relies on platform conventions to determine this information. If it
+cannot be determined (because platform conventions were circumvented), the return
+value will be None.</p>
+<p>if appName is passed, the directory will be named accordingly.</p>
+<p>This function will try to create the directory if it doesn&#8217;t already exist, but if the
+creation of the directory fails, the return value will revert to None.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.getUserHomeDirectory">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">getUserHomeDirectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.getUserHomeDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the user&#8217;s home directory in a platform-portable way.</p>
+<p>If the home directory cannot be determined, return None.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.locateRelativeTo">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">locateRelativeTo</code><span class="sig-paren">(</span><em>containerPath</em>, <em>itemPath</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.locateRelativeTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Paths to items, such as custom contained classes, should be relative to
+the container they are in.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.noneSortKey">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">noneSortKey</code><span class="sig-paren">(</span><em>vv</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.noneSortKey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.relativePath">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">relativePath</code><span class="sig-paren">(</span><em>toLoc</em>, <em>fromLoc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.relativePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given two paths, returns a relative path from fromLoc to toLoc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.relativePathList">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">relativePathList</code><span class="sig-paren">(</span><em>toLoc</em>, <em>fromLoc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.relativePathList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given two paths, returns a list that, when joined with
+os.path.sep, gives the relative path from &#8216;fromLoc&#8217; to
+&#8220;toLoc&#8217;. If &#8216;fromLoc&#8217; is not specified, the current directory
+is assumed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.resolveAttributePathing">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">resolveAttributePathing</code><span class="sig-paren">(</span><em>atts</em>, <em>pth=None</em>, <em>abspath=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.resolveAttributePathing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dabo design files store their information in XML, which means
+when they are &#8216;read&#8217; the values come back in a dictionary of
+attributes, which are then used to restore the designed object to its
+intended state. Path values will be stored in a relative path format,
+with the value preceeded by the string returned by
+getPathAttributePrefix(); i.e., &#8216;path://&#8217;.</p>
+<p>This method finds all values that begin with the &#8216;path://&#8217; label,
+strips off that label, converts the paths back to values that
+can be used by the object, and then updates the attribute dict with
+those new values.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.resolvePath">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">resolvePath</code><span class="sig-paren">(</span><em>val</em>, <em>pth=None</em>, <em>abspath=False</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.resolvePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a single string value in the format Dabo uses to store pathing
+in XML, and returns the original path relative to the specified path (or the
+current directory, if no pth is specified). If &#8216;abspath&#8217; is True, returns an
+absolute path instead of the default relative path.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.resolvePathAndUpdate">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">resolvePathAndUpdate</code><span class="sig-paren">(</span><em>srcFile</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.resolvePathAndUpdate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.reverseText">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">reverseText</code><span class="sig-paren">(</span><em>tx</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.reverseText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a string and returns it reversed. Example:</p>
+<dl class="docutils">
+<dt>utils.reverseText(&#8220;Wow, this is so cool!&#8221;)</dt>
+<dd>=&gt; returns &#8221;!looc os si siht ,woW&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="dabo.lib.utils.ustr">
+<code class="descclassname">dabo.lib.utils.</code><code class="descname">ustr</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.lib.utils.ustr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the passed value to a python unicode object.</p>
+<p>When converting to a string, do not use the str() function, which
+can create encoding errors with non-ASCII text.</p>
+</dd></dl>
+
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>utils</strong> functions</a><ul>
+<li><a class="reference internal" href="#method-summary-functions-summary">|method_summary| Functions Summary</a></li>
+<li><a class="reference internal" href="#api-functions-api">|API| Functions API</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tempsource/dabo.lib.utils.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>

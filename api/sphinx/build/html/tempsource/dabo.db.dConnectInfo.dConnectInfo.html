@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>|doc_title| dConnectInfo.dConnectInfo - class &mdash; Dabo 0.9.14 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.9.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Dabo 0.9.14 documentation" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-dabo.db.dConnectInfo"></span><div class="section" id="doc-title-dconnectinfo-dconnectinfo-class">
+<span id="dabo-db-dconnectinfo-dconnectinfo"></span><h1><a href="#id1"><span class="problematic" id="id2">|doc_title|</span></a>  <strong>dConnectInfo.dConnectInfo</strong> - class<a class="headerlink" href="#doc-title-dconnectinfo-dconnectinfo-class" title="Permalink to this headline">¶</a></h1>
+<p>Holder for the properties for connecting to the backend. Each
+backend may have different names for properties, but this object
+tries to abstract that. The value stored in the Password must be
+encrypted in the format set in the app. This class has  &#8216;encrypt&#8217; and
+&#8216;decrypt&#8217; functions for doing this, or you can set the PlainTextPassword
+property, and the class will encypt that value and set the Password
+property for you.</p>
+<p>You can create it in several ways, like most Dabo objects. First, you
+can pass all the settings as parameters to the constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre>    ci = dConnectInfo(DbType=&quot;MySQL&quot;, Host=&quot;domain.com&quot;,
+        User=&quot;daboUser&quot;, PlainTextPassword=&quot;secret&quot;, Port=3306,
+        Database=&quot;myData&quot;, Name=&quot;mainConnection&quot;)
+
+Or you can create a dictionary of the various props, and pass that
+in the &#39;connInfo&#39; parameter::
+
+    connDict = {&quot;DbType&quot; : &quot;MySQL&quot;, &quot;Host&quot; : &quot;domain.com&quot;,
+        &quot;User&quot; : &quot;daboUser&quot;, &quot;PlainTextPassword&quot; : &quot;secret&quot;,
+        &quot;Port&quot; : 3306, &quot;Database&quot; : &quot;myData&quot;, &quot;Name&quot; : &quot;mainConnection&quot;}
+    ci = dConnectInfo(connInfo=connDict)
+
+Or you can create the object and then set the props
+individually::
+
+    ci = dConnectInfo()
+    ci.DbType = &quot;MySQL&quot;
+    ci.Host = &quot;domain.com&quot;
+    ci.User = &quot;daboUser&quot;
+    ci.PlainTextPassword = &quot;secret&quot;
+    ci.Database = &quot;myData&quot;
+    ci.Name = &quot;mainConnection&quot;
+
+If you are running a remote app, should set the RemoteHost property instead of Host. The
+DbType will be &quot;web&quot;.
+</pre></div>
+</div>
+<div class="section" id="hierarchy-inheritance-diagram">
+<h2><a href="#id3"><span class="problematic" id="id4">|hierarchy|</span></a> Inheritance Diagram<a class="headerlink" href="#hierarchy-inheritance-diagram" title="Permalink to this headline">¶</a></h2>
+<p>Inheritance diagram for: <strong>dConnectInfo</strong></p>
+</div>
+<div class="section" id="supclasses-known-superclasses">
+<h2><a href="#id5"><span class="problematic" id="id6">|supclasses|</span></a> Known Superclasses<a class="headerlink" href="#supclasses-known-superclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></li>
+</ul>
+</div>
+<div class="section" id="api-class-api">
+<h2><a href="#id7"><span class="problematic" id="id8">|API|</span></a> Class API<a class="headerlink" href="#api-class-api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="dabo.db.dConnectInfo.dConnectInfo">
+<em class="property">class </em><code class="descclassname">dabo.db.dConnectInfo.</code><code class="descname">dConnectInfo</code><span class="sig-paren">(</span><em>connInfo=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dConnectInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holder for the properties for connecting to the backend. Each
+backend may have different names for properties, but this object
+tries to abstract that. The value stored in the Password must be
+encrypted in the format set in the app. This class has  &#8216;encrypt&#8217; and
+&#8216;decrypt&#8217; functions for doing this, or you can set the PlainTextPassword
+property, and the class will encypt that value and set the Password
+property for you.</p>
+<p>You can create it in several ways, like most Dabo objects. First, you
+can pass all the settings as parameters to the constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ci</span> <span class="o">=</span> <span class="n">dConnectInfo</span><span class="p">(</span><span class="n">DbType</span><span class="o">=</span><span class="s">&quot;MySQL&quot;</span><span class="p">,</span> <span class="n">Host</span><span class="o">=</span><span class="s">&quot;domain.com&quot;</span><span class="p">,</span>
+        <span class="n">User</span><span class="o">=</span><span class="s">&quot;daboUser&quot;</span><span class="p">,</span> <span class="n">PlainTextPassword</span><span class="o">=</span><span class="s">&quot;secret&quot;</span><span class="p">,</span> <span class="n">Port</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span>
+        <span class="n">Database</span><span class="o">=</span><span class="s">&quot;myData&quot;</span><span class="p">,</span> <span class="n">Name</span><span class="o">=</span><span class="s">&quot;mainConnection&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or you can create a dictionary of the various props, and pass that
+in the &#8216;connInfo&#8217; parameter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">connDict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;DbType&quot;</span> <span class="p">:</span> <span class="s">&quot;MySQL&quot;</span><span class="p">,</span> <span class="s">&quot;Host&quot;</span> <span class="p">:</span> <span class="s">&quot;domain.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;User&quot;</span> <span class="p">:</span> <span class="s">&quot;daboUser&quot;</span><span class="p">,</span> <span class="s">&quot;PlainTextPassword&quot;</span> <span class="p">:</span> <span class="s">&quot;secret&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Port&quot;</span> <span class="p">:</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">&quot;Database&quot;</span> <span class="p">:</span> <span class="s">&quot;myData&quot;</span><span class="p">,</span> <span class="s">&quot;Name&quot;</span> <span class="p">:</span> <span class="s">&quot;mainConnection&quot;</span><span class="p">}</span>
+<span class="n">ci</span> <span class="o">=</span> <span class="n">dConnectInfo</span><span class="p">(</span><span class="n">connInfo</span><span class="o">=</span><span class="n">connDict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or you can create the object and then set the props
+individually:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ci</span> <span class="o">=</span> <span class="n">dConnectInfo</span><span class="p">()</span>
+<span class="n">ci</span><span class="o">.</span><span class="n">DbType</span> <span class="o">=</span> <span class="s">&quot;MySQL&quot;</span>
+<span class="n">ci</span><span class="o">.</span><span class="n">Host</span> <span class="o">=</span> <span class="s">&quot;domain.com&quot;</span>
+<span class="n">ci</span><span class="o">.</span><span class="n">User</span> <span class="o">=</span> <span class="s">&quot;daboUser&quot;</span>
+<span class="n">ci</span><span class="o">.</span><span class="n">PlainTextPassword</span> <span class="o">=</span> <span class="s">&quot;secret&quot;</span>
+<span class="n">ci</span><span class="o">.</span><span class="n">Database</span> <span class="o">=</span> <span class="s">&quot;myData&quot;</span>
+<span class="n">ci</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;mainConnection&quot;</span>
+</pre></div>
+</div>
+<p>If you are running a remote app, should set the RemoteHost property instead of Host. The
+DbType will be &#8220;web&#8221;.</p>
+<dl class="method">
+<dt id="dabo.db.dConnectInfo.dConnectInfo.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>connInfo=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dConnectInfo.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="method-summary-properties-summary">
+<h2><a href="#id9"><span class="problematic" id="id10">|method_summary|</span></a> Properties Summary<a class="headerlink" href="#method-summary-properties-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#no-1498"><em>User</em></a></td>
+<td>The user name. (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1491"><em>Name</em></a></td>
+<td>The name used to reference this connection. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1490"><em>LogEvents</em></a></td>
+<td>Specifies which events to log.  (list of strings)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1493"><em>Password</em></a></td>
+<td>The encrypted password of the user. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1492"><em>Parent</em></a></td>
+<td>The containing object.  (obj)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1495"><em>Port</em></a></td>
+<td>The port to connect on (may not be applicable for all databases). (int)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1494"><em>PlainTextPassword</em></a></td>
+<td>Write-only property that encrypts the value and stores that</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1497"><em>RemoteHost</em></a></td>
+<td>When running as a web app, this holds the host URL. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1496"><em>PreferenceManager</em></a></td>
+<td>Reference to the Preference Management object  (dPref)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1486"><em>Database</em></a></td>
+<td>The database name to login to. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1487"><em>DbType</em></a></td>
+<td>Name of the backend database type.  (str)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1484"><em>Crypto</em></a></td>
+<td>Reference to the object that provides cryptographic services if run</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1485"><em>CustomParameters</em></a></td>
+<td>Additional parameters passed to backend object connect method. (dict)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1482"><em>BasePrefKey</em></a></td>
+<td>Base key used when saving/restoring preferences  (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1483"><em>Class</em></a></td>
+<td>The class the object is based on. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1480"><em>Application</em></a></td>
+<td>Read-only object reference to the Dabo Application object.  (dApp).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1481"><em>BaseClass</em></a></td>
+<td>The base Dabo class of the object. Read-only.  (class)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1488"><em>Host</em></a></td>
+<td>The host name or ip address. (str)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1489"><em>KeepAliveInterval</em></a></td>
+<td>Specifies how often a KeepAlive query should be sent to the server. (int)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p id="no-1484"><strong>Crypto</strong></p>
+<dl class="docutils">
+<dt>Reference to the object that provides cryptographic services if run</dt>
+<dd>outside of an application.  (varies)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-1485"><strong>CustomParameters</strong></p>
+<p>Additional parameters passed to backend object connect method. (dict)</p>
+<hr class="docutils" />
+<p id="no-1486"><strong>Database</strong></p>
+<p>The database name to login to. (str)</p>
+<hr class="docutils" />
+<p id="no-1487"><strong>DbType</strong></p>
+<p>Name of the backend database type.  (str)</p>
+<hr class="docutils" />
+<p id="no-1488"><strong>Host</strong></p>
+<p>The host name or ip address. (str)</p>
+<hr class="docutils" />
+<p id="no-1489"><strong>KeepAliveInterval</strong></p>
+<p>Specifies how often a KeepAlive query should be sent to the server. (int)</p>
+<blockquote>
+<div>Defaults to None, meaning we never send a KeepAlive query. The interval
+is expressed in seconds.</div></blockquote>
+<hr class="docutils" />
+<p id="no-1493"><strong>Password</strong></p>
+<p>The encrypted password of the user. (str)</p>
+<hr class="docutils" />
+<p id="no-1494"><strong>PlainTextPassword</strong></p>
+<dl class="docutils">
+<dt>Write-only property that encrypts the value and stores that</dt>
+<dd>in the Password property. (str)</dd>
+</dl>
+<hr class="docutils" />
+<p id="no-1495"><strong>Port</strong></p>
+<p>The port to connect on (may not be applicable for all databases). (int)</p>
+<hr class="docutils" />
+<p id="no-1497"><strong>RemoteHost</strong></p>
+<p>When running as a web app, this holds the host URL. (str)</p>
+<hr class="docutils" />
+<p id="no-1498"><strong>User</strong></p>
+<p>The user name. (str)</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="properties-inherited">
+<h2>Properties - inherited<a class="headerlink" href="#properties-inherited" title="Permalink to this headline">¶</a></h2>
+<p id="no-1480"><strong>Application</strong></p>
+<p>Read-only object reference to the Dabo Application object.  (dApp).</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1481"><strong>BaseClass</strong></p>
+<p>The base Dabo class of the object. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1482"><strong>BasePrefKey</strong></p>
+<p>Base key used when saving/restoring preferences  (str)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1483"><strong>Class</strong></p>
+<p>The class the object is based on. Read-only.  (class)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1490"><strong>LogEvents</strong></p>
+<blockquote>
+<div><p>Specifies which events to log.  (list of strings)</p>
+<p>If the first element is &#8216;All&#8217;, all events except the following listed events
+will be logged.
+Event logging is resource-intensive, so in addition to setting this LogEvents
+property, you also need to make the following call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dabo</span><span class="o">.</span><span class="n">eventLogging</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1491"><strong>Name</strong></p>
+<p>The name used to reference this connection. (str)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1492"><strong>Parent</strong></p>
+<p>The containing object.  (obj)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<p id="no-1496"><strong>PreferenceManager</strong></p>
+<p>Reference to the Preference Management object  (dPref)</p>
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="method-summary-events-summary">
+<h2><a href="#id11"><span class="problematic" id="id12">|method_summary|</span></a> Events Summary<a class="headerlink" href="#method-summary-events-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="method-summary-methods-summary">
+<h2><a href="#id13"><span class="problematic" id="id14">|method_summary|</span></a> Methods Summary<a class="headerlink" href="#method-summary-methods-summary" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#no-1499"><em>afterInit</em></a></td>
+<td>Subclass hook. Called after the object&#8217;s __init__ has run fully.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1520"><em>unbindEvent</em></a></td>
+<td>Remove a previously registered event binding.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1514"><em>raiseEvent</em></a></td>
+<td>Send the event to all registered listeners.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1515"><em>revealPW</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1516"><em>setConnInfo</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1517"><em>setProperties</em></a></td>
+<td>Sets a group of properties on the object all at once.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1510"><em>getMainCursorClass</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1511"><em>getProperties</em></a></td>
+<td>Returns a dictionary of property name/value pairs.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1512"><em>initEvents</em></a></td>
+<td>Hook for subclasses. User code should do custom event binding</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1513"><em>initProperties</em></a></td>
+<td>Hook for subclasses. User subclasses should set properties</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1518"><em>setPropertiesFromAtts</em></a></td>
+<td>Sets a group of properties on the object all at once. This</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1519"><em>super</em></a></td>
+<td>This method used to call superclass code, but it&#8217;s been removed.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1507"><em>getBackendObject</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1506"><em>getAbsoluteName</em></a></td>
+<td>Return the fully qualified name of the object.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1505"><em>encrypt</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1504"><em>decrypt</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1503"><em>bindEvents</em></a></td>
+<td>Bind a sequence of [dEvent, callback] lists.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1502"><em>bindEvent</em></a></td>
+<td>Bind a dEvent to a callback function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1501"><em>beforeInit</em></a></td>
+<td>Subclass hook. Called before the object is fully instantiated.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1500"><em>autoBindEvents</em></a></td>
+<td>Automatically bind any on*() methods to the associated event.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#no-1509"><em>getDictCursorClass</em></a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#no-1508"><em>getConnection</em></a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-1504"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.decrypt">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">decrypt</code><span class="sig-paren">(</span><em>self</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1505"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.encrypt">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">encrypt</code><span class="sig-paren">(</span><em>self</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1507"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getBackendObject">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">getBackendObject</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getBackendObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1508"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getConnection">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">getConnection</code><span class="sig-paren">(</span><em>self</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getConnection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1509"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getDictCursorClass">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">getDictCursorClass</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getDictCursorClass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1510"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getMainCursorClass">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">getMainCursorClass</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.getMainCursorClass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1515"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.revealPW">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">revealPW</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.revealPW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<hr class="docutils" />
+<span class="target" id="no-1516"></span><dl class="function">
+<dt id="dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.setConnInfo">
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">setConnInfo</code><span class="sig-paren">(</span><em>self</em>, <em>connInfo</em>, <em>nm=''</em><span class="sig-paren">)</span><a class="headerlink" href="#dabo.db.dConnectInfo.dabo.db.dConnectInfo.dConnectInfo.setConnInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="methods-inherited">
+<h2>Methods - inherited<a class="headerlink" href="#methods-inherited" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="no-1499"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">afterInit</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called after the object&#8217;s __init__ has run fully.
+Subclasses should place their __init__ code here in this hook, instead of
+overriding __init__ directly, to avoid conflicting with base Dabo behavior.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1500"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">autoBindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>force=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Automatically bind any on*() methods to the associated event.</p>
+<p>User code only needs to define the callback, and Dabo will automatically
+set up the event binding. This will satisfy lots of common cases where
+you want an object or its parent to respond to the object&#8217;s events.</p>
+<p>To use this feature, just define a method on&lt;EventName&gt;(), or    if you
+want a parent container to respond to the event, make a method in the
+parent on&lt;EventName&gt;_&lt;object Name or RegID&gt;().</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyButton</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dButton</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">onHit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Hit!&quot;</span>
+
+<span class="k">class</span> <span class="nc">MyPanel</span><span class="p">(</span><span class="n">dabo</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">dPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">afterInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addObject</span><span class="p">(</span><span class="n">MyButton</span><span class="p">,</span> <span class="n">RegID</span><span class="o">=</span><span class="s">&quot;btn1&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">onHit_btn1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;panel: button hit!&quot;</span>
+</pre></div>
+</div>
+<p>When the button is pressed, you&#8217;ll see both &#8216;hit&#8217; messages because of
+auto event binding.</p>
+<p>If you want to bind your events explicitly, you can turn off auto event
+binding by issuing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dabo</span><span class="o">.</span><span class="n">autoBindEvents</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>This feature is inspired by PythonCard.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1501"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">beforeInit</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Subclass hook. Called before the object is fully instantiated.
+Usually, user code should override afterInit() instead, but there may be
+cases where you need to set an attribute before the init stage is fully
+underway.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1502"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">bindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>function</em>, <em>_auto=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a dEvent to a callback function.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1503"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">bindEvents</code><span class="sig-paren">(</span><em>self</em>, <em>bindings</em><span class="sig-paren">)</span></dt>
+<dd><p>Bind a sequence of [dEvent, callback] lists.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1506"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">getAbsoluteName</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Return the fully qualified name of the object.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1511"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">getProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propertySequence=()</em>, <em>propsToSkip=()</em>, <em>ignoreErrors=False</em>, <em>*propertyArguments</em><span class="sig-paren">)</span></dt>
+<dd><p>Returns a dictionary of property name/value pairs.</p>
+<p>If a sequence of properties is passed, just those property values
+will be returned. Otherwise, all property values will be returned.
+The sequence of properties can be a list, tuple, or plain string
+positional arguments. For instance, all of the following are
+equivilent:</p>
+<div class="highlight-python"><div class="highlight"><pre>print self.getProperties(&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties([&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;])
+t = (&quot;Caption&quot;, &quot;FontInfo&quot;, &quot;Form&quot;)
+print self.getProperties(t)
+print self.getProperties(\*t)
+</pre></div>
+</div>
+<p>An exception will be raised if any passed property names don&#8217;t
+exist, aren&#8217;t actual properties, or are not readable (do not have
+getter functions).</p>
+<p>However, if an exception is raised from the property getter function,
+the exception will get caught and used as the property value in the
+returned property dictionary. This allows the property list to be
+returned even if some properties can&#8217;t be evaluated correctly by the
+object yet.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1512"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">initEvents</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User code should do custom event binding
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">bindEvent</span><span class="p">(</span><span class="n">dEvents</span><span class="o">.</span><span class="n">GotFocus</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">customGotFocusHandler</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1513"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">initProperties</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span></dt>
+<dd><p>Hook for subclasses. User subclasses should set properties
+here, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;MyTextBox&quot;</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">BackColor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">192</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1514"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">raiseEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass</em>, <em>uiEvent=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>Send the event to all registered listeners.</p>
+<p>If uiEvent is sent, dEvents.Event will be able to parse it for useful
+information to send along to the callback.</p>
+<p>Additional arguments, if any, are sent along to the constructor    of the
+event. While this feature exists so that UI-lib event handlers can pass
+along information (such as the keystroke information in a key event), user
+code may pass along additional arguments as well, which    will exist in the
+event.EventData dictionary property.</p>
+<p>In most cases, user code should call raiseEvent() with
+the event class (dEvents.Hit, for example) as the only parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1517"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">setProperties</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreErrors=False</em>, <em>**propKw</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once.</p>
+<p>You have the following options for sending the properties:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Property/Value pair dictionary</li>
+<li>Keyword arguments</li>
+<li>Both</li>
+</ol>
+</div></blockquote>
+<p>The following examples all do the same thing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">FontBold</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">&quot;ForeColor&quot;</span><span class="p">:</span> <span class="s">&quot;Red&quot;</span><span class="p">})</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">setProperties</span><span class="p">({</span><span class="s">&quot;FontBold&quot;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">ForeColor</span><span class="o">=</span><span class="s">&quot;Red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1518"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">setPropertiesFromAtts</code><span class="sig-paren">(</span><em>self</em>, <em>propDict={}</em>, <em>ignoreExtra=True</em>, <em>context=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Sets a group of properties on the object all at once. This
+is different from the regular setProperties() method because
+it only accepts a dict containing prop:value pairs, and it
+assumes that the value is always a string. It will convert
+the value to the correct type for the property, and then set
+the property to that converted value. If the value needs to be evaluated
+in a specific namespace, pass that as the &#8216;context&#8217; parameter.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.propertyHelperMixin.PropertyHelperMixin.html#dabo-lib-propertyhelpermixin-propertyhelpermixin"><em>|doc_title|  propertyHelperMixin.PropertyHelperMixin - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1519"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">super</code><span class="sig-paren">(</span><em>self</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span></dt>
+<dd><p>This method used to call superclass code, but it&#8217;s been removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.dObject.dObject.html#dabo-dobject-dobject"><em>|doc_title|  dObject.dObject - class</em></a></p>
+<hr class="docutils" />
+<span class="target" id="no-1520"></span><dl class="function">
+<dt>
+<code class="descclassname">dabo.db.dConnectInfo.dConnectInfo.</code><code class="descname">unbindEvent</code><span class="sig-paren">(</span><em>self</em>, <em>eventClass=None</em>, <em>function=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Remove a previously registered event binding.</p>
+<p>Removes all registrations that exist for the given binding for this
+object. If event is None, all bindings for the passed function are
+removed. If function is None, all bindings for the passed event are
+removed. If both event and function are None, all event bindings are
+removed.</p>
+</dd></dl>
+
+<p>Inherited from: <a class="reference internal" href="dabo.lib.eventMixin.EventMixin.html#dabo-lib-eventmixin-eventmixin"><em>|doc_title|  eventMixin.EventMixin - class</em></a></p>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">|doc_title|  <strong>dConnectInfo.dConnectInfo</strong> - class</a><ul>
+<li><a class="reference internal" href="#hierarchy-inheritance-diagram">|hierarchy| Inheritance Diagram</a></li>
+<li><a class="reference internal" href="#supclasses-known-superclasses">|supclasses| Known Superclasses</a></li>
+<li><a class="reference internal" href="#api-class-api">|API| Class API</a></li>
+<li><a class="reference internal" href="#method-summary-properties-summary">|method_summary| Properties Summary</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#properties-inherited">Properties - inherited</a></li>
+<li><a class="reference internal" href="#method-summary-events-summary">|method_summary| Events Summary</a></li>
+<li><a class="reference internal" href="#method-summary-methods-summary">|method_summary| Methods Summary</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#methods-inherited">Methods - inherited</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tempsource/dabo.db.dConnectInfo.dConnectInfo.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Dabo 0.9.14 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, Ed Leafe and Paul McNett.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b2.
+    </div>
+  </body>
+</html>
