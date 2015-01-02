@@ -46,18 +46,15 @@ def MakeSphinx(builder, rebuildall):
 		command = sphinx_config.sphinxBuildCmd + ' -c ' + confFolder +' -b '+ builder + \
 				sphinx_config.graphVizDot + sourceFolder +' ' + targetFolder
 		commandArgs = [sphinx_config.sphinxBuildCmd, '-c', confFolder, '-b', builder,
-				'-D', sphinx_config.graphVizDot, sourceFolder, targetFolder]
+				'-v', '-D', sphinx_config.graphVizDot, sourceFolder, targetFolder]
 
 	if platform.system() == "Windows":
 		p = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=None,
 			stderr=sphinx_config.sphinxStdErrFile, startupinfo=startupinfo).communicate()
 	else:
-		print "CARGS:", commandArgs
 		p = subprocess.Popen(commandArgs, stdin=subprocess.PIPE, stdout=None,
 			stderr=sphinx_config.sphinxStdErrFile).communicate()
-		print "DONE"
 
-	print "TARG", targetFolder
 	if builder == 'htmlhelp':
 		hhpFile = os.path.join(os.path.join(targetFolder), sphinx_config.hhpName)
 		command = sphinx_config.hhcExe + hhpFile
@@ -98,8 +95,6 @@ if os.path.isdir(imgFolder):
 
 # build
 MakeSphinx(builder, rebuildall)
-
-print "SPHINX MADE"
 
 # walk the tree to change files to writable
 #svnFolder = os.path.join(targetFolder, '_static\\macWidgets\\.svn')
