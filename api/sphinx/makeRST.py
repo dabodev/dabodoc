@@ -32,7 +32,7 @@ MAXWIDTH = 120
 BACKCOLOUR = (255, 255, 255, 255)
 
 # get config stuff
-import config as sc
+import conf as sphinx_config
 
 # needed for issubclass check
 import dabo
@@ -454,18 +454,18 @@ messages and SVN diffs.
 """
 
 # windows
-os.chdir(os.path.join(sc.docFolder, "_static/winWidgets"))
+os.chdir(os.path.join(sphinx_config.docFolder, "_static/winWidgets"))
 fullImagesWin = glob.glob("*.png")
 kImagesWin = [os.path.splitext(img)[0] for img in fullImagesWin]
 # MAC
-os.chdir(os.path.join(sc.docFolder, "_static/macWidgets"))
+os.chdir(os.path.join(sphinx_config.docFolder, "_static/macWidgets"))
 fullImagesMac = glob.glob("*.png")
 kImagesMac = [os.path.splitext(img)[0] for img in fullImagesMac]
 # Linux
-os.chdir(os.path.join(sc.docFolder, "_static/nixWidgets"))
+os.chdir(os.path.join(sphinx_config.docFolder, "_static/nixWidgets"))
 fullImagesNix = glob.glob("*.png")
 kImagesNix = [os.path.splitext(img)[0] for img in fullImagesNix]
-os.chdir(sc.baseFolder)
+os.chdir(sphinx_config.baseFolder)
 
 moduleauthor = "\n\n.. moduleauthor:: Dabo community <dabo-users@leafe.com>\n\n\n\n"
 
@@ -607,10 +607,9 @@ def MangleDocs(myname, docs, strip=True, replacetabs=True):
 def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 	# ignore privat stuff, except __init__
-	if "_" in name and not "__init__" in name:
+	if name.startswith("_") and not "__init__" in name:
 		return
 
-	cross = ""
 	# an index for each module
 	cross = ".. _%s:\n\n" % name
 
@@ -635,7 +634,7 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 
 	lenSpace = (len(title) + len(icon) + 5)
 
-	title = "="*lenSpace + "\n%s **"%icon + title + "**\n" + "="*lenSpace + "\n\n"
+	title = "="*lenSpace + "\n%s **" % icon + title + "**\n" + "="*lenSpace + "\n\n"
 	highlight = "|\n\n.. highlight:: python\n\n"
 
 	text = module + currentmodule + cross + title + highlight +\
@@ -689,9 +688,8 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 			else:
 				text += OTHER_TocTree % ("   " + name + "*")
 
-	fid = open(fileName, "wt")
-	fid.write(imagesLinks + text + raw)
-	fid.close()
+	with open(fileName, "wt") as fid:
+		fid.write(imagesLinks + text + raw)
 
 	tfun = ""
 
@@ -699,7 +697,6 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 		fun, obj = functions[0]
 		objName = obj.__module__
 		funName = "%s.rst" % (objName)
-		fid = open(funName, "wt")
 		text = ".. module:: %s\n\n" % obj.__module__
 		# an index for each function
 		text += ".. _%s:\n\n" % (obj.__module__+ "._Functions")
@@ -724,20 +721,21 @@ def WriteSphinxFile(name, docs, hasCross=None, moduleData=None, raw=""):
 		for fun, obj in functions:
 			text += describe_func(obj)
 
-		fid.write(imagesLinks + text + raw)
-		fid.close()
+		with open(funName, "wt") as fid:
+			fid.write(imagesLinks + text + raw)
 
 	if klasses:
 		for kls, obj in klasses:
 			kModName = obj.__module__
 			klsName = "%s.rst" % (kModName + "." + kls)
-			fid = open(klsName, "wt")
 			text = describeDaboKlass(obj, kls, klsName)
-			fid.write(imagesLinks + text + raw)
-			fid.close()
+			with open(klsName, "wt") as fid:
+				fid.write(imagesLinks + text + raw)
 
 def MakeInitDocs(name, raw):
-	os.chdir(sc.rstTempFolder)
+	if not os.path.exists(sphinx_config.rstTempFolder):
+		os.makedirs(sphinx_config.rstTempFolder)
+	os.chdir(sphinx_config.rstTempFolder)
 
 	# prefix topLayer
 	tag = topLayer + "." + name
@@ -766,7 +764,7 @@ def MakeModuleDocs(folder=None, raw=""):
 	"""Get the .py files from the folder and generate a .rst file for each one found,
 	except for the ones defined in "toRemove"
 	"""
-	os.chdir(sc.folderToDoc)
+	os.chdir(sphinx_config.folderToDoc)
 	if folder is None:
 		otherPython = glob.glob("*.py")
 	else:
@@ -783,17 +781,22 @@ def MakeModuleDocs(folder=None, raw=""):
 		if cItem in otherPython:
 			otherPython.remove(cItem)
 
-	os.chdir(sc.rstTempFolder)
+	os.chdir(sphinx_config.rstTempFolder)
 
 	for item in otherPython:
 		moduleName = topLayer + os.path.sep + os.path.splitext(item)[0]
 		hasPoint = os.path.sep in moduleName
-		if hasPoint:
-			mainName, secondaryName = os.path.split(moduleName)
-			moduleName = moduleName.replace(os.path.sep, ".")
-			moduleData = __import__(moduleName, fromlist=[secondaryName])
-		else:
-			moduleData = __import__(moduleName)
+		try:
+			if hasPoint:
+				mainName, secondaryName = os.path.split(moduleName)
+				moduleName = moduleName.replace(os.path.sep, ".")
+				moduleData = __import__(moduleName, fromlist=[secondaryName])
+			else:
+				moduleData = __import__(moduleName)
+		except ImportError:
+			# Print a message, and ignore
+			print("Could not import %s; skipping..." % moduleName)
+			continue
 
 		docs = moduleData.__doc__
 		realName = None
@@ -841,6 +844,7 @@ def describeDaboMethods(kls, methods, klsfilename):
 
 	inheritedMethods = ""
 	ownMethods = ""
+	methods.sort(key=operator.itemgetter(0))
 	for method in methods:
 		isInherited = False
 		strs = ""
@@ -875,7 +879,6 @@ def describeDaboMethods(kls, methods, klsfilename):
 		rArgs = args.replace(" **", " \**").replace(" *", " \*")
 		# have to use kls info to prevent duplicate definition, because of Dabo name mangling
 		strs += ".. function:: " + kls.__module__ + "." + kls.__name__ + "." + method + rArgs
-
 
 		if isInherited:
 			strs += "\n   :noindex:\n"
@@ -919,7 +922,10 @@ def describeDaboMethods(kls, methods, klsfilename):
 
 	# get longest entry
 	lEntry = 0
-	for key in sumDict.iterkeys():
+	sortkeys = [(sumDict.get(sumkey)[0], sumkey) for sumkey in sumDict.keys()]
+	sortkeys.sort()
+
+	for sorter, key in sortkeys:
 		tLen = len(sumDict[key][0]) + len(key)
 		if tLen > lEntry:
 			lEntry = tLen
@@ -928,7 +934,7 @@ def describeDaboMethods(kls, methods, klsfilename):
 	lTabDef = "="*lEntry
 	rTabDef = " ========================\n"
 	allStrs += "\n" + lTabDef + rTabDef
-	for key in sumDict.iterkeys():
+	for sorter, key in sortkeys:
 		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
 		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
 	allStrs += "\n" + lTabDef + rTabDef + "\n"
@@ -1010,7 +1016,9 @@ def describeDaboProperties(kls, props):
 
 	# get longest entry
 	lEntry = 0
-	for key in sumDict.iterkeys():
+	sumkeys = sumDict.keys()
+	sumkeys.sort()
+	for key in sumkeys:
 		tLen = len(sumDict[key][0]) + len(key)
 		if tLen > lEntry:
 			lEntry = tLen
@@ -1019,7 +1027,7 @@ def describeDaboProperties(kls, props):
 	lTabDef = "="*lEntry
 	rTabDef = " ========================\n"
 	allStrs += "\n" + lTabDef + rTabDef
-	for key in sumDict.iterkeys():
+	for key in sumkeys:
 		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
 		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
 	allStrs += "\n" + lTabDef + rTabDef + "\n"
@@ -1080,7 +1088,9 @@ def describeDaboEvents(kls, events):
 
 	# get longest entry
 	lEntry = 0
-	for key in sumDict.iterkeys():
+	sumkeys = sumDict.keys()
+	sumkeys.sort()
+	for key in sumkeys:
 		tLen = len(sumDict[key][0]) + len(key)
 		if tLen > lEntry:
 			lEntry = tLen
@@ -1089,7 +1099,7 @@ def describeDaboEvents(kls, events):
 	lTabDef = "="*lEntry
 	rTabDef = " ========================\n"
 	allStrs += "\n" + lTabDef + rTabDef
-	for key in sumDict.iterkeys():
+	for key in sumkeys:
 		theRef = ":ref:`%s <%s>`" % (sumDict[key][0], key)
 		allStrs += theRef.ljust(lEntry) + " %s\n" % sumDict[key][1]
 	allStrs += "\n" + lTabDef + rTabDef + "\n"
@@ -1488,7 +1498,7 @@ def WriteGeneralIndex():
 	fid.write("\n\n")
 
 	# now do all the items within each package
-	all = glob.glob(sc.rstTempFolder + "\*.rst")
+	all = glob.glob(sphinx_config.rstTempFolder + "\*.rst")
 
 	dTop = []
 	dBiz = []
@@ -1684,9 +1694,9 @@ def GetUiClasses():
 
 def WriteIndex(folder):
 
-	if folder in [sc.normalHtml]:
+	if folder in [sphinx_config.normalHtml]:
 		fileName = "index_normal.rst"
-	elif folder == sc.helpHtml:
+	elif folder == sphinx_config.helpHtml:
 		fileName = "index_htmlhelp.rst"
 	else:
 		fileName = "index_latex.rst"
@@ -1741,7 +1751,7 @@ else:
 		print "e.g. 'html True' to use the html builder and force a full rebuild"
 		sys.exit(2)
 	else:
-		if args[0] in sc.validBuilders:
+		if args[0] in sphinx_config.validBuilders:
 			builder = args[0]
 		else:
 			print "builder %s is not valid" % args[0]
@@ -1751,60 +1761,65 @@ else:
 		else:
 			rebuildall = False
 
-print "================================================"
-print "removing files from previous run in %s" % sc.rstTempFolder
-print "================================================"
-remRst = glob.glob(sc.rstTempFolder + "//*.rst")
-for item in remRst:
-	os.remove(item)
 
-
-if rebuildall:
+def main():
 	print "================================================"
-	print "removing files, forcing a full rebuild %s" % sc.docFolder
+	print "removing files from previous run in %s" % sphinx_config.rstTempFolder
 	print "================================================"
-
-	oldRst = glob.glob(sc.docFolder + "//*.rst")
-	for item in oldRst:
+	remRst = glob.glob(sphinx_config.rstTempFolder + "//*.rst")
+	for item in remRst:
 		os.remove(item)
 
-# generate .rst in tempFolder
-MakeRst(builder)
 
-# write picture index to a file
-genNote = """This file is generated by makeRST.py and used by genGallery.py,
-please do not change it by hand.
-"""
-indexF = open(os.path.join(sc.baseFolder, "galleryToClassIndex.py"), "w")
-indexF.write("# -*- coding: utf-8 -*-#\n\n")
-indexF.write('"""%s"""\n\n' % genNote)
-indexF.write("pictureIndex = {}\n")
-for item in pictureIndex:
-	indexF.write("pictureIndex['%s'] = '%s'\n" % (item, pictureIndex[item]))
-indexF.close()
+	if rebuildall:
+		print "================================================"
+		print "removing files, forcing a full rebuild %s" % sphinx_config.docFolder
+		print "================================================"
 
-# compare files in rstTempFolder to docFolder, if changed copy to docFolder
-print "========================================"
-print "check if file(s) have changed"
-print "========================================"
+		oldRst = glob.glob(sphinx_config.docFolder + "//*.rst")
+		for item in oldRst:
+			os.remove(item)
 
-checkRst = glob.glob(sc.rstTempFolder + "//*.rst")
-for item in checkRst:
-	path, fileName = os.path.split(item)
-	tmpFile = os.path.join(sc.rstTempFolder, fileName)
-	docFile = os.path.join(sc.docFolder, fileName)
-	if os.path.isfile(docFile):
-		if not filecmp.cmp(tmpFile, docFile, False):
-			# file has changed, copy it
+	# generate .rst in tempFolder
+	MakeRst(builder)
+
+	# write picture index to a file
+	genNote = """This file is generated by makeRST.py and used by genGallery.py,
+	please do not change it by hand.
+	"""
+	indexF = open(os.path.join(sphinx_config.baseFolder, "galleryToClassIndex.py"), "w")
+	indexF.write("# -*- coding: utf-8 -*-#\n\n")
+	indexF.write('"""%s"""\n\n' % genNote)
+	indexF.write("pictureIndex = {}\n")
+	for item in pictureIndex:
+		indexF.write("pictureIndex['%s'] = '%s'\n" % (item, pictureIndex[item]))
+	indexF.close()
+
+	# compare files in rstTempFolder to docFolder, if changed copy to docFolder
+	print "========================================"
+	print "check if file(s) have changed"
+	print "========================================"
+
+	checkRst = glob.glob(sphinx_config.rstTempFolder + "//*.rst")
+	for item in checkRst:
+		path, fileName = os.path.split(item)
+		tmpFile = os.path.join(sphinx_config.rstTempFolder, fileName)
+		docFile = os.path.join(sphinx_config.docFolder, fileName)
+		if os.path.isfile(docFile):
+			if not filecmp.cmp(tmpFile, docFile, False):
+				# file has changed, copy it
+				shutil.copy(tmpFile, docFile)
+				print "changed file, copy to: %s" % docFile
+		else:
 			shutil.copy(tmpFile, docFile)
-			print "changed file, copy to: %s" % docFile
-	else:
-		shutil.copy(tmpFile, docFile)
-		print "new file, copy to: %s" % docFile
+			print "new file, copy to: %s" % docFile
 
 
-current = time.time()
-h, m, s = FractSec(int(current - start))
+	current = time.time()
+	h, m, s = FractSec(int(current - start))
 
-print "\nDabo .rst files created. Elapsed time %02d:%02d:%02d"%(h, m, s)
+	print "\nDabo .rst files created. Elapsed time %02d:%02d:%02d"%(h, m, s)
 
+
+if __name__ == "__main__":
+	main()
