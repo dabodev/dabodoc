@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-#
 
+import datetime
 import os
 import platform
 
@@ -54,8 +55,9 @@ extensions = [
 master_doc = 'index'
 
 # General information about the project.
+year = datetime.date.today().year
 project = u'Dabo'
-copyright = u'2014, Ed Leafe and Paul McNett'
+copyright = u'2004-%s, Ed Leafe and Paul McNett' % year
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
